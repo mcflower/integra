@@ -91,7 +91,7 @@ class SiteController extends Controller
         $model = new Xuser();
         $model->scenario = "current";
 
-        return $this->render('index', 
+        return $this->render('index',
             [
                 'articles' => $articles,
                 'questions' => $questions,
@@ -138,7 +138,7 @@ class SiteController extends Controller
                 $orderSum = $result['amount'] / 100;
 
                 $user = Xuser::findOne($id);
-                
+
                 if($user->buy == 0) {
                     $user->buy = 1;
                     $user->wstart = 1;
@@ -152,7 +152,7 @@ class SiteController extends Controller
                     }
 
                     $activity = Xcontent::findOne(['activity' => $user->activity]);
-                    
+
                     Yii::$app->mail->compose('payConfirmAdmin',
                         ['user' => $user,
                         'activity' => $activity,
@@ -162,8 +162,8 @@ class SiteController extends Controller
                     ->setTo('info@integraforlife.com')
                     ->setSubject('Оплата вебинара "'.$activity->name.'"')
                     ->send();
-        
-        
+
+
                     Yii::$app->mail->compose('payConfirm',
                         ['user' => $user,
                         'activity' => $activity,
@@ -184,7 +184,7 @@ class SiteController extends Controller
             Yii::$app->common->sendMail('Exception step 2 (sberbank)', $e, 'mcflower@me.com', Yii::$app->params['sendName']);
             return $this->redirect('/');
         }
-        
+
         $nexts = Xcontent::find()->where(['type' => 1])->orderBy('xdate asc')->all();
         $webinars = Webinar::find()->where(['hide' => 0])->orderBy('position asc')->all();
 
@@ -334,7 +334,7 @@ class SiteController extends Controller
 
         return $this->redirect('/');
     }
-    
+
     public function actionNextEvent()
     {
         $post = Yii::$app->request->post();
@@ -354,7 +354,7 @@ class SiteController extends Controller
             $user->name = strip_tags(trim($post['Xuser']['name']));
             $saveResult = $user->save();
         }
-        
+
         $activity = Xcontent::findOne(['activity' => $activityCode]);
         if(!empty($activity) && $saveResult) {
             Yii::$app->mail->compose('next',
@@ -375,10 +375,10 @@ class SiteController extends Controller
 
         return $this->redirect('/');
     }
-    
+
     public function actionPersonalCertificate($hash = "") {
         //$this->view->title = 'Personal Certificate';
-        
+
         //return $this->render('certificate');
         $hash = strip_tags(trim($hash));
         if(!empty($hash)) {
@@ -433,7 +433,7 @@ class SiteController extends Controller
             return $this->redirect('/');
         }
 
-        
+
     }
 
     public function actionWarning()
@@ -464,8 +464,8 @@ class SiteController extends Controller
 
         return $this->render('video', ['video' => $video]);
     }
-    
-    public function actionPayment($hash) 
+
+    public function actionPayment($hash)
     {
         $user = Xuser::find()->where(['hash' => $hash])->one();
 
@@ -476,7 +476,7 @@ class SiteController extends Controller
             Yii::$app->session->setFlash('danger', 'Ошибка при создании оплаты. Заказ не найден!');
             return $this->redirect('/');
         }
-        
+
         /**
          * Если заказ уже оплачен
          */
@@ -491,12 +491,12 @@ class SiteController extends Controller
             Yii::$app->session->setFlash('error', 'Вебинар не найден! Зарегистрируйтесь снова.');
             return $this->redirect('/');
         }
-        
+
         try {
 
             //$client = new Client(['userName' => 'integraforlife-api', 'password' => 'integraforlife', 'language' => 'ru', 'currency' => Currency::RUB, 'apiUri' => Client::API_URI_TEST]);
             $client = new Client(['userName' => 'integraforlife-api', 'password' => 'Flower192543', 'language' => 'ru', 'currency' => Currency::RUB]);
-            
+
             $orderAmount = $activity->price * 100;
 
             $returnUrl = 'https://integraforlife.com/success';
@@ -601,7 +601,7 @@ class SiteController extends Controller
     public function actionLogin()
     {
         $this->layout = "main-login";
-        
+
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -689,13 +689,14 @@ class SiteController extends Controller
                         'htmlLayout' => 'layouts/html'
                     ])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                    ->setTo('info@integraforlife.com')
-                    ->setSubject("Анкета «ГИПОКСИИ.NET»")
+                    ->setTo('greenfild@gmail.com')
+//                    ->setTo('info@integraforlife.com')
+                    ->setSubject("Анкета «ГИПОКСИИ НЕТ»")
                     ->send();
 
                 $model = new Hypoxia();
             } else {
-                Yii::$app->session->setFlash('error', 'Ошибка при отправке сообщения.');
+                Yii::$app->session->setFlash('primary', 'Ошибка при отправке сообщения.');
             }
         }
 

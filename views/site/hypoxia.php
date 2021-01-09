@@ -1,11 +1,13 @@
 <?php
 
+
+use dmstr\widgets\Alert;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-$this->title = "Анкета «Реабилитация после Covid-19»";
+$this->title = "Анкета «ГИПОКСИИ НЕТ»";
 $form = ActiveForm::begin();
 $r = array('да' => 'да', 'нет' => 'нет');
 ?>
@@ -99,7 +101,8 @@ $r = array('да' => 'да', 'нет' => 'нет');
 </style>
 <div class="anketa-content">
     <div class="anketa-form">
-        <h2>Анкета «ГИПОКСИИ.NET»</h2>
+        <?= Alert::widget() ?>
+        <h2>Анкета «ГИПОКСИИ НЕТ»</h2>
 
         <?= $form->field($model, 'name')->textInput(['maxlength' => true])->label('Ф.И.О. (полностью) <span class="red">*</span>') ?>
         <?= $form->field($model, 'r1')->radioList(['женский' => 'Женский', 'мужской' => 'Мужской'])?>
@@ -146,10 +149,11 @@ $r = array('да' => 'да', 'нет' => 'нет');
         <?= $form->field($model, 'r21')->radioList($r)?>
         <?= $form->field($model, 'r22')->radioList($r)?>
         <?= $form->field($model, 'r23')->radioList($r)?>
-        <?//= $form->field($model, 'r24')->radioList($r)?>
+        <?= $form->field($model, 'q18')->textInput(['maxlength' => true, 'placeholder' => 'Ваш ответ']) ?>
+        <?= $form->field($model, 'r24')->radioList($r)?>
+        <?= $form->field($model, 'q19')->textInput(['maxlength' => true, 'placeholder' => 'Ваш ответ']) ?>
+        <?= $form->field($model, 'r25')->radioList($r)?>
 
-
-        <?//= $form->field($model, 'q11')->textInput(['maxlength' => true, 'placeholder' => 'Ваш ответ']) ?>
         <?//= $form->field($model, 'r36')->radioList($r)?>
         <?= $form->field($model, 'policy')->checkbox([
             'label' => 'Я хочу получить результат анализа моей ситуации! Ответом на этот вопрос, Вы подтверждаете согласие на обработку и хранение Персональных данных согласно Федерального закона "О персональных данных" от 27.07.2006 N 152-ФЗ , в т.ч. Вы выражаете согласие на совершение звонка на Ваш мобильный номер телефона и получение сообщений в мессенджеры в соответствии с ФЗ "О связи" от 07.07.2003 N 126-ФЗ.',

@@ -109,6 +109,9 @@ $('.sa-button-event').magnificPopup({
     //mainClass: 'my-mfp-slide-bottom'
 });
 
+$('#hypoxia-phone').mask("+7 (999) 999-99-99");
+$('#hypoxia-birthday').mask("99.99.9999");
+
 /*$('.pn-button').magnificPopup({
     type: 'inline',
 
