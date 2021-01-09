@@ -1,0 +1,807 @@
+.cw-modal-open {
+    overflow: hidden;
+}
+
+.buy-container {
+    /*float: left;
+    height: auto;
+    clear: none;
+    width: 100%;
+    position: fixed;
+    top: 150px;
+    left: 0%;
+    bottom: auto;
+    z-index: 2;*/
+    
+    width: 100%;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    outline: 0;
+    display: block;
+    z-index: 2;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: rgba(111, 143, 116, 0.901961);
+    display: none;
+    /*opacity: 0;
+    transition: opacity 0.15s linear;*/
+}
+
+/*.cw-modal-open .buy-container {
+    opacity: 1;
+}*/
+
+.cw-box {
+    float: none;
+    height: auto;
+    margin-left: auto;
+    margin-top: 60px;
+    clear: none;
+    width: 90%;
+    margin-right: auto;
+    max-width: 800px;
+    background-color: rgb(255, 255, 255);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    padding-bottom: 0px;
+    margin-bottom: 60px;
+}
+
+.cw-preview {
+    float: left;
+    height: 400px;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    display: block;
+    /*background-image:url("/img/pic1.jpg");*/
+    background-position: 50% 50%;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    -webkit-background-size: cover;
+    background-size: cover;
+    position: relative;
+}
+
+.cw-info-block {
+    float: left;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: both;
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 0px;
+    padding-left: 30px;
+    display: block;
+}
+
+.cwib-description {
+    float: left;
+    font-size: 21px;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1.3em;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: both;
+    min-height: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    font-family: 'Roboto Light';
+    /*color: rgb(141, 179, 147);*/
+    color: black;
+}
+
+.cwib-about {
+    float: left;
+    font-size: 21px;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1.3em;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: both;
+    min-height: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    font-family: 'Roboto Light';
+    /*color: rgb(141, 179, 147);*/
+    color: black;
+}
+
+.cwib-about-photo {
+    float: left;
+    height: 200px;
+    margin: 0 2% 0 0;
+    clear: none;
+    width: 27%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    display: block;
+    background-attachment: scroll;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.cwib-about-text {
+    float: left;
+    width: 68%;
+}
+
+.cwib-name {
+    float: left;
+    font-size: 30px;
+    width: auto;
+    height: auto;
+    text-align: left;
+    font-weight: 600;
+    line-height: 1em;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: both;
+    min-height: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    font-family: Philosopher;
+    color: rgb(141, 179, 147);
+}
+
+.cwc-form button:hover {
+    background-color: rgb(217, 174, 44);
+}
+
+.cwc-form button {
+    float: right;
+    height: 60px;
+    margin-left: 0px;
+    margin-top: 20px;
+    clear: both;
+    width: 100%;
+    margin-right: -30px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    display: block;
+    background-color: rgb(237, 195, 71);
+    font-family: Roboto;
+    color: rgb(255, 255, 255);
+    /*padding-top: 19px;*/
+    font-size: 21px;
+    text-align: center;
+    font-weight: normal;
+    line-height: 1em;
+    border: none;
+    padding: 0;
+}
+
+button.wo-close {
+    float: right;
+    height: 60px;
+    margin-left: 0px;
+    margin-top: 20px;
+    clear: both;
+    width: 100%;
+    margin-right: -40px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    display: block;
+    background-color: gray;
+    font-family: Roboto;
+    color: rgb(255, 255, 255);
+    /*padding-top: 19px;*/
+    font-size: 21px;
+    text-align: center;
+    font-weight: normal;
+    line-height: 1em;
+    border: none;
+    padding: 0;
+}
+
+.cwc-form.wo-form button {
+    margin-right: -40px;
+}
+
+.cwib-underline {
+    float: left;
+    height: 5px;
+    margin-left: 0px;
+    margin-top: 20px;
+    clear: both;
+    width: 100.00000360000001px;
+    background-color: rgb(141, 179, 147);
+    margin-right: 0px;
+    margin-bottom: 20px;
+}
+
+.cw-close {
+    float: left;
+    height: 40px;
+    clear: none;
+    width: 40px;
+    background-color: rgb(255, 255, 255);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-image:url("/img/close.svg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    -webkit-background-size: auto;
+    background-size: auto;
+    position: absolute;
+    top: 15px;
+    left: auto;
+    right: 15px;
+    bottom: auto;
+    display: block;
+    cursor: pointer;
+}
+
+.cwib-detail {
+    float: left;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 40px;
+    clear: both;
+    width: 50%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding-right: 30px;
+}
+
+.cwib-datetime {
+    float: left;
+    font-size: 18px;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-weight: 500;
+    line-height: 1em;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    min-height: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    color: rgb(237, 195, 71);
+    font-family: Roboto;
+}
+
+.cwib-textstatic {
+    float: left;
+    font-size: 21px;
+    width: 99.999998%;
+    height: auto;
+    text-align: left;
+    font-weight: 600;
+    line-height: 1em;
+    margin-left: 0px;
+    margin-top: 20px;
+    clear: both;
+    min-height: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    color: rgb(141, 179, 147);
+    font-family: Philosopher;
+}
+
+.cwib-price {
+    float: left;
+    font-size: 60px;
+    width: 99.999998%;
+    height: auto;
+    text-align: left;
+    font-weight: 600;
+    line-height: 1em;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: both;
+    min-height: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    color: rgb(141, 179, 147);
+    font-family: Philosopher;
+}
+
+.cw-contact {
+    float: left;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 40px;
+    clear: none;
+    width: 50%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding-left: 0px;
+}
+
+.cw-contact .hint-block {
+    font-weight: normal;
+    color: rgb(141, 179, 147);
+    font-size: 14px;
+}
+
+.cwc-formgroup {
+    float: right;
+    height: auto;
+    display: block;
+    text-align: left;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    width: 90%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+.mt-20 {
+   margin-top: 20px; 
+}
+
+.cwc-textinput {
+    float: none;
+    height: auto;
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    font-family: 'Roboto Light';
+    color: rgb(237, 195, 71);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-color: rgb(111, 143, 116);
+    border-right-color: rgb(111, 143, 116);
+    border-bottom-color: rgb(111, 143, 116);
+    border-left-color: rgb(111, 143, 116);
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+}
+
+.cwc-formgroup input {
+    float: none;
+    height: auto;
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    font-family: 'Roboto Light';
+    color: rgb(237, 195, 71);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-color: rgb(111, 143, 116);
+    border-right-color: rgb(111, 143, 116);
+    border-bottom-color: rgb(111, 143, 116);
+    border-left-color: rgb(111, 143, 116);
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+}
+
+.policy-container {
+    float: right;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 20px;
+    clear: right;
+    width: 90%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+.next-form .policy-container {
+    width: 100%;
+}
+
+.cwc-line1 {
+    float: left;
+    font-size: 14px;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-weight: 500;
+    line-height: 1em;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    min-height: 0px;
+    color: rgb(141, 179, 147);
+    font-family: Roboto;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+.cwc-line2 {
+    float: left;
+    font-size: 14px;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-weight: 500;
+    line-height: 1em;
+    margin-left: 0px;
+    margin-top: 10px;
+    clear: right;
+    min-height: 0px;
+    color: rgb(141, 179, 147);
+    font-family: Roboto;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    text-decoration: underline;
+    display: block;
+}
+
+.cwc-line2:active, .cwc-line2:visited, .cwc-line3:active, .cwc-line3:visited {
+    color: rgb(141, 179, 147);
+}
+
+.cwc-line2:hover, .cwc-line3:hover {
+    color: black;
+}
+
+.cwc-line3 {
+    float: left;
+    font-size: 14px;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-weight: 500;
+    line-height: 1em;
+    margin-left: 0px;
+    margin-top: 10px;
+    clear: right;
+    min-height: 0px;
+    color: rgb(141, 179, 147);
+    font-family: Roboto;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    text-decoration: underline;
+    display: block;
+}
+
+.pn-one {
+    float: none;
+    height: auto;
+    margin-left: auto;
+    margin-top: 60px;
+    clear: none;
+    width: 90%;
+    margin-right: auto;
+    margin-bottom: 0px;
+    padding-left: 30px;
+    display: block;
+    background-color: rgb(255, 255, 255);
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 0px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    max-width: 400px;
+}
+
+.pn-one-formgroup {
+    float: right;
+    height: auto;
+    display: block;
+    text-align: left;
+    margin-left: 0px;
+    margin-top: 20px;
+    clear: both;
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+.pn-one-formgroup input {
+    float: none;
+    height: auto;
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    font-family: 'Roboto Light';
+    color: rgb(237, 195, 71);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-color: rgb(111, 143, 116);
+    border-right-color: rgb(111, 143, 116);
+    border-bottom-color: rgb(111, 143, 116);
+    border-left-color: rgb(111, 143, 116);
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+}
+
+.pn-one-description {
+    float: left;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    margin-left: 0px;
+    margin-top: 10px;
+    clear: both;
+    font-family: 'Roboto Light';
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    display: block;
+    color: rgb(141, 179, 147);
+    line-height: 1.2em;
+}
+
+.next-form button:hover {
+    background-color: rgb(217, 174, 44);
+}
+
+.next-form button {
+    float: right;
+    height: 60px;
+    margin-left: 0px;
+    margin-top: 20px;
+    clear: right;
+    width: 100%;
+    margin-right: 0px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 0px;
+    display: block;
+    background-color: rgb(237, 195, 71);
+    border-top-right-radius: 30px;
+    font-family: Roboto;
+    color: rgb(255, 255, 255);
+    /*padding-top: 19px;*/
+    text-align: center;
+    font-weight: normal;
+    border: none;
+    padding: 0;
+}
+
+.pn-one-title {
+    float: left;
+    font-size: 16px;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    line-height: 1em;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    min-height: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    color: rgb(141, 179, 147);
+    font-family: 'Roboto Light';
+    display: block;
+    min-width: 0px;
+}
+
+.pn-one-name {
+    float: left;
+    font-size: 21px;
+    width: 99.999999%;
+    height: auto;
+    text-align: left;
+    font-weight: 600;
+    line-height: 1em;
+    margin-left: 0px;
+    margin-top: 10px;
+    clear: both;
+    min-height: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    color: rgb(141, 179, 147);
+    font-family: Philosopher;
+    display: block;
+    min-width: 0px;
+}
+
+@media only screen and (max-width: 700px) {
+
+    .cwib-about-photo {
+        height: 150px;
+        width: 24%;
+    }
+
+    .cwib-about-text {
+        width: 72%;
+    }
+
+    .cwib-detail {
+        width: 100%;
+        padding-right: 0px;
+    }
+
+    .cw-contact {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .cwc-formgroup {
+        width: 100%;
+    }
+
+    .cwc-form button {
+        margin-right: 0px;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 0px;
+    }
+
+    button.wo-close {
+        margin-right: 0px;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .cwc-form.wo-form button {
+        margin-right: 0;
+    }
+
+    .policy-container {
+        width: 100%;
+    }
+
+    .cw-preview {
+        height: 300px;
+    }
+
+    .pn-one {
+        width: 100%;
+    }
+
+    .pn-one-formgroup {
+        width: 100%;
+    }
+
+    .next-form button {
+        margin-right: 0px;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 0px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .cwib-about-photo {
+        height: 300px;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+        border-radius: 0;
+    }
+
+    .cwib-about-text {
+        width: 100%;
+    }
+
+    .cwib-description p img {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .cw-preview {
+        height: 200px;
+    }
+
+    .cwib-about {
+        font-size: 16px;
+    }
+
+    .cwib-description {
+        font-size: 16px;
+    }
+
+    .cwib-name {
+        font-size: 24px;
+    }
+
+    .cwc-form button {
+        width: 100%;
+        margin-right: 0px;
+        border-bottom-right-radius: 0px;
+        border-top-right-radius: 30px;
+    }
+
+    .cwib-detail {
+        margin-top: 20px;
+    }
+
+    .cwib-datetime {
+        font-size: 14px;
+    }
+
+    .cwib-price {
+        font-size: 50px;
+    }
+
+    .cwib-textstatic {
+        font-size: 18px;
+    }
+
+    .cwc-line1 {
+        font-size: 12px;
+    }
+
+    .cwc-line2 {
+        font-size: 12px;
+    }
+
+    .cwc-line3 {
+        font-size: 12px;
+    }
+
+    .next-form button {
+        width: 100%;
+        margin-right: 0px;
+        border-bottom-right-radius: 0px;
+        border-top-right-radius: 30px;
+    }
+
+    .pn-one-title {
+        font-size: 18px;
+    }
+
+    .pn-one-name {
+        font-size: 18px;
+    }
+
+    .pn-one {
+        width: 90%;
+    }
+}
+

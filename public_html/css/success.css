@@ -1,0 +1,947 @@
+.primaryContainer {
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100%;
+    width: 100%;
+    background-color: rgb(192, 218, 188);
+}
+
+#head {
+    float: left;
+    height: auto;
+    margin: 0px;
+    clear: none;
+    width: 100%;
+    background-image:url("img/ah-back1.png"),url("img/ah01.jpg");
+    background-attachment: scroll;
+    -webkit-background-size: auto;
+    background-size: auto;
+    padding-bottom: 100px;
+    display: block;
+    background-position: 100% 100%, 30% 0%;
+    background-repeat: no-repeat no-repeat;
+}
+
+#box {
+    float: none;
+    height: auto;
+    margin-left: auto;
+    margin-top: 3%;
+    clear: none;
+    width: 90%;
+    margin-right: auto;
+    max-width: 1200px;
+    position: relative;
+    display: block;
+}
+
+#image {
+    float: right;
+    width: 60%;
+    max-width: 100%;
+    height: auto;
+    margin: 0px;
+    clear: none;
+    color: rgb(0, 0, 0);
+    display: block;
+}
+
+#seminar {
+    float: right;
+    height: auto;
+    margin: 3.001302% 0px 0px;
+    clear: both;
+    width: 50%;
+    background-color: rgb(255, 255, 255);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    max-width: 600px;
+    -webkit-box-shadow: rgb(141, 179, 147) 0px 20px 30px -15px;
+    box-shadow: rgb(141, 179, 147) 0px 20px 30px -15px;
+}
+
+#box1 {
+    float: left;
+    height: auto;
+    margin: 0px;
+    clear: none;
+    width: 100%;
+    padding: 60px;
+}
+
+#text {
+    float: left;
+    font-size: 30px;
+    width: auto;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1em;
+    margin: 0px;
+    clear: none;
+    min-height: 0px;
+    font-family: Philosopher;
+    color: rgb(141, 179, 147);
+}
+
+#vebinary {
+    float: none;
+    height: 600px;
+    margin: 0px auto;
+    clear: none;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    background-image:url("img/ah03.png");
+    background-attachment: scroll;
+    -webkit-background-size: auto;
+    background-size: auto;
+    background-color: rgb(242, 192, 153);
+    padding-bottom: 0px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    background-position: 0% 100%;
+    background-repeat: no-repeat no-repeat;
+}
+
+#box2 {
+    float: none;
+    height: auto;
+    margin: 60px auto;
+    clear: none;
+    width: 90%;
+    max-width: 1200px;
+    position: relative;
+}
+
+#image1 {
+    float: left;
+    width: 80px;
+    max-width: 100%;
+    height: auto;
+    clear: none;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 0px;
+    bottom: auto;
+    left: 0px;
+    right: auto;
+    display: block;
+}
+
+#image2 {
+    float: left;
+    width: 80.00000399999999px;
+    max-width: 100%;
+    height: auto;
+    clear: none;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 0px;
+    left: auto;
+    right: 0px;
+    display: block;
+}
+
+#text1 {
+    float: none;
+    font-size: 60px;
+    width: auto;
+    height: auto;
+    text-align: center;
+    font-weight: normal;
+    line-height: 1em;
+    margin: 10px auto 0px;
+    clear: none;
+    min-height: 0px;
+    color: rgb(255, 255, 255);
+    font-family: Philosopher;
+    display: block;
+    padding-right: 80px;
+    padding-left: 80px;
+}
+
+#veb5 {
+    float: left;
+    height: auto;
+    margin-left: 60px;
+    margin-top: 0px;
+    clear: none;
+    width: 450px;
+    display: block;
+}
+
+#image3 {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin: 0px;
+    clear: none;
+    color: rgb(0, 0, 0);
+    -webkit-box-shadow: rgb(202, 155, 119) 0px 10px 20px 0px;
+    box-shadow: rgb(202, 155, 119) 0px 10px 20px 0px;
+}
+
+#text2:hover {
+    text-decoration: underline;
+}
+
+#text2 {
+    float: left;
+    font-size: 21px;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1.3em;
+    margin: 20px 0px 0px;
+    clear: both;
+    min-height: 0px;
+    font-family: Roboto;
+    padding: 0px;
+    display: block;
+    color: rgb(255, 255, 255);
+}
+
+#box3 {
+    float: none;
+    height: 5px;
+    margin: 20px auto 0px;
+    clear: none;
+    width: 100px;
+    display: block;
+    background-color: rgb(255, 255, 255);
+}
+
+#veb6 {
+    float: left;
+    height: auto;
+    margin-left: 60px;
+    margin-top: 0px;
+    clear: none;
+    width: 450px;
+    display: block;
+    margin-right: 0%;
+}
+
+#image4 {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin: 0px;
+    clear: none;
+    color: rgb(0, 0, 0);
+    -webkit-box-shadow: rgb(202, 155, 119) 0px 10px 20px 0px;
+    box-shadow: rgb(202, 155, 119) 0px 10px 20px 0px;
+}
+
+#text3:hover {
+    text-decoration: underline;
+}
+
+#text3 {
+    float: left;
+    font-size: 21px;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1.3em;
+    margin: 20px 0px 0px;
+    clear: both;
+    min-height: 0px;
+    font-family: Roboto;
+    padding: 0px;
+    display: block;
+    color: rgb(255, 255, 255);
+}
+
+#anons {
+    float: none;
+    height: 810px;
+    margin: 0px auto;
+    clear: none;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    background-image:url("img/ah02.png");
+    background-attachment: scroll;
+    -webkit-background-size: auto;
+    background-size: auto;
+    background-position: 100% 100%;
+    background-repeat: no-repeat no-repeat;
+}
+
+#box4 {
+    float: none;
+    height: auto;
+    margin: 60px auto;
+    clear: none;
+    width: 90%;
+    max-width: 1200px;
+    position: relative;
+}
+
+#image5 {
+    float: left;
+    width: 80px;
+    max-width: 100%;
+    height: auto;
+    clear: none;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 0px;
+    bottom: auto;
+    left: 0px;
+    right: auto;
+    display: block;
+}
+
+#image6 {
+    float: left;
+    width: 80.00000399999999px;
+    max-width: 100%;
+    height: auto;
+    clear: none;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 0px;
+    left: auto;
+    right: 0px;
+    display: block;
+}
+
+#text4 {
+    float: none;
+    font-size: 60px;
+    width: auto;
+    height: auto;
+    text-align: center;
+    font-weight: normal;
+    line-height: 1em;
+    margin: 10px auto 0px;
+    clear: none;
+    min-height: 0px;
+    color: rgb(255, 255, 255);
+    font-family: Philosopher;
+    display: block;
+    padding-right: 80px;
+    padding-left: 80px;
+}
+
+#box5 {
+    float: none;
+    height: 5px;
+    margin: 20px auto 0px;
+    clear: none;
+    width: 100px;
+    display: block;
+    background-color: rgb(255, 255, 255);
+}
+
+#box8 {
+    float: left;
+    height: 500px;
+    margin-left: 60px;
+    margin-top: 0px;
+    clear: none;
+    width: 450px;
+    display: block;
+    padding: 30px;
+    background-color: rgb(255, 255, 255);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    -webkit-box-shadow: rgb(111, 143, 116) 0px 10px 20px -8px;
+    box-shadow: rgb(111, 143, 116) 0px 10px 20px -8px;
+    overflow: hidden;
+    position: relative;
+}
+
+#text8:hover {
+    text-decoration: none;
+    text-transform: none;
+}
+
+#text8 {
+    float: left;
+    font-size: 30px;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1em;
+    margin: 0px;
+    clear: none;
+    min-height: 0px;
+    font-family: Philosopher;
+    padding: 0px;
+    display: block;
+    color: rgb(141, 179, 147);
+}
+
+#text9:hover {
+    text-decoration: none;
+}
+
+#text9 {
+    float: left;
+    font-size: 21px;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1em;
+    margin: 0px;
+    clear: both;
+    min-height: 0px;
+    font-family: 'Roboto Light';
+    padding: 0px;
+    display: block;
+    color: rgb(141, 179, 147);
+}
+
+#textspan1 {
+    float: none;
+    font-size: 1em;
+    line-height: 1.2em;
+}
+
+#box9 {
+    float: left;
+    height: 5px;
+    margin-left: 0%;
+    margin-top: 20px;
+    clear: both;
+    width: 100px;
+    background-color: rgb(141, 179, 147);
+    margin-bottom: 20px;
+}
+
+#button3:hover {
+    background-color: rgb(217, 174, 44);
+}
+
+#button3 {
+    float: right;
+    height: 60px;
+    clear: both;
+    width: 300px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    display: block;
+    background-color: rgb(237, 195, 71);
+    position: absolute;
+    top: auto;
+    left: auto;
+    right: 0px;
+    bottom: 0px;
+}
+
+#text10 {
+    float: left;
+    font-size: 21px;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    font-weight: normal;
+    line-height: 1em;
+    margin: 0px;
+    clear: none;
+    min-height: 0px;
+    font-family: Roboto;
+    color: rgb(255, 255, 255);
+    padding-top: 19px;
+}
+
+#box6 {
+    float: left;
+    height: 500px;
+    margin-left: 60px;
+    margin-top: 0px;
+    clear: none;
+    width: 450px;
+    display: block;
+    padding: 30px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    -webkit-box-shadow: rgb(111, 143, 116) 0px 10px 20px -8px;
+    box-shadow: rgb(111, 143, 116) 0px 10px 20px -8px;
+    overflow: hidden;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    margin-right: 0%;
+}
+
+#text5:hover {
+    text-decoration: none;
+    text-transform: none;
+}
+
+#text5 {
+    float: left;
+    font-size: 30px;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1em;
+    margin: 0px;
+    clear: none;
+    min-height: 0px;
+    font-family: Philosopher;
+    padding: 0px;
+    display: block;
+    color: rgb(141, 179, 147);
+}
+
+#box7 {
+    float: left;
+    height: 5px;
+    margin-left: 0%;
+    margin-top: 20px;
+    clear: both;
+    width: 100px;
+    margin-bottom: 20px;
+    background-color: rgb(141, 179, 147);
+}
+
+#text6:hover {
+    text-decoration: none;
+}
+
+#text6 {
+    float: left;
+    font-size: 21px;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1em;
+    margin: 0px;
+    clear: both;
+    min-height: 0px;
+    font-family: 'Roboto Light';
+    padding: 0px;
+    display: block;
+    color: rgb(141, 179, 147);
+}
+
+#textspan {
+    float: none;
+    font-size: 1em;
+    line-height: 1.2em;
+}
+
+#button2:hover {
+    background-color: rgb(217, 174, 44);
+}
+
+#button2 {
+    float: right;
+    height: 60px;
+    clear: both;
+    width: 300px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    display: block;
+    position: absolute;
+    top: auto;
+    left: auto;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgb(237, 195, 71);
+}
+
+#text7 {
+    float: left;
+    font-size: 21px;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    font-weight: normal;
+    line-height: 1em;
+    margin: 0px;
+    clear: none;
+    min-height: 0px;
+    font-family: Roboto;
+    color: rgb(255, 255, 255);
+    padding-top: 19px;
+}
+
+#footer {
+    float: none;
+    height: auto;
+    margin: 0px auto;
+    clear: none;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    padding-bottom: 100px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    background-image:url("img/ah04.png");
+    background-attachment: scroll;
+    -webkit-background-size: auto;
+    background-size: auto;
+    background-color: rgb(141, 179, 147);
+    background-position: 0% 100%;
+    background-repeat: no-repeat no-repeat;
+}
+
+#box10 {
+    float: none;
+    height: auto;
+    margin: 100px auto 0px;
+    clear: none;
+    width: 90%;
+    max-width: 1200px;
+    position: relative;
+}
+
+#box11 {
+    float: right;
+    height: auto;
+    margin: 0px;
+    clear: none;
+    width: 50%;
+}
+
+#image7 {
+    float: right;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0px;
+    clear: none;
+    color: rgb(0, 0, 0);
+    display: block;
+    min-width: 0px;
+}
+
+#text11 {
+    float: right;
+    font-size: 21px;
+    width: 80%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1.3em;
+    margin: 40px 0px 0px;
+    clear: both;
+    min-height: 0px;
+    font-family: 'Roboto Light';
+    color: rgb(255, 255, 255);
+}
+
+#text12 {
+    float: right;
+    font-size: 21px;
+    width: 79.999999%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1.3em;
+    margin: 20px 0px 0px;
+    clear: both;
+    min-height: 0px;
+    font-family: 'Roboto Light';
+    color: rgb(255, 255, 255);
+    display: block;
+}
+
+#text12:hover {
+    text-decoration: underline;
+}
+
+#text13:hover {
+    text-decoration: underline;
+}
+
+#text13 {
+    float: right;
+    font-size: 21px;
+    width: 79.999999%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1.3em;
+    margin: 20px 0px 0px;
+    clear: both;
+    min-height: 0px;
+    font-family: 'Roboto Light';
+    color: rgb(255, 255, 255);
+    display: block;
+}
+
+@media only screen and (max-width: 900px) {
+    #veb6 {
+        display: none;
+    }
+
+    #text1 {
+        font-size: 50px;
+    }
+
+    #text4 {
+        font-size: 50px;
+    }
+
+    #box2 {
+        margin-bottom: 40px;
+    }
+
+    #box6 {
+        display: none;
+    }
+
+    #box11 {
+        width: 100%;
+    }
+
+    #image7 {
+        width: 60%;
+    }
+
+    #text11 {
+        width: 50%;
+    }
+
+    #text12 {
+        width: 50%;
+    }
+
+    #text13 {
+        width: 50%;
+    }
+
+    #box1 {
+        padding: 60px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    #image {
+        width: 60%;
+        margin-top: 0px;
+        max-width: none;
+    }
+
+    #box {
+        width: 90%;
+    }
+
+    #seminar {
+        width: 100%;
+        margin-top: 150px;
+        max-width: none;
+    }
+
+    #head {
+        background-image:url("img/ah-back1.png"),url("img/ah01.jpg");
+        background-attachment: scroll;
+        -webkit-background-size: auto, 800px;
+        background-size: auto, 800px;
+        background-position: 100% 100%, 30% 0%;
+        background-repeat: no-repeat no-repeat;
+    }
+
+    #veb5 {
+        width: 400px;
+    }
+
+    #box8 {
+        width: 400px;
+    }
+
+    #text9 {
+        font-size: 18px;
+    }
+
+    #text8 {
+        font-size: 28px;
+    }
+
+    #image7 {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+        clear: none;
+    }
+
+    #text11 {
+        margin-right: 0px;
+        margin-top: 40px;
+        clear: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    #text12 {
+        margin-right: 0px;
+        margin-top: 20px;
+        clear: both;
+        width: 100%;
+        text-align: center;
+    }
+
+    #text13 {
+        margin-right: 0px;
+        margin-top: 20px;
+        clear: both;
+        width: 100%;
+        text-align: center;
+    }
+
+    #box1 {
+        padding: 40px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #image {
+        width: 100%;
+        margin-top: 235px;
+    }
+
+    #seminar {
+        margin-top: 20px;
+    }
+
+    #text {
+        font-size: 24px;
+    }
+
+    #head {
+        background-image:url("img/ah-back1.png"),url("img/ah01.jpg");
+        background-attachment: scroll;
+        -webkit-background-size: auto, 200%;
+        background-size: auto, 200%;
+        padding-bottom: 60px;
+        background-position: 40.7% 3.39%, 3% 0%;
+        background-repeat: no-repeat no-repeat;
+    }
+
+    #text1 {
+        font-size: 30px;
+        padding-right: 60px;
+        padding-left: 60px;
+    }
+
+    #image1 {
+        width: 60px;
+    }
+
+    #image2 {
+        width: 60px;
+    }
+
+    #veb5 {
+        width: 280px;
+    }
+
+    #text2 {
+        font-size: 16px;
+    }
+
+    #box2 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    #vebinary {
+        height: 430px;
+    }
+
+    #box8 {
+        width: 90%;
+        height: 450px;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+        clear: none;
+    }
+
+    #text8 {
+        font-size: 21px;
+    }
+
+    #text9 {
+        font-size: 16px;
+    }
+
+    #button3 {
+        position: absolute;
+        bottom: 0px;
+        right: auto;
+        top: auto;
+        left: 8%;
+        width: 84%;
+        clear: both;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 0px;
+    }
+
+    #text10 {
+        width: 100%;
+        height: 60px;
+    }
+
+    #image5 {
+        width: 60px;
+    }
+
+    #image6 {
+        width: 60px;
+    }
+
+    #text4 {
+        font-size: 30px;
+        padding-right: 60px;
+        padding-left: 60px;
+    }
+
+    #anons {
+        height: 650px;
+    }
+
+    #box4 {
+        margin-bottom: 20px;
+    }
+
+    #text11 {
+        font-size: 18px;
+    }
+
+    #text12 {
+        font-size: 18px;
+    }
+
+    #text13 {
+        font-size: 18px;
+    }
+
+    #image7 {
+        width: 90%;
+    }
+
+    #box1 {
+        padding: 40px;
+    }
+}
+

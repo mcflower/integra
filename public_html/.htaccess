@@ -1,0 +1,34 @@
+#php_flag display_startup_errors off
+#php_flag display_errors off
+#php_flag html_errors off
+#php_flag log_errors on
+#php_flag ignore_repeated_errors off
+#php_flag ignore_repeated_source off
+#php_flag report_memleaks on
+#php_flag track_errors on
+#php_value docref_root 0
+#php_value docref_ext 0
+#php_value error_log /home/m/mcflow/integraforlife.com/public_html/PHP_errors.log
+#php_value error_reporting 2047
+#php_value log_errors_max_len 0
+
+<Files PHP_errors.log>
+    Require all denied
+</Files>
+#php_value display_errors on
+#php_value display_startup_errors on
+
+RewriteEngine on
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteRule . index.php [L]
+
+RewriteCond %{HTTP_HOST} ^www\.integraforlife\.com$ [NC]
+RewriteRule ^(.*)$ https://integraforlife.com/$1 [R=301,L]
+
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,NE,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php

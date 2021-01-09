@@ -1,0 +1,1501 @@
+.primaryContainer {
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100%;
+    width: 100%;
+    background-color: rgb(192, 218, 188);
+}
+
+#alert-container {
+    /* position: fixed;
+    width: 100%;
+    margin: 0 auto;
+    top: 30%;
+    z-index: 5;
+    max-width: 800px;
+    padding: 0 20px;
+    right: 0; */
+}
+
+#alert-container .alert {
+    margin: 0;
+}
+
+.head {
+    float: left;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    background-image:url("/img/ah02.png"),url("/img/ah-back1.png"),url("/img/ah01.jpg");
+    background-position: 100% 100%, 100% 100%, 30% 0%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    -webkit-background-size: auto, auto, auto;
+    background-size: auto, auto, auto;
+    padding-bottom: 100px;
+    display: block;
+}
+
+.head-container {
+    float: none;
+    height: auto;
+    margin-left: auto;
+    margin-top: 3%;
+    clear: none;
+    width: 90%;
+    margin-right: auto;
+    max-width: 1200px;
+    position: relative;
+    display: block;
+}
+
+.head-logo-main {
+    float: right;
+    width: 60%;
+    max-width: 100%;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    color: rgb(0, 0, 0);
+    margin-right: 0px;
+    margin-bottom: 0px;
+    display: block;
+}
+
+.seminar {
+    float: right;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 3.001302%;
+    clear: both;
+    width: 50%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    background-color: rgb(255, 255, 255);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    max-width: 600px;
+    -webkit-box-shadow: rgb(141, 179, 147) 0px 20px 30px -15px;
+    box-shadow: rgb(141, 179, 147) 0px 20px 30px -15px;
+}
+
+.sa-image {
+    float: left;
+    height: 250px;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    /*background-image:url("/img/pic1.jpg");*/
+    background-position: 50% 50%;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    -webkit-background-size: cover;
+    background-size: cover;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.sa-container {
+    float: left;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: both;
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 0px;
+    padding-left: 30px;
+}
+
+.sa-time  {
+    float: left;
+    font-size: 18px;
+    width: auto;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1em;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    min-height: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    font-family: Roboto;
+    color: rgb(237, 195, 71);
+}
+
+.sa-name {
+    float: left;
+    font-size: 30px;
+    width: auto;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1em;
+    margin-left: 0px;
+    margin-top: 10px;
+    clear: both;
+    min-height: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    font-family: Philosopher;
+    color: rgb(141, 179, 147);
+}
+
+a.sa-button {
+    float: right;
+    height: 60px;
+    margin-left: 0px;
+    margin-top: 20px;
+    clear: right;
+    width: 300px;
+    margin-right: -30px;
+    background-color: rgb(237, 195, 71);
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    display: block;
+    font-size: 21px;
+    text-align: center;
+    font-weight: normal;
+    line-height: 1em;
+    font-family: Roboto;
+    color: rgb(255, 255, 255);
+    padding-top: 19px;
+    cursor: pointer;
+}
+
+a.sa-button:hover {
+    background-color: rgb(217, 174, 44);
+}
+
+.myinfo {
+    float: left;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 60px;
+    clear: both;
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+
+.about-me-box {
+    float: left;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    width: 50%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding-right: 30px;
+}
+
+.myinfo-text {
+    float: left;
+    font-size: 60px;
+    width: auto;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1em;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    min-height: 0px;
+    color: rgb(255, 255, 255);
+    font-family: Philosopher;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+.bottom-line-left {
+    float: left;
+    height: 5px;
+    margin-left: 0px;
+    margin-top: 20px;
+    clear: both;
+    width: 100px;
+    background-color: rgb(255, 255, 255);
+    margin-right: 0px;
+    margin-bottom: 20px;
+}
+
+.myinfo-description {
+    float: left;
+    font-size: 21px;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1.3em;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: both;
+    min-height: 374px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    font-family: 'Roboto Light';
+    color: rgb(66, 84, 69);
+}
+
+.abm-foto {
+    float: left;
+    height: 350px;
+    margin-left: 0px;
+    margin-top: 30px;
+    clear: both;
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background-image:url("/img/ah05.jpg");
+    background-position: 50% 50%;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.education-box {
+    float: left;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    width: 50%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding-right: 0px;
+    display: block;
+    padding-left: 30px;
+}
+
+.serts {
+    float: none;
+    /*height: 660px;*/
+    height: auto;
+    margin-left: auto;
+    margin-top: 0px;
+    clear: none;
+    width: 100%;
+    margin-right: auto;
+    margin-bottom: 0px;
+    background-color: rgb(141, 179, 147);
+    background-image:url("/img/ah04.png");
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    -webkit-background-size: auto;
+    background-size: auto;
+    display: block;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    padding-bottom: 0px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+
+.serts-container {
+    float: none;
+    height: auto;
+    margin-left: auto;
+    margin-top: 60px;
+    clear: none;
+    width: 90%;
+    margin-right: auto;
+    max-width: 1200px;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.serts-header-text {
+    float: none;
+    font-size: 60px;
+    width: auto;
+    height: auto;
+    text-align: center;
+    font-weight: normal;
+    line-height: 1em;
+    margin-left: auto;
+    margin-top: 10px;
+    clear: none;
+    min-height: 0px;
+    color: rgb(255, 255, 255);
+    font-family: Philosopher;
+    margin-right: auto;
+    margin-bottom: 0px;
+    display: block;
+    padding-right: 80px;
+    padding-left: 80px;
+}
+
+.nav-left {
+    float: left;
+    width: 80px;
+    cursor: pointer;
+    max-width: 100%;
+    height: auto;
+    clear: none;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 0px;
+    bottom: auto;
+    left: 0px;
+    right: auto;
+    display: block;
+}
+
+.nav-right {
+    float: left;
+    width: 80.00000399999999px;
+    max-width: 100%;
+    height: auto;
+    clear: none;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 0px;
+    left: auto;
+    right: 0px;
+    cursor: pointer;
+    display: block;
+}
+
+.stati {
+    float: left;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    background-image:url("/img/ah04.png");
+    background-attachment: scroll;
+    -webkit-background-size: auto;
+    background-size: auto;
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    padding-bottom: 100px;
+    background-color: rgb(141, 179, 147);
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.stati-container {
+    float: none;
+    height: auto;
+    margin-left: auto;
+    margin-top: 60px;
+    clear: none;
+    width: 90%;
+    margin-right: auto;
+    max-width: 1200px;
+    position: relative;
+    display: block;
+}
+
+.stati-one {
+    float: left;
+    height: 170px;
+    margin-left: 0px;
+    margin-top: 40px;
+    clear: none;
+    width: 50%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    position: relative;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    display: block;
+}
+
+a.stati-one-link {
+    float: left;
+    font-size: 28px;
+    width: 96%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1.3em;
+    margin-left: 2%;
+    margin-top: 0px;
+    clear: none;
+    min-height: 0px;
+    font-family: 'Roboto Light';
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    display: block;
+    color: rgb(255, 255, 255);
+}
+
+.stati-one-date {
+    float: left;
+    font-size: 21px;
+    width: 96%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1.3em;
+    margin-left: 2%;
+    margin-top: 20px;
+    clear: both;
+    min-height: 0px;
+    font-family: 'Roboto Light';
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    color: rgb(255, 255, 255);
+}
+
+.stati-one-underline {
+    float: left;
+    height: 3px;
+    clear: both;
+    width: 95.997509%;
+    position: absolute;
+    top: auto;
+    left: 2%;
+    right: auto;
+    bottom: 0px;
+    background-color: rgb(255, 255, 255);
+}
+
+a.stati-one-link:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+.cert-image {
+    /*float: left;*/
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    /*margin-left: 60px;*/
+    /*margin-top: 0px;*/
+    /*clear: none;*/
+    /*color: rgb(0, 0, 0);*/
+    margin-right: 0px;
+    margin-bottom: 0px;
+    -webkit-box-shadow: rgb(111, 143, 116) 0px 12px 20px 0px;
+    box-shadow: rgb(111, 143, 116) 0px 12px 20px 0px;
+    display: block;
+}
+
+.cert-link {
+    display: block;
+    padding: 25px;
+}
+
+.vebinary {
+    float: none;
+    height: auto;
+    /*height: 600px;*/
+    margin-left: auto;
+    margin-top: 0px;
+    clear: none;
+    width: 100%;
+    margin-right: auto;
+    margin-bottom: 0px;
+    display: block;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    background-image:url("/img/ah03.png");
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    -webkit-background-size: auto;
+    background-size: auto;
+    background-color: rgb(242, 192, 153);
+    padding-bottom: 0px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+
+.vebinary-container {
+    float: none;
+    height: auto;
+    margin-left: auto;
+    margin-top: 60px;
+    clear: none;
+    width: 90%;
+    margin-right: auto;
+    max-width: 1200px;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.nav-web-left {
+    float: left;
+    width: 80px;
+    max-width: 100%;
+    height: auto;
+    clear: none;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 0px;
+    bottom: auto;
+    left: 0px;
+    right: auto;
+    display: block;
+    cursor: pointer;
+}
+
+.nav-web-right {
+    float: left;
+    width: 80.00000399999999px;
+    max-width: 100%;
+    height: auto;
+    clear: none;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 0px;
+    left: auto;
+    right: 0px;
+    display: block;
+    cursor: pointer;
+}
+
+.vebinary-header-text {
+    float: none;
+    font-size: 60px;
+    width: auto;
+    height: auto;
+    text-align: center;
+    font-weight: normal;
+    line-height: 1em;
+    margin-left: auto;
+    margin-top: 10px;
+    clear: none;
+    min-height: 0px;
+    color: rgb(255, 255, 255);
+    font-family: Philosopher;
+    margin-right: auto;
+    margin-bottom: 0px;
+    display: block;
+    padding-right: 80px;
+    padding-left: 80px;
+}
+
+.veb-one {
+    /*float: left;*/
+    height: auto;
+    /*margin-left: 60px;*/
+    /*margin-top: 0px;*/
+    /*clear: none;*/
+    /*width: 100%;*/
+    padding: 25px;
+    display: block;
+}
+
+.veb-one-img {
+    /*float: left;*/
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+    /*clear: none;*/
+    color: rgb(0, 0, 0);
+    margin-right: 0px;
+    margin-bottom: 0px;
+    -webkit-box-shadow: rgb(202, 155, 119) 0px 10px 20px 0px;
+    box-shadow: rgb(202, 155, 119) 0px 10px 20px 0px;
+}
+
+.veb-one-text:hover {
+    text-decoration: underline;
+}
+
+.veb-one-text {
+    /*float: left;*/
+    font-size: 21px;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1.3em;
+    margin-left: 0px;
+    margin-top: 20px;
+    /*clear: both;*/
+    min-height: 0px;
+    font-family: Roboto;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    display: block;
+    color: rgb(255, 255, 255);
+}
+
+.anons {
+    float: none;
+    /*height: 810px;*/
+    height: auto;
+    margin-left: auto;
+    margin-top: 0px;
+    clear: none;
+    width: 100%;
+    margin-right: auto;
+    margin-bottom: 0px;
+    display: block;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    padding-bottom: 0px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    background-image:url("/img/ah02.png");
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    -webkit-background-size: auto;
+    background-size: auto;
+}
+
+.anons-container {
+    float: none;
+    height: auto;
+    margin-left: auto;
+    margin-top: 60px;
+    clear: none;
+    width: 90%;
+    margin-right: auto;
+    max-width: 1200px;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.nav-an-left {
+    float: left;
+    width: 80px;
+    max-width: 100%;
+    height: auto;
+    clear: none;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 0px;
+    bottom: auto;
+    left: 0px;
+    right: auto;
+    display: block;
+    cursor: pointer;
+}
+
+.nav-an-right {
+    float: left;
+    width: 80.00000399999999px;
+    max-width: 100%;
+    height: auto;
+    clear: none;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 0px;
+    left: auto;
+    right: 0px;
+    display: block;
+    cursor: pointer;
+}
+
+.anons-header-text {
+    float: none;
+    font-size: 60px;
+    width: auto;
+    height: auto;
+    text-align: center;
+    font-weight: normal;
+    line-height: 1em;
+    margin-left: auto;
+    margin-top: 10px;
+    clear: none;
+    min-height: 0px;
+    color: rgb(255, 255, 255);
+    font-family: Philosopher;
+    margin-right: auto;
+    margin-bottom: 0px;
+    display: block;
+    padding-right: 80px;
+    padding-left: 80px;
+}
+
+a.anons-one-button:hover {
+    background-color: rgb(217, 174, 44);
+}
+
+a.anons-one-button {
+    float: right;
+    height: 60px;
+    clear: both;
+    width: 300px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    display: block;
+    background-color: rgb(237, 195, 71);
+    position: absolute;
+    top: auto;
+    left: auto;
+    right: 0px;
+    bottom: 0px;
+    font-size: 21px;
+    text-align: center;
+    font-weight: normal;
+    line-height: 1em;
+    font-family: Roboto;
+    color: rgb(255, 255, 255);
+    padding-top: 19px;
+}
+
+.anons-one-wrapper {
+    padding: 25px;
+}
+
+.anons-one {
+    /*float: left;*/
+    /*height: 500px;*/
+    /*margin-left: 60px;*/
+    max-height: 500px;
+    margin-top: 0px;
+    clear: none;
+    /*width: 450px;*/
+    display: block;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    -webkit-box-shadow: rgb(111, 143, 116) 0px 10px 20px -8px;
+    box-shadow: rgb(111, 143, 116) 0px 10px 20px -8px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    margin-right: 0%;
+}
+
+.anons-one-text:hover {
+    text-decoration: none;
+    text-transform: none;
+}
+
+.anons-one-text {
+    float: left;
+    font-size: 30px;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1em;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    min-height: 0px;
+    font-family: Philosopher;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    display: block;
+    color: rgb(141, 179, 147);
+}
+
+.anons-one-underline {
+    float: left;
+    height: 5px;
+    margin-left: 0%;
+    margin-top: 20px;
+    clear: both;
+    width: 100px;
+    margin-bottom: 20px;
+    background-color: rgb(141, 179, 147);
+}
+
+.anons-one-description:hover {
+    text-decoration: none;
+}
+
+.anons-one-description {
+    float: left;
+    /*font-size: 21px;*/
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    /*line-height: 1em;*/
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: both;
+    /*min-height: 0px;*/
+    font-family: 'Roboto Light';
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    display: block;
+    /*color: rgb(141, 179, 147);*/
+    color: black;
+    /*font-size: 1em;*/
+    line-height: 1.2em;
+    min-height: 280px;
+    max-height: 280px;
+    border-bottom: 36px solid
+    white;
+    overflow-y: hidden;
+}
+
+.hld-footer {
+    float: none;
+    height: auto;
+    margin-left: auto;
+    margin-top: 0px;
+    clear: none;
+    width: 100%;
+    margin-right: auto;
+    margin-bottom: 0px;
+    display: block;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    padding-bottom: 100px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    background-image:url("/img/ah04.png");
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    -webkit-background-size: auto;
+    background-size: auto;
+    background-color: rgb(141, 179, 147);
+}
+
+.hld-footer-box {
+    float: none;
+    height: auto;
+    margin-left: auto;
+    margin-top: 100px;
+    clear: none;
+    width: 90%;
+    margin-right: auto;
+    max-width: 1200px;
+    position: relative;
+    margin-bottom: 0px;
+}
+
+.hldbf {
+    float: right;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    width: 50%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+.hldbf-logo {
+    float: right;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    color: rgb(0, 0, 0);
+    margin-right: 0px;
+    margin-bottom: 0px;
+    display: block;
+    min-width: 0px;
+}
+
+.hldbf-line1 {
+    float: right;
+    font-size: 21px;
+    width: 80%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1.3em;
+    margin-left: 0px;
+    margin-top: 40px;
+    clear: both;
+    min-height: 0px;
+    font-family: 'Roboto Light';
+    color: rgb(255, 255, 255);
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+a.hldbf-line2 {
+    float: right;
+    font-size: 21px;
+    width: 79.999999%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1.3em;
+    margin-left: 0px;
+    margin-top: 20px;
+    clear: both;
+    min-height: 0px;
+    font-family: 'Roboto Light';
+    color: rgb(255, 255, 255);
+    margin-right: 0px;
+    margin-bottom: 0px;
+    display: block;
+}
+
+a.hldbf-line2:hover {
+    text-decoration: underline;
+}
+
+a.hldbf-line3:hover {
+    text-decoration: underline;
+}
+
+a.hldbf-line3 {
+    float: right;
+    font-size: 21px;
+    width: 79.999999%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1.3em;
+    margin-left: 0px;
+    margin-top: 20px;
+    clear: both;
+    min-height: 0px;
+    font-family: 'Roboto Light';
+    color: rgb(255, 255, 255);
+    margin-right: 0px;
+    margin-bottom: 0px;
+    display: block;
+}
+
+.faq {
+    float: none;
+    height: auto;
+    margin-left: auto;
+    margin-top: 0px;
+    clear: none;
+    width: 100%;
+    margin-right: auto;
+    margin-bottom: 0px;
+    display: block;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    padding-bottom: 100px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    background-image:url("/img/ah02.png");
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    -webkit-background-size: auto;
+    background-size: auto;
+}
+
+.faq-container {
+    float: none;
+    height: auto;
+    margin-left: auto;
+    margin-top: 60px;
+    clear: none;
+    width: 90%;
+    margin-right: auto;
+    max-width: 1200px;
+    position: relative;
+    display: block;
+}
+
+.header-text {
+    float: none;
+    font-size: 60px;
+    width: auto;
+    height: auto;
+    text-align: center;
+    font-weight: normal;
+    line-height: 1em;
+    margin-left: auto;
+    margin-top: 0px;
+    clear: none;
+    min-height: 0px;
+    color: rgb(255, 255, 255);
+    font-family: Philosopher;
+    margin-right: auto;
+    margin-bottom: 0px;
+    display: block;
+}
+
+.underline-text {
+    float: none;
+    height: 5px;
+    margin-left: auto;
+    margin-top: 20px;
+    clear: none;
+    width: 100px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    display: block;
+    background-color: rgb(255, 255, 255);
+}
+
+.faq-one {
+    float: left;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 40px;
+    clear: none;
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    position: relative;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    display: block;
+}
+
+.faq-one-quest:hover {
+    text-decoration: none;
+}
+
+.faq-one-quest {
+    float: left;
+    font-size: 28px;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1.3em;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: none;
+    min-height: 0px;
+    font-family: 'Roboto Light';
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    display: block;
+    color: rgb(66, 84, 69);
+}
+
+.text-one-answer {
+    float: left;
+    font-size: 21px;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1.3em;
+    margin-left: 0%;
+    margin-top: 20px;
+    clear: both;
+    min-height: 0px;
+    font-family: 'Roboto Light';
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    color: rgb(66, 84, 69);
+}
+
+.faq-underline {
+    float: left;
+    height: 3px;
+    clear: both;
+    width: 100%;
+    position: static;
+    top: 0px;
+    left: 0px;
+    background-color: rgb(170, 195, 167);
+    margin-top: 40px;
+    margin-left: 0%;
+}
+
+.faq-container .faq-one:last-child .faq-underline {
+    display: none;
+}
+
+@media only screen and (max-width: 900px) {
+    .about-me-box {
+        width: 100%;
+        padding-right: 0px;
+    }
+
+    .education-box {
+        width: 100%;
+        margin-top: 60px;
+        padding-left: 0px;
+    }
+
+    .abm-foto {
+        display: none;
+    }
+
+    .stati-one {
+        width: 100%;
+        height: auto;
+    }
+
+    .serts-header-text {
+        font-size: 50px;
+    }
+
+    .myinfo-text {
+        font-size: 50px;
+    }
+
+    .vebinary-header-text {
+        font-size: 50px;
+    }
+
+    .anons-header-text {
+        font-size: 50px;
+    }
+
+    .vebinary-container {
+        margin-bottom: 40px;
+    }
+
+    .serts-container {
+        margin-bottom: 40px;
+    }
+
+    /*.anons-one {
+        display: none;
+    }*/
+
+    .hldbf {
+        width: 100%;
+    }
+
+    .hldbf-logo {
+        width: 60%;
+    }
+
+    .hldbf-line1 {
+        width: 50%;
+    }
+
+    a.hldbf-line2 {
+        width: 50%;
+    }
+
+    a.hldbf-line3 {
+        width: 50%;
+    }
+
+    .header-text {
+        font-size: 50px;
+    }
+
+    .faq-one {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .head-logo-main {
+        width: 60%;
+        margin-top: 0px;
+        max-width: none;
+    }
+
+    .head-container {
+        width: 90%;
+    }
+
+    .seminar {
+        width: 100%;
+        margin-top: 150px;
+        max-width: none;
+    }
+
+    .head {
+        background-image:url("/img/ah02.png"),url("/img/ah-back1.png"),url("/img/ah01.jpg");
+        background-position: 100% 100%, 100% 100%, 30% 0%;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        -webkit-background-size: auto, auto, 800px;
+        background-size: auto, auto, 800px;
+    }
+
+    .myinfo {
+        margin-top: 40px;
+    }
+
+    .veb-one {
+        /*width: 400px;*/
+    }
+
+    .hldbf-logo {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+        clear: none;
+    }
+
+    .hldbf-line1 {
+        margin-right: 0px;
+        margin-top: 40px;
+        clear: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    a.hldbf-line2 {
+        margin-right: 0px;
+        margin-top: 20px;
+        clear: both;
+        width: 100%;
+        text-align: center;
+    }
+
+    a.hldbf-line3 {
+        margin-right: 0px;
+        margin-top: 20px;
+        clear: both;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .head-logo-main {
+        width: 100%;
+        margin-top: 235px;
+    }
+
+    .seminar {
+        margin-top: 20px;
+    }
+
+    .sa-image {
+        height: 200px;
+    }
+
+    .sa-name {
+        font-size: 24px;
+    }
+
+    .sa-time  {
+        font-size: 16px;
+    }
+
+    a.sa-button {
+        width: 100%;
+        margin-right: 0px;
+        border-bottom-right-radius: 0px;
+        border-top-right-radius: 30px;
+    }
+
+    .head {
+        background-image:url("/img/ah02.png"),url("/img/ah-back1.png"),url("/img/ah01.jpg");
+        background-position: 100% 100%, 40.7% 3.39%, 3% 0%;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        -webkit-background-size: auto, auto, 200%;
+        background-size: auto, auto, 200%;
+        padding-bottom: 60px;
+    }
+
+    .myinfo-description {
+        font-size: 18px;
+    }
+
+    .education-box {
+        margin-top: 40px;
+    }
+
+    .myinfo-text {
+        font-size: 30px;
+    }
+
+    .serts-header-text {
+        font-size: 30px;
+        padding-right: 60px;
+        padding-left: 60px;
+    }
+
+    .cert-image {
+        height: auto;
+    }
+
+    .serts {
+        height: 480px;
+    }
+
+    .nav-right {
+        width: 60px;
+    }
+
+    .nav-left {
+        width: 60px;
+    }
+
+    .serts-container {
+        margin-bottom: 40px;
+        margin-top: 40px;
+    }
+
+    a.stati-one-link {
+        font-size: 21px;
+    }
+
+    .stati-one-date {
+        font-size: 16px;
+    }
+
+    .vebinary-header-text {
+        font-size: 30px;
+        padding-right: 60px;
+        padding-left: 60px;
+    }
+
+    .nav-web-left {
+        width: 60px;
+    }
+
+    .nav-web-right {
+        width: 60px;
+    }
+
+    .veb-one {
+        /*width: 280px;*/
+    }
+
+    .veb-one-text {
+        font-size: 16px;
+    }
+
+    .vebinary-container {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .vebinary {
+        height: 430px;
+    }
+
+    a.anons-one-button {
+        position: absolute;
+        bottom: 0px;
+        right: auto;
+        top: auto;
+        left: 8%;
+        width: 84%;
+        clear: both;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .nav-an-left {
+        width: 60px;
+    }
+
+    .nav-an-right {
+        width: 60px;
+    }
+
+    .anons-header-text {
+        font-size: 30px;
+        padding-right: 60px;
+        padding-left: 60px;
+    }
+
+    .anons {
+        /*height: 650px;*/
+    }
+
+    .anons-container {
+        margin-bottom: 20px;
+    }
+
+    .hldbf-line1 {
+        font-size: 18px;
+    }
+
+    a.hldbf-line2 {
+        font-size: 18px;
+    }
+
+    a.hldbf-line3 {
+        font-size: 18px;
+    }
+
+    .hldbf-logo {
+        width: 90%;
+    }
+
+    .faq {
+        height: auto;
+        padding-bottom: 60px;
+    }
+
+    .header-text {
+        font-size: 30px;
+    }
+
+    .faq-one-quest {
+        font-size: 21px;
+    }
+
+    .text-one-answer {
+        font-size: 16px;
+    }
+
+    .stati {
+        padding-bottom: 60px;
+    }
+}

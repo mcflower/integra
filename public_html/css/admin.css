@@ -1,0 +1,33 @@
+/*.content-header > h1 {
+    margin: 0;
+    font-size: 24px;
+    width: 100% !important;
+    float: none !important;
+    position: relative;
+}
+
+.content-header > .breadcrumb {
+    width: 100% !important;
+    position: relative !important;
+    margin-top: 5px !important;
+    top: 0 !important;
+    right: 0 !important;
+    float: none !important;
+    background: #d2d6de !important;
+    padding-left: 10px !important;
+}
+
+.breadcrumb > li + li::before {
+    color: black !important;
+}*/
+
+.user-header-name {
+    margin-top: 15px;
+    float: right;
+    margin-right: 10px;
+    color: white;
+}
+
+.projects-index div {
+    overflow-y: scroll;
+}

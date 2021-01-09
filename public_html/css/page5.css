@@ -1,0 +1,360 @@
+.primaryContainer {
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100%;
+    width: 100%;
+    background-color: rgb(192, 218, 188);
+}
+
+#head {
+    float: left;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    background-image:url("img/ah-back1.png"),url("img/ah01.jpg");
+    background-position: 100% 100%, 30% 0%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    -webkit-background-size: auto;
+    background-size: auto;
+    padding-bottom: 100px;
+    display: block;
+}
+
+#box {
+    float: none;
+    height: auto;
+    margin-left: auto;
+    margin-top: 3%;
+    clear: none;
+    width: 90%;
+    margin-right: auto;
+    max-width: 1200px;
+    position: relative;
+    display: block;
+}
+
+#image {
+    float: right;
+    width: 60%;
+    max-width: 100%;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    color: rgb(0, 0, 0);
+    margin-right: 0px;
+    margin-bottom: 0px;
+    display: block;
+}
+
+#seminar {
+    float: right;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 3%;
+    clear: left;
+    width: 60%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    background-color: rgb(255, 255, 255);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    -webkit-box-shadow: rgb(141, 179, 147) 0px 20px 30px -15px;
+    box-shadow: rgb(141, 179, 147) 0px 20px 30px -15px;
+    display: block;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+}
+
+#footer {
+    float: none;
+    height: auto;
+    margin-left: auto;
+    margin-top: 0px;
+    clear: none;
+    width: 100%;
+    margin-right: auto;
+    margin-bottom: 0px;
+    display: block;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    padding-bottom: 100px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    background-image:url("img/ah04.png");
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    -webkit-background-size: auto;
+    background-size: auto;
+    background-color: rgb(141, 179, 147);
+}
+
+#box1 {
+    float: none;
+    height: auto;
+    margin-left: auto;
+    margin-top: 100px;
+    clear: none;
+    width: 90%;
+    margin-right: auto;
+    max-width: 1200px;
+    position: relative;
+    margin-bottom: 0px;
+}
+
+#box2 {
+    float: right;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    width: 50%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+#image2 {
+    float: right;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    color: rgb(0, 0, 0);
+    margin-right: 0px;
+    margin-bottom: 0px;
+    display: block;
+    min-width: 0px;
+}
+
+#text {
+    float: right;
+    font-size: 21px;
+    width: 80%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1.3em;
+    margin-left: 0px;
+    margin-top: 40px;
+    clear: both;
+    min-height: 0px;
+    font-family: 'Roboto Light';
+    color: rgb(255, 255, 255);
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+#text1 {
+    float: right;
+    font-size: 21px;
+    width: 79.999999%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1.3em;
+    margin-left: 0px;
+    margin-top: 20px;
+    clear: both;
+    min-height: 0px;
+    font-family: 'Roboto Light';
+    color: rgb(255, 255, 255);
+    margin-right: 0px;
+    margin-bottom: 0px;
+    display: block;
+}
+
+#text1:hover {
+    text-decoration: underline;
+}
+
+#text2:hover {
+    text-decoration: underline;
+}
+
+#text2 {
+    float: right;
+    font-size: 21px;
+    width: 79.999999%;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1.3em;
+    margin-left: 0px;
+    margin-top: 20px;
+    clear: both;
+    min-height: 0px;
+    font-family: 'Roboto Light';
+    color: rgb(255, 255, 255);
+    margin-right: 0px;
+    margin-bottom: 0px;
+    display: block;
+}
+
+#image1 {
+    float: left;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: both;
+    color: rgb(0, 0, 0);
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+@media only screen and (max-width: 900px) {
+    #box2 {
+        width: 100%;
+    }
+
+    #image2 {
+        width: 60%;
+    }
+
+    #text {
+        width: 50%;
+    }
+
+    #text1 {
+        width: 50%;
+    }
+
+    #text2 {
+        width: 50%;
+    }
+
+    #seminar {
+        width: 100%;
+        margin-top: 60px;
+    }
+
+    #head {
+        background-image:url("img/ah-back1.png"),url("img/ah01.jpg");
+        background-position: 100% 100%, 30% 20%;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        -webkit-background-size: auto;
+        background-size: auto;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    #image {
+        width: 60%;
+        margin-top: 0px;
+        max-width: none;
+    }
+
+    #box {
+        width: 90%;
+    }
+
+    #seminar {
+        width: 100%;
+        margin-top: 60px;
+        max-width: none;
+        padding-top: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+    }
+
+    #head {
+        background-image:url("img/ah-back1.png"),url("img/ah01.jpg");
+        background-position: 100% 100%, 30% 0%;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        -webkit-background-size: auto, 800px;
+        background-size: auto, 800px;
+        padding-bottom: 60px;
+    }
+
+    #image2 {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+        clear: none;
+    }
+
+    #text {
+        margin-right: 0px;
+        margin-top: 40px;
+        clear: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    #text1 {
+        margin-right: 0px;
+        margin-top: 20px;
+        clear: both;
+        width: 100%;
+        text-align: center;
+    }
+
+    #text2 {
+        margin-right: 0px;
+        margin-top: 20px;
+        clear: both;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #image {
+        width: 100%;
+        margin-top: 120px;
+    }
+
+    #seminar {
+        margin-top: 20px;
+        padding-top: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+    }
+
+    #head {
+        background-image:url("img/ah-back1.png"),url("img/ah01.jpg");
+        background-position: 40.7% 3.39%, 3% 0%;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        -webkit-background-size: auto, 200%;
+        background-size: auto, 200%;
+        padding-bottom: 60px;
+    }
+
+    #text {
+        font-size: 18px;
+    }
+
+    #text1 {
+        font-size: 18px;
+    }
+
+    #text2 {
+        font-size: 18px;
+    }
+
+    #image2 {
+        width: 90%;
+    }
+}
+

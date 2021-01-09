@@ -1,0 +1,184 @@
+.notify-head {
+    float: left;
+    height: auto;
+    margin: 0px;
+    clear: none;
+    width: 100%;
+    background-image:url("img/ah-back1.png"),url("img/ah01.jpg");
+    background-attachment: scroll;
+    -webkit-background-size: auto;
+    background-size: auto;
+    padding-bottom: 100px;
+    display: block;
+    background-position: 100% 100%, 30% 0%;
+    background-repeat: no-repeat no-repeat;
+}
+
+.notify-box {
+    float: none;
+    height: auto;
+    margin-left: auto;
+    margin-top: 3%;
+    clear: none;
+    width: 90%;
+    margin-right: auto;
+    max-width: 1200px;
+    position: relative;
+    display: block;
+}
+
+.notify-img {
+    float: right;
+    width: 60%;
+    max-width: 100%;
+    height: auto;
+    margin: 0px;
+    clear: none;
+    color: rgb(0, 0, 0);
+    display: block;
+}
+
+.nf-container {
+    float: right;
+    height: auto;
+    margin: 3.001302% 0px 0px;
+    clear: both;
+    width: 50%;
+    background-color: rgb(255, 255, 255);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    max-width: 600px;
+    -webkit-box-shadow: rgb(141, 179, 147) 0px 20px 30px -15px;
+    box-shadow: rgb(141, 179, 147) 0px 20px 30px -15px;
+}
+
+.nf-container.nf-video {
+    padding: 30px;
+}
+
+.nf-video-name {
+    font-family: Philosopher;
+    color: rgb(141, 179, 147);
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.nf-field {
+    float: left;
+    height: auto;
+    margin: 0px;
+    clear: none;
+    width: 100%;
+    padding: 60px;
+}
+
+.nf-text {
+    float: left;
+    font-size: 30px;
+    width: auto;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1em;
+    margin: 0px;
+    clear: none;
+    min-height: 0px;
+    font-family: Philosopher;
+    color: rgb(141, 179, 147);
+}
+
+.nf-text.warning {
+    color: rgb(217, 174, 44);
+}
+
+.nf-field0 {
+    float: none;
+    height: auto;
+    margin: 100px auto 0px;
+    clear: none;
+    width: 90%;
+    max-width: 1200px;
+    position: relative;
+}
+
+.nf-field1 {
+    float: right;
+    height: auto;
+    margin: 0px;
+    clear: none;
+    width: 50%;
+}
+
+
+
+@media only screen and (max-width: 900px) {
+    .nf-field1 {
+        width: 100%;
+    }
+
+    .nf-field {
+        padding: 60px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .notify-img {
+        width: 60%;
+        margin-top: 0px;
+        max-width: none;
+    }
+
+    .notify-box {
+        width: 90%;
+    }
+
+    .nf-container {
+        width: 100%;
+        margin-top: 150px;
+        max-width: none;
+    }
+
+    .notify-head {
+        background-image:url("img/ah-back1.png"),url("img/ah01.jpg");
+        background-attachment: scroll;
+        -webkit-background-size: auto, 800px;
+        background-size: auto, 800px;
+        background-position: 100% 100%, 30% 0%;
+        background-repeat: no-repeat no-repeat;
+    }
+
+    .nf-field {
+        padding: 40px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .notify-img {
+        width: 100%;
+        margin-top: 235px;
+    }
+
+    .nf-container {
+        margin-top: 20px;
+    }
+
+    .nf-text {
+        font-size: 24px;
+    }
+
+    .notify-head {
+        background-image:url("img/ah-back1.png"),url("img/ah01.jpg");
+        background-attachment: scroll;
+        -webkit-background-size: auto, 200%;
+        background-size: auto, 200%;
+        padding-bottom: 60px;
+        background-position: 40.7% 3.39%, 3% 0%;
+        background-repeat: no-repeat no-repeat;
+    }
+
+    .nf-field {
+        padding: 40px;
+    }
+}
