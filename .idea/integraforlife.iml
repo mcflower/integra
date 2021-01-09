@@ -81,6 +81,20 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-message" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/rmrevin/yii2-fontawesome" />
+      <excludeFolder url="file://$MODULE_DIR$/public_html/assets/1b0e2c3" />
+      <excludeFolder url="file://$MODULE_DIR$/public_html/assets/7bcec27e" />
+      <excludeFolder url="file://$MODULE_DIR$/public_html/assets/62b9271e" />
+      <excludeFolder url="file://$MODULE_DIR$/public_html/assets/81db30d2" />
+      <excludeFolder url="file://$MODULE_DIR$/public_html/assets/258cff1" />
+      <excludeFolder url="file://$MODULE_DIR$/public_html/assets/3456e79d" />
+      <excludeFolder url="file://$MODULE_DIR$/public_html/assets/58206c7" />
+      <excludeFolder url="file://$MODULE_DIR$/public_html/assets/18723924" />
+      <excludeFolder url="file://$MODULE_DIR$/public_html/assets/db55a27d" />
+      <excludeFolder url="file://$MODULE_DIR$/runtime/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/runtime/debug" />
+      <excludeFolder url="file://$MODULE_DIR$/runtime/gii-2.0.34" />
+      <excludeFolder url="file://$MODULE_DIR$/runtime/logs" />
+      <excludeFolder url="file://$MODULE_DIR$/runtime/mail" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
