@@ -681,7 +681,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post())) {
 
             if ($model->save()) {
-                Yii::$app->session->setFlash('success', 'Спасибо! Запрос отправлен.');
+                Yii::$app->session->setFlash('info', 'Спасибо! Запрос отправлен!');
 
                 Yii::$app->mail
                     ->compose('hypoxia', [
@@ -696,7 +696,7 @@ class SiteController extends Controller
 
                 $model = new Hypoxia();
             } else {
-                Yii::$app->session->setFlash('primary', 'Ошибка при отправке сообщения.');
+                Yii::$app->session->setFlash('warning', 'Ошибка при отправке сообщения.');
             }
         }
 
