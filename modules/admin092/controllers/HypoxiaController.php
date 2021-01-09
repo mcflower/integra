@@ -14,20 +14,7 @@ use yii\filters\VerbFilter;
  */
 class HypoxiaController extends AuthController
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
+    public $layout = "/admin";
 
     /**
      * Lists all Hypoxia models.

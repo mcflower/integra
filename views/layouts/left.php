@@ -1,7 +1,7 @@
 <aside class="main-sidebar">
 
     <section class="sidebar">
-        
+
         <?= dmstr\widgets\Menu::widget(
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
@@ -17,6 +17,14 @@
                     ['label' => 'Контент', 'icon' => 'gamepad', 'url' => ['/admin092/xcontent']],
                     ['label' => 'Пользователи', 'icon' => 'user', 'url' => ['/admin092/xuser']],
                     ['label' => 'Галерея', 'icon' => 'picture-o', 'url' => ['/admin092/gallery']],
+                    [
+                        'label' => 'Анкеты',
+                        'icon' => 'folder',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Гипоксия', 'icon' => 'dot-circle-o', 'url' => ['/admin092/hypoxia'],],
+                        ],
+                    ],
                     //['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                 ],
             ]
