@@ -689,8 +689,8 @@ class SiteController extends Controller
                         'htmlLayout' => 'layouts/html'
                     ])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                    ->setTo('greenfild@gmail.com')
-//                    ->setTo('info@integraforlife.com')
+//                    ->setTo('greenfild@gmail.com')
+                    ->setTo('info@integraforlife.com')
                     ->setSubject("Анкета «ГИПОКСИИ НЕТ»")
                     ->send();
 
