@@ -105,11 +105,30 @@
     text-align: left;
     font-weight: normal;
     line-height: 1.3em;
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
     clear: both;
     min-height: 0px;
     font-family: 'Roboto Light';
     color: black;
+}
+
+.woc-main-time {
+    float: left;
+    font-size: 18px;
+    width: auto;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1em;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    min-height: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    font-family: Roboto;
+    margin-bottom: 10px;
+    color: rgb(237, 195, 71);
 }
 
 .woc-main {
@@ -175,16 +194,16 @@
 }
 
 @media only screen and (max-width: 1100px) {
-    
+
     /*.woc-main-photo {
         width: 25%;
         height: 280px;
     }
-    
+
     .woc-main-description {
         width: 70%;
     }*/
-    
+
 }
 
 
@@ -225,19 +244,19 @@
     .woc-second p img {
         width: 100%;
     }
-    
+
     .woc-main-photo {
         width: 100%;
         height: 280px;
     }
-    
+
     .woc-main-description {
         width: 100%;
         margin-left: 0%;
         margin-top: 0px;
         margin-bottom: 20px;
     }
-    
+
 }
 
 @media only screen and (max-width: 400px) {
@@ -256,9 +275,13 @@
     .woc-main-about {
         font-size: 16px;
     }
-    
+
     .woc-main-intro {
         font-size: 20px;
+    }
+
+    .woc-main-time  {
+        font-size: 16px;
     }
 
     .woc-main-name {

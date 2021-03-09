@@ -11,11 +11,16 @@ use yii\widgets\ActiveForm;
         <div class="woc-preview clearfix" style="background-image:url('<?=$webinar->img?>');"></div>
         <div class="woc-about clearfix">
             <div class="woc-main clearfix">
-                
+
                 <div class="woc-main-description clearfix">
                     <p class="woc-main-intro">
                         Обучающий семинар
                     </p>
+                    <?php if($webinar->type == 2):?>
+                        <p class="woc-main-time">
+                            <?= date('d.m.Y', $webinar->xdate) ?> / <?= $webinar->xtime ?>
+                        </p>
+                    <?php endif;?>
                     <p class="woc-main-name">
                         <?=$webinar->name?>
                     </p>
@@ -45,45 +50,6 @@ use yii\widgets\ActiveForm;
                 </p>
                 <?php endif; ?>
             </div>
-
-            <!--<div id="box7" class="clearfix">
-                <p id="text3">
-                    Семинар состоится 23.05.2020  в 19&#x3a;00 по Московскому времени<br /><br />Запись семинар будет доступен Вам  в течении 30 дней после его&nbsp;проведения.<br />
-                </p>
-                <p id="text4">
-                    Стоимость участия
-                </p>
-                <p id="text5">
-                    490 руб
-                </p>
-            </div>-->
-
-            <!--<div id="box8" class="clearfix">
-                <label id="formgroup">
-                    <input id="textinput" type="text" value="Имя Фамилия"/>
-                </label>
-                <label id="formgroup1">
-                    <input id="textinput1" type="text" value="E-mail"/>
-                </label>
-                <div id="box9" class="clearfix">
-                    <a id="box10" href="#" class="clearfix">
-                    </a>
-                    <p id="text8">
-                        Нажимая кнопку “Оплатить” я даю согласие на обработку моих личных данных<br />
-                    </p>
-                    <a id="text9" href="#">
-                        Политика конфиденциальности<br />
-                    </a>
-                    <a id="text10" href="#">
-                        Договор оферты<br />
-                    </a>
-                </div>
-                <a id="button1" href="#" class="clearfix">
-                    <p id="text11">
-                        оплатить
-                    </p>
-                </a>
-            </div>-->
             <div class="cw-contact clearfix">
                 <?php
 
