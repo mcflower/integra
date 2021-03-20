@@ -40,7 +40,7 @@ $config = [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.yandex.ru',
                 'username' => 'robot@integraforlife.com',
-                'password' => 'Flower192543',
+                'password' => 'Integra192543',
                 'port' => '465',
                 'encryption' => 'ssl',
             ],
@@ -82,7 +82,7 @@ $config['modules']['debug'] = [
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
-    
+
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
