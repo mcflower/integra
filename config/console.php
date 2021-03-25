@@ -24,7 +24,7 @@ $config = [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.yandex.ru',
                 'username' => 'robot@integraforlife.com',
-                'password' => 'Flower192543',
+                'password' => 'Integra192543',
                 'port' => '465',
                 'encryption' => 'ssl',
             ],

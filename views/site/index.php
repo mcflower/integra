@@ -10,7 +10,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 ?>
 <div id="alert-container">
-   <?= Alert::widget() ?> 
+   <?= Alert::widget() ?>
 </div>
 <div class="head clearfix">
     <div class="head-container clearfix">
@@ -127,6 +127,9 @@ use yii\widgets\ActiveForm;
     <div id="modal-active" class="cw-box clearfix zoom-anim-dialog mfp-hide">
         <div class="cw-preview clearfix" style="background-image:url('<?= $active->img ?>');"></div>
         <div class="cw-info-block clearfix">
+            <p class="cwib-datetime">
+                <?= date('d.m.Y', $active->xdate) ?> / <?= $active->xtime ?>
+            </p>
             <p class="cwib-name">
                 <?= $active->name ?><br>
             </p>

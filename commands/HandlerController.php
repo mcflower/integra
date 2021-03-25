@@ -29,7 +29,7 @@ class HandlerController extends Controller
                 foreach($users as $user) {
                     $user->wopen = 2;
                     $user->save();
-                    
+
                     Yii::$app->mail->compose('start',
                     ['user' => $user,
                     'activity' => $model,
@@ -50,6 +50,7 @@ class HandlerController extends Controller
          * Получаем транзакции
          */
         $transactions = Transactions::find()->where(['status' => 0])->all();
+//        $transactions = Transactions::find()->where(['>', 'created_at', 1616563940])->all();
         if (!empty($transactions)) {
 
             foreach ($transactions as $one) {
@@ -148,7 +149,7 @@ class HandlerController extends Controller
             }
         }
     }
-    
+
     public function actionWstart()
     {
         $model = Xcontent::find()->where(['type' => 2])->andWhere(['<', 'xdate', time()])->one();
@@ -158,7 +159,7 @@ class HandlerController extends Controller
                 foreach($users as $user) {
                     $user->wstart = 2;
                     $user->save();
-                    
+
                     Yii::$app->mail->compose('current',
                         ['user' => $user,
                         'activity' => $model,
@@ -167,12 +168,12 @@ class HandlerController extends Controller
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo($user->email)
                         ->setSubject('Напоминание о вебинаре "'.$model->name.'".')
-                        ->send();    
+                        ->send();
                 }
             }
         }
     }
-    
+
     public function actionWclose()
     {
         $activityHash = "";
