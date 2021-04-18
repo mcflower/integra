@@ -163,15 +163,16 @@ class SiteController extends Controller
                     ->setSubject('Оплата вебинара "'.$activity->name.'"')
                     ->send();
 
+                    $xd = date('d.m.Y', $activity->xdate);
 
                     Yii::$app->mail->compose('payConfirm',
                         ['user' => $user,
                         'activity' => $activity,
-                            'title' => 'Оплата за вебинар "'.$activity->name.'"',
+                            'title' => $xd . 'Оплата за вебинар "'.$activity->name.'"',
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo($user->email)
-                        ->setSubject('Оплата за вебинар "'.$activity->name.'"')
+                        ->setSubject($xd . 'Оплата за вебинар "'.$activity->name.'"')
                         ->send();
                 }
 
