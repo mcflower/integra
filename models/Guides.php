@@ -49,6 +49,14 @@ class Guides extends \yii\db\ActiveRecord
             [['brief'], 'string', 'max' => 1024],
         ];
     }
+    
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+        $scenarios['update'] = ['name', 'price', 'brief', 'description', 'hide'];
+
+        return $scenarios;
+    }
 
     /**
      * {@inheritdoc}

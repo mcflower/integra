@@ -7,23 +7,14 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Guides */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Guides', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Гайды', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="guides-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
+        <?= Html::a('Обновить', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <?= DetailView::widget([
@@ -31,14 +22,58 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
-            'url:url',
-            'price',
-            'hash',
+            [
+                'attribute' => 'url',
+                'label' => 'Страница гайда',
+                'format' => 'raw',
+                'value' => function($data){
+                    return '<a target="_blank" href="https://integraforlife.com'.$data->url.'">Открыть</a>';
+                },
+            ],
+            [
+                'attribute' => 'price',
+                'format' => 'raw',
+                'value' => function($data){
+                    return $data->price . ' руб.';
+                },
+            ],
+            [
+                'attribute' => 'hash',
+                'label' => 'Страница гайда',
+                'format' => 'raw',
+                'value' => function($data){
+                    return '<a target="_blank" href="https://integraforlife.com/guides/'.$data->hash.'">Открыть</a>';
+                },
+            ],
             'brief',
-            'description:ntext',
-            'hide',
-            'created_at',
-            'updated_at',
+            [
+                'attribute' => 'description',
+                'format' => 'raw',
+                'value' => function($data){
+                    return $data->description;
+                },
+            ],
+            [
+                'attribute' => 'hide',
+                'format' => 'raw',
+                'value' => function($data){
+                    return ($data->hide == 0) ? '<span class="label label-success">Нет</span>' : '<span class="label label-danger">Да</span>';
+                },
+            ],
+            [
+                'attribute' => 'created_at',
+                'format' => 'raw',
+                'value' => function($data){
+                    return date ('d.m.Y', $data->created_at);
+                },
+            ],
+            [
+                'attribute' => 'updated_at',
+                'format' => 'raw',
+                'value' => function($data){
+                    return date ('d.m.Y', $data->updated_at);
+                },
+            ],
         ],
     ]) ?>
 

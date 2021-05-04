@@ -8,6 +8,8 @@ use yii\data\ActiveDataProvider;
 use app\controllers\AuthController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use yii\helpers\BaseFileHelper;
 
 /**
  * GuidesController implements the CRUD actions for Guides model.
@@ -53,13 +55,38 @@ class GuidesController extends AuthController
     {
         $model = new Guides();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            
+            $model->hash = $this->randomName();
+            
+            $file = UploadedFile::getInstance($model, 'url');
+
+            $path = 'files/guides';
+            if (!file_exists($path)) {
+                BaseFileHelper::createDirectory($path);
+            }
+            $name = "/guide_" . time() . "." . $file->extension;
+            $file->saveAs($path . $name);
+            $model->url = '/' . $path . $name;
+            
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
 
         return $this->render('create', [
             'model' => $model,
         ]);
+    }
+    
+    public function randomName()
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $randstring = '';
+        for ($i = 0; $i < 12; $i++) {
+            $randstring .= $characters[rand(0, strlen($characters))];
+        }
+        return $randstring;
     }
 
     /**
@@ -72,9 +99,21 @@ class GuidesController extends AuthController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model->scenario = 'update';
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            
+            $file = UploadedFile::getInstance($model, 'url');
+            if ($file) {
+                $path = 'files/guides';
+                $name = "/guide_" . time() . "." . $file->extension;
+                $file->saveAs($path . $name);
+                $model->url = '/' . $path . $name;
+            }
+            
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
 
         return $this->render('update', [
