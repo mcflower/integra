@@ -12,7 +12,7 @@
     left: 0%;
     bottom: auto;
     z-index: 2;*/
-    
+
     width: 100%;
     position: fixed;
     height: 100%;
@@ -355,8 +355,24 @@ button.wo-close {
     margin-bottom: 0px;
 }
 
+.cwc-formgroup-p {
+    color: rgb(217, 174, 44);
+    text-decoration: underline;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 17px;
+    float: right;
+    height: auto;
+    display: block;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    width: 90%;
+    margin-right: 0px;
+}
+
 .mt-20 {
-   margin-top: 20px; 
+   margin-top: 20px;
 }
 
 .cwc-textinput {
@@ -672,7 +688,7 @@ button.wo-close {
         margin-top: 20px;
     }
 
-    .cwc-formgroup {
+    .cwc-formgroup, .cwc-formgroup-p {
         width: 100%;
     }
 

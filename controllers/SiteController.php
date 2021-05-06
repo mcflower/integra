@@ -310,10 +310,6 @@ class SiteController extends Controller
             $user->wstart = 1;
             $user->name = strip_tags(trim($post['Xuser']['name']));
             $saveResult = $user->save();
-            /*if(!$user->save()) {
-                print_r($user->errors);
-            }
-            echo 1;*/
         }
 
         $activity = Xcontent::findOne(['activity' => $activityCode]);
@@ -327,6 +323,48 @@ class SiteController extends Controller
                 ->setTo($email)
                 ->setSubject( 'Регистрация на вебинар "'.$activity->name.'".')
                 ->send();
+            Yii::$app->session->setFlash('info', 'Успешно! Проверьте электронную почту для дальнейших инструкций.');
+
+        } else {
+            Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
+        }
+
+        return $this->redirect('/');
+    }
+
+    public function actionNewRecord()
+    {
+        $post = Yii::$app->request->post();
+        $email = trim(strtolower($post['Xuser']['email']));
+        $activityCode = trim($post['Xuser']['activity']);
+        $secret = Yii::$app->params['secret'];
+        $hash = md5($email.$activityCode.$secret);
+        $user = Xuser::findOne(['hash' => $hash]);
+        $saveResult = true;
+        if (empty($user)) {
+            $user = new Xuser();
+            $user->scenario = 'current';
+            $user->email = $email;
+            $user->hash = $hash;
+            $user->activity = $activityCode;
+            $user->wstart = 0;
+            $user->name = strip_tags(trim($post['Xuser']['name']));
+            $saveResult = $user->save();
+        }
+
+        $activity = Xcontent::findOne(['activity' => $activityCode]);
+        if(!empty($activity) && $saveResult) {
+            Yii::$app->mail->compose(
+                'buyRecord',
+                ['user' => $user,
+                    'activity' => $activity,
+                    'title' => 'Счет на оплату вебинара "'.$activity->name.'".',
+                    'htmlLayout' => 'layouts/html']
+            )
+            ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+            ->setTo($user->email)
+            ->setSubject('Счет на оплату вебинара "'.$activity->name.'".')->send();
+
             Yii::$app->session->setFlash('info', 'Успешно! Проверьте электронную почту для дальнейших инструкций.');
 
         } else {
@@ -590,7 +628,7 @@ class SiteController extends Controller
         $model = new Xuser();
         $model->scenario = "current";
 
-        $this->view->registerCssFile('/css/webinar.css?i=2');
+        $this->view->registerCssFile('/css/webinar.css');
         return $this->render('webinar', ['webinar' => $webinar, 'model' => $model]);
     }
 

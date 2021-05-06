@@ -74,7 +74,7 @@ class XuserController extends AuthController
             $activityCode = $model->activity;
             $secret = Yii::$app->params['secret'];
             $model->hash = md5($email.$activityCode.$secret);
-            
+
             if($model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
             }
@@ -125,11 +125,13 @@ class XuserController extends AuthController
         $model = Xcontent::findOne(['activity' => $user->activity]);
         if($model->type == 3) {
 
-        $mes = Yii::$app->mail->compose('buyRecord',
-            ['user' => $user,
-                'activity' => $model,
-                'title' => 'Счет на оплату вебинара "'.$model->name.'".',
-                'htmlLayout' => 'layouts/html'])
+            Yii::$app->mail->compose(
+                'buyRecord',
+                ['user' => $user,
+                    'activity' => $model,
+                    'title' => 'Счет на оплату вебинара "'.$model->name.'".',
+                    'htmlLayout' => 'layouts/html']
+            )
             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
             ->setTo($user->email)
             ->setSubject('Счет на оплату вебинара "'.$model->name.'".')->send();
@@ -141,7 +143,7 @@ class XuserController extends AuthController
 
         return $this->redirect(Yii::$app->request->referrer);
     }
-    
+
     public function actionSendRecord($id)
     {
         $user = $this->findModel($id);
@@ -157,24 +159,24 @@ class XuserController extends AuthController
                 ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                 ->setTo($user->email)
                 ->setSubject('Ссылка на запись вебинара "'.$model->name.'".');
-    
+
             $mes->send();
             Yii::$app->session->setFlash('success', 'Ссылка отправлена');
         } else {
             Yii::$app->session->setFlash('danger', 'Ошибка. Вебинар еще не закрыт!');
         }
-        
+
         return $this->redirect(Yii::$app->request->referrer);
     }
-    
-    public function actionPaid($id) 
+
+    public function actionPaid($id)
     {
         $model = $this->findModel($id);
         $model->buy = 1;
         $model->wstart = 1;
         if($model->save()) {
             $activity = Xcontent::findOne(['activity' => $model->activity]);
-                    
+
             Yii::$app->mail->compose('payConfirmAdmin',
                 ['user' => $model,
                 'activity' => $activity,
@@ -184,7 +186,7 @@ class XuserController extends AuthController
             ->setTo('info@integraforlife.com')
             ->setSubject('Оплата вебинара "'.$activity->name.'"')
             ->send();
-            
+
             Yii::$app->mail->compose('payConfirm',
                 ['user' => $model,
                 'activity' => $activity,
@@ -197,7 +199,7 @@ class XuserController extends AuthController
         } else {
             Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
         }
-        
+
         return $this->redirect(Yii::$app->request->referrer);
     }
 

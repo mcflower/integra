@@ -26,7 +26,7 @@ class AppAsset extends AssetBundle
         'css/boilerplate.css',
         'css/magnific-popup.css',
         'css/site.css',
-        'css/popups.css',
+        'css/popups.css?i=1',
     ];
     public $js = [
         //'js/jquery.fancybox.min.js',
