@@ -1165,6 +1165,126 @@ a.hldbf-line3 {
     display: none;
 }
 
+.hld-header {
+    height: 100px;
+    background: rgb(141, 179, 147);
+}
+
+.guides-container {
+    margin-left: auto;
+    margin-top: 0;
+    width: 100%;
+    margin-right: auto;
+    margin-bottom: 0px;
+    background-image: url(/img/ah03.png);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    -webkit-background-size: auto;
+    background-size: auto;
+    background-color: rgb(242, 192, 153);
+}
+
+.guides-box {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.all-guides {
+    margin-top: 20px;
+}
+
+.guide-one {
+    background: rgba(141, 179, 147, 0.6);
+    border-radius: 12px;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    position: relative;
+}
+
+.guide-img {
+    display: inline-flex;
+    width: 30%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.guide-data {
+    /*display: inline-flex;
+    width: 60%;
+    height: 100%;
+    flex-direction: column;
+    padding: 20px 20px 20px 0;*/
+
+    display: inline-flex;
+    width: 67%;
+    height: auto;
+    flex-direction: column;
+    padding: 0px 40px 0 3%;
+    margin-left: 3%;
+    border-left: 3px solid white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.guide-price {
+    position: absolute;
+    right: 2%;
+    top: 10%;
+    font-size: 18px;
+    color: white;
+    background: rgb(237, 195, 71);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.guide-name {
+    font-family: 'Roboto Light';
+    color: rgb(255, 255, 255);
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.guide-brief {
+    font-family: 'Roboto Light';
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    height: 96px;
+}
+
+.guide-buttons {
+    text-align: right;
+}
+
+.guide-more-button {
+    background: rgb(237, 195, 71);
+    padding: 7px 15px;
+    color: white;
+    border-radius: 4px;
+    margin-right: 20px;
+}
+
+.guide-buy-button {
+    background: red;
+    padding: 7px 15px;
+    color: white;
+    border-radius: 4px;
+
+}
+
+.guide-more-button:hover, .guide-more-button:visited, .guide-buy-button:hover, .guide-buy-button:visited {
+    color: white;
+}
+
 @media only screen and (max-width: 900px) {
     .about-me-box {
         width: 100%;

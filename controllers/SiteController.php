@@ -11,6 +11,7 @@ use app\models\Question;
 use app\models\Transactions;
 use app\models\Xcontent;
 use app\models\Xuser;
+use app\models\Guides;
 use Exception;
 use Yii;
 use yii\filters\AccessControl;
@@ -691,7 +692,7 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionAbout()
+    /*public function actionAbout()
     {
         $orderId = '528-1597335771';
 
@@ -711,6 +712,21 @@ class SiteController extends Controller
         }
 
         return $this->render('about');
+    }*/
+    
+    public function actionGuides() 
+    {
+        $model = Guides::find()->where(['hide' => 0])->all();
+        
+        return $this->render('guides', ['model' => $model]);
+    }
+    
+    public function actionGuide($hash)
+    {
+        
+        $model = Guides::findOne(['hash' => $hash, 'hide' => 0]);
+        
+        return $this->render('guide', ['model' => $model]);
     }
 
     public function actionHypoxia()

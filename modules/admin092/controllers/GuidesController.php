@@ -56,19 +56,25 @@ class GuidesController extends AuthController
         $model = new Guides();
 
         if ($model->load(Yii::$app->request->post())) {
-            
+
             $model->hash = $this->randomName();
-            
+
             $file = UploadedFile::getInstance($model, 'url');
+            $preview = UploadedFile::getInstance($model, 'img');
 
             $path = 'files/guides';
             if (!file_exists($path)) {
                 BaseFileHelper::createDirectory($path);
             }
+
             $name = "/guide_" . time() . "." . $file->extension;
             $file->saveAs($path . $name);
             $model->url = '/' . $path . $name;
-            
+
+            $pname = "/preview_" . time() . "." . $preview->extension;
+            $preview->saveAs($path . $pname);
+            $model->img = '/' . $path . $pname;
+
             if ($model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
             }
@@ -78,7 +84,7 @@ class GuidesController extends AuthController
             'model' => $model,
         ]);
     }
-    
+
     public function randomName()
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -102,15 +108,23 @@ class GuidesController extends AuthController
         $model->scenario = 'update';
 
         if ($model->load(Yii::$app->request->post())) {
-            
+
+            $path = 'files/guides';
+
             $file = UploadedFile::getInstance($model, 'url');
             if ($file) {
-                $path = 'files/guides';
                 $name = "/guide_" . time() . "." . $file->extension;
                 $file->saveAs($path . $name);
                 $model->url = '/' . $path . $name;
             }
-            
+
+            $preview = UploadedFile::getInstance($model, 'img');
+            if ($preview) {
+                $pname = "/preview_" . time() . "." . $preview->extension;
+                $preview->saveAs($path . $pname);
+                $model->img = '/' . $path . $pname;
+            }
+
             if ($model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
             }

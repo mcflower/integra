@@ -65,6 +65,7 @@ $config = [
                 'payment/<hash:[a-zA-Z0-9]+>'=>'site/payment',
                 'invoice/<hash:[a-zA-Z0-9]+>'=>'site/invoice',
                 'webinar/<activity:[a-zA-Z0-9]+>'=>'site/webinar',
+                'guide/<hash:[a-zA-Z0-9]+>'=>'site/guide',
                 'personal-certificate/<hash:[a-zA-Z0-9]+>'=>'site/personal-certificate',
                 '<view>' => 'site/<view>',
             ],
@@ -89,7 +90,7 @@ if (YII_ENV_DEV) {
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
         'allowedIPs' => ['127.0.0.1', '::1'],
-//        'allowedIPs' => ['89.232.118.205'],
+//        'allowedIPs' => ['85.26.235.133'],
     ];
 }
 

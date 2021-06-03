@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             [
                 'attribute' => 'url',
-                'label' => 'Страница гайда',
+                'label' => 'Файл',
                 'format' => 'raw',
                 'value' => function($data){
                     return '<a target="_blank" href="https://integraforlife.com'.$data->url.'">Открыть</a>';
@@ -59,6 +59,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function($data){
                     return ($data->hide == 0) ? '<span class="label label-success">Нет</span>' : '<span class="label label-danger">Да</span>';
                 },
+            ],
+            [
+                'attribute'=>'img',
+                'value'=>$model->img,
+                'format' => ['image',['style'=>'height:100px;']],
             ],
             [
                 'attribute' => 'created_at',

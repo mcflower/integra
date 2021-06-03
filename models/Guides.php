@@ -10,6 +10,7 @@ use yii\behaviors\TimestampBehavior;
  *
  * @property int $id
  * @property string $name
+ * @property string $img
  * @property string $url
  * @property int $price
  * @property string $hash
@@ -42,14 +43,14 @@ class Guides extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'url', 'price', 'hash', 'brief', 'description', 'hide'], 'required'],
+            [['name', 'img', 'url', 'price', 'hash', 'brief', 'description', 'hide'], 'required'],
             [['price', 'hide', 'created_at', 'updated_at'], 'integer'],
             [['description'], 'string'],
-            [['name', 'url', 'hash'], 'string', 'max' => 255],
+            [['name', 'url', 'hash', 'img'], 'string', 'max' => 255],
             [['brief'], 'string', 'max' => 1024],
         ];
     }
-    
+
     public function scenarios()
     {
         $scenarios = parent::scenarios();
@@ -66,6 +67,7 @@ class Guides extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Название',
+            'img' => 'Изображение',
             'url' => 'Файл',
             'price' => 'Цена',
             'hash' => 'Hash',

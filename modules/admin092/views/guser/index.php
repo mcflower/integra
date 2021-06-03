@@ -6,12 +6,10 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Gusers';
+$this->title = 'Покупатели';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="guser-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a('Create Guser', ['create'], ['class' => 'btn btn-success']) ?>
@@ -23,14 +21,27 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'name',
             'email:email',
-            'hash',
+            //'hash',
             'gcontent',
             //'status',
+            [
+                'attribute' => 'status',
+                'format' => 'raw',
+                'value' => function($data){
+                    return ($data->status == 1) ? '<span class="label label-success">Оплачено</span>' : '<span class="label label-danger">Нет оплаты</span>';
+                },
+            ],
             //'created_at',
-            //'updated_at',
+            [
+                'attribute' => 'updated_at',
+                'format' => 'raw',
+                'value' => function($data){
+                    return date ('d.m.Y', $data->updated_at);
+                },
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

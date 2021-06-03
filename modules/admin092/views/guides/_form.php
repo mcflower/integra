@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'price')->textInput() ?>
 
     <?= $form->field($model, 'brief')->textInput(['maxlength' => true]) ?>
-    
+
     <?= $form->field($model, 'description')->widget(TinyMce::className(), [
         'options' => ['rows' => 16],
         'language' => 'ru',
@@ -35,7 +35,9 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'hide')->dropDownList(array(0 => 'нет', 1 => 'да'), ['prompt' => 'Необходимо выбрать...']) ?>
 
     <?= $form->field($model, 'url')->fileInput()->hint('Важно! PDF-файл') ?>
-    
+
+    <?= $form->field($model, 'img')->fileInput()->hint('Важно! Сохраняйте пропорции 800x600') ?>
+
     <div class="form-group">
         <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
     </div>
