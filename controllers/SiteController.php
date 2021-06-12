@@ -761,25 +761,89 @@ class SiteController extends Controller
         return $this->render('hypoxia', ['model' => $model]);
     }
 
+    public function actionBuyGuide()
+    {
+        $model = new Guser();
+
+        if ($model->load(Yii::$app->request->post())) {
+
+            $hash = md5($model->email . $model->gcontent . Yii::$app->params['secret']);
+            $oldRecord = Guser::findOne(['hash' => $hash]);
+
+            if (empty($oldRecord)) {
+                $model->hash = $hash;
+            } else {
+                if ($oldRecord->status == 1 && ($oldRecord->updated_at + 31 * 24 * 60 * 60) > time()) {
+                    return $this->redirect(Url::to(['error-page', 'error' => 6]));
+                } elseif($oldRecord->status == 0) {
+                    $model = $oldRecord;
+                }
+            }
+
+            if ($model->save()) {
+
+                $guide = Guides::findOne(['hash' => $model->gcontent]);
+                $orderId = $model->getPrimaryKey();
+
+                if (!$guide) {
+                    return $this->redirect(Url::to(['error-page', 'error' => 3]));
+                }
+
+                try {
+                    $client = new Client(['userName' => 'integraforlife-api', 'password' => 'Flower192543', 'language' => 'ru', 'currency' => Currency::RUB]);
+
+                    $orderAmount = $guide->price * 100;
+
+                    $returnUrl = 'https://integraforlife.com/buy-guide-complete';
+                    $params['failUrl'] = 'https://integraforlife.com/error-page?error=7';
+
+                    $transactionOrderId = $orderId . "-guide-" . time();
+                    $result = $client->registerOrder($transactionOrderId, $orderAmount, $returnUrl, $params);
+
+                    $paymentOrderId = $result['orderId'];
+                    $paymentFormUrl = $result['formUrl'];
+
+                    $transaction = new Transactions();
+                    $transaction->scenario = 'new';
+                    $transaction->order_number = $transactionOrderId;
+                    $transaction->save();
+
+                    return $this->redirect(Url::to($paymentFormUrl));
+
+                } catch (Exception $e) {
+                    Yii::$app->common->sendMail('Guides. Exception step 1 (sberbank)', $e, 'mcflower@me.com', Yii::$app->params['sendName']);
+                    Yii::$app->session->setFlash('error', 'Ошибка платежной системы. Повторите позднее.');
+                }
+            }
+
+        }
+        return $this->redirect(Url::to(['error-page', 'error' => 7]));
+    }
+
+    public function actionBuyGuideComplete()
+    {
+
+    }
+
     public function actionGetGuide(string $hash)
     {
         $guser = Guser::findOne(['hash' => $hash]);
         if (empty($guser)) {
-            return $this->redirect(Url::to(['error-page', 'error' => '4']));
+            return $this->redirect(Url::to(['error-page', 'error' => 4]));
         }
 
         if ($guser->status == 0) {
-            return $this->redirect(Url::to(['error-page', 'error' => '1']));
+            return $this->redirect(Url::to(['error-page', 'error' => 1]));
         }
 
         if (($guser->updated_at + 31 * 24 * 60 * 60) < time()) {
-            return $this->redirect(Url::to(['error-page', 'error' => '2']));
+            return $this->redirect(Url::to(['error-page', 'error' => 2]));
         }
 
         $guide = Guides::findOne(['hash' => $guser->gcontent]);
 
         if (empty($guide)) {
-            return $this->redirect(Url::to(['error-page', 'error' => '3']));
+            return $this->redirect(Url::to(['error-page', 'error' => 3]));
         }
 
         $path = '/home/m/mcflow/integraforlife.com/public_html';
@@ -798,7 +862,7 @@ class SiteController extends Controller
             exit;
 
         } else {
-            return $this->redirect(Url::to(['error-page', 'error' => '3']));
+            return $this->redirect(Url::to(['error-page', 'error' => 3]));
         }
     }
 
@@ -824,6 +888,14 @@ class SiteController extends Controller
             case 5:
                 $errorTitle = 'Файл не найден';
                 $errorContent = 'Файл не найден. Обратитесь в тех. поддержку.';
+                break;
+            case 6:
+                $errorTitle = 'Контент оплачен';
+                $errorContent = 'Контент ранее был оплачен. Проверьте почту или обратитесь в тех. поддержку.';
+                break;
+            case 7:
+                $errorTitle = 'Ошибка оплаты';
+                $errorContent = 'Произошла ошибка. Повторите попытку позднее.';
                 break;
             default:
                 $errorTitle = 'Ошибка';
