@@ -19,6 +19,9 @@ $config = [
         ],
     ],
     'components' => [
+        'common' => [
+            'class' => 'app\components\Common'
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '1PP9zWfzgirOv-uLRLbLMOj3NpUDdlpF',
@@ -78,7 +81,7 @@ $config['bootstrap'][] = 'debug';
 $config['modules']['debug'] = [
     'class' => 'yii\debug\Module',
     // uncomment the following to add your IP if you are not connecting from localhost.
-    'allowedIPs' => ['195.144.199.79'],
+    'allowedIPs' => ['195.46.191.96'],
 ];
 
 if (YII_ENV_DEV) {
