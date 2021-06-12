@@ -71,6 +71,8 @@ class GuidesController extends AuthController
             $file->saveAs($path . $name);
             $model->url = '/' . $path . $name;
 
+            $model->filename = Yii::$app->common->rus2eng($model->name) . "." . $file->extension;
+
             $pname = "/preview_" . time() . "." . $preview->extension;
             $preview->saveAs($path . $pname);
             $model->img = '/' . $path . $pname;
@@ -116,6 +118,10 @@ class GuidesController extends AuthController
                 $name = "/guide_" . time() . "." . $file->extension;
                 $file->saveAs($path . $name);
                 $model->url = '/' . $path . $name;
+
+                $model->filename = Yii::$app->common->rus2eng($model->name) . "." . $file->extension;
+            } else {
+                $model->filename = Yii::$app->common->rus2eng($model->name) . "." . Yii::$app->common->getExtension($model->url);
             }
 
             $preview = UploadedFile::getInstance($model, 'img');
