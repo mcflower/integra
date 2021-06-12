@@ -155,22 +155,22 @@ class SiteController extends Controller
 
                     $activity = Xcontent::findOne(['activity' => $user->activity]);
 
+                    $xd = date('d.m.Y', $activity->xdate);
+
                     Yii::$app->mail->compose('payConfirmAdmin',
                         ['user' => $user,
                             'activity' => $activity,
-                            'title' => 'Оплата вебинара "' . $activity->name . '"',
+                            'title' => $xd . ' Оплата вебинара "' . $activity->name . '"',
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo('info@integraforlife.com')
                         ->setSubject('Оплата вебинара "' . $activity->name . '"')
                         ->send();
 
-                    $xd = date('d.m.Y', $activity->xdate);
-
                     Yii::$app->mail->compose('payConfirm',
                         ['user' => $user,
                             'activity' => $activity,
-                            'title' => $xd . 'Оплата за вебинар "' . $activity->name . '"',
+                            'title' => 'Оплата за вебинар "' . $activity->name . '"',
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo($user->email)
@@ -249,10 +249,11 @@ class SiteController extends Controller
 
                     $activity = Xcontent::findOne(['activity' => $user->activity]);
 
+                    $xd = date('d.m.Y', $activity->xdate);
                     Yii::$app->mail->compose('payConfirmAdmin',
                         ['user' => $user,
                             'activity' => $activity,
-                            'title' => 'Оплата за запись вебинара "' . $activity->name . '"',
+                            'title' => $xd . ' Оплата за запись вебинара "' . $activity->name . '"',
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo('info@integraforlife.com')
@@ -822,7 +823,75 @@ class SiteController extends Controller
 
     public function actionBuyGuideComplete()
     {
+        /**
+         * Если оплатили через sberPay то необходимо дождаться когда крон самостоятельно проставит оплату
+         */
+        if (isset($_GET['bankInvoiceID'])) {
+            Yii::$app->session->setFlash('warning', 'Спасибо. Мы проверяем Ваш платеж. Это займет не более 30 минут.');
+            return $this->redirect('/');
+        }
 
+        try {
+
+            $orderId = $_GET['orderId'];
+
+            $client = new Client(['userName' => 'integraforlife-api', 'password' => 'Flower192543', 'language' => 'ru', 'currency' => Currency::RUB]);
+
+            $systemOrderId = $orderId;
+            $result = $client->getOrderStatusExtended($systemOrderId);
+            $temp = explode("-", $result['orderNumber']);
+            $orderIdU2p = $temp[0];
+
+            if (OrderStatus::isDeposited($result['orderStatus'])) {
+
+                $id = $orderIdU2p;
+
+                $guser = Guser::findOne($id);
+
+                if ($guser->status == 0) {
+                    $guser->status = 1;
+                    $guser->save();
+
+                    $transaction = Transactions::findOne(['order_number' => $result['orderNumber']]);
+                    if (!empty($transaction)) {
+                        $transaction->scenario = 'update';
+                        $transaction->status = 1;
+                        $transaction->save();
+                    }
+
+                    $guide = Guides::findOne(['hash' => $guser->gcontent]);
+
+                    Yii::$app->mail->compose('payConfirmAdmin',
+                        ['user' => $guser,
+                            'guide' => $guide,
+                            'title' => 'Оплата гайда "' . $guide->name . '"',
+                            'htmlLayout' => 'layouts/html'])
+                        ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                        ->setTo('info@integraforlife.com')
+                        ->setSubject('Оплата гайда "' . $guide->name . '"')
+                        ->send();
+
+                    Yii::$app->mail->compose('payConfirm',
+                        ['user' => $guser,
+                            'guide' => $guide,
+                            'title' => 'Оплата за гайд "' . $guide->name  . '"',
+                            'htmlLayout' => 'layouts/html'])
+                        ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                        ->setTo($guser->email)
+                        ->setSubject('Оплата за гайд "' . $guide->name  . '"')
+                        ->send();
+
+                    return $this->render('guide-buy-complete', ['guideHash' => $guser->gcontent]);
+
+                }
+
+            }
+
+        } catch (Exception $e) {
+            Yii::$app->common->sendMail('Guide. Exception step 2 (sberbank)', $e, 'mcflower@me.com', Yii::$app->params['sendName']);
+        }
+
+        return $this->redirect(Url::to(['error-page', 'error' => 7]));
     }
 
     public function actionGetGuide(string $hash)
