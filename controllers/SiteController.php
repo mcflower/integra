@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\Article;
 use app\models\Certificate;
 use app\models\CronClient;
+use app\models\Guser;
 use app\models\Hypoxia;
 use app\models\Info;
 use app\models\Question;
@@ -84,10 +85,10 @@ class SiteController extends Controller
         $certs = Certificate::find()->orderBy('position asc')->all();
         $webinars = Webinar::find()->where(['hide' => 0])->orderBy('position asc')->all();
         $active = Xcontent::find()->where(['type' => 2])->orderBy('xdate asc')->one();
-        if(empty($active)) {
+        if (empty($active)) {
             $active = Xcontent::find()->where(['type' => 1])->orderBy('xdate asc')->one();
         }
-        $nexts = Xcontent::find()->where(['type' => [1,2]])->orderBy('xdate asc')->all();
+        $nexts = Xcontent::find()->where(['type' => [1, 2]])->orderBy('xdate asc')->all();
 
         $model = new Xuser();
         $model->scenario = "current";
@@ -113,7 +114,7 @@ class SiteController extends Controller
     public function actionSuccess()
     {
         /**
-         * Если оплатили через sberPay то необходимо дождаться когда крон самостятельно проставит оплату
+         * Если оплатили через sberPay то необходимо дождаться когда крон самостоятельно проставит оплату
          */
         if (isset($_GET['bankInvoiceID'])) {
             Yii::$app->session->setFlash('warning', 'Спасибо. Мы проверяем Ваш платеж. Это займет не более 30 минут.');
@@ -140,13 +141,13 @@ class SiteController extends Controller
 
                 $user = Xuser::findOne($id);
 
-                if($user->buy == 0) {
+                if ($user->buy == 0) {
                     $user->buy = 1;
                     $user->wstart = 1;
                     $user->save();
 
                     $transaction = Transactions::findOne(['order_number' => $result['orderNumber']]);
-                    if(!empty($transaction)) {
+                    if (!empty($transaction)) {
                         $transaction->scenario = 'update';
                         $transaction->status = 1;
                         $transaction->save();
@@ -156,24 +157,24 @@ class SiteController extends Controller
 
                     Yii::$app->mail->compose('payConfirmAdmin',
                         ['user' => $user,
-                        'activity' => $activity,
-                        'title' => 'Оплата вебинара "'.$activity->name.'"',
-                        'htmlLayout' => 'layouts/html'])
-                    ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                    ->setTo('info@integraforlife.com')
-                    ->setSubject('Оплата вебинара "'.$activity->name.'"')
-                    ->send();
+                            'activity' => $activity,
+                            'title' => 'Оплата вебинара "' . $activity->name . '"',
+                            'htmlLayout' => 'layouts/html'])
+                        ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                        ->setTo('info@integraforlife.com')
+                        ->setSubject('Оплата вебинара "' . $activity->name . '"')
+                        ->send();
 
                     $xd = date('d.m.Y', $activity->xdate);
 
                     Yii::$app->mail->compose('payConfirm',
                         ['user' => $user,
-                        'activity' => $activity,
-                            'title' => $xd . 'Оплата за вебинар "'.$activity->name.'"',
+                            'activity' => $activity,
+                            'title' => $xd . 'Оплата за вебинар "' . $activity->name . '"',
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo($user->email)
-                        ->setSubject($xd . 'Оплата за вебинар "'.$activity->name.'"')
+                        ->setSubject($xd . 'Оплата за вебинар "' . $activity->name . '"')
                         ->send();
                 }
 
@@ -234,13 +235,13 @@ class SiteController extends Controller
 
                 $user = Xuser::findOne($id);
 
-                if($user->buy == 0) {
+                if ($user->buy == 0) {
                     $user->buy = 1;
                     $user->wclose = 2;
                     $user->save();
 
                     $transaction = Transactions::findOne(['order_number' => $result['orderNumber']]);
-                    if(!empty($transaction)) {
+                    if (!empty($transaction)) {
                         $transaction->scenario = 'update';
                         $transaction->status = 1;
                         $transaction->save();
@@ -251,11 +252,11 @@ class SiteController extends Controller
                     Yii::$app->mail->compose('payConfirmAdmin',
                         ['user' => $user,
                             'activity' => $activity,
-                            'title' => 'Оплата за запись вебинара "'.$activity->name.'"',
+                            'title' => 'Оплата за запись вебинара "' . $activity->name . '"',
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo('info@integraforlife.com')
-                        ->setSubject('Оплата за записи вебинара "'.$activity->name.'"')
+                        ->setSubject('Оплата за записи вебинара "' . $activity->name . '"')
                         ->send();
 
                     $needCertLink = !empty($activity->cert);
@@ -263,11 +264,11 @@ class SiteController extends Controller
                         ['user' => $user,
                             'activity' => $activity,
                             'needCertLink' => $needCertLink,
-                            'title' => 'Ссылка на запись вебинара "'.$activity->name.'".',
+                            'title' => 'Ссылка на запись вебинара "' . $activity->name . '".',
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo($user->email)
-                        ->setSubject('Ссылка на запись вебинара "'.$activity->name.'".')->send();
+                        ->setSubject('Ссылка на запись вебинара "' . $activity->name . '".')->send();
 
                 }
 
@@ -299,7 +300,7 @@ class SiteController extends Controller
         $email = trim(strtolower($post['Xuser']['email']));
         $activityCode = trim($post['Xuser']['activity']);
         $secret = Yii::$app->params['secret'];
-        $hash = md5($email.$activityCode.$secret);
+        $hash = md5($email . $activityCode . $secret);
         $user = Xuser::findOne(['hash' => $hash]);
         $saveResult = true;
         if (empty($user)) {
@@ -314,15 +315,15 @@ class SiteController extends Controller
         }
 
         $activity = Xcontent::findOne(['activity' => $activityCode]);
-        if(!empty($activity) && $saveResult) {
+        if (!empty($activity) && $saveResult) {
             Yii::$app->mail->compose('active',
                 ['client' => $user->name,
                     'hash' => $hash,
-                    'title' => 'Регистрация на вебинар "'.$activity->name.'".',
+                    'title' => 'Регистрация на вебинар "' . $activity->name . '".',
                     'htmlLayout' => 'layouts/html'])
                 ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                 ->setTo($email)
-                ->setSubject( 'Регистрация на вебинар "'.$activity->name.'".')
+                ->setSubject('Регистрация на вебинар "' . $activity->name . '".')
                 ->send();
             Yii::$app->session->setFlash('info', 'Успешно! Проверьте электронную почту для дальнейших инструкций.');
 
@@ -339,7 +340,7 @@ class SiteController extends Controller
         $email = trim(strtolower($post['Xuser']['email']));
         $activityCode = trim($post['Xuser']['activity']);
         $secret = Yii::$app->params['secret'];
-        $hash = md5($email.$activityCode.$secret);
+        $hash = md5($email . $activityCode . $secret);
         $user = Xuser::findOne(['hash' => $hash]);
         $saveResult = true;
         if (empty($user)) {
@@ -354,17 +355,17 @@ class SiteController extends Controller
         }
 
         $activity = Xcontent::findOne(['activity' => $activityCode]);
-        if(!empty($activity) && $saveResult) {
+        if (!empty($activity) && $saveResult) {
             Yii::$app->mail->compose(
                 'buyRecord',
                 ['user' => $user,
                     'activity' => $activity,
-                    'title' => 'Счет на оплату вебинара "'.$activity->name.'".',
+                    'title' => 'Счет на оплату вебинара "' . $activity->name . '".',
                     'htmlLayout' => 'layouts/html']
             )
-            ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-            ->setTo($user->email)
-            ->setSubject('Счет на оплату вебинара "'.$activity->name.'".')->send();
+                ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                ->setTo($user->email)
+                ->setSubject('Счет на оплату вебинара "' . $activity->name . '".')->send();
 
             Yii::$app->session->setFlash('info', 'Успешно! Проверьте электронную почту для дальнейших инструкций.');
 
@@ -381,7 +382,7 @@ class SiteController extends Controller
         $email = trim(strtolower($post['Xuser']['email']));
         $activityCode = trim($post['Xuser']['activity']);
         $secret = 'integraextra';
-        $hash = md5($email.$activityCode.$secret);
+        $hash = md5($email . $activityCode . $secret);
         $user = Xuser::findOne(['hash' => $hash]);
         $saveResult = true;
         if (empty($user)) {
@@ -396,16 +397,16 @@ class SiteController extends Controller
         }
 
         $activity = Xcontent::findOne(['activity' => $activityCode]);
-        if(!empty($activity) && $saveResult) {
+        if (!empty($activity) && $saveResult) {
             Yii::$app->mail->compose('next',
                 ['client' => $user->name,
                     'hash' => $hash,
                     'activity' => $activity,
-                    'title' => 'Уведомление о вебинаре "'.$activity->name.'".',
+                    'title' => 'Уведомление о вебинаре "' . $activity->name . '".',
                     'htmlLayout' => 'layouts/html'])
                 ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                 ->setTo($email)
-                ->setSubject( 'Уведомление о вебинаре "'.$activity->name.'".')
+                ->setSubject('Уведомление о вебинаре "' . $activity->name . '".')
                 ->send();
             Yii::$app->session->setFlash('info', 'Успешно! Проверьте электронную почту для дальнейших инструкций.');
 
@@ -416,15 +417,16 @@ class SiteController extends Controller
         return $this->redirect('/');
     }
 
-    public function actionPersonalCertificate($hash = "") {
+    public function actionPersonalCertificate($hash = "")
+    {
         //$this->view->title = 'Personal Certificate';
 
         //return $this->render('certificate');
         $hash = strip_tags(trim($hash));
-        if(!empty($hash)) {
+        if (!empty($hash)) {
             $user = Xuser::findOne(['hash' => $hash, 'buy' => 1]);
             $activity = Xcontent::findOne(['activity' => $user->activity, 'type' => 3]);
-            if(!empty($user) && !empty($activity) && !empty($activity->cert)) {
+            if (!empty($user) && !empty($activity) && !empty($activity->cert)) {
 
                 $content = $this->renderPartial('certificate', ['user' => $user, 'activity' => $activity]);
 
@@ -527,7 +529,7 @@ class SiteController extends Controller
 
         $orderId = $user->id;
         $activity = Xcontent::findOne(['activity' => $user->activity, 'type' => 2]);
-        if(empty($activity)) {
+        if (empty($activity)) {
             Yii::$app->session->setFlash('error', 'Вебинар не найден! Зарегистрируйтесь снова.');
             return $this->redirect('/');
         }
@@ -584,7 +586,7 @@ class SiteController extends Controller
 
         $orderId = $user->id;
         $activity = Xcontent::findOne(['activity' => $user->activity, 'type' => 3]);
-        if(empty($activity)) {
+        if (empty($activity)) {
             Yii::$app->session->setFlash('error', 'Вебинар не найден! Зарегистрируйтесь снова.');
             return $this->redirect('/');
         }
@@ -713,19 +715,20 @@ class SiteController extends Controller
 
         return $this->render('about');
     }*/
-    
-    public function actionGuides() 
+
+    public function actionGuides()
     {
         $model = Guides::find()->where(['hide' => 0])->all();
-        
-        return $this->render('guides', ['model' => $model]);
+        $guser = new Guser();
+
+        return $this->render('guides', ['model' => $model, 'user' => $guser]);
     }
-    
+
     public function actionGuide($hash)
     {
-        
+
         $model = Guides::findOne(['hash' => $hash, 'hide' => 0]);
-        
+
         return $this->render('guide', ['model' => $model]);
     }
 
@@ -756,6 +759,78 @@ class SiteController extends Controller
         }
 
         return $this->render('hypoxia', ['model' => $model]);
+    }
+
+    public function actionGetGuide(string $hash)
+    {
+        $guser = Guser::findOne(['hash' => $hash]);
+        if (empty($guser)) {
+            return $this->redirect(Url::to(['error-page', 'error' => '4']));
+        }
+
+        if ($guser->status == 0) {
+            return $this->redirect(Url::to(['error-page', 'error' => '1']));
+        }
+
+        if (($guser->updated_at + 31 * 24 * 60 * 60) < time()) {
+            return $this->redirect(Url::to(['error-page', 'error' => '2']));
+        }
+
+        $guide = Guides::findOne(['hash' => $guser->gcontent]);
+
+        if (empty($guide)) {
+            return $this->redirect(Url::to(['error-page', 'error' => '3']));
+        }
+
+        $path = '/home/m/mcflow/integraforlife.com/public_html';
+        $filename = $path . $guide->url;
+
+        if (file_exists($filename)) {
+
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename="' . $guide->filename . '"');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize($filename));
+            readfile($filename);
+            exit;
+
+        } else {
+            return $this->redirect(Url::to(['error-page', 'error' => '3']));
+        }
+    }
+
+    public function actionErrorPage(int $error)
+    {
+        switch ($error) {
+            case 1:
+                $errorTitle = 'Оплата не найдена';
+                $errorContent = 'Мы не смогли найти вашу оплату. Обратитесь в тех. поддержку.';
+                break;
+            case 2:
+                $errorTitle = 'Время истекло';
+                $errorContent = 'Время отведенное на скачивание файла (30 дней с момента оплаты) истекло.';
+                break;
+            case 3:
+                $errorTitle = 'Контент не найден';
+                $errorContent = 'Запрашиваемый контент не найден.';
+                break;
+            case 4:
+                $errorTitle = 'Клиент не найден';
+                $errorContent = 'Ваша регистрация не найдена.';
+                break;
+            case 5:
+                $errorTitle = 'Файл не найден';
+                $errorContent = 'Файл не найден. Обратитесь в тех. поддержку.';
+                break;
+            default:
+                $errorTitle = 'Ошибка';
+                $errorContent = 'Произошла неизвестная ошибка.';
+        }
+
+        return $this->render('common_error_page', ['errorTitle' => $errorTitle, 'errorContent' => $errorContent]);
     }
 
 }

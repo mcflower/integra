@@ -4,7 +4,7 @@
     margin: 0px;
     clear: none;
     width: 100%;
-    background-image:url("img/ah-back1.png"),url("img/ah01.jpg");
+    background-image:url("/img/ah-back1.png"),url("/img/ah01.jpg");
     background-attachment: scroll;
     -webkit-background-size: auto;
     background-size: auto;
@@ -141,7 +141,7 @@
     }
 
     .notify-head {
-        background-image:url("img/ah-back1.png"),url("img/ah01.jpg");
+        background-image:url("/img/ah-back1.png"),url("/img/ah01.jpg");
         background-attachment: scroll;
         -webkit-background-size: auto, 800px;
         background-size: auto, 800px;
@@ -169,7 +169,7 @@
     }
 
     .notify-head {
-        background-image:url("img/ah-back1.png"),url("img/ah01.jpg");
+        background-image:url("/img/ah-back1.png"),url("/img/ah01.jpg");
         background-attachment: scroll;
         -webkit-background-size: auto, 200%;
         background-size: auto, 200%;

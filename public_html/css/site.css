@@ -1228,7 +1228,7 @@ a.hldbf-line3 {
     width: 67%;
     height: auto;
     flex-direction: column;
-    padding: 0px 40px 0 3%;
+    padding: 0px 30px 0 3%;
     margin-left: 3%;
     border-left: 3px solid white;
     margin-top: 20px;
@@ -1237,13 +1237,17 @@ a.hldbf-line3 {
 
 .guide-price {
     position: absolute;
-    right: 2%;
-    top: 10%;
+    right: 0;
+    top: 0;
     font-size: 18px;
-    color: white;
-    background: rgb(237, 195, 71);
+    color: #f5773b;
+    background: white;
     padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: 6px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 12px;
 }
 
 .guide-name {
@@ -1271,18 +1275,31 @@ a.hldbf-line3 {
     color: white;
     border-radius: 4px;
     margin-right: 20px;
+    opacity: 1;
+}
+
+.guide-more-button:hover {
+    opacity: .8;
 }
 
 .guide-buy-button {
-    background: red;
+    background: #f5773b;
     padding: 7px 15px;
     color: white;
     border-radius: 4px;
-
+    opacity: 1;
 }
 
-.guide-more-button:hover, .guide-more-button:visited, .guide-buy-button:hover, .guide-buy-button:visited {
-    color: white;
+.guide-buy-button:hover {
+    opacity: .8;
+}
+
+
+
+a.guide-more-button:hover, a.guide-more-button:visited, a.guide-more-button:active,
+a.guide-buy-button:hover, a.guide-buy-button:visited, a.guide-buy-button:active {
+    color: white !important;
+    text-decoration: none !important;
 }
 
 @media only screen and (max-width: 900px) {
