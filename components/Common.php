@@ -36,4 +36,14 @@ class Common extends Component
     public function getExtension($filename) {
         return substr(strrchr($filename, '.'), 1);
     }
+
+    public function randomName()
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $randstring = '';
+        for ($i = 0; $i < 12; $i++) {
+            $randstring .= $characters[rand(0, strlen($characters))];
+        }
+        return $randstring;
+    }
 }

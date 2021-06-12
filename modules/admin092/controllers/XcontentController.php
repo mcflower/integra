@@ -74,7 +74,7 @@ class XcontentController extends AuthController
 
         if ($model->load(Yii::$app->request->post())) {
 
-            $model->activity = $this->randomName();
+            $model->activity = Yii::$app->common->randomName();
             $model->type = 1;
             $model->xdate = strtotime($model->string_day);
             $model->expired = $model->xdate + (31 * 24 * 60 * 60);
@@ -103,20 +103,6 @@ class XcontentController extends AuthController
             'model' => $model,
         ]);
     }
-
-    public function randomName()
-    {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $randstring = '';
-        for ($i = 0; $i < 12; $i++) {
-            $randstring .= $characters[rand(0, strlen($characters))];
-        }
-        return $randstring;
-    }
-
-    /*public function actionTest() {
-        echo $this->randomName();
-    }*/
 
     /**
      * Updates an existing Xcontent model.

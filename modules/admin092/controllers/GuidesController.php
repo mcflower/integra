@@ -57,7 +57,7 @@ class GuidesController extends AuthController
 
         if ($model->load(Yii::$app->request->post())) {
 
-            $model->hash = $this->randomName();
+            $model->hash = Yii::$app->common->randomName();
 
             $file = UploadedFile::getInstance($model, 'url');
             $preview = UploadedFile::getInstance($model, 'img');
@@ -85,16 +85,6 @@ class GuidesController extends AuthController
         return $this->render('create', [
             'model' => $model,
         ]);
-    }
-
-    public function randomName()
-    {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $randstring = '';
-        for ($i = 0; $i < 12; $i++) {
-            $randstring .= $characters[rand(0, strlen($characters))];
-        }
-        return $randstring;
     }
 
     /**
