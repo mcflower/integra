@@ -184,7 +184,12 @@ class SiteController extends Controller
             }
 
         } catch (Exception $e) {
-            Yii::$app->common->sendMail('Exception step 2 (sberbank)', $e, 'mcflower@me.com', Yii::$app->params['sendName']);
+            Yii::$app->mail->compose()
+                ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                ->setTo('mcflower@me.com')
+                ->setSubject('Exception step 2 (sberbank)')
+                ->setTextBody($e)
+                ->send();
             return $this->redirect('/');
         }
 
@@ -279,7 +284,12 @@ class SiteController extends Controller
             }
 
         } catch (Exception $e) {
-            Yii::$app->common->sendMail('Exception step 2 (sberbank)', $e, 'mcflower@me.com', Yii::$app->params['sendName']);
+            Yii::$app->mail->compose()
+                ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                ->setTo('mcflower@me.com')
+                ->setSubject('Exception step 2 (sberbank)')
+                ->setTextBody($e)
+                ->send();
             return $this->redirect('/');
         }
 
@@ -559,7 +569,12 @@ class SiteController extends Controller
             return $this->redirect(Url::to($paymentFormUrl));
 
         } catch (Exception $e) {
-            Yii::$app->common->sendMail('Exception step 1 (sberbank)', $e, 'mcflower@me.com', Yii::$app->params['sendName']);
+            Yii::$app->mail->compose()
+                ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                ->setTo('mcflower@me.com')
+                ->setSubject('Exception step 1 (sberbank)')
+                ->setTextBody($e)
+                ->send();
             Yii::$app->session->setFlash('error', 'Ошибка платежной системы. Повторите позднее.');
             return $this->redirect('/');
         }
@@ -614,7 +629,12 @@ class SiteController extends Controller
             return $this->redirect(Url::to($paymentFormUrl));
 
         } catch (Exception $e) {
-            Yii::$app->common->sendMail('Exception step 1 (sberbank)', $e, 'mcflower@me.com', Yii::$app->params['sendName']);
+            Yii::$app->mail->compose()
+                ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                ->setTo('mcflower@me.com')
+                ->setSubject('Exception step 1 (sberbank)')
+                ->setTextBody($e)
+                ->send();
             Yii::$app->session->setFlash('error', 'Ошибка платежной системы. Повторите позднее.');
             return $this->redirect('/');
         }
@@ -773,6 +793,7 @@ class SiteController extends Controller
 
             if (empty($oldRecord)) {
                 $model->hash = $hash;
+                $model->status = 0;
             } else {
                 if ($oldRecord->status == 1 && ($oldRecord->updated_at + 31 * 24 * 60 * 60) > time()) {
                     return $this->redirect(Url::to(['error-page', 'error' => 6]));
@@ -812,7 +833,12 @@ class SiteController extends Controller
                     return $this->redirect(Url::to($paymentFormUrl));
 
                 } catch (Exception $e) {
-                    Yii::$app->common->sendMail('Guides. Exception step 1 (sberbank)', $e, 'mcflower@me.com', Yii::$app->params['sendName']);
+                    Yii::$app->mail->compose()
+                        ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                        ->setTo('mcflower@me.com')
+                        ->setSubject('Guide. Exception step 1 (sberbank)')
+                        ->setTextBody($e)
+                        ->send();
                     Yii::$app->session->setFlash('error', 'Ошибка платежной системы. Повторите позднее.');
                 }
             }
@@ -849,6 +875,7 @@ class SiteController extends Controller
                 $guser = Guser::findOne($id);
 
                 if ($guser->status == 0) {
+                    $guser->scenario = 'update';
                     $guser->status = 1;
                     $guser->save();
 
@@ -861,34 +888,41 @@ class SiteController extends Controller
 
                     $guide = Guides::findOne(['hash' => $guser->gcontent]);
 
-                    Yii::$app->mail->compose('payConfirmAdmin',
+                    Yii::$app->mail->compose('payGuideAdmin',
                         ['user' => $guser,
                             'guide' => $guide,
-                            'title' => 'Оплата гайда "' . $guide->name . '"',
+                            'title' => 'Оплата учебника "' . $guide->name . '"',
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                        ->setTo('info@integraforlife.com')
-                        ->setSubject('Оплата гайда "' . $guide->name . '"')
+                        ->setTo('mcf84@mail.ru') //info@integraforlife.com
+                        ->setSubject('Оплата учебника "' . $guide->name . '"')
                         ->send();
 
-                    Yii::$app->mail->compose('payConfirm',
+                    Yii::$app->mail->compose('payGuide',
                         ['user' => $guser,
                             'guide' => $guide,
-                            'title' => 'Оплата за гайд "' . $guide->name  . '"',
+                            'title' => 'Оплата за учебник "' . $guide->name  . '"',
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo($guser->email)
-                        ->setSubject('Оплата за гайд "' . $guide->name  . '"')
+                        ->setSubject('Оплата за учебник "' . $guide->name  . '"')
                         ->send();
 
-                    return $this->render('guide-buy-complete', ['guideHash' => $guser->gcontent]);
+                    return $this->render('guide-buy-complete', ['hash' => $guser->hash]);
 
+                } else {
+                    return $this->redirect(Url::to(['error-page', 'error' => 6]));
                 }
 
             }
 
         } catch (Exception $e) {
-            Yii::$app->common->sendMail('Guide. Exception step 2 (sberbank)', $e, 'mcflower@me.com', Yii::$app->params['sendName']);
+            Yii::$app->mail->compose()
+                ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                ->setTo('mcflower@me.com')
+                ->setSubject('Guide. Exception step 2 (sberbank)')
+                ->setTextBody($e)
+                ->send();
         }
 
         return $this->redirect(Url::to(['error-page', 'error' => 7]));

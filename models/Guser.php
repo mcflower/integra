@@ -19,6 +19,8 @@ use yii\behaviors\TimestampBehavior;
  */
 class Guser extends \yii\db\ActiveRecord
 {
+    public $reCaptcha;
+
     public function behaviors()
     {
         return [
@@ -40,10 +42,21 @@ class Guser extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'email', 'hash', 'gcontent', 'status'], 'required'],
+            [['name', 'email', 'hash', 'gcontent', 'status', 'reCaptcha'], 'required'],
             [['status', 'created_at', 'updated_at'], 'integer'],
             [['name', 'email', 'hash', 'gcontent'], 'string', 'max' => 255],
+            ['reCaptcha', \himiklab\yii2\recaptcha\ReCaptchaValidator::className(), 'secret' => '6LfAxCYaAAAAAEDpS9ZFpPnjTkAyCWlsNrNY-SOf', 'uncheckedMessage' => 'Пожалуйста, подтвердите что вы не робот.'],
+            ['email', 'filter', 'filter' => 'trim'],
+            ['email', 'email', 'message' => 'Некорректный e-mail адрес'],
         ];
+    }
+
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+        $scenarios['update'] = ['status'];
+
+        return $scenarios;
     }
 
     /**
@@ -58,6 +71,7 @@ class Guser extends \yii\db\ActiveRecord
             'hash' => 'Hash',
             'gcontent' => 'Гайд',
             'status' => 'Статус',
+            'reCaptcha' => 'Captcha',
             'created_at' => 'Создано',
             'updated_at' => 'Обновлено',
         ];

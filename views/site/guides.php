@@ -23,7 +23,7 @@
                         <p class="guide-brief"><?= $guide->brief ?></p>
                         <div class="guide-buttons">
                             <a class="guide-more-button" href="/guide/<?= $guide->hash ?>">подробнее</a>
-                            <a href="#modal-guide" class="sa-button-event guide-buy-button">купить</a>
+                            <a href="#modal-guide" data-guide="<?= $guide->hash ?>" class="sa-button-event guide-buy-button guide-buy-event">купить</a>
                         </div>
                     </div>
                     <div class="guide-price"><?= $guide->price ?> руб.</div>
@@ -37,11 +37,19 @@
 
 <div id="modal-guide" class="cw-box clearfix zoom-anim-dialog mfp-hide">
     <div class="cw-info-block clearfix">
-        <?php $form = ActiveForm::begin(); ?>
+        <?php $form = ActiveForm::begin(['action' => ['buy-guide']]); ?>
 
         <?= $form->field($user, 'name')->textInput(['maxlength' => true]) ?>
 
         <?= $form->field($user, 'email')->textInput(['maxlength' => true]) ?>
+
+        <?= $form->field($user, 'reCaptcha')->widget(
+            \himiklab\yii2\recaptcha\ReCaptcha::className(),
+            ['siteKey' => '6LfAxCYaAAAAAHek6vUl-nnehdm1Q0UqBb1VaDBm', 'widgetOptions' => ['data-size'=> 'compact', 'class' => '']]
+
+        )->label(false) ?>
+
+        <?= $form->field($user, 'gcontent')->hiddenInput()->label(false) ?>
 
         <div class="form-group">
             <?= Html::submitButton('ОПЛАТИТЬ', ['class' => 'btn btn-success']) ?>

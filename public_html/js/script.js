@@ -112,6 +112,10 @@ $('.sa-button-event').magnificPopup({
 $('#hypoxia-phone').mask("+7 (999) 999-99-99");
 $('#hypoxia-birthday').mask("99.99.9999");
 
+$('.guide-buy-event').on('click', function () {
+    $('#guser-gcontent').val($(this).data('guide'));
+});
+
 /*$('.pn-button').magnificPopup({
     type: 'inline',
 
