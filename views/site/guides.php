@@ -19,11 +19,11 @@
                     <div class="guide-img" style="background-image:url('<?= $guide->img ?>');"></div>
 <!--                    <div class="guide-separator"></div>-->
                     <div class="guide-data">
-                        <p class="guide-name"><?= $guide->name ?></p>
-                        <p class="guide-brief"><?= $guide->brief ?></p>
+                        <p class="guide-name"><?=$guide->name?></p>
+                        <p class="guide-brief"><?=$guide->brief?></p>
                         <div class="guide-buttons">
-                            <a class="guide-more-button" href="/guide/<?= $guide->hash ?>">подробнее</a>
-                            <a href="#modal-guide" data-guide="<?= $guide->hash ?>" class="sa-button-event guide-buy-button guide-buy-event">купить</a>
+                            <a class="guide-more-button" href="/guide/<?=$guide->hash?>">подробнее</a>
+                            <a href="#modal-guide" data-guide="<?=$guide->hash?>" data-gname="<?=$guide->name?>" class="sa-button-event guide-buy-button guide-buy-event">купить</a>
                         </div>
                     </div>
                     <div class="guide-price"><?= $guide->price ?> руб.</div>
@@ -35,8 +35,9 @@
     </div>
 </div>
 
-<div id="modal-guide" class="cw-box clearfix zoom-anim-dialog mfp-hide">
-    <div class="cw-info-block clearfix">
+<div id="modal-guide" class="guide-popup-box clearfix zoom-anim-dialog mfp-hide">
+    <div class="guide-popup-info-block clearfix">
+        <h3 id="guide-title">Тема учебника</h3>
         <?php $form = ActiveForm::begin(['action' => ['buy-guide']]); ?>
 
         <?= $form->field($user, 'name')->textInput(['maxlength' => true]) ?>
@@ -52,8 +53,18 @@
         <?= $form->field($user, 'gcontent')->hiddenInput()->label(false) ?>
 
         <div class="form-group">
-            <?= Html::submitButton('ОПЛАТИТЬ', ['class' => 'btn btn-success']) ?>
+            <?= Html::submitButton('ПЕРЕЙТИ К ОПЛАТЕ', ['class' => 'btn btn-success']) ?>
         </div>
+
+        <p class="cwc-line1">
+            Переходя к оплате вы даете свое согласие на обработку персональных данных<br>
+        </p>
+        <a class="cwc-line2" href="/files/privacy_policy.pdf" target="_blank">
+            Политика конфиденциальности<br>
+        </a>
+        <a class="cwc-line3" href="/files/user_agreement.pdf" target="_blank">
+            Договор оферты<br>
+        </a>
 
         <?php ActiveForm::end(); ?>
     </div>

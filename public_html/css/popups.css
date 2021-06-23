@@ -50,6 +50,24 @@
     margin-bottom: 60px;
 }
 
+.guide-popup-box {
+    float: none;
+    height: auto;
+    margin-left: auto;
+    margin-top: 60px;
+    clear: none;
+    width: 90%;
+    margin-right: auto;
+    max-width: 600px;
+    background-color: rgb(255, 255, 255);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    padding-bottom: 0px;
+    margin-bottom: 60px;
+}
+
 .cw-preview {
     float: left;
     height: 400px;
@@ -87,6 +105,25 @@
     padding-bottom: 0px;
     padding-left: 30px;
     display: block;
+}
+
+.guide-popup-info-block {
+    float: left;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: both;
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding: 30px;
+    display: block;
+}
+
+.guide-popup-info-block h3 {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .cwib-description {

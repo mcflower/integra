@@ -33,7 +33,7 @@ class AppAsset extends AssetBundle
         'js/jquery.magnific-popup.min.js',
         'js/owl.carousel.min.js',
         'js/jquery.maskedinput.js',
-        'js/script.js',
+        'js/script.js?i=1',
     ];
     public $depends = [
         'yii\web\YiiAsset',

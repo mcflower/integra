@@ -114,6 +114,7 @@ $('#hypoxia-birthday').mask("99.99.9999");
 
 $('.guide-buy-event').on('click', function () {
     $('#guser-gcontent').val($(this).data('guide'));
+    $('#guide-title').html($(this).data('gname'));
 });
 
 /*$('.pn-button').magnificPopup({
