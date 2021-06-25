@@ -61,11 +61,12 @@
     max-width: 600px;
     background-color: rgb(255, 255, 255);
     border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+    border-top-right-radius: 0;
     border-bottom-right-radius: 30px;
-    border-bottom-left-radius: 30px;
+    border-bottom-left-radius: 0;
     padding-bottom: 0px;
     margin-bottom: 60px;
+    position: relative;
 }
 
 .cw-preview {
@@ -783,6 +784,10 @@ button.wo-close {
 
     .cwib-description p img {
         width: 100%;
+    }
+
+    .guide-popup-box {
+        width: 98%;
     }
 }
 

@@ -7,7 +7,7 @@
 <div class="guides-container">
     <div class="guides-box">
         <p class="header-text">
-            Гайды
+            Материалы
         </p>
         <div class="underline-text clearfix"></div>
         <div class="all-guides">
@@ -22,14 +22,21 @@
                         <p class="guide-name"><?=$guide->name?></p>
                         <p class="guide-brief"><?=$guide->brief?></p>
                         <div class="guide-buttons">
-                            <a class="guide-more-button" href="/guide/<?=$guide->hash?>">подробнее</a>
+<!--                            <a class="guide-more-button" href="/guide/--><?//=$guide->hash?><!--">подробнее</a>-->
+                            <a href="#modal-more-<?=$guide->hash?>" class="guide-more-button sa-button-event">подробнее</a>
                             <a href="#modal-guide" data-guide="<?=$guide->hash?>" data-gname="<?=$guide->name?>" class="sa-button-event guide-buy-button guide-buy-event">купить</a>
                         </div>
                     </div>
                     <div class="guide-price"><?= $guide->price ?> руб.</div>
                 </div>
-
-                <br><br>
+                <div id="modal-more-<?=$guide->hash?>" class="guide-popup-box clearfix zoom-anim-dialog mfp-hide">
+                    <div class="guide-popup-info-block clearfix">
+                        <h3 id="guide-title"><?=$guide->name?></h3>
+                        <div>
+                            <?=$guide->description?>
+                        </div>
+                    </div>
+                </div>
             <?php endforeach;?>
         </div>
     </div>
@@ -37,7 +44,7 @@
 
 <div id="modal-guide" class="guide-popup-box clearfix zoom-anim-dialog mfp-hide">
     <div class="guide-popup-info-block clearfix">
-        <h3 id="guide-title">Тема учебника</h3>
+        <h3 id="guide-title">Тема материала</h3>
         <?php $form = ActiveForm::begin(['action' => ['buy-guide']]); ?>
 
         <?= $form->field($user, 'name')->textInput(['maxlength' => true]) ?>
