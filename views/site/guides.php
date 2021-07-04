@@ -36,11 +36,14 @@ $this->title = 'Полезные материалы';
                 <div id="modal-more-<?=$guide->hash?>" class="guide-popup-box clearfix zoom-anim-dialog mfp-hide">
                     <div class="guide-popup-info-block clearfix">
                         <h3 id="guide-title"><?=$guide->name?></h3>
-                        <div>
+                        <div class="guide-popup-content">
                             <?=$guide->description?>
                         </div>
-                        <div>
-                            <a href="#modal-guide" data-guide="<?=$guide->hash?>" data-gname="<?=$guide->name?>" class="sa-button-event guide-buy-button guide-buy-event">купить</a>
+                        <div class="guide-popup-link">
+                            <div class="guide-popup-price">
+                                Цена: <?= $guide->price ?> руб.
+                            </div>
+                            <a href="#modal-guide" data-guide="<?=$guide->hash?>" data-gname="<?=$guide->name?>" class="sa-button-event guide-popup-buy-button guide-buy-event">купить</a>
                         </div>
                     </div>
                 </div>
