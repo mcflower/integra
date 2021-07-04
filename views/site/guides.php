@@ -57,9 +57,9 @@ $this->title = 'Полезные материалы';
         <h3 id="guide-title">Тема материала</h3>
         <?php $form = ActiveForm::begin(['action' => ['buy-guide']]); ?>
 
-        <?= $form->field($user, 'name')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($user, 'name')->textInput(['class'=> 'guide-popup-input', 'maxlength' => true, 'placeholder' => 'Имя'])->label(false) ?>
 
-        <?= $form->field($user, 'email')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($user, 'email')->textInput(['class'=> 'guide-popup-input', 'maxlength' => true, 'placeholder' => 'E-mail'])->label(false) ?>
 
         <?= $form->field($user, 'reCaptcha')->widget(
             \himiklab\yii2\recaptcha\ReCaptcha::className(),
@@ -69,20 +69,18 @@ $this->title = 'Полезные материалы';
 
         <?= $form->field($user, 'gcontent')->hiddenInput()->label(false) ?>
 
-        <div class="form-group">
-            <?= Html::submitButton('ПЕРЕЙТИ К ОПЛАТЕ', ['class' => 'btn btn-success']) ?>
-        </div>
-
-        <p class="cwc-line1">
+        <p class="guide-popup-policy-links">
             Переходя к оплате вы даете свое согласие на обработку персональных данных<br>
         </p>
-        <a class="cwc-line2" href="/files/privacy_policy.pdf" target="_blank">
+        <a class="guide-popup-policy-links" href="/files/privacy_policy.pdf" target="_blank">
             Политика конфиденциальности<br>
         </a>
-        <a class="cwc-line3" href="/files/user_agreement.pdf" target="_blank">
+        <a class="guide-popup-policy-links" href="/files/user_agreement.pdf" target="_blank">
             Договор оферты<br>
         </a>
-
+        <div class="form-group order-form-group">
+            <?= Html::submitButton('ПЕРЕЙТИ К ОПЛАТЕ', ['class' => 'guide-popup-order-button']) ?>
+        </div>
         <?php ActiveForm::end(); ?>
     </div>
 </div>

@@ -117,7 +117,7 @@
     width: 100%;
     margin-right: 0px;
     margin-bottom: 0px;
-    padding: 30px;
+    padding: 30px 30px 0 30px;
     display: flex;
     flex-direction: column;
 }
@@ -139,6 +139,7 @@
     display: flex;
     flex-direction: row;
     align-content: center;
+    margin-bottom: 30px;
 }
 
 .guide-popup-price {
@@ -161,8 +162,86 @@
     opacity: 1;
 }
 
+.guide-popup-policy-links {
+    font-size: 14px;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-weight: 500;
+    line-height: 1em;
+    margin-left: 0px;
+    margin-top: 10px;
+    clear: right;
+    min-height: 0px;
+    color: rgb(141, 179, 147);
+    font-family: Roboto;
+    margin-right: 0px;
+    margin-bottom: 0px;
+
+    display: block;
+}
+
+a.guide-popup-policy-links {
+    text-decoration: underline;
+}
+
+.order-form-group {
+    margin: 15px -30px 0 0;
+}
+
+.guide-popup-order-button {
+    height: 60px;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: both;
+    width: 85%;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    display: block;
+    background-color: rgb(237, 195, 71);
+    font-family: Roboto;
+    color: rgb(255, 255, 255);
+    padding-top: 19px;
+    font-size: 21px;
+    text-align: center;
+    font-weight: normal;
+    line-height: 1em;
+    border: none;
+    padding: 0;
+    float: right;
+}
+
 .guide-popup-buy-button:hover, .guide-popup-buy-button:active {
     color: white;
+}
+
+.guide-popup-input {
+    height: auto;
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    font-family: 'Roboto Light';
+    color: rgb(237, 195, 71);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-color: rgb(111, 143, 116);
+    border-right-color: rgb(111, 143, 116);
+    border-bottom-color: rgb(111, 143, 116);
+    border-left-color: rgb(111, 143, 116);
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
 }
 
 .cwib-description {
