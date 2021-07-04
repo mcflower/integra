@@ -25,7 +25,7 @@ class AppAsset extends AssetBundle
         'css/owl.theme.default.css',
         'css/boilerplate.css',
         'css/magnific-popup.css',
-        'css/site.css?i=2',
+        'css/site.css?i=3',
         'css/popups.css?i=2',
     ];
     public $js = [

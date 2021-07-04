@@ -1,8 +1,14 @@
 <?php
 
+$this->title = 'Полезные материалы';
+
 ?>
 <div class="hld-header">
-
+    <div class="hld-header-container">
+        <a href="/" class="hld-header-link">
+            <img src="/img/logo.png" class="image">
+        </a>
+    </div>
 </div>
 <div class="guides-container">
     <div class="guides-box">
@@ -17,12 +23,10 @@
             foreach($model as $guide): ?>
                 <div class="guide-one">
                     <div class="guide-img" style="background-image:url('<?= $guide->img ?>');"></div>
-<!--                    <div class="guide-separator"></div>-->
                     <div class="guide-data">
                         <p class="guide-name"><?=$guide->name?></p>
                         <p class="guide-brief"><?=$guide->brief?></p>
                         <div class="guide-buttons">
-<!--                            <a class="guide-more-button" href="/guide/--><?//=$guide->hash?><!--">подробнее</a>-->
                             <a href="#modal-more-<?=$guide->hash?>" class="guide-more-button sa-button-event">подробнее</a>
                             <a href="#modal-guide" data-guide="<?=$guide->hash?>" data-gname="<?=$guide->name?>" class="sa-button-event guide-buy-button guide-buy-event">купить</a>
                         </div>
@@ -34,6 +38,9 @@
                         <h3 id="guide-title"><?=$guide->name?></h3>
                         <div>
                             <?=$guide->description?>
+                        </div>
+                        <div>
+                            <a href="#modal-guide" data-guide="<?=$guide->hash?>" data-gname="<?=$guide->name?>" class="sa-button-event guide-buy-button guide-buy-event">купить</a>
                         </div>
                     </div>
                 </div>

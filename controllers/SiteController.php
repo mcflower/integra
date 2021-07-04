@@ -745,13 +745,13 @@ class SiteController extends Controller
         return $this->render('guides', ['model' => $model, 'user' => $guser]);
     }
 
-    public function actionGuide($hash)
+    /*public function actionGuide($hash)
     {
 
         $model = Guides::findOne(['hash' => $hash, 'hide' => 0]);
 
         return $this->render('guide', ['model' => $model]);
-    }
+    }*/
 
     public function actionHypoxia()
     {
@@ -891,21 +891,21 @@ class SiteController extends Controller
                     Yii::$app->mail->compose('payGuideAdmin',
                         ['user' => $guser,
                             'guide' => $guide,
-                            'title' => 'Оплата учебника "' . $guide->name . '"',
+                            'title' => 'Оплата материала "' . $guide->name . '"',
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo('mcf84@mail.ru') //info@integraforlife.com
-                        ->setSubject('Оплата учебника "' . $guide->name . '"')
+                        ->setSubject('Оплата материала "' . $guide->name . '"')
                         ->send();
 
                     Yii::$app->mail->compose('payGuide',
                         ['user' => $guser,
                             'guide' => $guide,
-                            'title' => 'Оплата за учебник "' . $guide->name  . '"',
+                            'title' => 'Оплата за материал "' . $guide->name  . '"',
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo($guser->email)
-                        ->setSubject('Оплата за учебник "' . $guide->name  . '"')
+                        ->setSubject('Оплата за материал "' . $guide->name  . '"')
                         ->send();
 
                     return $this->render('guide-buy-complete', ['hash' => $guser->hash]);
