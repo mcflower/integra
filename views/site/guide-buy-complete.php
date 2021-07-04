@@ -1,6 +1,8 @@
 <?php
 
 
+use yii\helpers\Html;
+
 $this->title = "Успешная оплата";
 
 ?>
@@ -16,7 +18,7 @@ $this->title = "Успешная оплата";
                     Оплата прошла успешно!<br><br>
                     Мы продублировали ссылку на ваш e-mail.<br><br>
                     Ссылка на скачивание активна в течении 30 дней.<br><br>
-                    <a href="https://integraforlife.com/get-guide?hash='<?=$hash?>'" style="text-decoration: underline;display: inline-block;width: 100%;text-align: right;">Скачать</a>
+                    <a href="https://integraforlife.com/get-guide?hash=<?=$hash?>" style="text-decoration: underline;display: inline-block;width: 100%;text-align: left;color: rgb(237, 195, 71);">Скачать</a>
                 </p>
             </div>
         </div>
