@@ -894,7 +894,7 @@ class SiteController extends Controller
                             'title' => 'Оплата материала "' . $guide->name . '"',
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                        ->setTo('mcf84@mail.ru') //info@integraforlife.com
+                        ->setTo('info@integraforlife.com')
                         ->setSubject('Оплата материала "' . $guide->name . '"')
                         ->send();
 
