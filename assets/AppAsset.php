@@ -25,8 +25,8 @@ class AppAsset extends AssetBundle
         'css/owl.theme.default.css',
         'css/boilerplate.css',
         'css/magnific-popup.css',
-        'css/site.css?i=3',
-        'css/popups.css?i=2',
+        'css/site.css?i=4',
+        'css/popups.css?i=4',
     ];
     public $js = [
         //'js/jquery.fancybox.min.js',
