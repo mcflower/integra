@@ -41,7 +41,7 @@ $this->title = 'Полезные материалы';
                         </div>
                         <div class="guide-popup-link">
                             <div class="guide-popup-price">
-                                Цена: <?= $guide->price ?> руб.
+                                <span>Цена: <?= $guide->price ?> руб.</span>
                             </div>
                             <a href="#modal-guide" data-guide="<?=$guide->hash?>" data-gname="<?=$guide->name?>" class="sa-button-event guide-popup-buy-button guide-buy-event">купить</a>
                         </div>

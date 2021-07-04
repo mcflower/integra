@@ -144,7 +144,7 @@
 
 .guide-popup-price {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
     align-content: center;
     margin-right: 20px;
     color: #f5773b;
