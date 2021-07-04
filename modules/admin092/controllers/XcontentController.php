@@ -77,7 +77,7 @@ class XcontentController extends AuthController
             $model->activity = Yii::$app->common->randomName();
             $model->type = 1;
             $model->xdate = strtotime($model->string_day);
-            $model->expired = $model->xdate + (31 * 24 * 60 * 60);
+            $model->expired = $model->xdate + (61 * 24 * 60 * 60);
 
             $file = UploadedFile::getInstance($model, 'img');
 
@@ -135,7 +135,7 @@ class XcontentController extends AuthController
             }
 
             $model->xdate = strtotime($model->string_day);
-            $model->expired = $model->xdate + (31 * 24 * 60 * 60);
+            $model->expired = $model->xdate + (61 * 24 * 60 * 60);
 
             if ($model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
