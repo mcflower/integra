@@ -327,7 +327,11 @@ class SiteController extends Controller
 
         $activity = Xcontent::findOne(['activity' => $activityCode]);
         if (!empty($activity) && $saveResult) {
-            Yii::$app->mail->compose('active',
+            /**
+             * Отправляем на страницу платежа
+             */
+            return $this->redirect(Url::to(['payment', 'hash' => $hash]));
+            /*Yii::$app->mail->compose('active',
                 ['client' => $user->name,
                     'hash' => $hash,
                     'title' => 'Регистрация на вебинар "' . $activity->name . '".',
@@ -335,8 +339,8 @@ class SiteController extends Controller
                 ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                 ->setTo($email)
                 ->setSubject('Регистрация на вебинар "' . $activity->name . '".')
-                ->send();
-            Yii::$app->session->setFlash('info', 'Успешно! Проверьте электронную почту для дальнейших инструкций.');
+                ->send();*/
+//            Yii::$app->session->setFlash('info', 'Успешно! Проверьте электронную почту для дальнейших инструкций.');
 
         } else {
             Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
@@ -367,7 +371,11 @@ class SiteController extends Controller
 
         $activity = Xcontent::findOne(['activity' => $activityCode]);
         if (!empty($activity) && $saveResult) {
-            Yii::$app->mail->compose(
+            /**
+             * Отправляем на страницу платежа
+             */
+            return $this->redirect(Url::to(['invoice', 'hash' => $hash]));
+            /*Yii::$app->mail->compose(
                 'buyRecord',
                 ['user' => $user,
                     'activity' => $activity,
@@ -376,9 +384,9 @@ class SiteController extends Controller
             )
                 ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                 ->setTo($user->email)
-                ->setSubject('Счет на оплату вебинара "' . $activity->name . '".')->send();
+                ->setSubject('Счет на оплату вебинара "' . $activity->name . '".')->send();*/
 
-            Yii::$app->session->setFlash('info', 'Успешно! Проверьте электронную почту для дальнейших инструкций.');
+//            Yii::$app->session->setFlash('info', 'Успешно! Проверьте электронную почту для дальнейших инструкций.');
 
         } else {
             Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
@@ -476,7 +484,6 @@ class SiteController extends Controller
                 // return the pdf output as per the destination setting
                 return $pdf->render();
 
-
             } else {
                 Yii::$app->session->setFlash('error', 'Сертификат не найден.');
                 return $this->redirect('/');
@@ -485,8 +492,6 @@ class SiteController extends Controller
             Yii::$app->session->setFlash('error', 'Ошибка ключа.');
             return $this->redirect('/');
         }
-
-
     }
 
     public function actionWarning()
@@ -506,10 +511,7 @@ class SiteController extends Controller
     public function actionVideo($video_id = 0)
     {
         $video_id = (int)$video_id;
-//        $time = time();
         $video = Xcontent::find()->where(['vimeo' => $video_id])->andWhere(['>', 'expired', time()])->one();
-//        print_r($video);
-//        die();
         if (empty($video)) {
             return $this->redirect('/');
         }
