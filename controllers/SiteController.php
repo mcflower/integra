@@ -13,8 +13,10 @@ use app\models\Transactions;
 use app\models\Xcontent;
 use app\models\Xuser;
 use app\models\Guides;
+use app\models\ZhktAnketa;
 use Exception;
 use Yii;
+use yii\base\BaseObject;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -1008,6 +1010,34 @@ class SiteController extends Controller
         }
 
         return $this->render('common_error_page', ['errorTitle' => $errorTitle, 'errorContent' => $errorContent]);
+    }
+
+    public function actionGastrointestinal()
+    {
+        $model = new ZhktAnketa();
+
+        if ($model->load(Yii::$app->request->post())) {
+
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', 'Спасибо! Запрос отправлен.');
+
+                /*Yii::$app->mail
+                    ->compose('zhkt', [
+                        'model' => $model,
+                        'htmlLayout' => 'layouts/html'
+                    ])
+                    ->setFrom(['info@doctorgerdt.ru' => 'Doctor Gerdt'])
+                    ->setTo('dr.gerdt@mail.ru')
+                    ->setSubject('Анкета «Реабилитация желудочно-кишечного тракта»')
+                    ->send();*/
+
+                $model = new ZhktAnketa();
+            } else {
+                Yii::$app->session->setFlash('error', 'Ошибка при отправке сообщения.');
+            }
+        }
+
+        return $this->render('zhkt', ['model' => $model]);
     }
 
 }
