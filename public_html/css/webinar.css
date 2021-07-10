@@ -167,6 +167,12 @@
     width: 65%;
 }
 
+
+.woc-guide-description {
+    height: auto;
+    width: 100%;
+}
+
 .woc-main-name {
     float: left;
     font-size: 50px;

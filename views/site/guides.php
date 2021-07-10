@@ -27,26 +27,27 @@ $this->title = 'Полезные материалы';
                         <p class="guide-name"><?=$guide->name?></p>
                         <p class="guide-brief"><?=$guide->brief?></p>
                         <div class="guide-buttons">
-                            <a href="#modal-more-<?=$guide->hash?>" class="guide-more-button sa-button-event">подробнее</a>
+                            <!--<a href="#modal-more-<?/*=$guide->hash*/?>" class="guide-more-button sa-button-event">подробнее</a>-->
+                            <a href="/guide?hash=<?=$guide->hash?>" class="guide-more-button" target="_blank">подробнее</a>
                             <a href="#modal-guide" data-guide="<?=$guide->hash?>" data-gname="<?=$guide->name?>" class="sa-button-event guide-buy-button guide-buy-event">купить</a>
                         </div>
                     </div>
                     <div class="guide-price"><?= $guide->price ?> руб.</div>
                 </div>
-                <div id="modal-more-<?=$guide->hash?>" class="guide-popup-box clearfix zoom-anim-dialog mfp-hide">
+                <!--<div id="modal-more-<?/*=$guide->hash*/?>" class="guide-popup-box clearfix zoom-anim-dialog mfp-hide">
                     <div class="guide-popup-info-block clearfix">
-                        <h3 id="guide-title"><?=$guide->name?></h3>
+                        <h3 id="guide-title"><?/*=$guide->name*/?></h3>
                         <div class="guide-popup-content">
-                            <?=$guide->description?>
+                            <?/*=$guide->description*/?>
                         </div>
                         <div class="guide-popup-link">
                             <div class="guide-popup-price">
-                                <span>Цена: <?= $guide->price ?> руб.</span>
+                                <span>Цена: <?/*= $guide->price */?> руб.</span>
                             </div>
-                            <a href="#modal-guide" data-guide="<?=$guide->hash?>" data-gname="<?=$guide->name?>" class="sa-button-event guide-popup-buy-button guide-buy-event">купить</a>
+                            <a href="#modal-guide" data-guide="<?/*=$guide->hash*/?>" data-gname="<?/*=$guide->name*/?>" class="sa-button-event guide-popup-buy-button guide-buy-event">купить</a>
                         </div>
                     </div>
-                </div>
+                </div>-->
             <?php endforeach;?>
         </div>
     </div>

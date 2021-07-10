@@ -749,13 +749,14 @@ class SiteController extends Controller
         return $this->render('guides', ['model' => $model, 'user' => $guser]);
     }
 
-    /*public function actionGuide($hash)
+    public function actionGuide($hash)
     {
-
         $model = Guides::findOne(['hash' => $hash, 'hide' => 0]);
+        $guser = new Guser();
 
-        return $this->render('guide', ['model' => $model]);
-    }*/
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('guide', ['model' => $model, 'user' => $guser]);
+    }
 
     public function actionHypoxia()
     {
@@ -846,7 +847,6 @@ class SiteController extends Controller
                     Yii::$app->session->setFlash('error', 'Ошибка платежной системы. Повторите позднее.');
                 }
             }
-
         }
         return $this->redirect(Url::to(['error-page', 'error' => 7]));
     }
