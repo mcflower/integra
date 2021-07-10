@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\admin735\controllers;
+namespace app\modules\admin092\controllers;
 
 use Yii;
 use app\models\ZhktAnketa;

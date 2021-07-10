@@ -1019,17 +1019,17 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post())) {
 
             if ($model->save()) {
-                Yii::$app->session->setFlash('success', 'Спасибо! Запрос отправлен.');
+                Yii::$app->session->setFlash('warning', 'Спасибо! Анкета отправлена.');
 
-                /*Yii::$app->mail
+                Yii::$app->mail
                     ->compose('zhkt', [
                         'model' => $model,
                         'htmlLayout' => 'layouts/html'
                     ])
-                    ->setFrom(['info@doctorgerdt.ru' => 'Doctor Gerdt'])
-                    ->setTo('dr.gerdt@mail.ru')
+                    ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                    ->setTo('info@integraforlife.com')
                     ->setSubject('Анкета «Реабилитация желудочно-кишечного тракта»')
-                    ->send();*/
+                    ->send();
 
                 $model = new ZhktAnketa();
             } else {
@@ -1037,6 +1037,7 @@ class SiteController extends Controller
             }
         }
 
+        $this->view->registerCssFile('/css/anketa.css?i=6');
         return $this->render('zhkt', ['model' => $model]);
     }
 

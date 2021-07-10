@@ -71,7 +71,7 @@ class ZhktAnketa extends \yii\db\ActiveRecord
             [['age', 'r1', 'r2', 'r3', 'r4', 'r5', 'r6', 'r7', 'r8', 'r9', 'r10', 'r11', 'r12', 'r13', 'r14', 'r15', 'r16'], 'string', 'max' => 10, 'tooLong' => 'Максимум 10 знаков'],
             [['name', 'phone', 'email', 'address', 'q1', 'q2', 'q3', 'q4', 'recomended'], 'string', 'max' => 128, 'tooLong' => 'Максимум 128 знаков'],
             ['policy', 'compare', 'compareValue' => 1, 'message' => 'Необходимо подтвердить'],
-            ['reCaptcha', \himiklab\yii2\recaptcha\ReCaptchaValidator::className(), 'secret' => '6LeaUPsZAAAAAAfThzSll6Hv_CkhLaDehUO7wssE', 'uncheckedMessage' => 'Пожалуйста, подтвердите что вы не робот.'],
+            ['reCaptcha', \himiklab\yii2\recaptcha\ReCaptchaValidator::className(), 'secret' => '6LfAxCYaAAAAAEDpS9ZFpPnjTkAyCWlsNrNY-SOf', 'uncheckedMessage' => 'Пожалуйста, подтвердите что вы не робот.'],
         ];
     }
 

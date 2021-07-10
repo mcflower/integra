@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\ZhktSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Анкета «Реабилитация желудочно-кишечного тракта»';
+$this->title = 'Анкета «ЖКТ»';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="zhkt-anketa-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+//        'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 

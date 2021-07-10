@@ -23,8 +23,11 @@
                         'url' => '#',
                         'items' => [
                             ['label' => 'Гипоксия', 'icon' => 'dot-circle-o', 'url' => ['/admin092/hypoxia'],],
+                            ['label' => 'ЖКТ', 'icon' => 'dot-circle-o', 'url' => ['/admin092/zhkt'],],
                         ],
                     ],
+                    ['label' => 'Гайды', 'icon' => 'file-text', 'url' => ['/admin092/guides']],
+                    ['label' => 'Покупатели', 'icon' => 'user-o', 'url' => ['/admin092/guser']],
                     //['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                 ],
             ]
