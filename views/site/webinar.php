@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
                     </p>
                     <?php if($webinar->type == 2):?>
                         <p class="woc-main-time">
-                            <?= date('d.m.Y', $webinar->xdate) ?> / <?= $webinar->xtime ?>
+                            <?= date('d.m.Y', $webinar->xdate) ?> / <?= $webinar->xtime ?> (МСК)
                         </p>
                     <?php endif;?>
                     <p class="woc-main-name">
