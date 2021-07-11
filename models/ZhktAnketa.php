@@ -30,12 +30,12 @@ use yii\behaviors\TimestampBehavior;
  * @property string $r14
  * @property string $r15
  * @property string $r16
+ * @property string $r17
  * @property string $q1
  * @property string $q2
  * @property string $q3
  * @property string $q4
  * @property string $recomended
- * @property string $doctor_email
  * @property int $created_at
  * @property int $updated_at
  */
@@ -65,10 +65,10 @@ class ZhktAnketa extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'phone', 'age', 'email', 'address', 'recomended', 'reCaptcha', 'policy'], 'required', 'message' => 'Обязательно для заполнения'],
+            [['name', 'r17', 'phone', 'age', 'email', 'address', 'recomended', 'reCaptcha', 'policy'], 'required', 'message' => 'Обязательно для заполнения'],
             [['created_at', 'updated_at'], 'integer'],
             [['email'], 'email', 'message' => 'Некорректный e-mail адрес'],
-            [['age', 'r1', 'r2', 'r3', 'r4', 'r5', 'r6', 'r7', 'r8', 'r9', 'r10', 'r11', 'r12', 'r13', 'r14', 'r15', 'r16'], 'string', 'max' => 10, 'tooLong' => 'Максимум 10 знаков'],
+            [['age', 'r1', 'r2', 'r3', 'r4', 'r5', 'r6', 'r7', 'r8', 'r9', 'r10', 'r11', 'r12', 'r13', 'r14', 'r15', 'r16', 'r17'], 'string', 'max' => 10, 'tooLong' => 'Максимум 10 знаков'],
             [['name', 'phone', 'email', 'address', 'q1', 'q2', 'q3', 'q4', 'recomended'], 'string', 'max' => 128, 'tooLong' => 'Максимум 128 знаков'],
             ['policy', 'compare', 'compareValue' => 1, 'message' => 'Необходимо подтвердить'],
             ['reCaptcha', \himiklab\yii2\recaptcha\ReCaptchaValidator::className(), 'secret' => '6LfAxCYaAAAAAEDpS9ZFpPnjTkAyCWlsNrNY-SOf', 'uncheckedMessage' => 'Пожалуйста, подтвердите что вы не робот.'],
@@ -86,7 +86,7 @@ class ZhktAnketa extends \yii\db\ActiveRecord
             'phone' => 'Номер телефона',
             'age' => 'Возраст',
             'email' => 'Электронная почта',
-            'address' => 'Адрес места жительства',
+            'address' => 'Город проживания',
             'r1' => 'Пол',
             'r2' => 'Холецистит по УЗИ органов брюшной полости',
             'r3' => 'Камни в желчном пузыре',
@@ -103,12 +103,12 @@ class ZhktAnketa extends \yii\db\ActiveRecord
             'r14' => 'Аутоиммунные заболевания',
             'r15' => 'Аллергические заболевания',
             'r16' => 'Если нет, согласны ли Вы на бесплатную регистрацию в NSP?',
+            'r17' => 'Являетесь врачом, диетологом или нутрициологом?',
             'q1' => 'АЛТ (при наличии)',
             'q2' => 'АСТ (при наличии)',
             'q3' => 'ГГТП (при наличии)',
             'q4' => 'Напишите личный номер NSP, если есть',
             'recomended' => 'Фамилия врача/нутрициолога/друга, который посоветовал Вам заполнить анкету',
-            'doctor_email' => 'Электронная почта, куда отправить анкету',
             'reCaptcha' => 'Captcha',
             'created_at' => 'Создано'
         ];

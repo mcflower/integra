@@ -23,6 +23,7 @@ $r = array('да' => 'да', 'нет' => 'нет');
         <h2 id="anketa-name">Анкета «Реабилитация желудочно-кишечного тракта»</h2>
 
         <?= $form->field($model, 'name')->textInput(['maxlength' => true])->label('Ф.И.О. (полностью) <span class="red">*</span>') ?>
+        <?= $form->field($model, 'r17')->radioList($r)->label('Являетесь врачом, диетологом или нутрициологом? <span class="red">*</span>') ?>
         <?= $form->field($model, 'r1')->radioList(['женский' => 'Женский', 'мужской' => 'Мужской']) ?>
         <?= $form->field($model, 'age')->textInput(['maxlength' => true, 'placeholder' => 'Ваш ответ'])->label('Возраст <span class="red">*</span>') ?>
         <?= $form->field($model, 'phone')->textInput(['maxlength' => true, 'placeholder' => 'Ваш ответ'])->label('Номер телефон <span class="red">*</span>') ?>

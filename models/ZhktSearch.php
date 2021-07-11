@@ -18,7 +18,7 @@ class ZhktSearch extends ZhktAnketa
     {
         return [
             [['id', 'age', 'created_at', 'updated_at'], 'integer'],
-            [['name', 'phone', 'email', 'address', 'r1', 'r2', 'r3', 'r4', 'r5', 'r6', 'r7', 'r8', 'r9', 'r10', 'r11', 'r12', 'r13', 'r14', 'r15', 'r16', 'q1', 'q2', 'q3', 'q4', 'recomended', 'doctor_email'], 'safe'],
+            [['name', 'phone', 'email', 'address', 'r1', 'r2', 'r3', 'r4', 'r5', 'r6', 'r7', 'r8', 'r9', 'r10', 'r11', 'r12', 'r13', 'r14', 'r15', 'r16', 'r17', 'q1', 'q2', 'q3', 'q4', 'recomended'], 'safe'],
         ];
     }
 
@@ -84,12 +84,12 @@ class ZhktSearch extends ZhktAnketa
             ->andFilterWhere(['like', 'r14', $this->r14])
             ->andFilterWhere(['like', 'r15', $this->r15])
             ->andFilterWhere(['like', 'r16', $this->r16])
+            ->andFilterWhere(['like', 'r17', $this->r17])
             ->andFilterWhere(['like', 'q1', $this->q1])
             ->andFilterWhere(['like', 'q2', $this->q2])
             ->andFilterWhere(['like', 'q3', $this->q3])
             ->andFilterWhere(['like', 'q4', $this->q4])
-            ->andFilterWhere(['like', 'recomended', $this->recomended])
-            ->andFilterWhere(['like', 'doctor_email', $this->doctor_email]);
+            ->andFilterWhere(['like', 'recomended', $this->recomended]);
 
         return $dataProvider;
     }

@@ -16,6 +16,7 @@ use yii\widgets\DetailView;
     'model' => $model,
     'attributes' => [
         'name',
+        'r17',
         'r1',
         'phone',
         'age',

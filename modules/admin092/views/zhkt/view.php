@@ -18,6 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
+            'r17',
             'phone',
             'age',
             'email:email',
@@ -43,7 +44,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'q3',
             'q4',
             'recomended',
-//            'doctor_email:email',
             [
                 'attribute' => 'created_at',
                 'format' => 'raw',
