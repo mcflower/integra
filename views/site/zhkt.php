@@ -28,7 +28,7 @@ $r = array('да' => 'да', 'нет' => 'нет');
         <?= $form->field($model, 'age')->textInput(['maxlength' => true, 'placeholder' => 'Ваш ответ'])->label('Возраст <span class="red">*</span>') ?>
         <?= $form->field($model, 'phone')->textInput(['maxlength' => true, 'placeholder' => 'Ваш ответ'])->label('Номер телефон <span class="red">*</span>') ?>
         <?= $form->field($model, 'email')->textInput(['maxlength' => true, 'placeholder' => 'Ваш ответ'])->label('Электронная почта <span class="red">*</span>') ?>
-        <?= $form->field($model, 'address')->textInput(['maxlength' => true, 'placeholder' => 'Ваш ответ'])->label('Адрес места жительства <span class="red">*</span>') ?>
+        <?= $form->field($model, 'address')->textInput(['maxlength' => true, 'placeholder' => 'Ваш ответ'])->label('Город проживания <span class="red">*</span>') ?>
         <?= $form->field($model, 'q1')->textInput(['maxlength' => true, 'placeholder' => 'Ваш ответ']) ?>
         <?= $form->field($model, 'q2')->textInput(['maxlength' => true, 'placeholder' => 'Ваш ответ']) ?>
         <?= $form->field($model, 'q3')->textInput(['maxlength' => true, 'placeholder' => 'Ваш ответ']) ?>
