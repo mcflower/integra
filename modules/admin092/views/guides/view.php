@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Страница гайда',
                 'format' => 'raw',
                 'value' => function($data){
-                    return '<a target="_blank" href="https://integraforlife.com/guides/'.$data->hash.'">Открыть</a>';
+                    return '<a target="_blank" href="https://integraforlife.com/guide/'.$data->hash.'">Открыть</a>';
                 },
             ],
             'brief',
