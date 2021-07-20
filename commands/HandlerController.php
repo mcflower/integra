@@ -8,6 +8,8 @@
 namespace app\commands;
 
 use app\models\CronClient;
+use app\models\Guides;
+use app\models\Guser;
 use app\models\Transactions;
 use Voronkovich\SberbankAcquiring\Currency;
 use Voronkovich\SberbankAcquiring\OrderStatus;
@@ -15,6 +17,7 @@ use yii\console\Controller;
 use app\models\Xuser;
 use app\models\Xcontent;
 use Yii;
+use yii\helpers\Url;
 use function React\Promise\all;
 
 class HandlerController extends Controller
@@ -77,68 +80,114 @@ class HandlerController extends Controller
                     //возможно также нужно добавить isApproved в условие или
                     if (OrderStatus::isDeposited($result['orderStatus'])) {
 
-                        $user = Xuser::findOne($orderIdU2p);
+                        if($temp[1] == 'guide') {
 
-                        if ($user->buy == 0) {
+                            $guser = Guser::findOne($orderIdU2p);
 
-                            $activity = Xcontent::findOne(['activity' => $user->activity]);
-                            $user->buy = 1;
-                            /*if (($activity->xdate + (20 * 60 * 60)) > time()) {
-                                $user->wclose = 2;
+                            if ($guser->status == 0) {
+                                $guser->scenario = 'update';
+                                $guser->status = 1;
+                                $guser->save();
+
+                                $transaction = Transactions::findOne(['order_number' => $result['orderNumber']]);
+                                if (!empty($transaction)) {
+                                    $transaction->scenario = 'update';
+                                    $transaction->status = 1;
+                                    $transaction->save();
+                                }
+
+                                $guide = Guides::findOne(['hash' => $guser->gcontent]);
+
+                                Yii::$app->mail->compose('payGuideAdmin',
+                                    ['user' => $guser,
+                                        'guide' => $guide,
+                                        'title' => 'Оплата материала "' . $guide->name . '"',
+                                        'htmlLayout' => 'layouts/html'])
+                                    ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                                    ->setTo('info@integraforlife.com')
+                                    ->setSubject('Оплата материала "' . $guide->name . '"')
+                                    ->send();
+
+                                Yii::$app->mail->compose('payGuide',
+                                    ['user' => $guser,
+                                        'guide' => $guide,
+                                        'title' => 'Оплата за материал "' . $guide->name  . '"',
+                                        'htmlLayout' => 'layouts/html'])
+                                    ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                                    ->setTo($guser->email)
+                                    ->setSubject('Оплата за материал "' . $guide->name  . '"')
+                                    ->send();
+
+                                return $this->render('guide-buy-complete', ['hash' => $guser->hash]);
+
                             } else {
-                                $user->wstart = 1;
-                            }*/
-
-                            if ($activity->type == 2) {
-                                $user->wstart = 1;
-
-                                Yii::$app->mail->compose('payConfirmAdmin',
-                                    ['user' => $user,
-                                        'activity' => $activity,
-                                        'title' => 'Оплата вебинара "'.$activity->name.'"',
-                                        'htmlLayout' => 'layouts/html'])
-                                    ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                                    ->setTo('info@integraforlife.com')
-                                    ->setSubject('Оплата вебинара "'.$activity->name.'"')
-                                    ->send();
-
-
-                                Yii::$app->mail->compose('payConfirm',
-                                    ['user' => $user,
-                                        'activity' => $activity,
-                                        'title' => 'Оплата за вебинар "'.$activity->name.'"',
-                                        'htmlLayout' => 'layouts/html'])
-                                    ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                                    ->setTo($user->email)
-                                    ->setSubject('Оплата за вебинар "'.$activity->name.'"')
-                                    ->send();
-
-                            } else if ($activity->type == 3) {
-                                $user->wclose = 2;
-
-                                Yii::$app->mail->compose('payConfirmAdmin',
-                                    ['user' => $user,
-                                        'activity' => $activity,
-                                        'title' => 'Оплата за запись вебинара "' . $activity->name . '"',
-                                        'htmlLayout' => 'layouts/html'])
-                                    ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                                    ->setTo('info@integraforlife.com')
-                                    ->setSubject('Оплата за записи вебинара "' . $activity->name . '"')
-                                    ->send();
-
-                                $needCertLink = !empty($activity->cert);
-                                Yii::$app->mail->compose('close',
-                                    ['user' => $user,
-                                        'activity' => $activity,
-                                        'needCertLink' => $needCertLink,
-                                        'title' => 'Ссылка на запись вебинара "' . $activity->name . '".',
-                                        'htmlLayout' => 'layouts/html'])
-                                    ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                                    ->setTo($user->email)
-                                    ->setSubject('Ссылка на запись вебинара "' . $activity->name . '".')->send();
+                                return $this->redirect(Url::to(['error-page', 'error' => 6]));
                             }
+                        } else {
 
-                            $user->save();
+                            $user = Xuser::findOne($orderIdU2p);
+
+                            if ($user->buy == 0) {
+
+                                $activity = Xcontent::findOne(['activity' => $user->activity]);
+                                $user->buy = 1;
+                                /*if (($activity->xdate + (20 * 60 * 60)) > time()) {
+                                    $user->wclose = 2;
+                                } else {
+                                    $user->wstart = 1;
+                                }*/
+
+                                if ($activity->type == 2) {
+                                    $user->wstart = 1;
+
+                                    Yii::$app->mail->compose('payConfirmAdmin',
+                                        ['user' => $user,
+                                            'activity' => $activity,
+                                            'title' => 'Оплата вебинара "'.$activity->name.'"',
+                                            'htmlLayout' => 'layouts/html'])
+                                        ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                                        ->setTo('info@integraforlife.com')
+                                        ->setSubject('Оплата вебинара "'.$activity->name.'"')
+                                        ->send();
+
+
+                                    Yii::$app->mail->compose('payConfirm',
+                                        ['user' => $user,
+                                            'activity' => $activity,
+                                            'title' => 'Оплата за вебинар "'.$activity->name.'"',
+                                            'htmlLayout' => 'layouts/html'])
+                                        ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                                        ->setTo($user->email)
+                                        ->setSubject('Оплата за вебинар "'.$activity->name.'"')
+                                        ->send();
+
+                                } else if ($activity->type == 3) {
+                                    $user->wclose = 2;
+
+                                    Yii::$app->mail->compose('payConfirmAdmin',
+                                        ['user' => $user,
+                                            'activity' => $activity,
+                                            'title' => 'Оплата за запись вебинара "' . $activity->name . '"',
+                                            'htmlLayout' => 'layouts/html'])
+                                        ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                                        ->setTo('info@integraforlife.com')
+                                        ->setSubject('Оплата за записи вебинара "' . $activity->name . '"')
+                                        ->send();
+
+                                    $needCertLink = !empty($activity->cert);
+                                    Yii::$app->mail->compose('close',
+                                        ['user' => $user,
+                                            'activity' => $activity,
+                                            'needCertLink' => $needCertLink,
+                                            'title' => 'Ссылка на запись вебинара "' . $activity->name . '".',
+                                            'htmlLayout' => 'layouts/html'])
+                                        ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                                        ->setTo($user->email)
+                                        ->setSubject('Ссылка на запись вебинара "' . $activity->name . '".')->send();
+                                }
+
+                                $user->save();
+                            }
                         }
 
                     }
