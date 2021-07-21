@@ -63,7 +63,7 @@ use yii\widgets\ActiveForm;
                     echo '</label>';
                     echo '<div class="policy-container clearfix">
                             <p class="cwc-line1">
-                                Нажимая кнопку "уведомить" я даю согласие на обработку моих личных данных<br>
+                                Нажимая кнопку "уведомить" вы даете согласие на обработку персональных данных<br>
                             </p>
                             <a class="cwc-line2" href="/files/privacy_policy.pdf" target="_blank">
                                 Политика конфиденциальности<br>
@@ -88,7 +88,7 @@ use yii\widgets\ActiveForm;
                     echo '</label>';
                     echo '<div class="policy-container clearfix">
                             <p class="cwc-line1">
-                                Нажимая кнопку "Зарегистрироваться" я даю согласие на обработку моих личных данных<br>
+                                Нажимая кнопку "Зарегистрироваться" вы даете согласие на обработку персональных данных<br>
                             </p>
                             <a class="cwc-line2" href="/files/privacy_policy.pdf" target="_blank">
                                 Политика конфиденциальности<br>
@@ -116,7 +116,7 @@ use yii\widgets\ActiveForm;
                     echo '</label>';
                     echo '<div class="policy-container clearfix">
                             <p class="cwc-line1">
-                                Нажимая кнопку "Зарегистрироваться" я даю согласие на обработку моих личных данных<br>
+                                Нажимая кнопку "Купить запись" вы даете согласие на обработку персональных данных<br>
                             </p>
                             <a class="cwc-line2" href="/files/privacy_policy.pdf" target="_blank">
                                 Политика конфиденциальности<br>
