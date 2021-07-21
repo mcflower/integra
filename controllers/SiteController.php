@@ -32,6 +32,9 @@ use kartik\mpdf\Pdf;
 
 class SiteController extends Controller
 {
+
+    public $metaImg = '/img/logo-bg.jpg';
+
     /**
      * {@inheritdoc}
      */
@@ -653,6 +656,8 @@ class SiteController extends Controller
             return $this->redirect('/');
         }
 
+        $this->metaImg = $webinar->img;
+
         $model = new Xuser();
         $model->scenario = "current";
 
@@ -753,6 +758,8 @@ class SiteController extends Controller
     {
         $model = Guides::findOne(['hash' => $hash, 'hide' => 0]);
         $guser = new Guser();
+
+        $this->metaImg = $model->img;
 
         $this->view->registerCssFile('/css/webinar.css');
         return $this->render('guide', ['model' => $model, 'user' => $guser]);
