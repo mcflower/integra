@@ -811,6 +811,7 @@ class SiteController extends Controller
                     return $this->redirect(Url::to(['error-page', 'error' => 6]));
                 } elseif($oldRecord->status == 0) {
                     $model = $oldRecord;
+                    $model->scenario = 'wo_captcha';
                 }
             }
 

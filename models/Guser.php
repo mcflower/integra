@@ -55,6 +55,7 @@ class Guser extends \yii\db\ActiveRecord
     {
         $scenarios = parent::scenarios();
         $scenarios['update'] = ['status'];
+        $scenarios['wo_captcha'] = ['name', 'email', 'hash', 'gcontent', 'status'];
 
         return $scenarios;
     }
