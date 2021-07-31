@@ -17,6 +17,7 @@ use app\models\ZhktAnketa;
 use Exception;
 use Yii;
 use yii\base\BaseObject;
+use yii\base\DynamicModel;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -1048,5 +1049,36 @@ class SiteController extends Controller
         $this->view->registerCssFile('/css/anketa.css?i=6');
         return $this->render('zhkt', ['model' => $model]);
     }
+    
+    public function actionCheckingIronDeficiency()
+    {
+        $model = new DynamicModel(
+            ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10',
+             'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19', 'q20',
+             'q21', 'q22', 'q23', 'q24', 'q25', 'q26', 'q27', 'q28', 'q29', 'q30',
+             'q31', 'q32', 'q33']
+        );
+        $model->addRule(['q1', 'q2', 'q3'], 'required', ['message' => 'Обязательно для заполнения'])
+            ->addRule(['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10',
+             'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19', 'q20',
+             'q21', 'q22', 'q23', 'q24', 'q25', 'q26', 'q27', 'q28', 'q29', 'q30',
+             'q31', 'q32', 'q33'], 'integer');
+     
+        if( $model->load(Yii::$app->request->post()) && $model->validate() ){
+            $data = Yii::$app->request->post();
+            $sum = array_sum($data['DynamicModel']);
+            
+            return $this->render('iron_deficiency_result', ['sum' => $sum]);
+        }
+        $this->view->registerCssFile('/css/anketa.css?i=6');
+        return $this->render('iron_deficiency', ['model'=>$model]);
+    }
+    
+    /*
+    , 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10',
+             'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19', 'q20',
+             'q21', 'q22', 'q23', 'q24', 'q25', 'q26', 'q27', 'q28', 'q29', 'q30',
+             'q31', 'q32', 'q33'
+     */ 
 
 }
