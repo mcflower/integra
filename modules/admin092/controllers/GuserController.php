@@ -2,8 +2,10 @@
 
 namespace app\modules\admin092\controllers;
 
+use app\models\GuserSearch;
 use Yii;
 use app\models\Guser;
+use yii\base\BaseObject;
 use yii\data\ActiveDataProvider;
 use app\controllers\AuthController;
 use yii\web\NotFoundHttpException;
@@ -20,13 +22,24 @@ class GuserController extends AuthController
      * Lists all Guser models.
      * @return mixed
      */
-    public function actionIndex()
+    /*public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
             'query' => Guser::find(),
         ]);
 
         return $this->render('index', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }*/
+
+    public function actionIndex()
+    {
+        $searchModel = new GuserSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }

@@ -80,4 +80,15 @@ class Guides extends \yii\db\ActiveRecord
             'updated_at' => 'Обновлено',
         ];
     }
+
+
+    public static function getGuidesHashArray()
+    {
+        $model = Guides::find()->groupBy('hash')->orderBy('created_at desc')->all();
+        $result = array();
+        foreach($model as $one) {
+            $result[$one['hash']] = $one['name'];
+        }
+        return $result;
+    }
 }

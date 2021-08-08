@@ -77,4 +77,10 @@ class Guser extends \yii\db\ActiveRecord
             'updated_at' => 'Обновлено',
         ];
     }
+
+    public function getGuideName()
+    {
+        $model = Guides::findOne(['hash' => $this->gcontent]);
+        return $model->name;
+    }
 }
