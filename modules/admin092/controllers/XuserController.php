@@ -149,19 +149,24 @@ class XuserController extends AuthController
         $user = $this->findModel($id);
         $model = Xcontent::findOne(['activity' => $user->activity]);
         if($model->type == 3) {
-            $needCertLink = !empty($model->cert);
-            $mes = Yii::$app->mail->compose('close',
-                ['user' => $user,
-                'activity' => $model,
-                    'needCertLink' => $needCertLink,
-                    'title' => 'Ссылка на запись вебинара "'.$model->name.'".',
-                    'htmlLayout' => 'layouts/html'])
-                ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                ->setTo($user->email)
-                ->setSubject('Ссылка на запись вебинара "'.$model->name.'".');
 
-            $mes->send();
-            Yii::$app->session->setFlash('success', 'Ссылка отправлена');
+            if ($user->buy != 0) {
+                $needCertLink = !empty($model->cert);
+                $mes = Yii::$app->mail->compose('close',
+                    ['user' => $user,
+                        'activity' => $model,
+                        'needCertLink' => $needCertLink,
+                        'title' => 'Ссылка на запись вебинара "'.$model->name.'".',
+                        'htmlLayout' => 'layouts/html'])
+                    ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                    ->setTo($user->email)
+                    ->setSubject('Ссылка на запись вебинара "'.$model->name.'".');
+
+                $mes->send();
+                Yii::$app->session->setFlash('success', 'Ссылка отправлена');
+            } else {
+                Yii::$app->session->setFlash('danger', 'Ошибка. Сначала необходимо поставить оплату!');
+            }
         } else {
             Yii::$app->session->setFlash('danger', 'Ошибка. Вебинар еще не закрыт!');
         }
