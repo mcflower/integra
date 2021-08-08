@@ -40,8 +40,12 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'status',
                 'format' => 'raw',
+                'filter' => [
+                    0 => 'Нет оплаты',
+                    1 => 'Оплачено',
+                ],
                 'value' => function($data){
-                    return ($data->status == 1) ? '<span class="label label-success">Оплачено</span>' : '<span class="label label-danger">Нет оплаты</span>';
+                    return ($data->status == 1) ? '<span class="label label-success">Оплачено</span>' : '<span class="label label-default">Нет оплаты</span>';
                 },
             ],
             //'created_at',
