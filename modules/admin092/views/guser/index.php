@@ -61,9 +61,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn',
                 'template' => '{view} {update} {paid} {record}',
                 'buttons' => [
-                    'invoice'=>function($url, $model, $key){
+                    /*'invoice'=>function($url, $model, $key){
                         return Html::a("<span class='fa fa-rub'></span>", ['/admin092/guser/send-invoice', 'id'=>$model->id], ['data'=>['pjax'=>0, 'method'=>'post', 'confirm'=>'Отправить ссылку на оплату записи?'], 'aria-label'=>'Запрос оплаты материала', 'title'=>'Запрос оплаты материала']);
-                    },
+                    },*/
                     'paid'=>function($url, $model, $key){
                         return Html::a("<span class='fa fa-money'></span>", ['/admin092/guser/paid', 'id'=>$model->id], ['data'=>['pjax'=>0, 'method'=>'post', 'confirm'=>'Подтвердить оплату?'], 'aria-label'=>'Проставить оплату', 'title'=>'Проставить оплату']);
                     },
