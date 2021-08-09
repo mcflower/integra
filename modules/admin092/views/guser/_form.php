@@ -1,5 +1,6 @@
 <?php
 
+use app\models\Guides;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -14,16 +15,28 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+    <?php if($model->isNewRecord):?>
 
-    <?= $form->field($model, 'hash')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'gcontent')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'gcontent')->dropDownList(Guides::getGuidesHashArray(), ['prompt' => 'Необходимо выбрать...']) ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?php else: ?>
+        <?= $form->field($model, 'status')->dropDownList(array(0 => 'нет', 1 => 'да'), ['prompt' => 'Необходимо выбрать...'])->hint('Не отправит письмо успешной оплаты!') ?>
+    <?php endif;?>
+
+    <?/*= $form->field($model, 'name')->textInput(['maxlength' => true]) */?><!--
+
+    <?/*= $form->field($model, 'email')->textInput(['maxlength' => true]) */?>
+
+    <?/*= $form->field($model, 'hash')->textInput(['maxlength' => true]) */?>
+
+    <?/*= $form->field($model, 'gcontent')->textInput(['maxlength' => true]) */?>
+
+    --><?/*= $form->field($model, 'status')->textInput() */?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

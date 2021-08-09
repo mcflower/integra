@@ -5,14 +5,12 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Guser */
 
-$this->title = 'Update Guser: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Gusers', 'url' => ['index']];
+$this->title = 'Ред.: ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Покупатели', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Редактирование';
 ?>
 <div class="guser-update">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,

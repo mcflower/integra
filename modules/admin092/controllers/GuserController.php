@@ -66,9 +66,14 @@ class GuserController extends AuthController
     public function actionCreate()
     {
         $model = new Guser();
+        $model->scenario = 'wo_captcha';
+        if ($model->load(Yii::$app->request->post())) {
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            $model->hash = md5($model->email . $model->gcontent . Yii::$app->params['secret']);
+            $model->status = 0;
+            if($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
 
         return $this->render('create', [
@@ -86,6 +91,7 @@ class GuserController extends AuthController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model->scenario = 'update';
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
