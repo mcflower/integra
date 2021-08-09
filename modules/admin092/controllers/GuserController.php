@@ -2,6 +2,7 @@
 
 namespace app\modules\admin092\controllers;
 
+use app\models\Guides;
 use app\models\GuserSearch;
 use Yii;
 use app\models\Guser;
@@ -108,6 +109,85 @@ class GuserController extends AuthController
 
         return $this->redirect(['index']);
     }
+
+    /*public function actionSendInvoice($id)
+    {
+        $user = $this->findModel($id);
+        $model = Xcontent::findOne(['activity' => $user->activity]);
+        if($model->type == 3) {
+
+            Yii::$app->mail->compose(
+                'buyRecord',
+                ['user' => $user,
+                    'activity' => $model,
+                    'title' => 'Счет на оплату вебинара "'.$model->name.'".',
+                    'htmlLayout' => 'layouts/html']
+            )
+                ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                ->setTo($user->email)
+                ->setSubject('Счет на оплату вебинара "'.$model->name.'".')->send();
+
+            Yii::$app->session->setFlash('success', 'Ссылка отправлена');
+        } else {
+            Yii::$app->session->setFlash('danger', 'Ошибка. Вебинар еще не закрыт!');
+        }
+
+        return $this->redirect(Yii::$app->request->referrer);
+    }*/
+
+    public function actionSendRecord($id)
+    {
+        $user = $this->findModel($id);
+        $model = Guides::findOne(['hash' => $user->gcontent]);
+
+        $mes = Yii::$app->mail->compose('close',
+            ['user' => $user,
+                'activity' => $model,
+                'title' => 'Ссылка на запись вебинара "'.$model->name.'".',
+                'htmlLayout' => 'layouts/html'])
+            ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+            ->setTo($user->email)
+            ->setSubject('Ссылка на запись вебинара "'.$model->name.'".');
+
+        $mes->send();
+        Yii::$app->session->setFlash('success', 'Ссылка отправлена');
+
+        return $this->redirect(Yii::$app->request->referrer);
+    }
+
+    /*public function actionPaid($id)
+    {
+        $model = $this->findModel($id);
+        $model->buy = 1;
+        $model->wstart = 1;
+        if($model->save()) {
+            $activity = Xcontent::findOne(['activity' => $model->activity]);
+
+            Yii::$app->mail->compose('payConfirmAdmin',
+                ['user' => $model,
+                    'activity' => $activity,
+                    'title' => 'Оплата вебинара "'.$activity->name.'"',
+                    'htmlLayout' => 'layouts/html'])
+                ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                ->setTo('info@integraforlife.com')
+                ->setSubject('Оплата вебинара "'.$activity->name.'"')
+                ->send();
+
+            Yii::$app->mail->compose('payConfirm',
+                ['user' => $model,
+                    'activity' => $activity,
+                    'title' => 'Оплата за вебинар "'.$activity->name.'"',
+                    'htmlLayout' => 'layouts/html'])
+                ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                ->setTo($model->email)
+                ->setSubject('Оплата за вебинар "'.$activity->name.'"')
+                ->send();
+        } else {
+            Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
+        }
+
+        return $this->redirect(Yii::$app->request->referrer);
+    }*/
 
     /**
      * Finds the Guser model based on its primary key value.
