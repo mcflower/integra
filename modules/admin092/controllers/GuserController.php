@@ -137,57 +137,63 @@ class GuserController extends AuthController
 
     public function actionSendRecord($id)
     {
-        $user = $this->findModel($id);
-        $model = Guides::findOne(['hash' => $user->gcontent]);
+        $guser = $this->findModel($id);
+        $guide = Guides::findOne(['hash' => $guser->gcontent]);
 
-        $mes = Yii::$app->mail->compose('close',
-            ['user' => $user,
-                'activity' => $model,
-                'title' => 'Ссылка на запись вебинара "'.$model->name.'".',
-                'htmlLayout' => 'layouts/html'])
-            ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-            ->setTo($user->email)
-            ->setSubject('Ссылка на запись вебинара "'.$model->name.'".');
+        if($guser->status != 0) {
 
-        $mes->send();
-        Yii::$app->session->setFlash('success', 'Ссылка отправлена');
+            Yii::$app->mail->compose('guideLink',
+                ['user' => $guser,
+                    'guide' => $guide,
+                    'title' => 'Ссылка на материал "' . $guide->name  . '"',
+                    'htmlLayout' => 'layouts/html'])
+                ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                ->setTo($guser->email)
+                ->setSubject('Ссылка на материал "' . $guide->name  . '"')
+                ->send();
+
+            Yii::$app->session->setFlash('success', 'Ссылка отправлена');
+        } else {
+            Yii::$app->session->setFlash('danger', 'Ошибка. Сначала необходимо поставить оплату!');
+        }
 
         return $this->redirect(Yii::$app->request->referrer);
     }
 
-    /*public function actionPaid($id)
+    public function actionPaid($id)
     {
-        $model = $this->findModel($id);
-        $model->buy = 1;
-        $model->wstart = 1;
-        if($model->save()) {
-            $activity = Xcontent::findOne(['activity' => $model->activity]);
+        $guser = $this->findModel($id);
+        $guser->scenario = 'update';
+        $guser->status = 1;
+        if($guser->save()) {
 
-            Yii::$app->mail->compose('payConfirmAdmin',
-                ['user' => $model,
-                    'activity' => $activity,
-                    'title' => 'Оплата вебинара "'.$activity->name.'"',
+            $guide = Guides::findOne(['hash' => $guser->gcontent]);
+
+             Yii::$app->mail->compose('payGuideAdmin',
+                 ['user' => $guser,
+                     'guide' => $guide,
+                     'title' => 'Оплата материала "' . $guide->name . '"',
+                     'htmlLayout' => 'layouts/html'])
+                 ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                 ->setTo('info@integraforlife.com')
+                 ->setSubject('Оплата материала "' . $guide->name . '"')
+                 ->send();
+
+            Yii::$app->mail->compose('payGuide',
+                ['user' => $guser,
+                    'guide' => $guide,
+                    'title' => 'Оплата за материал "' . $guide->name  . '"',
                     'htmlLayout' => 'layouts/html'])
                 ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                ->setTo('info@integraforlife.com')
-                ->setSubject('Оплата вебинара "'.$activity->name.'"')
-                ->send();
-
-            Yii::$app->mail->compose('payConfirm',
-                ['user' => $model,
-                    'activity' => $activity,
-                    'title' => 'Оплата за вебинар "'.$activity->name.'"',
-                    'htmlLayout' => 'layouts/html'])
-                ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                ->setTo($model->email)
-                ->setSubject('Оплата за вебинар "'.$activity->name.'"')
+                ->setTo($guser->email)
+                ->setSubject('Оплата за материал "' . $guide->name  . '"')
                 ->send();
         } else {
             Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
         }
 
         return $this->redirect(Yii::$app->request->referrer);
-    }*/
+    }
 
     /**
      * Finds the Guser model based on its primary key value.
