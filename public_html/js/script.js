@@ -113,6 +113,7 @@ $('#hypoxia-phone').mask("+7 (999) 999-99-99");
 $('#hypoxia-birthday').mask("99.99.9999");
 
 $('.guide-buy-event').on('click', function () {
+    $(this).data('price') > 0 ? $('.guide-popup-button-event').html('ПЕРЕЙТИ К ОПЛАТЕ') : $('.guide-popup-button-event').html('ПОЛУЧИТЬ БЕСПЛАТНО');
     $('#guser-gcontent').val($(this).data('guide'));
     $('#guide-title').html($(this).data('gname'));
 });

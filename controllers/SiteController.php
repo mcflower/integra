@@ -781,7 +781,6 @@ class SiteController extends Controller
                         'htmlLayout' => 'layouts/html'
                     ])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-//                    ->setTo('greenfild@gmail.com')
                     ->setTo('info@integraforlife.com')
                     ->setSubject("Анкета «ГИПОКСИИ НЕТ»")
                     ->send();
@@ -810,7 +809,7 @@ class SiteController extends Controller
             } else {
                 if ($oldRecord->status == 1 && ($oldRecord->updated_at + 31 * 24 * 60 * 60) > time()) {
                     return $this->redirect(Url::to(['error-page', 'error' => 6]));
-                } elseif($oldRecord->status == 0) {
+                } elseif ($oldRecord->status == 0) {
                     $model = $oldRecord;
                     $model->scenario = 'wo_captcha';
                 }
@@ -825,35 +824,55 @@ class SiteController extends Controller
                     return $this->redirect(Url::to(['error-page', 'error' => 3]));
                 }
 
-                try {
-                    $client = new Client(['userName' => 'integraforlife-api', 'password' => 'Flower192543', 'language' => 'ru', 'currency' => Currency::RUB]);
+                if ($guide->price == 0) {
+                    /**
+                     * Если бесплатный гайд
+                     */
+                    $model->status = 1;
+                    $model->save();
 
-                    $orderAmount = $guide->price * 100;
-
-                    $returnUrl = 'https://integraforlife.com/buy-guide-complete';
-                    $params['failUrl'] = 'https://integraforlife.com/error-page?error=7';
-
-                    $transactionOrderId = $orderId . "-guide-" . time();
-                    $result = $client->registerOrder($transactionOrderId, $orderAmount, $returnUrl, $params);
-
-                    $paymentOrderId = $result['orderId'];
-                    $paymentFormUrl = $result['formUrl'];
-
-                    $transaction = new Transactions();
-                    $transaction->scenario = 'new';
-                    $transaction->order_number = $transactionOrderId;
-                    $transaction->save();
-
-                    return $this->redirect(Url::to($paymentFormUrl));
-
-                } catch (Exception $e) {
-                    Yii::$app->mail->compose()
+                    Yii::$app->mail->compose('payGuide',
+                        ['user' => $model,
+                            'guide' => $guide,
+                            'title' => 'Оплата за материал "' . $guide->name . '"',
+                            'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                        ->setTo('mcflower@me.com')
-                        ->setSubject('Guide. Exception step 1 (sberbank)')
-                        ->setTextBody($e)
+                        ->setTo($model->email)
+                        ->setSubject('Оплата за материал "' . $guide->name . '"')
                         ->send();
-                    Yii::$app->session->setFlash('error', 'Ошибка платежной системы. Повторите позднее.');
+
+                    return $this->render('guide-buy-complete', ['hash' => $model->hash]);
+                } else {
+                    try {
+                        $client = new Client(['userName' => 'integraforlife-api', 'password' => 'Flower192543', 'language' => 'ru', 'currency' => Currency::RUB]);
+
+                        $orderAmount = $guide->price * 100;
+
+                        $returnUrl = 'https://integraforlife.com/buy-guide-complete';
+                        $params['failUrl'] = 'https://integraforlife.com/error-page?error=7';
+
+                        $transactionOrderId = $orderId . "-guide-" . time();
+                        $result = $client->registerOrder($transactionOrderId, $orderAmount, $returnUrl, $params);
+
+                        $paymentOrderId = $result['orderId'];
+                        $paymentFormUrl = $result['formUrl'];
+
+                        $transaction = new Transactions();
+                        $transaction->scenario = 'new';
+                        $transaction->order_number = $transactionOrderId;
+                        $transaction->save();
+
+                        return $this->redirect(Url::to($paymentFormUrl));
+
+                    } catch (Exception $e) {
+                        Yii::$app->mail->compose()
+                            ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                            ->setTo('mcflower@me.com')
+                            ->setSubject('Guide. Exception step 1 (sberbank)')
+                            ->setTextBody($e)
+                            ->send();
+                        Yii::$app->session->setFlash('error', 'Ошибка платежной системы. Повторите позднее.');
+                    }
                 }
             }
         }
@@ -914,11 +933,11 @@ class SiteController extends Controller
                     Yii::$app->mail->compose('payGuide',
                         ['user' => $guser,
                             'guide' => $guide,
-                            'title' => 'Оплата за материал "' . $guide->name  . '"',
+                            'title' => 'Оплата за материал "' . $guide->name . '"',
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo($guser->email)
-                        ->setSubject('Оплата за материал "' . $guide->name  . '"')
+                        ->setSubject('Оплата за материал "' . $guide->name . '"')
                         ->send();
 
                     return $this->render('guide-buy-complete', ['hash' => $guser->hash]);
@@ -1049,36 +1068,106 @@ class SiteController extends Controller
         $this->view->registerCssFile('/css/anketa.css?i=6');
         return $this->render('zhkt', ['model' => $model]);
     }
-    
+
     public function actionCheckingIronDeficiency()
     {
         $model = new DynamicModel(
             ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10',
-             'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19', 'q20',
-             'q21', 'q22', 'q23', 'q24', 'q25', 'q26', 'q27', 'q28', 'q29', 'q30',
-             'q31', 'q32', 'q33']
+                'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19', 'q20',
+                'q21', 'q22', 'q23', 'q24', 'q25', 'q26', 'q27', 'q28', 'q29', 'q30',
+                'q31', 'q32', 'q33']
         );
         $model->addRule(['q1', 'q2', 'q3'], 'required', ['message' => 'Обязательно для заполнения'])
             ->addRule(['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10',
-             'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19', 'q20',
-             'q21', 'q22', 'q23', 'q24', 'q25', 'q26', 'q27', 'q28', 'q29', 'q30',
-             'q31', 'q32', 'q33'], 'integer');
-     
-        if( $model->load(Yii::$app->request->post()) && $model->validate() ){
+                'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19', 'q20',
+                'q21', 'q22', 'q23', 'q24', 'q25', 'q26', 'q27', 'q28', 'q29', 'q30',
+                'q31', 'q32', 'q33'], 'integer');
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $data = Yii::$app->request->post();
             $sum = array_sum($data['DynamicModel']);
-            
+
             return $this->render('iron_deficiency_result', ['sum' => $sum]);
         }
         $this->view->registerCssFile('/css/anketa.css?i=6');
-        return $this->render('iron_deficiency', ['model'=>$model]);
+        return $this->render('iron_deficiency', ['model' => $model]);
     }
-    
+
+    /*public function actionForm()
+    {
+//        $model = new DynamicModel(['name', 'email', 'activity']);
+//        $model->addRule(['name', 'email', 'activity'], 'required', ['message' => 'Обязательно для заполнения']);
+//        $model->addRule('email', 'email');
+
+        $model = new Guser();
+
+        if ($model->load(Yii::$app->request->post())) {
+
+            $hash = md5($model->email . $model->gcontent . Yii::$app->params['secret']);
+            $oldRecord = Guser::findOne(['hash' => $hash]);
+
+            if (empty($oldRecord)) {
+                $model->hash = $hash;
+                $model->status = 0;
+            } else {
+                if ($oldRecord->status == 1 && ($oldRecord->updated_at + 31 * 24 * 60 * 60) > time()) {
+                    return $this->redirect(Url::to(['error-page', 'error' => 6]));
+                } elseif ($oldRecord->status == 0) {
+                    $model = $oldRecord;
+                    $model->scenario = 'wo_captcha';
+                }
+            }
+
+            if ($model->save()) {
+
+                $guide = Guides::findOne(['hash' => $model->gcontent]);
+                $orderId = $model->getPrimaryKey();
+
+                if (!$guide) {
+                    return $this->redirect(Url::to(['error-page', 'error' => 3]));
+                }
+
+                try {
+                    $client = new Client(['userName' => 'integraforlife-api', 'password' => 'Flower192543', 'language' => 'ru', 'currency' => Currency::RUB]);
+
+                    $orderAmount = $guide->price * 100;
+
+                    $returnUrl = 'https://integraforlife.com/buy-guide-complete';
+                    $params['failUrl'] = 'https://integraforlife.com/error-page?error=7';
+
+                    $transactionOrderId = $orderId . "-guide-" . time();
+                    $result = $client->registerOrder($transactionOrderId, $orderAmount, $returnUrl, $params);
+
+                    $paymentOrderId = $result['orderId'];
+                    $paymentFormUrl = $result['formUrl'];
+
+                    $transaction = new Transactions();
+                    $transaction->scenario = 'new';
+                    $transaction->order_number = $transactionOrderId;
+                    $transaction->save();
+
+                    return $this->redirect(Url::to($paymentFormUrl));
+
+                } catch (Exception $e) {
+                    Yii::$app->mail->compose()
+                        ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                        ->setTo('mcflower@me.com')
+                        ->setSubject('Guide. Exception step 1 (sberbank)')
+                        ->setTextBody($e)
+                        ->send();
+                    Yii::$app->session->setFlash('error', 'Ошибка платежной системы. Повторите позднее.');
+                }
+            }
+        }
+        $this->view->registerCssFile('/css/anketa.css?i=6');
+        return $this->render('form', ['model' => $model]);
+    }*/
+
     /*
     , 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10',
              'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19', 'q20',
              'q21', 'q22', 'q23', 'q24', 'q25', 'q26', 'q27', 'q28', 'q29', 'q30',
              'q31', 'q32', 'q33'
-     */ 
+     */
 
 }

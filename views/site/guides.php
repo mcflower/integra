@@ -27,27 +27,12 @@ $this->title = 'Полезные материалы';
                         <p class="guide-name"><?=$guide->name?></p>
                         <p class="guide-brief"><?=$guide->brief?></p>
                         <div class="guide-buttons">
-                            <!--<a href="#modal-more-<?/*=$guide->hash*/?>" class="guide-more-button sa-button-event">подробнее</a>-->
                             <a href="/guide?hash=<?=$guide->hash?>" class="guide-more-button" target="_blank">подробнее</a>
-                            <a href="#modal-guide" data-guide="<?=$guide->hash?>" data-gname="<?=$guide->name?>" class="sa-button-event guide-buy-button guide-buy-event">купить</a>
+                            <a href="#modal-guide" data-price="<?=$guide->price?>" data-guide="<?=$guide->hash?>" data-gname="<?=$guide->name?>" class="sa-button-event guide-buy-button guide-buy-event"><?= ($guide->price > 0) ? 'купить' : 'получить'?></a>
                         </div>
                     </div>
-                    <div class="guide-price"><?= $guide->price ?> руб.</div>
+                    <div class="guide-price"><?= ($guide->price > 0) ? $guide->price . ' руб.' : 'бесплатно'?></div>
                 </div>
-                <!--<div id="modal-more-<?/*=$guide->hash*/?>" class="guide-popup-box clearfix zoom-anim-dialog mfp-hide">
-                    <div class="guide-popup-info-block clearfix">
-                        <h3 id="guide-title"><?/*=$guide->name*/?></h3>
-                        <div class="guide-popup-content">
-                            <?/*=$guide->description*/?>
-                        </div>
-                        <div class="guide-popup-link">
-                            <div class="guide-popup-price">
-                                <span>Цена: <?/*= $guide->price */?> руб.</span>
-                            </div>
-                            <a href="#modal-guide" data-guide="<?/*=$guide->hash*/?>" data-gname="<?/*=$guide->name*/?>" class="sa-button-event guide-popup-buy-button guide-buy-event">купить</a>
-                        </div>
-                    </div>
-                </div>-->
             <?php endforeach;?>
         </div>
     </div>
@@ -80,7 +65,7 @@ $this->title = 'Полезные материалы';
             Договор оферты<br>
         </a>
         <div class="form-group order-form-group">
-            <?= Html::submitButton('ПЕРЕЙТИ К ОПЛАТЕ', ['class' => 'guide-popup-order-button']) ?>
+            <?= Html::submitButton('ПЕРЕЙТИ К ОПЛАТЕ', ['class' => 'guide-popup-order-button guide-popup-button-event']) ?>
         </div>
         <?php ActiveForm::end(); ?>
     </div>

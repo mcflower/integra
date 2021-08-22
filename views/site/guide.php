@@ -30,7 +30,7 @@ use yii\widgets\ActiveForm;
                     Стоимость
                 </p>
                 <p class="cwib-price">
-                    <?= $model->price ?> руб
+                    <?= ($model->price > 0) ? $model->price . ' руб.' : 'бесплатно'?>
                 </p>
             </div>
             <div class="cw-contact clearfix">
@@ -62,7 +62,7 @@ use yii\widgets\ActiveForm;
                                 </a>
                             </div>';
                     echo $form->field($user, 'gcontent')->hiddenInput(['value' => $model->hash])->label(false);
-                    echo Html::submitButton("ПЕРЕЙТИ К ОПЛАТЕ");
+                    echo Html::submitButton(($model->price > 0) ? "ПЕРЕЙТИ К ОПЛАТЕ" : "ПОЛУЧИТЬ");
 
                     ActiveForm::end();
                 ?>
