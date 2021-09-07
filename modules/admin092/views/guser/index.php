@@ -27,7 +27,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'email:email',
             //'hash',
-            'gcontent',
             [
                 'attribute' => 'gcontent',
                 'format' => 'raw',
