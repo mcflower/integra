@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = 'Просмотр';
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="xcontent-view">
-    
+
     <p>
         <?= Html::a('Редактировать', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('В продажу', ['open', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
@@ -96,7 +96,7 @@ $this->params['breadcrumbs'][] = 'Просмотр';
                 'attribute' => 'expired',
                 'format' => 'raw',
                 'value' => function($data){
-                    return ($data->expired > time()) ? '<span class="label label-success">'.date('d.m.Y', $data->expired).'</span>' : '<span class="label label-default">'.date('d.m.Y', $data->expired).'</span>';
+                    return ($data->expired > time()) ? '<span class="label label-success">'.date('d.m.Y', ($data->expired - 24 * 60 * 60)).'</span>' : '<span class="label label-default">'.date('d.m.Y', ($data->expired - 24 * 60 * 60)).'</span>';
                 },
             ],
             [

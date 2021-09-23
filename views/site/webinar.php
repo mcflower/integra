@@ -39,7 +39,7 @@ use yii\widgets\ActiveForm;
                 <?php if($webinar->type == 2):?>
                 <p class="cwib-datetime">
                     Вебинар состоится <?= date('d.m.Y', $webinar->xdate) ?> в <?= $webinar->xtime ?> по Московскому
-                    времени<br><br>Запись будет доступна Вам до <?=date('d.m.Y', $webinar->expired)?>.<br>
+                    времени<br><br>Запись будет доступна Вам до <?=date('d.m.Y', ($webinar->expired - 24 * 60 * 60))?>.<br>
                 </p>
                 <p class="cwib-textstatic">
                     Стоимость участия

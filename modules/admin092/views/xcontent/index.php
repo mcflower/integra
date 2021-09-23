@@ -69,11 +69,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'expired',
                 'format' => 'raw',
                 'value' => function($data){
-                    return ($data->expired > time()) ? '<span class="label label-success">'.date('d.m.Y', $data->expired).'</span>' : '<span class="label label-default">'.date('d.m.Y', $data->expired).'</span>';
+                    return ($data->expired > time()) ? '<span class="label label-success">'.date('d.m.Y', ($data->expired - 24 * 60 * 60)).'</span>' : '<span class="label label-default">'.date('d.m.Y', ($data->expired - 24 * 60 * 60)).'</span>';
                 },
             ],
             //'url:url',
-        
+
             /*[
                 'attribute' => 'created_at',
                 'format' => 'raw',
