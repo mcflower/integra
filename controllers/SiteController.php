@@ -791,6 +791,7 @@ class SiteController extends Controller
             }
         }
 
+        $this->view->registerCssFile('/css/anketa.css?i=6');
         return $this->render('hypoxia', ['model' => $model]);
     }
 
@@ -1067,6 +1068,13 @@ class SiteController extends Controller
 
         $this->view->registerCssFile('/css/anketa.css?i=6');
         return $this->render('zhkt', ['model' => $model]);
+    }
+    
+    public function actionTaplink()
+    {
+        $this->layout = 'wo-footer';
+        $this->view->registerCssFile('/css/anketa.css?i=11');
+        return $this->render('taplink');
     }
 
     public function actionCheckingIronDeficiency()

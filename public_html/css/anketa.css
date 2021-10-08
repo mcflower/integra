@@ -26,6 +26,15 @@
     text-align: center;
 }
 
+
+.group-name {
+    font-size: 32px;
+    font-weight: 400;
+    font-family: Philosopher;
+    color: rgb(66, 84, 69);
+    text-align: center;
+}
+
 .anketa-form {
     width: 92%;
     max-width: 640px;
@@ -93,4 +102,28 @@ button:hover {
 
 .red {
     color: red;
+}
+
+.tlink-box {
+    background-color: rgb(141, 179, 147);
+    border: 1px solid rgb(66, 84, 69);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    page-break-inside: avoid;
+    word-wrap: break-word;
+}
+
+a.tlink-a {
+    padding: 15px 20px;
+    display: block;
+    width: 100%;
+    color: white !important;
+}
+
+.tlink-box:hover {
+    opacity: 0.9;
+}
+
+.tlink-a:hover {
+    color: white;
 }
