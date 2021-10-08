@@ -14,7 +14,7 @@ $path = explode("/", $link);
 <meta property="og:type" content="article" />
 <meta property="og:title" content="<?=Html::encode($this->title) ?>" />
 <meta property="og:description" content="Врач эндокринолог, андролог, нутрициолог, 'Д-доктор'. Автор научных статей, посвящённых изучению инсулинорезистентности, кардиометаболических заболеваний, витамину Д, и т д. Специалист по лечению ожирения и сохранению здоровья и долголетия семейной пары. Специалист по реабилитации микробиоты кишечника. Основатель ООО 'Клиника Интегра'." />
-<meta property="og:url" content="integraforlife.com/<?=Url::current()?>" />
+<meta property="og:url" content="integraforlife.com<?=Url::current()?>" />
 <meta property="og:site_name" content="IntegraForLife" />
 <meta property="og:image" content="https://integraforlife.com<?=$this->context->metaImg?>">
 
