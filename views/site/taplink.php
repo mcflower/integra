@@ -17,6 +17,10 @@
 </div>
 <div class="anketa-content">
     <div class="anketa-form">
+        <h2 class="group-name"></h2>
+        <div class="tlink-box">
+            <a class="tlink-a" href="/">Обо мне</a>
+        </div>
         <h2 class="group-name">Анкеты</h2>
         <div class="tlink-box">
             <a class="tlink-a" href="/hypoxia">ГИПОКСИИ НЕТ</a>
