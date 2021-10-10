@@ -3,11 +3,6 @@
     $this->title = "Быстрые ссылки";
 ?>
 
-<style>
-    .primaryContainer {
-        height: 100vh;
-    }
-</style>
 <div class="hld-header">
     <div class="hld-header-container">
         <a href="/" class="hld-header-link">
