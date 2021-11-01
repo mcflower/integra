@@ -16,17 +16,7 @@
         <div class="tlink-box">
             <a class="tlink-a" href="/">Обо мне</a>
         </div>
-        <h2 class="group-name">Анкеты</h2>
-        <div class="tlink-box">
-            <a class="tlink-a" href="/hypoxia">ГИПОКСИИ НЕТ</a>
-        </div>
-        <div class="tlink-box">
-            <a class="tlink-a" href="/gastrointestinal">Реабилитация ЖКТ</a>
-        </div>
-        <div class="tlink-box">
-            <a class="tlink-a" href="/checking-iron-deficiency">Выявление возможного дефицита железа</a>
-        </div>
-        <h2 class="group-name">Гайды</h2>
+        <h2 class="group-name">Для самостоятельного изучения</h2>
         <div class="tlink-box">
             <a class="tlink-a" href="/guide/4WPXgMqBKAG">Угревые высыпания</a>
         </div>
@@ -39,5 +29,13 @@
         <div class="tlink-box">
             <a class="tlink-a" href="/guide/5gxCpya90BJF">Дефицит железа/гипоксия</a>
         </div>
+        <h2 class="group-name">Программы</h2>
+        <div class="tlink-box">
+            <a class="tlink-a" href="/gastrointestinal">Реабилитация ЖКТ</a>
+        </div>
+        <div class="tlink-box">
+            <a class="tlink-a" href="/checking-iron-deficiency">Выявление возможного дефицита железа</a>
+        </div>
+
     </div>
 </div>

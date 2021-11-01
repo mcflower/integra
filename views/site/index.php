@@ -55,7 +55,7 @@ use yii\widgets\ActiveForm;
             </div>
             <div class="education-box clearfix">
                 <p class="myinfo-text">
-                    Образование
+                    Компетенции
                 </p>
                 <div class="bottom-line-left clearfix"></div>
                 <p class="myinfo-description">
@@ -85,7 +85,7 @@ use yii\widgets\ActiveForm;
 <div class="faq clearfix">
     <div class="faq-container clearfix">
         <p class="header-text">
-            Частые вопросы
+            О приёме
         </p>
         <div class="underline-text clearfix"></div>
         <?php foreach ($questions as $question): ?>
@@ -101,25 +101,25 @@ use yii\widgets\ActiveForm;
         <?php endforeach; ?>
     </div>
 </div>
-<div class="stati clearfix">
+<!--<div class="stati clearfix">
     <div class="stati-container clearfix">
         <p class="header-text">
             Публикации и статьи
         </p>
         <div class="underline-text clearfix"></div>
-        <?php foreach ($articles as $article): ?>
+        <?php /*foreach ($articles as $article): */?>
             <div class="stati-one clearfix">
-                <a class="stati-one-link" href="<?= $article->url ?>" target="_blank">
-                    <?= $article->name ?><br/>
+                <a class="stati-one-link" href="<?/*= $article->url */?>" target="_blank">
+                    <?/*= $article->name */?><br/>
                 </a>
                 <p class="stati-one-date">
-                    <?= $article->release_date ?><br/>
+                    <?/*= $article->release_date */?><br/>
                 </p>
                 <div class="stati-one-underline clearfix"></div>
             </div>
-        <?php endforeach; ?>
+        <?php /*endforeach; */?>
     </div>
-</div>
+</div>-->
 <?=$this->render("//common/next", ['nexts' => $nexts]) ?>
 <?=$this->render("//common/free", ['webinars' => $webinars]) ?>
 
