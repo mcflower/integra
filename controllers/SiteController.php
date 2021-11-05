@@ -1129,7 +1129,7 @@ class SiteController extends Controller
                 Yii::$app->session->setFlash('error', 'Ошибка при отправке сообщения.');
             }
         }
-
+        $this->view->registerCssFile('/css/anketa.css?i=6');
         return $this->render('vessel', ['model' => $model]);
     }
 

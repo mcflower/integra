@@ -34,8 +34,14 @@
             <a class="tlink-a" href="/gastrointestinal">Реабилитация ЖКТ</a>
         </div>
         <div class="tlink-box">
+            <a class="tlink-a" href="/healthy-vessels">Здоровые сосуды</a>
+        </div>
+        <div class="tlink-box">
             <a class="tlink-a" href="/checking-iron-deficiency">Выявление возможного дефицита железа</a>
         </div>
-
+        <div class="tlink-box">
+<!--            <a class="tlink-a" href="https://wa.me/79171417038?text=Здравствуйте%2C+оставляю+заявку+на+участие+в+программе+«здоровые+сосуды»">Здоровые сосуды</a>-->
+            <a class="tlink-a" href="https://t.me/Z_zdorovie">Здоровые сосуды</a>
+        </div>
     </div>
 </div>
