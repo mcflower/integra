@@ -41,7 +41,7 @@
         </div>
         <div class="tlink-box">
 <!--            <a class="tlink-a" href="https://wa.me/79171417038?text=Здравствуйте%2C+оставляю+заявку+на+участие+в+программе+«здоровые+сосуды»">Здоровые сосуды</a>-->
-            <a class="tlink-a" href="https://t.me/Z_zdorovie">Здоровые сосуды</a>
+            <a class="tlink-a" href="https://t.me/Z_zdorovie">Чат поддержки пациентов</a>
         </div>
     </div>
 </div>

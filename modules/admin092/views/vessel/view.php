@@ -60,7 +60,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'r24',
             'q12',
             'r25',
-            'recomended',
 //            'created_at',
 //            'updated_at',
             [
