@@ -10,6 +10,7 @@ use app\models\Hypoxia;
 use app\models\Info;
 use app\models\Question;
 use app\models\Transactions;
+use app\models\VesselAnketa;
 use app\models\Xcontent;
 use app\models\Xuser;
 use app\models\Guides;
@@ -1069,7 +1070,7 @@ class SiteController extends Controller
         $this->view->registerCssFile('/css/anketa.css?i=6');
         return $this->render('zhkt', ['model' => $model]);
     }
-    
+
     public function actionTaplink()
     {
         $this->layout = 'wo-footer';
@@ -1102,6 +1103,34 @@ class SiteController extends Controller
         }
         $this->view->registerCssFile('/css/anketa.css?i=6');
         return $this->render('iron_deficiency', ['model' => $model]);
+    }
+
+    public function actionHealthyVessels()
+    {
+        $model = new VesselAnketa();
+
+        if ($model->load(Yii::$app->request->post())) {
+
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', 'Спасибо! Запрос отправлен.');
+
+                Yii::$app->mail
+                    ->compose('vessel', [
+                        'model' => $model,
+                        'htmlLayout' => 'layouts/html'
+                    ])
+                    ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                    ->setTo('info@integraforlife.com')
+                    ->setSubject('Анкета «Здоровые сосуды»')
+                    ->send();
+
+                $model = new VesselAnketa();
+            } else {
+                Yii::$app->session->setFlash('error', 'Ошибка при отправке сообщения.');
+            }
+        }
+
+        return $this->render('vessel', ['model' => $model]);
     }
 
     /*public function actionForm()
