@@ -2,6 +2,7 @@
 
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
+use dmstr\widgets\Alert;
 
 $this->title = "Анкета «Здоровые сосуды»";
 $form = ActiveForm::begin();
@@ -16,6 +17,7 @@ $r = array('да' => 'да', 'нет' => 'нет');
 </div>
 <div class="anketa-content">
     <div class="anketa-form">
+        <?= Alert::widget() ?>
         <h2>Анкета «Здоровые сосуды»</h2>
 
         <?= $form->field($model, 'name')->textInput(['maxlength' => true])->label('Ф.И.О. (полностью) <span class="red">*</span>') ?>
