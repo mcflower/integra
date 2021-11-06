@@ -39,6 +39,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string $r23
  * @property string $r24
  * @property string $r25
+ * @property string $r26
  * @property string $q1
  * @property string $q2
  * @property string $q3
@@ -84,7 +85,7 @@ class VesselAnketa extends \yii\db\ActiveRecord
             [['name', 'phone', 'age', 'email', 'address', 'recomended', 'r7', 'r12', 'reCaptcha', 'policy'], 'required', 'message' => 'Обязательно для заполнения'],
             [['created_at', 'updated_at'], 'integer'],
             [['email'], 'email', 'message' => 'Некорректный e-mail адрес'],
-            [['age', 'r1', 'r2', 'r3', 'r4', 'r5', 'r6', 'r7', 'r8', 'r9', 'r10', 'r11', 'r12', 'r13', 'r14', 'r15', 'r16', 'r17', 'r18', 'r19', 'r20', 'r21', 'r22', 'r23', 'r24', 'r25'], 'string', 'max' => 10, 'tooLong' => 'Максимум 10 знаков'],
+            [['age', 'r1', 'r2', 'r3', 'r4', 'r5', 'r6', 'r7', 'r8', 'r9', 'r10', 'r11', 'r12', 'r13', 'r14', 'r15', 'r16', 'r17', 'r18', 'r19', 'r20', 'r21', 'r22', 'r23', 'r24', 'r25', 'r26'], 'string', 'max' => 10, 'tooLong' => 'Максимум 10 знаков'],
             [['name', 'phone', 'email', 'address', 'q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10', 'q11', 'q12', 'recomended'], 'string', 'max' => 128, 'tooLong' => 'Максимум 128 знаков'],
             ['policy', 'compare', 'compareValue' => 1, 'message' => 'Необходимо подтвердить'],
             ['reCaptcha', \himiklab\yii2\recaptcha\ReCaptchaValidator::className(), 'secret' => '6LfAxCYaAAAAAEDpS9ZFpPnjTkAyCWlsNrNY-SOf', 'uncheckedMessage' => 'Пожалуйста, подтвердите что вы не робот.'],
@@ -128,6 +129,7 @@ class VesselAnketa extends \yii\db\ActiveRecord
             'r23' => 'Жировой гепатоз (стеатогепатит) по УЗИ органов брюшной полости',
             'r24' => 'Если нет, согласны ли Вы на бесплатную регистрацию в NSP на скидку -30%?',
             'r25' => 'Если нет, согласны ли Вы на бесплатную регистрацию в Витамакс для получения дисконтна',
+            'r26' => 'Выпадение волос',
             'q1' => 'ДЛЯ ЖЕНЩИН Если у Вас менопауза, то со скольки лет?',
             'q2' => 'Холестерин',
             'q3' => 'Триглицериды',

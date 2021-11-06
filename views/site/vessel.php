@@ -41,6 +41,7 @@ $r = array('да' => 'да', 'нет' => 'нет');
         <?= $form->field($model, 'r14')->radioList($r)?>
         <?= $form->field($model, 'r15')->radioList($r)?>
         <?= $form->field($model, 'r16')->radioList($r)?>
+        <?= $form->field($model, 'r26')->radioList($r)?>
         <?= $form->field($model, 'r17')->radioList($r)?>
         <?= $form->field($model, 'q1')->textInput(['maxlength' => true, 'placeholder' => 'Ваш ответ']) ?>
         <?= $form->field($model, 'r18')->radioList($r)?>

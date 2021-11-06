@@ -36,6 +36,7 @@ use yii\widgets\DetailView;
         'r14',
         'r15',
         'r16',
+        'r26',
         'r17',
         'q1',
         'r18',

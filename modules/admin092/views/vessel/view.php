@@ -38,6 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'r14',
             'r15',
             'r16',
+            'r26',
             'r17',
             'q1',
             'r18',
