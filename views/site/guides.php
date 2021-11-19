@@ -27,7 +27,7 @@ $this->title = 'Полезные материалы';
                         <p class="guide-name"><?=$guide->name?></p>
                         <p class="guide-brief"><?=$guide->brief?></p>
                         <div class="guide-buttons">
-                            <a href="/guide?hash=<?=$guide->hash?>" class="guide-more-button" target="_blank">подробнее</a>
+                            <a href="/guide/<?=$guide->hash?>" class="guide-more-button" target="_blank">подробнее</a>
                             <a href="#modal-guide" data-price="<?=$guide->price?>" data-guide="<?=$guide->hash?>" data-gname="<?=$guide->name?>" class="sa-button-event guide-buy-button guide-buy-event"><?= ($guide->price > 0) ? 'купить' : 'получить'?></a>
                         </div>
                     </div>
