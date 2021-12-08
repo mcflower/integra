@@ -20,6 +20,7 @@ use Yii;
 use yii\base\BaseObject;
 use yii\base\DynamicModel;
 use yii\filters\AccessControl;
+use yii\helpers\Json;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
@@ -809,11 +810,14 @@ class SiteController extends Controller
                 $model->hash = $hash;
                 $model->status = 0;
             } else {
-                if ($oldRecord->status == 1 && ($oldRecord->updated_at + 31 * 24 * 60 * 60) > time()) {
+                if ($oldRecord->status == 1 && ($oldRecord->updated_at + (31 * 24 * 60 * 60)) > time()) {
                     return $this->redirect(Url::to(['error-page', 'error' => 6]));
                 } elseif ($oldRecord->status == 0) {
                     $model = $oldRecord;
                     $model->scenario = 'wo_captcha';
+                } else {
+                    $model->hash = $hash;
+                    $model->status = 0;
                 }
             }
 
@@ -876,6 +880,13 @@ class SiteController extends Controller
                         Yii::$app->session->setFlash('error', 'Ошибка платежной системы. Повторите позднее.');
                     }
                 }
+            } else {
+                Yii::$app->mail->compose()
+                    ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                    ->setTo('mcflower@me.com')
+                    ->setSubject('Guide. Errors')
+                    ->setTextBody(Json::encode($model->errors))
+                    ->send();
             }
         }
         return $this->redirect(Url::to(['error-page', 'error' => 7]));
