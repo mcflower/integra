@@ -975,7 +975,7 @@ class SiteController extends Controller
 
     public function actionGetGuide(string $hash)
     {
-        $guser = Guser::findOne(['hash' => $hash]);
+        $guser = Guser::find()->where(['hash' => $hash])->orderBy('updated_at desc')->one();
         if (empty($guser)) {
             return $this->redirect(Url::to(['error-page', 'error' => 4]));
         }
