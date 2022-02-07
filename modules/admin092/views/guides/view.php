@@ -53,6 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $data->description;
                 },
             ],
+            'position',
             [
                 'attribute' => 'hide',
                 'format' => 'raw',

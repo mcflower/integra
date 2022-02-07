@@ -34,6 +34,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'hide')->dropDownList(array(0 => 'нет', 1 => 'да'), ['prompt' => 'Необходимо выбрать...']) ?>
 
+    <?= $form->field($model, 'position')->textInput() ?>
+
     <?= $form->field($model, 'url')->fileInput()->hint('Важно! PDF-файл') ?>
 
     <?= $form->field($model, 'img')->fileInput()->hint('Важно! Сохраняйте пропорции 800x600') ?>

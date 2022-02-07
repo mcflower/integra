@@ -751,7 +751,7 @@ class SiteController extends Controller
 
     public function actionGuides()
     {
-        $model = Guides::find()->where(['hide' => 0])->all();
+        $model = Guides::find()->where(['hide' => 0])->orderBy('position asc')->all();
         $guser = new Guser();
 
         return $this->render('guides', ['model' => $model, 'user' => $guser]);

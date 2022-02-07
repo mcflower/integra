@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             //'hash',
             'brief',
-            //'description:ntext',
+            'position',
             [
                 'attribute' => 'hide',
                 'format' => 'raw',

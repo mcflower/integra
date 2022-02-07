@@ -18,6 +18,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string $brief
  * @property string $description
  * @property int $hide
+ * @property int $position
  * @property int $created_at
  * @property int $updated_at
  */
@@ -44,8 +45,8 @@ class Guides extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'filename', 'img', 'url', 'price', 'hash', 'brief', 'description', 'hide'], 'required'],
-            [['price', 'hide', 'created_at', 'updated_at'], 'integer'],
+            [['name', 'filename', 'img', 'url', 'price', 'hash', 'brief', 'description', 'hide', 'position'], 'required'],
+            [['price', 'hide', 'position', 'created_at', 'updated_at'], 'integer'],
             [['description'], 'string'],
             [['name', 'filename', 'url', 'hash', 'img'], 'string', 'max' => 255],
             [['brief'], 'string', 'max' => 1024],
@@ -55,7 +56,7 @@ class Guides extends \yii\db\ActiveRecord
     public function scenarios()
     {
         $scenarios = parent::scenarios();
-        $scenarios['update'] = ['name', 'filename', 'price', 'brief', 'description', 'hide'];
+        $scenarios['update'] = ['name', 'filename', 'price', 'position', 'brief', 'description', 'hide'];
 
         return $scenarios;
     }
@@ -76,6 +77,7 @@ class Guides extends \yii\db\ActiveRecord
             'brief' => 'Краткое описание',
             'description' => 'Полное описание',
             'hide' => 'Скрыт',
+            'position' => 'Позиция',
             'created_at' => 'Создано',
             'updated_at' => 'Обновлено',
         ];
