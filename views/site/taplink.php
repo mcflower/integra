@@ -18,16 +18,13 @@
         </div>
         <h2 class="group-name">Для самостоятельного изучения</h2>
         <div class="tlink-box">
-            <a class="tlink-a" href="/guide/4WPXgMqBKAG">Угревые высыпания</a>
-        </div>
-        <div class="tlink-box">
-            <a class="tlink-a" href="/guide/BiwwNPZhHMPM">Нарушение оттока желчи</a>
-        </div>
-        <div class="tlink-box">
             <a class="tlink-a" href="/guide/Pq9WPFoQ1nES">Усталость, сил нет. Решение есть.</a>
         </div>
         <div class="tlink-box">
             <a class="tlink-a" href="/guide/5gxCpya90BJF">Дефицит железа/гипоксия</a>
+        </div>
+        <div class="tlink-box">
+            <a class="tlink-a" href="/guide/jdOiQzREt4xp">Йоддефицит</a>
         </div>
         <h2 class="group-name">Программы</h2>
         <div class="tlink-box">
