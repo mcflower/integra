@@ -37,8 +37,7 @@
             <a class="tlink-a" href="/checking-iron-deficiency">Выявление возможного дефицита железа</a>
         </div>
         <div class="tlink-box">
-            <a class="tlink-a" href="https://wa.me/79171417038?text=Здравствуйте%2C+хочу+попасть+в+чат+поддержки+пациентов.">Чат поддержки пациентов</a>
-<!--            <a class="tlink-a" href="https://t.me/Z_zdorovie">Чат поддержки пациентов</a>-->
+            <a class="tlink-a" href="https://t.me/+pTfbhZQzVCE5OTEy">Хочу в чат поддержки пациентов Холодовой</a>
         </div>
     </div>
 </div>
