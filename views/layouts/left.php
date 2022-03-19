@@ -25,6 +25,7 @@
                             ['label' => 'Гипоксия', 'icon' => 'dot-circle-o', 'url' => ['/admin092/hypoxia'],],
                             ['label' => 'ЖКТ', 'icon' => 'dot-circle-o', 'url' => ['/admin092/zhkt'],],
                             ['label' => 'Сосуды', 'icon' => 'dot-circle-o', 'url' => ['/admin092/vessel'],],
+                            ['label' => 'Формы', 'icon' => 'dot-circle-o', 'url' => ['/admin092/event'],],
                         ],
                     ],
                     ['label' => 'Гайды', 'icon' => 'file-text', 'url' => ['/admin092/guides']],

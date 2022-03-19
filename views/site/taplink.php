@@ -28,6 +28,9 @@
         </div>
         <h2 class="group-name">Программы</h2>
         <div class="tlink-box">
+            <a class="tlink-a" href="/event">Форма регистрации на конференцию</a>
+        </div>
+        <div class="tlink-box">
             <a class="tlink-a" href="/gastrointestinal">Реабилитация ЖКТ</a>
         </div>
         <div class="tlink-box">

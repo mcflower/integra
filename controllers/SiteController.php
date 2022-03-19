@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\Article;
 use app\models\Certificate;
 use app\models\CronClient;
+use app\models\Event;
 use app\models\Guser;
 use app\models\Hypoxia;
 use app\models\Info;
@@ -1080,6 +1081,35 @@ class SiteController extends Controller
 
         $this->view->registerCssFile('/css/anketa.css?i=6');
         return $this->render('zhkt', ['model' => $model]);
+    }
+
+    public function actionEvent()
+    {
+        $model = new Event();
+
+        if ($model->load(Yii::$app->request->post())) {
+
+            if ($model->save()) {
+                Yii::$app->session->setFlash('warning', 'Спасибо! Анкета отправлена.');
+
+                Yii::$app->mail
+                    ->compose('event', [
+                        'model' => $model,
+                        'htmlLayout' => 'layouts/html'
+                    ])
+                    ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                    ->setTo('info@integraforlife.com')
+                    ->setSubject('Анкета «Реабилитация желудочно-кишечного тракта»')
+                    ->send();
+
+                $model = new Event();
+            } else {
+                Yii::$app->session->setFlash('error', 'Ошибка при отправке сообщения.');
+            }
+        }
+
+        $this->view->registerCssFile('/css/anketa.css?i=6');
+        return $this->render('event', ['model' => $model]);
     }
 
     public function actionTaplink()
