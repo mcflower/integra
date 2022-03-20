@@ -45,7 +45,7 @@ $r = array('да' => 'да', 'нет' => 'нет');
         <?= $form->field($model, 'r6')->radioList($r)?>
         <?= $form->field($model, 'r7')->radioList($r)?>
         <?= $form->field($model, 'r8')->radioList($r)?>
-        <?= $form->field($model, 'r9')->radioList(['очно' => 'Очно', 'онлайн' => 'Оналйн'])?>
+        <?= $form->field($model, 'r9')->radioList(['очно' => 'Очно', 'онлайн' => 'Онлайн'])?>
         <?= $form->field($model, 'activity')->hiddenInput(['value' => 'activity1'])->label(false)?>
         <?= $form->field($model, 'reCaptcha')->widget(
             \himiklab\yii2\recaptcha\ReCaptcha::className(),
