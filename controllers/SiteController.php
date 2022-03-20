@@ -1099,7 +1099,7 @@ class SiteController extends Controller
                     ])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                     ->setTo('info@integraforlife.com')
-                    ->setSubject('Анкета «Реабилитация желудочно-кишечного тракта»')
+                    ->setSubject('Форма регистрации на конференцию')
                     ->send();
 
                 $model = new Event();
