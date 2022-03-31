@@ -24,7 +24,7 @@ $r = array('да' => 'да', 'нет' => 'нет');
         <?= $form->field($model, 'q2')->textInput(['maxlength' => true, 'placeholder' => 'ДД.ММ.ГГГГ'])->label('Дата рождения <span class="red">*</span>') ?>
         <?= $form->field($model, 'q3')->textInput(['maxlength' => true, 'placeholder' => 'Ваш ответ'])->label('Номер телефон <span class="red">*</span>') ?>
         <?= $form->field($model, 'q4')->textInput(['maxlength' => true, 'placeholder' => 'Ваш ответ'])->label('Электронная почта <span class="red">*</span>') ?>
-        <?= $form->field($model, 'q5')->textInput(['maxlength' => true, 'placeholder' => 'Ваш ответ'])->label('Адрес места жительства <span class="red">*</span>') ?>
+        <?= $form->field($model, 'q5')->textInput(['maxlength' => true, 'placeholder' => 'Ваш ответ'])->label('Город проживания/Область <span class="red">*</span>') ?>
         <?= $form->field($model, 'q6')->radioList($r)?>
         <?= $form->field($model, 'q7')->radioList($r)?>
         <?= $form->field($model, 'q8')->textInput(['maxlength' => true, 'placeholder' => 'Ваш ответ']) ?>
