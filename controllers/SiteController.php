@@ -1154,7 +1154,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post())) {
 
             if ($model->save()) {
-                Yii::$app->session->setFlash('success', 'Спасибо! Запрос отправлен.');
+                Yii::$app->session->setFlash('warning', 'Спасибо! Запрос отправлен.');
 
                 Yii::$app->mail
                     ->compose('vessel', [
@@ -1182,7 +1182,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post())) {
 
             if ($model->save()) {
-                Yii::$app->session->setFlash('success', 'Спасибо! Запрос отправлен.');
+                Yii::$app->session->setFlash('warning', 'Спасибо! Запрос отправлен.');
 
                 Yii::$app->mail
                     ->compose('patient', [
