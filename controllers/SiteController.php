@@ -9,6 +9,7 @@ use app\models\Event;
 use app\models\Guser;
 use app\models\Hypoxia;
 use app\models\Info;
+use app\models\Patient;
 use app\models\Question;
 use app\models\Transactions;
 use app\models\VesselAnketa;
@@ -1172,6 +1173,34 @@ class SiteController extends Controller
         }
         $this->view->registerCssFile('/css/anketa.css?i=6');
         return $this->render('vessel', ['model' => $model]);
+    }
+
+    public function actionPatientSupport()
+    {
+        $model = new Patient();
+
+        if ($model->load(Yii::$app->request->post())) {
+
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', 'Спасибо! Запрос отправлен.');
+
+                Yii::$app->mail
+                    ->compose('patient', [
+                        'model' => $model,
+                        'htmlLayout' => 'layouts/html'
+                    ])
+                    ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                    ->setTo('greenfild@gmail.com')
+                    ->setSubject('Регистрация в чат поддержки пациентов')
+                    ->send();
+
+                $model = new Patient();
+            } else {
+                Yii::$app->session->setFlash('error', 'Ошибка при отправке сообщения.');
+            }
+        }
+        $this->view->registerCssFile('/css/anketa.css?i=6');
+        return $this->render('patient', ['model' => $model]);
     }
 
     /*public function actionForm()
