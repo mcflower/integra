@@ -1191,7 +1191,7 @@ class SiteController extends Controller
                     ])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                     ->setTo('info@integraforlife.com')
-                    ->setSubject('Регистрация в чат поддержки пациентов')
+                    ->setSubject('Чат пациентов')
                     ->send();
 
                 $model = new Patient();

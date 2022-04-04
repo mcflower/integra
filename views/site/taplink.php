@@ -28,6 +28,9 @@
         </div>
         <h2 class="group-name">Программы</h2>
         <div class="tlink-box">
+            <a class="tlink-a" href="/patient-support">Чат поддержки пациентов</a>
+        </div>
+        <div class="tlink-box">
             <a class="tlink-a" href="/event">Форма регистрации на конференцию</a>
         </div>
         <div class="tlink-box">
@@ -38,9 +41,6 @@
         </div>
         <div class="tlink-box">
             <a class="tlink-a" href="/checking-iron-deficiency">Выявление возможного дефицита железа</a>
-        </div>
-        <div class="tlink-box">
-            <a class="tlink-a" href="https://t.me/+pTfbhZQzVCE5OTEy">Хочу в чат поддержки пациентов Холодовой</a>
         </div>
     </div>
 </div>
