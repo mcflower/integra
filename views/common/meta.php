@@ -13,7 +13,7 @@ $path = explode("/", $link);
 <meta property="og:locale" content="ru_RU" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="<?=Html::encode($this->title) ?>" />
-<meta property="og:description" content="Врач эндокринолог, андролог, нутрициолог, 'Д-доктор'. Автор научных статей, посвящённых изучению инсулинорезистентности, кардиометаболических заболеваний, витамину Д, и т д. Специалист по лечению ожирения и сохранению здоровья и долголетия семейной пары. Специалист по реабилитации микробиоты кишечника. Основатель ООО 'Клиника Интегра'." />
+<meta property="og:description" content="<?=$this->context->metaDescription?>" />
 <meta property="og:url" content="integraforlife.com<?=Url::current()?>" />
 <meta property="og:site_name" content="IntegraForLife" />
 <meta property="og:image" content="https://integraforlife.com<?=$this->context->metaImg?>">
@@ -21,7 +21,7 @@ $path = explode("/", $link);
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="IntegraForLife">
 <meta name="twitter:title" content="<?=Html::encode($this->title) ?>">
-<meta name="twitter:description" content="Врач эндокринолог, андролог, нутрициолог, 'Д-доктор'. Автор научных статей, посвящённых изучению инсулинорезистентности, кардиометаболических заболеваний, витамину Д, и т д. Специалист по лечению ожирения и сохранению здоровья и долголетия семейной пары. Специалист по реабилитации микробиоты кишечника. Основатель ООО 'Клиника Интегра'." />
+<meta name="twitter:description" content="<?=$this->context->metaDescription?>" />
 <meta name="twitter:domain" content="integraforlife.com" />
 <meta name="twitter:image" content="https://integraforlife.com<?=$this->context->metaImg?>">
 <link rel="image_src" href="https://integraforlife.com<?=$this->context->metaImg?>">
@@ -33,4 +33,4 @@ $path = explode("/", $link);
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="theme-color" content="#ffffff">
-<meta name="description" content="Врач эндокринолог, андролог, нутрициолог, 'Д-доктор'. Автор научных статей, посвящённых изучению инсулинорезистентности, кардиометаболических заболеваний, витамину Д, и т д. Специалист по лечению ожирения и сохранению здоровья и долголетия семейной пары. Специалист по реабилитации микробиоты кишечника. Основатель ООО 'Клиника Интегра'." />
+<meta name="description" content="<?=$this->context->metaDescription?>" />
