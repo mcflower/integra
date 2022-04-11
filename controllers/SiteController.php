@@ -39,6 +39,7 @@ class SiteController extends Controller
 {
 
     public $metaImg = '/img/logo-bg.jpg';
+    public $metaDescription = 'Врач эндокринолог, андролог, нутрициолог, «Д-доктор». Автор научных статей, посвящённых изучению инсулинорезистентности, кардиометаболических заболеваний, витамину Д, и т д. Специалист по лечению ожирения и сохранению здоровья и долголетия семейной пары. Специалист по реабилитации микробиоты кишечника. Основатель ООО «Клиника Интегра»';
 
     /**
      * {@inheritdoc}
@@ -668,6 +669,48 @@ class SiteController extends Controller
 
         $this->view->registerCssFile('/css/webinar.css');
         return $this->render('webinar', ['webinar' => $webinar, 'model' => $model]);
+    }
+
+    public function actionConference()
+    {
+
+
+        $this->metaImg = "/img/conference1.jpg";
+        $this->metaDescription = '3-4 июня 2022 г. Летняя конференция «Применимая медицина». г. Санкт-Петербург, гостиница Октябрьская 4';
+        $model = new DynamicModel(['activity','name', 'phone', 'birthday', 'email', 'city']);
+        $model->addRule(['activity','name', 'phone', 'birthday', 'email', 'city'], 'required', ['message' => 'Обязательно для заполнения']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('conference', ['model' => $model]);
+    }
+
+    public function actionSuccessRegistration()
+    {
+        $activityName = [
+            'without' => 'Без проживания',
+            'within' => 'С проживанием',
+        ];
+
+        $data = [
+            'name' => $_POST['DynamicModel']['name'],
+            'phone' => $_POST['DynamicModel']['phone'],
+            'birthday' => $_POST['DynamicModel']['birthday'],
+            'city' => $_POST['DynamicModel']['city'],
+            'email' => $_POST['DynamicModel']['email'],
+            'type' => $activityName[$_POST['DynamicModel']['activity']],
+        ];
+
+        Yii::$app->mail
+            ->compose('conference', [
+                'model' => $data,
+                'htmlLayout' => 'layouts/html'
+            ])
+            ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+            ->setTo('elepsoni@gmail.com')
+            ->setSubject("Летняя конференция «Применимая медицина»")
+            ->send();
+
+        return $this->render('conference_result');
     }
 
     /**
