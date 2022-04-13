@@ -28,6 +28,9 @@
         </div>
         <h2 class="group-name">Программы</h2>
         <div class="tlink-box">
+            <a class="tlink-a" href="/conference">Конференция в СПб 3-4 июня</a>
+        </div>
+        <div class="tlink-box">
             <a class="tlink-a" href="/patient-support">Чат поддержки пациентов</a>
         </div>
         <div class="tlink-box">
