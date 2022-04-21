@@ -16,6 +16,9 @@
         <div class="tlink-box">
             <a class="tlink-a" href="/">Обо мне</a>
         </div>
+        <div class="tlink-box">
+            <a class="tlink-a" target="_blank" href="https://prodoctorov.ru/tolyatti/vrach/735966-holodova/">Оставить отзыв</a>
+        </div>
         <h2 class="group-name">Для самостоятельного изучения</h2>
         <div class="tlink-box">
             <a class="tlink-a" href="/guide/Pq9WPFoQ1nES">Усталость, сил нет. Решение есть.</a>
