@@ -710,6 +710,16 @@ class SiteController extends Controller
             ->setSubject("Летняя конференция «Применимая медицина»")
             ->send();
 
+        Yii::$app->mail
+            ->compose('conference', [
+                'model' => $data,
+                'htmlLayout' => 'layouts/html'
+            ])
+            ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+            ->setTo('xolodova63@yandex.ru')
+            ->setSubject("Летняя конференция «Применимая медицина»")
+            ->send();
+
         return $this->render('conference_result');
     }
 
