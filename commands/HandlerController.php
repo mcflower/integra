@@ -25,23 +25,23 @@ class HandlerController extends Controller
     public function actionWopen()
     {
         $model = Xcontent::findOne(['type' => 2]);
-        if(!empty($model)){
+        if (!empty($model)) {
             $users = Xuser::find()->where(['wopen' => 1, 'activity' => $model->activity])->limit(10)->all();
             //print_r($users);
-            if(!empty($users)) {
-                foreach($users as $user) {
+            if (!empty($users)) {
+                foreach ($users as $user) {
                     $user->wopen = 2;
                     $user->save();
 
                     Yii::$app->mail->compose('start',
-                    ['user' => $user,
-                    'activity' => $model,
-                        'title' => 'Уведомление о вебинаре "'.$model->name.'".',
-                        'htmlLayout' => 'layouts/html'])
-                    ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                    ->setTo($user->email)
-                    ->setSubject('Уведомление о вебинаре "'.$model->name.'".')
-                    ->send();
+                        ['user' => $user,
+                            'activity' => $model,
+                            'title' => 'Уведомление о вебинаре "' . $model->name . '".',
+                            'htmlLayout' => 'layouts/html'])
+                        ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                        ->setTo($user->email)
+                        ->setSubject('Уведомление о вебинаре "' . $model->name . '".')
+                        ->send();
                 }
             }
         }
@@ -80,7 +80,7 @@ class HandlerController extends Controller
                     //возможно также нужно добавить isApproved в условие или
                     if (OrderStatus::isDeposited($result['orderStatus'])) {
 
-                        if($temp[1] == 'guide') {
+                        if ($temp[1] == 'guide') {
 
                             $guser = Guser::findOne($orderIdU2p);
 
@@ -88,13 +88,6 @@ class HandlerController extends Controller
                                 $guser->scenario = 'update';
                                 $guser->status = 1;
                                 $guser->save();
-
-                                $transaction = Transactions::findOne(['order_number' => $result['orderNumber']]);
-                                if (!empty($transaction)) {
-                                    $transaction->scenario = 'update';
-                                    $transaction->status = 1;
-                                    $transaction->save();
-                                }
 
                                 $guide = Guides::findOne(['hash' => $guser->gcontent]);
 
@@ -111,17 +104,12 @@ class HandlerController extends Controller
                                 Yii::$app->mail->compose('payGuide',
                                     ['user' => $guser,
                                         'guide' => $guide,
-                                        'title' => 'Оплата за материал "' . $guide->name  . '"',
+                                        'title' => 'Оплата за материал "' . $guide->name . '"',
                                         'htmlLayout' => 'layouts/html'])
                                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                     ->setTo($guser->email)
-                                    ->setSubject('Оплата за материал "' . $guide->name  . '"')
+                                    ->setSubject('Оплата за материал "' . $guide->name . '"')
                                     ->send();
-
-                                return $this->render('guide-buy-complete', ['hash' => $guser->hash]);
-
-                            } else {
-                                return $this->redirect(Url::to(['error-page', 'error' => 6]));
                             }
                         } else {
 
@@ -143,22 +131,22 @@ class HandlerController extends Controller
                                     Yii::$app->mail->compose('payConfirmAdmin',
                                         ['user' => $user,
                                             'activity' => $activity,
-                                            'title' => 'Оплата вебинара "'.$activity->name.'"',
+                                            'title' => 'Оплата вебинара "' . $activity->name . '"',
                                             'htmlLayout' => 'layouts/html'])
                                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                         ->setTo('info@integraforlife.com')
-                                        ->setSubject('Оплата вебинара "'.$activity->name.'"')
+                                        ->setSubject('Оплата вебинара "' . $activity->name . '"')
                                         ->send();
 
 
                                     Yii::$app->mail->compose('payConfirm',
                                         ['user' => $user,
                                             'activity' => $activity,
-                                            'title' => 'Оплата за вебинар "'.$activity->name.'"',
+                                            'title' => 'Оплата за вебинар "' . $activity->name . '"',
                                             'htmlLayout' => 'layouts/html'])
                                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                         ->setTo($user->email)
-                                        ->setSubject('Оплата за вебинар "'.$activity->name.'"')
+                                        ->setSubject('Оплата за вебинар "' . $activity->name . '"')
                                         ->send();
 
                                 } else if ($activity->type == 3) {
@@ -191,7 +179,8 @@ class HandlerController extends Controller
                         }
 
                     }
-                } catch (\Exception $e) {}
+                } catch (\Exception $e) {
+                }
 
                 $one->status = 1;
                 $one->save();
@@ -202,21 +191,21 @@ class HandlerController extends Controller
     public function actionWstart()
     {
         $model = Xcontent::find()->where(['type' => 2])->andWhere(['<', 'xdate', time()])->one();
-        if(!empty($model)) {
+        if (!empty($model)) {
             $users = Xuser::find()->where(['wstart' => 1, 'buy' => 1, 'activity' => $model->activity])->limit(10)->all();
-            if(!empty($users)) {
-                foreach($users as $user) {
+            if (!empty($users)) {
+                foreach ($users as $user) {
                     $user->wstart = 2;
                     $user->save();
 
                     Yii::$app->mail->compose('current',
                         ['user' => $user,
-                        'activity' => $model,
-                            'title' => 'Напоминание о вебинаре "'.$model->name.'".',
+                            'activity' => $model,
+                            'title' => 'Напоминание о вебинаре "' . $model->name . '".',
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo($user->email)
-                        ->setSubject('Напоминание о вебинаре "'.$model->name.'".')
+                        ->setSubject('Напоминание о вебинаре "' . $model->name . '".')
                         ->send();
                 }
             }
@@ -227,11 +216,11 @@ class HandlerController extends Controller
     {
         $activityHash = "";
         $users = Xuser::find()->where(['wclose' => 1, 'buy' => 1])->limit(10)->all();
-        if(!empty($users)) {
-            foreach($users as $user) {
+        if (!empty($users)) {
+            foreach ($users as $user) {
                 $user->wclose = 2;
                 $user->save();
-                if($activityHash != $user->activity) {
+                if ($activityHash != $user->activity) {
                     $model = Xcontent::findOne(['activity' => $user->activity]);
                     $activityHash = $user->activity;
                 }
@@ -239,13 +228,13 @@ class HandlerController extends Controller
                 $needCertLink = !empty($model->cert);
                 $mes = Yii::$app->mail->compose('close',
                     ['user' => $user,
-                    'activity' => $model,
+                        'activity' => $model,
                         'needCertLink' => $needCertLink,
-                        'title' => 'Ссылка на запись вебинара "'.$model->name.'".',
+                        'title' => 'Ссылка на запись вебинара "' . $model->name . '".',
                         'htmlLayout' => 'layouts/html'])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                     ->setTo($user->email)
-                    ->setSubject('Ссылка на запись вебинара "'.$model->name.'".');
+                    ->setSubject('Ссылка на запись вебинара "' . $model->name . '".');
                 /*if(!empty($model->cert)) {
                     $mes->attach("/home/m/mcflow/integraforlife.com/public_html".$model->cert);
                 }*/
