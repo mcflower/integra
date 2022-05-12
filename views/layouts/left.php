@@ -27,6 +27,7 @@
                             ['label' => 'Сосуды', 'icon' => 'dot-circle-o', 'url' => ['/admin092/vessel'],],
                             ['label' => 'Формы', 'icon' => 'dot-circle-o', 'url' => ['/admin092/event'],],
                             ['label' => 'Чат поддержки', 'icon' => 'dot-circle-o', 'url' => ['/admin092/patient'],],
+                            ['label' => '2 фаза цикла', 'icon' => 'dot-circle-o', 'url' => ['/admin092/progesterone'],],
                         ],
                     ],
                     ['label' => 'Гайды', 'icon' => 'file-text', 'url' => ['/admin092/guides']],

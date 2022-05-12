@@ -10,6 +10,7 @@ use app\models\Guser;
 use app\models\Hypoxia;
 use app\models\Info;
 use app\models\Patient;
+use app\models\Progesterone;
 use app\models\Question;
 use app\models\Transactions;
 use app\models\VesselAnketa;
@@ -1254,6 +1255,34 @@ class SiteController extends Controller
         }
         $this->view->registerCssFile('/css/anketa.css?i=6');
         return $this->render('patient', ['model' => $model]);
+    }
+
+    public function actionPhase2()
+    {
+        $model = new Progesterone();
+
+        if ($model->load(Yii::$app->request->post())) {
+
+            if ($model->save()) {
+                Yii::$app->session->setFlash('warning', 'Спасибо! Запрос отправлен.');
+
+                Yii::$app->mail
+                    ->compose('progesterone', [
+                        'model' => $model,
+                        'htmlLayout' => 'layouts/html'
+                    ])
+                    ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                    ->setTo('greenfild@gmail.com')
+                    ->setSubject('Анкета «2 фаза цикла»')
+                    ->send();
+
+                $model = new Progesterone();
+            } else {
+                Yii::$app->session->setFlash('error', 'Ошибка при отправке сообщения.');
+            }
+        }
+        $this->view->registerCssFile('/css/anketa.css?i=6');
+        return $this->render('progesterone', ['model' => $model]);
     }
 
     /*public function actionForm()
