@@ -48,5 +48,8 @@
         <div class="tlink-box">
             <a class="tlink-a" href="/checking-iron-deficiency">Выявление возможного дефицита железа</a>
         </div>
+        <div class="tlink-box">
+            <a class="tlink-a" href="/phase2">2 фаза цикла</a>
+        </div>
     </div>
 </div>
