@@ -37,9 +37,6 @@
             <a class="tlink-a" href="/patient-support">Чат поддержки пациентов</a>
         </div>
         <div class="tlink-box">
-            <a class="tlink-a" href="/event">Форма регистрации на конференцию</a>
-        </div>
-        <div class="tlink-box">
             <a class="tlink-a" href="/gastrointestinal">Реабилитация ЖКТ</a>
         </div>
         <div class="tlink-box">
