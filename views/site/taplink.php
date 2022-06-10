@@ -31,10 +31,10 @@
         </div>
         <h2 class="group-name">Программы</h2>
         <div class="tlink-box">
-            <a class="tlink-a" href="/conference">Конференция в СПб 3-4 июня</a>
+            <a class="tlink-a" href="/patient-support">Чат поддержки пациентов</a>
         </div>
         <div class="tlink-box">
-            <a class="tlink-a" href="/patient-support">Чат поддержки пациентов</a>
+            <a class="tlink-a" href="/phase2">2 фаза цикла</a>
         </div>
         <div class="tlink-box">
             <a class="tlink-a" href="/gastrointestinal">Реабилитация ЖКТ</a>
@@ -44,9 +44,6 @@
         </div>
         <div class="tlink-box">
             <a class="tlink-a" href="/checking-iron-deficiency">Выявление возможного дефицита железа</a>
-        </div>
-        <div class="tlink-box">
-            <a class="tlink-a" href="/phase2">2 фаза цикла</a>
         </div>
     </div>
 </div>
