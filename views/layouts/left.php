@@ -32,6 +32,7 @@
                     ],
                     ['label' => 'Гайды', 'icon' => 'file-text', 'url' => ['/admin092/guides']],
                     ['label' => 'Покупатели', 'icon' => 'user-o', 'url' => ['/admin092/guser']],
+                    ['label' => 'Анализы клиники', 'icon' => 'user-o', 'url' => ['/admin092/integraanalysis']],
                     //['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                 ],
             ]
