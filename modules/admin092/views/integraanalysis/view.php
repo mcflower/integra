@@ -7,20 +7,18 @@ use yii\widgets\DetailView;
 /* @var $model app\models\IntegraAnalysis */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Integra Analyses', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Анализы клиники', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="integra-analysis-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('Редактировать', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Вы уверены что хотите удалить запись?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -32,10 +30,34 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'art',
             'name',
-            'price',
-            'hide',
-            'created_at',
-            'updated_at',
+            [
+                'attribute' => 'price',
+                'format' => 'raw',
+                'value' => function($data){
+                    return $data->price . ' руб.';
+                },
+            ],
+            [
+                'attribute' => 'hide',
+                'format' => 'raw',
+                'value' => function($data){
+                    return ($data->hide == 0) ? '<span class="label label-success">Отображается</span>' : '<span class="label label-danger">Скрыт</span>';
+                },
+            ],
+            [
+                'attribute' => 'created_at',
+                'format' => 'raw',
+                'value' => function($data){
+                    return date ('d.m.Y', $data->created_at);
+                },
+            ],
+            [
+                'attribute' => 'updated_at',
+                'format' => 'raw',
+                'value' => function($data){
+                    return date ('d.m.Y', $data->updated_at);
+                },
+            ],
         ],
     ]) ?>
 

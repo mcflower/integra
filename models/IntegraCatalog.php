@@ -56,4 +56,9 @@ class IntegraCatalog extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+
+
+    public function getAnalysis() {
+        return $this->hasOne(IntegraAnalysis::className(), ['art' => 'art']);
+    }
 }

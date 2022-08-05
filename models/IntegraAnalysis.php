@@ -43,6 +43,7 @@ class IntegraAnalysis extends \yii\db\ActiveRecord
             [['price', 'hide', 'created_at', 'updated_at'], 'integer'],
             [['art'], 'string', 'max' => 100],
             [['name'], 'string', 'max' => 1024],
+            [['art'], 'unique'],
         ];
     }
 
@@ -53,12 +54,12 @@ class IntegraAnalysis extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'art' => 'Art',
-            'name' => 'Name',
-            'price' => 'Price',
-            'hide' => 'Hide',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'art' => 'Артикул',
+            'name' => 'Называние',
+            'price' => 'Цена',
+            'hide' => 'Скрыт',
+            'created_at' => 'Создано',
+            'updated_at' => 'Обновлено',
         ];
     }
 }

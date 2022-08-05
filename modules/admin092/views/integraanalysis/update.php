@@ -5,14 +5,12 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\IntegraAnalysis */
 
-$this->title = 'Update Integra Analysis: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Integra Analyses', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = 'Ред.: ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Анализы клиники', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Просмотр', 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = 'Редактирование';
 ?>
 <div class="integra-analysis-update">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,

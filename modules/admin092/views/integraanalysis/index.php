@@ -7,15 +7,13 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\IntegraanalysisSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Integra Analyses';
+$this->title = 'Анализы клиники';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="integra-analysis-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Create Integra Analysis', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -26,13 +24,32 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'art',
             'name',
-            'price',
-            'hide',
+            [
+                'attribute' => 'price',
+                'format' => 'raw',
+                'value' => function($data){
+                    return $data->price . ' руб.';
+                },
+            ],
+            [
+                'attribute' => 'hide',
+                'format' => 'raw',
+                'filter' => [0 => 'Отображаемые', 1 => 'Скрытые'],
+                'value' => function($data){
+                    return ($data->hide == 0) ? '<span class="label label-success">Нет</span>' : '<span class="label label-danger">Да</span>';
+                },
+            ],
             //'created_at',
             //'updated_at',
+            [
+                'attribute' => 'updated_at',
+                'format' => 'raw',
+                'value' => function($data){
+                    return date ('d.m.Y', $data->updated_at);
+                },
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

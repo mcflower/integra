@@ -9,6 +9,9 @@ use app\models\Event;
 use app\models\Guser;
 use app\models\Hypoxia;
 use app\models\Info;
+use app\models\IntegraAnalysis;
+use app\models\IntegraCatalog;
+use app\models\IntegraGroup;
 use app\models\Patient;
 use app\models\Progesterone;
 use app\models\Question;
@@ -1255,6 +1258,59 @@ class SiteController extends Controller
         }
         $this->view->registerCssFile('/css/anketa.css?i=6');
         return $this->render('patient', ['model' => $model]);
+    }
+
+    public function actionClinicWidget()
+    {
+        $this->layout = 'empty';
+        $group = IntegraGroup::find()->where(['hide' => 0])->orderBy('position asc')->all();
+        $groupCode = $_GET['group'] ?? 1;
+
+        $search = null;
+        $searchString = "";
+        if(isset($_GET['s'])) {
+            $searchString = trim(strip_tags($_GET['s']));
+            if(strpos($searchString, ' | ') !== false) {
+                $groupCode = 0;
+                $queryArr = explode(' | ', $searchString);
+                $search = IntegraAnalysis::find()->where(['hide' => 0])->andWhere(['art' => $queryArr[0]])->all();
+            } else {
+                $queryArr = explode(' ', $searchString);
+                if (count($queryArr)) {
+                    $groupCode = 0;
+                    $search = IntegraAnalysis::find()->where(['hide' => 0]);
+    
+                    foreach ($queryArr as $word) {
+                        $search->andWhere(['or',
+                            ['like', 'name', $word],
+                            ['like', 'art', $word],
+                        ]);
+                    }
+                    $search = $search->orderBy('name')->all();
+                }
+            }
+        }
+
+
+        $analysis = IntegraCatalog::find()->where(['id_group' => $groupCode])->with('analysis')->all();
+
+        $analysisList = IntegraAnalysis::find()->where(['hide' => 0])->all();
+        foreach ($analysisList as $one) {
+            $analysisSearchOption[] = '"' . $one->art . ' | ' . $one->name . ' ' . number_format($one->price, 0, ' ', ' ') . ' руб."';
+        }
+        
+        $analysisSearchOption = implode(',', $analysisSearchOption);
+
+        return $this->render('widget',
+            [
+                'group' => $group,
+                'groupCode' => $groupCode,
+                'analysis' => $analysis,
+                'search' => $search,
+                'searchString' => $searchString,
+                'analysisList' => $analysisList,
+                'analysisSearchOption' => $analysisSearchOption,
+            ]);
     }
 
     public function actionPhase2()
