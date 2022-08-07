@@ -677,8 +677,6 @@ class SiteController extends Controller
 
     public function actionConference()
     {
-
-
         $this->metaImg = "/img/conference1.jpg";
         $this->metaDescription = '3-4 июня 2022 г. Летняя конференция «Применимая медицина». г. Санкт-Петербург, гостиница Октябрьская 4';
         $model = new DynamicModel(['activity','name', 'phone', 'birthday', 'email', 'city']);
@@ -686,6 +684,17 @@ class SiteController extends Controller
 
         $this->view->registerCssFile('/css/webinar.css');
         return $this->render('conference', ['model' => $model]);
+    }
+
+    public function actionNutritionCourse()
+    {
+        $this->metaImg = "/files/webinar/preview_1659377434.jpg";
+        $this->metaDescription = '12-16 сентября 2022 г. Курс для врачей и нутрициологов «Основы нутрициологии». Цикл усовершенствования квалификации с выдачей сертификата гособразца (ФМБА РФ).';
+        $model = new DynamicModel(['activity','name', 'phone', 'birthday', 'email', 'city']);
+        $model->addRule(['activity','name', 'phone', 'birthday', 'email', 'city'], 'required', ['message' => 'Обязательно для заполнения']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('nutrition_course', ['model' => $model]);
     }
 
     public function actionSuccessRegistration()
@@ -1279,7 +1288,7 @@ class SiteController extends Controller
                 if (count($queryArr)) {
                     $groupCode = 0;
                     $search = IntegraAnalysis::find()->where(['hide' => 0]);
-    
+
                     foreach ($queryArr as $word) {
                         $search->andWhere(['or',
                             ['like', 'name', $word],
@@ -1298,7 +1307,7 @@ class SiteController extends Controller
         foreach ($analysisList as $one) {
             $analysisSearchOption[] = '"' . $one->art . ' | ' . $one->name . ' ' . number_format($one->price, 0, ' ', ' ') . ' руб."';
         }
-        
+
         $analysisSearchOption = implode(',', $analysisSearchOption);
 
         return $this->render('widget',
