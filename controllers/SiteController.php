@@ -685,18 +685,7 @@ class SiteController extends Controller
         $this->view->registerCssFile('/css/webinar.css');
         return $this->render('conference', ['model' => $model]);
     }
-
-    public function actionNutritionCourse()
-    {
-        $this->metaImg = "/files/webinar/preview_1659377434.jpg";
-        $this->metaDescription = '12-16 сентября 2022 г. Курс для врачей и нутрициологов «Основы нутрициологии». Цикл усовершенствования квалификации с выдачей сертификата гособразца (ФМБА РФ).';
-        $model = new DynamicModel(['activity','name', 'phone', 'birthday', 'email', 'city']);
-        $model->addRule(['activity','name', 'phone', 'birthday', 'email', 'city'], 'required', ['message' => 'Обязательно для заполнения']);
-
-        $this->view->registerCssFile('/css/webinar.css');
-        return $this->render('nutrition_course', ['model' => $model]);
-    }
-
+    
     public function actionSuccessRegistration()
     {
         $activityName = [
@@ -734,6 +723,64 @@ class SiteController extends Controller
             ->send();
 
         return $this->render('conference_result');
+    }
+
+    public function actionNutritionCourse()
+    {
+        $this->metaImg = "/files/webinar/preview_1659377434.jpg";
+        $this->metaDescription = '12-16 сентября 2022 г. Курс для врачей и нутрициологов «Основы нутрициологии». Цикл усовершенствования квалификации с выдачей сертификата гособразца (ФМБА РФ).';
+        $model = new DynamicModel(['activity','name', 'phone', 'email', 'city']);
+        $model->addRule(['activity','name', 'phone', 'email', 'city'], 'required', ['message' => 'Обязательно для заполнения']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('nutrition_course', ['model' => $model]);
+    }
+    
+    public function actionSuccessNutritionRegistration()
+    {
+        if (Yii::$app->request->post()) {
+            
+            $user = new Xuser();
+            $user->name = $_POST['DynamicModel']['name'];
+            $user->email = $_POST['DynamicModel']['email'];
+            $user->activity = $_POST['DynamicModel']['activity'];
+            $user->hash = md5($_POST['DynamicModel']['email'] . $_POST['DynamicModel']['activity'] . Yii::$app->params['secret']);
+            $user->buy = $user->wopen = $user->wstart = $user->wclose = 0;
+            
+            if($user->save()) {
+                
+                $content = Xcontent::findOne(['activity' => $user->activity]);
+                
+                $data = [
+                    'name' => $_POST['DynamicModel']['name'],
+                    'phone' => $_POST['DynamicModel']['phone'],
+                    'city' => $_POST['DynamicModel']['city'],
+                    'email' => $_POST['DynamicModel']['email'],
+                    'birthday' => '',
+                    'type' => $content->name,
+                ];
+        
+                Yii::$app->mail
+                    ->compose('conference', [
+                        'model' => $data,
+                        'htmlLayout' => 'layouts/html'
+                    ])
+                    ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                    ->setTo('info@integraforlife.com')
+                    ->setSubject("Курс для врачей и нутрициологов «Основы нутрициологии»")
+                    ->send();
+        
+                return $this->render('conference_result');
+            } else {
+                print_r(Json::encode($user->errors));
+                die();
+                Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
+                return $this->redirect('/');
+            }
+        } else {
+            return $this->redirect(Url::to('nutrition-course'));
+        }
+        
     }
 
     /**

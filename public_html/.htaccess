@@ -32,3 +32,5 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,NE,R=301]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . index.php
+
+Redirect 301 /webinar/2TSM1uzVvwzl https://integraforlife.com/nutrition-course

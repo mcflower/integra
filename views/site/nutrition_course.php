@@ -286,16 +286,13 @@ use yii\widgets\ActiveForm;
             <div class="cw-contact clearfix">
                 <?php
                 if (true) {
-                    $form = ActiveForm::begin(['action' => '/success-registration', 'options' => ['class' => 'cwc-form wo-form']]);
+                    $form = ActiveForm::begin(['action' => '/success-nutrition-registration', 'options' => ['class' => 'cwc-form wo-form']]);
 
                     echo '<label class="cwc-formgroup">';
-                    echo $form->field($model, 'name')->textInput(['placeholder' =>'ФИО'])->label(false);
+                    echo $form->field($model, 'name')->textInput(['placeholder' =>'Ф.И.О.'])->label(false);
                     echo '</label>';
                     echo '<label class="cwc-formgroup">';
                     echo $form->field($model, 'phone')->textInput(['placeholder' =>'Телефон'])->label(false);
-                    echo '</label>';
-                    echo '<label class="cwc-formgroup">';
-                    echo $form->field($model, 'birthday')->textInput(['placeholder' =>'Дата рождения'])->label(false);
                     echo '</label>';
                     echo '<label class="cwc-formgroup">';
                     echo $form->field($model, 'city')->textInput(['placeholder' =>'Город проживания'])->label(false);
