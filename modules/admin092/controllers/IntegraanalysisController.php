@@ -62,6 +62,47 @@ class IntegraanalysisController extends AuthController
         ]);
     }
 
+    public function actionLoadFile()
+    {
+        if (Yii::$app->request->post()) {
+            if (isset($_POST['full'])) {
+                IntegraAnalysis::updateAll(['hide' => 1]);
+            }
+
+            if(empty($_FILES['csv']['name'])) {
+                Yii::$app->session->setFlash('danger', 'Ошибка. Файл не выбран');
+                return $this->render('load');
+            }
+
+            /**
+             * 0 - Название
+             * 1 - Цена
+             * 2 - Артикул
+             */
+            $handle = fopen($_FILES['csv']['tmp_name'], "r");
+            $add = $upd = 0;
+            while (($data = Yii::$app->common->fgetcsv2($handle, 1000, ";")) !== FALSE) {
+                $inAn = IntegraAnalysis::findOne(['art' => $data[2]]);
+                if(!empty($inAn)) {
+                    $inAn->hide = 0;
+                    $inAn->price = (int)$data[1];
+                    $upd++;
+                } else {
+                    $inAn = new IntegraAnalysis();
+                    $inAn->hide = 0;
+                    $inAn->price = (int)$data[1];
+                    $inAn->name = trim($data[0]);
+                    $inAn->art = $data[2];
+                    $add++;
+                }
+                $inAn->save();
+            }
+            Yii::$app->session->setFlash('success',  "Обновлено $upd, добавлено $add");
+        }
+
+        return $this->render('load');
+    }
+
     /**
      * Updates an existing IntegraAnalysis model.
      * If update is successful, the browser will be redirected to the 'view' page.
