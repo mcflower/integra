@@ -1,8 +1,3 @@
-<?php
-//print_r($analysis);
-//die();
-?>
-
 <style>
     #widget-container {
         width: 100%;
@@ -17,17 +12,14 @@
         flex-direction: row;
         margin: 15px 0;
         height: 800px;
-        /*padding: 25px;*/
-        /*border: 1px solid gray;*/
-        /*border-radius: 10px;*/
     }
-    
+
     #selector-box {
         display: none;
         width: 100%;
         margin-top: 15px;
     }
-    
+
     #select-groups {
         width: 100%;
         font-size: 18px;
@@ -64,7 +56,7 @@
         padding-top: 5px;
         cursor: pointer;
     }
-    
+
     .group-one a {
         color: gray;
         font-weight: bold;
@@ -89,7 +81,6 @@
     }
 
     .analysis-one:hover {
-      /*background: white;*/
       color: #666;
     }
 
@@ -121,7 +112,6 @@
     }
 
     #search-box {
-        /*background: #A3D0C3;*/
         margin-top: 10px;
     }
 
@@ -150,7 +140,6 @@
 
     #search-box button:before {
       content: "\1F50D";
-      /*font-family: FontAwesome;*/
       font-size: 16px;
       color: #F9F0DA;
     }
@@ -159,34 +148,33 @@
         margin-bottom: 10px;
         font-weight: bold;
     }
-    
+
     @media only screen and (max-width: 900px) {
         #catalog-left {
             display: none;
         }
-        
+
+        #catalog {
+            height: 100%;
+        }
+
         #catalog-right {
             width: 100%;
-            max-height: 450px;
         }
-        
+
         #selector-box {
             display: flex;
         }
-        
-        #widget-container {
-            height: 450px;
-        }
-        
+
         @media only screen and (max-width: 600px) {
             .art, .name, .price {
                 width: 100%;
             }
-            
+
             .analysis-one {
-              flex-direction: column;   
+              flex-direction: column;
             }
-            
+
             .name {
               padding-left: 0;
               padding-right: 0;
@@ -195,14 +183,9 @@
     }
 
 </style>
-<div id="widget-container">
-    <!--<div style="margin-top:15px;" class="autoComplete_wrapper">
-        <input name="s" id="autoComplete" type="search" dir="ltr" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off">
-    </div>-->
     <div id="search-box">
       <form id="searchfrom">
           <input name="s" id="autoComplete" type="search" dir="ltr" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off">
-          <!--<input type="text" name="s" placeholder="Введите название анализа">-->
           <button type="submit"></button>
       </form>
     </div>

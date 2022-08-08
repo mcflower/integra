@@ -34,6 +34,7 @@ class ClinicaAsset extends AssetBundle
         //'js/owl.carousel.min.js',
         //'js/jquery.maskedinput.js',
         'js/widget.js?i=3',
+        'js/iframeResizer.contentWindow.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
