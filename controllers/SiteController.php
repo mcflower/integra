@@ -179,18 +179,32 @@ class SiteController extends Controller
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo('info@integraforlife.com')
-                        ->setSubject('Оплата вебинара "' . $activity->name . '"')
+                        ->setSubject($xd . 'Оплата вебинара "' . $activity->name . '"')
                         ->send();
 
-                    Yii::$app->mail->compose('payConfirm',
-                        ['user' => $user,
-                            'activity' => $activity,
-                            'title' => 'Оплата за вебинар "' . $activity->name . '"',
-                            'htmlLayout' => 'layouts/html'])
-                        ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                        ->setTo($user->email)
-                        ->setSubject($xd . 'Оплата за вебинар "' . $activity->name . '"')
-                        ->send();
+                    //todo закомментировать когда городской девичник закончится
+                    if ($user->activity == 'nUbgZDyv1Gry') {
+                        Yii::$app->mail->compose('payConfirmOffline',
+                            ['user' => $user,
+                                'activity' => $activity,
+                                'title' => 'Оплата за мероприятие "' . $activity->name . '"',
+                                'htmlLayout' => 'layouts/html'])
+                            ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                            ->setTo($user->email)
+                            ->setSubject('Оплата за мероприятие "' . $activity->name . '"')
+                            ->send();
+                    } else {
+                        Yii::$app->mail->compose('payConfirm',
+                            ['user' => $user,
+                                'activity' => $activity,
+                                'title' => 'Оплата за вебинар "' . $activity->name . '"',
+                                'htmlLayout' => 'layouts/html'])
+                            ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                            ->setTo($user->email)
+                            ->setSubject('Оплата за вебинар "' . $activity->name . '"')
+                            ->send();
+                    }
+
                 }
 
             } else {
@@ -741,7 +755,7 @@ class SiteController extends Controller
         if (Yii::$app->request->post()) {
 
             $user = new Xuser();
-            $user->name = $_POST['DynamicModel']['name'];
+            $user->name = strip_tags(trim($_POST['DynamicModel']['name']));
             $user->email = $_POST['DynamicModel']['email'];
             $user->activity = $_POST['DynamicModel']['activity'];
             $user->hash = md5($_POST['DynamicModel']['email'] . $_POST['DynamicModel']['activity'] . Yii::$app->params['secret']);
@@ -785,11 +799,36 @@ class SiteController extends Controller
     {
         $this->metaImg = "/img/bachelorette.jpg";
         $this->metaDescription = '28 августа 2022 г. Городской девичник с врачами «Клиника Интегра» «ГОРОМНАЛЬНО ЗДОРОВАЯ ЖЕНЩИНА»';
-        $model = new DynamicModel(['activity','name', 'phone', 'birthday', 'email', 'city']);
-        $model->addRule(['activity','name', 'phone', 'birthday', 'email', 'city'], 'required', ['message' => 'Обязательно для заполнения']);
+        $model = new DynamicModel(['activity','name', 'phone', 'email']);
+        $model->addRule(['activity', 'name', 'phone', 'email'], 'required', ['message' => 'Обязательно для заполнения']);
 
         $this->view->registerCssFile('/css/webinar.css');
         return $this->render('bachelorette', ['model' => $model]);
+    }
+
+    public function actionSuccessCityEvent()
+    {
+        if (Yii::$app->request->post()) {
+            $user = new Xuser();
+            $user->name = strip_tags(trim($_POST['DynamicModel']['name']));
+            $user->email = $_POST['DynamicModel']['email'];
+            $user->activity = $_POST['DynamicModel']['activity'];
+            $user->hash = md5($_POST['DynamicModel']['email'] . $_POST['DynamicModel']['activity'] . Yii::$app->params['secret']);
+            $user->buy = $user->wopen = $user->wstart = $user->wclose = 0;
+
+            $activity = Xcontent::findOne(['activity' => $user->activity]);
+            if (!empty($activity) && $user->save()) {
+                /**
+                 * Отправляем на страницу платежа
+                 */
+                return $this->redirect(Url::to(['payment', 'hash' => $user->hash]));
+            } else {
+                Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
+                return $this->redirect('/');
+            }
+        } else {
+            return $this->redirect(Url::to('city-event'));
+        }
     }
 
     /**

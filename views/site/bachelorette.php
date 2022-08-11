@@ -235,7 +235,7 @@ use yii\widgets\ActiveForm;
             <div id="action-form-lp" class="cw-contact clearfix">
                 <?php
                 if (true) {
-                    $form = ActiveForm::begin(['action' => '/success-registration', 'options' => ['class' => 'cwc-form wo-form']]);
+                    $form = ActiveForm::begin(['action' => '/success-city-event', 'options' => ['class' => 'cwc-form wo-form']]);
                     echo '<label class="cwc-formgroup">';
                     echo $form->field($model, 'name')->textInput(['placeholder' =>'ФИО'])->label(false);
                     echo '</label>';
@@ -243,16 +243,9 @@ use yii\widgets\ActiveForm;
                     echo $form->field($model, 'phone')->textInput(['placeholder' =>'Телефон'])->label(false);
                     echo '</label>';
                     echo '<label class="cwc-formgroup">';
-                    echo $form->field($model, 'birthday')->textInput(['placeholder' =>'Дата рождения'])->label(false);
-                    echo '</label>';
-                    echo '<label class="cwc-formgroup">';
-                    echo $form->field($model, 'city')->textInput(['placeholder' =>'Город проживания'])->label(false);
-                    echo '</label>';
-                    echo '<label class="cwc-formgroup">';
                     echo $form->field($model, 'email')->textInput(['placeholder' =>'Эл. почта'])->label(false);
                     echo '</label>';
-                    //todo value
-                    echo $form->field($model, 'activity')->hiddenInput(['value' => ''])->label(false);
+                    echo $form->field($model, 'activity')->hiddenInput(['value' => 'nUbgZDyv1Gry'])->label(false);
                     echo '<div class="policy-container clearfix">
                             <p class="cwc-line1">
                                 Нажимая кнопку "Зарегистрироваться" вы даете согласие на обработку персональных данных<br>

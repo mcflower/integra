@@ -192,15 +192,28 @@ class XuserController extends AuthController
             ->setSubject('Оплата вебинара "'.$activity->name.'"')
             ->send();
 
-            Yii::$app->mail->compose('payConfirm',
-                ['user' => $model,
-                'activity' => $activity,
-                    'title' => 'Оплата за вебинар "'.$activity->name.'"',
-                    'htmlLayout' => 'layouts/html'])
-                ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                ->setTo($model->email)
-                ->setSubject('Оплата за вебинар "'.$activity->name.'"')
-                ->send();
+            //todo закомментировать когда городской девичник закончится
+            if ($model->activity == 'nUbgZDyv1Gry') {
+                Yii::$app->mail->compose('payConfirmOffline',
+                    ['user' => $model,
+                        'activity' => $activity,
+                        'title' => 'Оплата за мероприятие "' . $activity->name . '"',
+                        'htmlLayout' => 'layouts/html'])
+                    ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                    ->setTo($model->email)
+                    ->setSubject('Оплата за мероприятие "' . $activity->name . '"')
+                    ->send();
+            } else {
+                Yii::$app->mail->compose('payConfirm',
+                    ['user' => $model,
+                        'activity' => $activity,
+                        'title' => 'Оплата за вебинар "' . $activity->name . '"',
+                        'htmlLayout' => 'layouts/html'])
+                    ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                    ->setTo($model->email)
+                    ->setSubject('Оплата за вебинар "' . $activity->name . '"')
+                    ->send();
+            }
         } else {
             Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
         }

@@ -139,15 +139,28 @@ class HandlerController extends Controller
                                         ->send();
 
 
-                                    Yii::$app->mail->compose('payConfirm',
-                                        ['user' => $user,
-                                            'activity' => $activity,
-                                            'title' => 'Оплата за вебинар "' . $activity->name . '"',
-                                            'htmlLayout' => 'layouts/html'])
-                                        ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                                        ->setTo($user->email)
-                                        ->setSubject('Оплата за вебинар "' . $activity->name . '"')
-                                        ->send();
+                                    //todo закомментировать когда городской девичник закончится
+                                    if ($user->activity == 'nUbgZDyv1Gry') {
+                                        Yii::$app->mail->compose('payConfirmOffline',
+                                            ['user' => $user,
+                                                'activity' => $activity,
+                                                'title' => 'Оплата за мероприятие "' . $activity->name . '"',
+                                                'htmlLayout' => 'layouts/html'])
+                                            ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                                            ->setTo($user->email)
+                                            ->setSubject('Оплата за мероприятие "' . $activity->name . '"')
+                                            ->send();
+                                    } else {
+                                        Yii::$app->mail->compose('payConfirm',
+                                            ['user' => $user,
+                                                'activity' => $activity,
+                                                'title' => 'Оплата за вебинар "' . $activity->name . '"',
+                                                'htmlLayout' => 'layouts/html'])
+                                            ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                                            ->setTo($user->email)
+                                            ->setSubject('Оплата за вебинар "' . $activity->name . '"')
+                                            ->send();
+                                    }
 
                                 } else if ($activity->type == 3) {
                                     $user->wclose = 2;
@@ -198,15 +211,28 @@ class HandlerController extends Controller
                     $user->wstart = 2;
                     $user->save();
 
-                    Yii::$app->mail->compose('current',
-                        ['user' => $user,
-                            'activity' => $model,
-                            'title' => 'Напоминание о вебинаре "' . $model->name . '".',
-                            'htmlLayout' => 'layouts/html'])
-                        ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                        ->setTo($user->email)
-                        ->setSubject('Напоминание о вебинаре "' . $model->name . '".')
-                        ->send();
+                    //todo закомментировать когда городской девичник закончится
+                    if ($user->activity == 'nUbgZDyv1Gry') {
+                        Yii::$app->mail->compose('currentOffline',
+                            ['user' => $user,
+                                'activity' => $model,
+                                'title' => 'Напоминание о мероприятии "' . $model->name . '".',
+                                'htmlLayout' => 'layouts/html'])
+                            ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                            ->setTo($user->email)
+                            ->setSubject('Напоминание о мероприятии "' . $model->name . '".')
+                            ->send();
+                    } else {
+                        Yii::$app->mail->compose('current',
+                            ['user' => $user,
+                                'activity' => $model,
+                                'title' => 'Напоминание о вебинаре "' . $model->name . '".',
+                                'htmlLayout' => 'layouts/html'])
+                            ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                            ->setTo($user->email)
+                            ->setSubject('Напоминание о вебинаре "' . $model->name . '".')
+                            ->send();
+                    }
                 }
             }
         }
