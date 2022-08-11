@@ -34,3 +34,4 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . index.php
 
 Redirect 301 /webinar/2TSM1uzVvwzl https://integraforlife.com/nutrition-course
+Redirect 301 /webinar/nUbgZDyv1Gry https://integraforlife.com/city-event
