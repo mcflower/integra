@@ -182,8 +182,8 @@ class SiteController extends Controller
                         ->setSubject($xd . 'Оплата вебинара "' . $activity->name . '"')
                         ->send();
 
-                    //todo закомментировать когда городской девичник закончится
-                    if ($user->activity == 'nUbgZDyv1Gry') {
+                    //если в названии В НАЧАЛЕ используется слово ОЧНО необходимо слать другое письмо
+                    if (strpos($activity->name, 'ОЧНО ') === 0) {
                         Yii::$app->mail->compose('payConfirmOffline',
                             ['user' => $user,
                                 'activity' => $activity,

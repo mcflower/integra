@@ -211,8 +211,8 @@ class HandlerController extends Controller
                     $user->wstart = 2;
                     $user->save();
 
-                    //todo закомментировать когда городской девичник закончится
-                    if ($user->activity == 'nUbgZDyv1Gry') {
+                    //если в названии В НАЧАЛЕ используется слово ОЧНО необходимо слать другое письмо
+                    if (strpos($model->name, 'ОЧНО ') === 0) {
                         Yii::$app->mail->compose('currentOffline',
                             ['user' => $user,
                                 'activity' => $model,

@@ -192,8 +192,8 @@ class XuserController extends AuthController
             ->setSubject('Оплата вебинара "'.$activity->name.'"')
             ->send();
 
-            //todo закомментировать когда городской девичник закончится
-            if ($model->activity == 'nUbgZDyv1Gry') {
+            //если в названии В НАЧАЛЕ используется слово ОЧНО необходимо слать другое письмо
+            if (strpos($activity->name, 'ОЧНО ') === 0) {
                 Yii::$app->mail->compose('payConfirmOffline',
                     ['user' => $model,
                         'activity' => $activity,
