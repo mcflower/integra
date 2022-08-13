@@ -79,7 +79,7 @@ use yii\widgets\ActiveForm;
 </style>
 <div class="wo-anons clearfix">
     <div class="wo-container clearfix">
-        <div class="woc-preview clearfix" style="background-image:url('/files/webinar/preview_1659377434.jpg');"></div>
+        <div class="woc-preview clearfix" style="background-image:url('/files/webinar/preview_1657736164.png');"></div>
         <div class="woc-about clearfix">
             <div class="woc-main clearfix">
                 <div class="clearfix">
@@ -256,7 +256,8 @@ use yii\widgets\ActiveForm;
                         </div>
                     </div>
                 </div>
-
+                <img src="../files/gallery/webwompic.jpg" alt="">
+                <br><br>
                 <p>
                     <b>Важно!</b>
                     <br><br>

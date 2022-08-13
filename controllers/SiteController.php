@@ -741,7 +741,7 @@ class SiteController extends Controller
 
     public function actionNutritionCourse()
     {
-        $this->metaImg = "/files/webinar/preview_1659377434.jpg";
+        $this->metaImg = "/files/webinar/preview_1657736164.png";
         $this->metaDescription = '12-16 сентября 2022 г. Курс для врачей и нутрициологов «Основы нутрициологии». Цикл усовершенствования квалификации с выдачей сертификата гособразца (ФМБА РФ).';
         $model = new DynamicModel(['activity','name', 'phone', 'email', 'city']);
         $model->addRule(['activity','name', 'phone', 'email', 'city'], 'required', ['message' => 'Обязательно для заполнения']);
