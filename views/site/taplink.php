@@ -23,13 +23,16 @@
         <div class="tlink-box">
             <a class="tlink-a" href="/guide/Pq9WPFoQ1nES">Усталость, сил нет. Решение есть.</a>
         </div>
-        <div class="tlink-box">
+        <!--<div class="tlink-box">
             <a class="tlink-a" href="/guide/5gxCpya90BJF">Дефицит железа/гипоксия</a>
-        </div>
+        </div>-->
         <div class="tlink-box">
             <a class="tlink-a" href="/guide/jdOiQzREt4xp">Йоддефицит</a>
         </div>
         <h2 class="group-name">Программы</h2>
+        <div class="tlink-box">
+            <a class="tlink-a" href="/nutrition-course">Нутрициология. Обучение.</a>
+        </div>
         <div class="tlink-box">
             <a class="tlink-a" href="/patient-support">Чат поддержки пациентов</a>
         </div>
@@ -37,13 +40,13 @@
             <a class="tlink-a" href="/phase2">2 фаза цикла</a>
         </div>
         <div class="tlink-box">
+            <a class="tlink-a" href="/checking-iron-deficiency">Выявление возможного дефицита железа</a>
+        </div>
+        <div class="tlink-box">
             <a class="tlink-a" href="/gastrointestinal">Реабилитация ЖКТ</a>
         </div>
         <div class="tlink-box">
             <a class="tlink-a" href="/healthy-vessels">Здоровые сосуды</a>
-        </div>
-        <div class="tlink-box">
-            <a class="tlink-a" href="/checking-iron-deficiency">Выявление возможного дефицита железа</a>
         </div>
     </div>
 </div>
