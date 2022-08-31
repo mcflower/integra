@@ -31,13 +31,16 @@
         </div>
         <h2 class="group-name">Программы</h2>
         <div class="tlink-box">
+            <a class="tlink-a" href="/webinar/6TLwVy99cJqD">Гипотиреоз- междисциплинарная проблема. Нюансы нутритивной поддержки пациентов.</a>
+        </div>
+        <div class="tlink-box">
             <a class="tlink-a" href="/nutrition-course">Нутрициология. Обучение.</a>
         </div>
         <div class="tlink-box">
             <a class="tlink-a" href="/patient-support">Чат поддержки пациентов</a>
         </div>
         <div class="tlink-box">
-            <a class="tlink-a" href="/phase2">2 фаза цикла</a>
+            <a class="tlink-a" href="/phase2">Прогестерон</a>
         </div>
         <div class="tlink-box">
             <a class="tlink-a" href="/checking-iron-deficiency">Выявление возможного дефицита железа</a>
