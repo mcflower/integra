@@ -960,6 +960,19 @@ class SiteController extends Controller
         return $this->render('hypoxia', ['model' => $model]);
     }
 
+    public function actionImportContact()
+    {
+        $user = Guser::findAll(['hash' => 222]);
+        foreach ($user as $one) {
+            $one->scenario = 'wo_captcha';
+            $one->hash = md5($one->email . $one->gcontent . Yii::$app->params['secret']);
+            if(!$one->save()){
+                print_r($one->errors);
+                die();
+            }
+        }
+    }
+
     public function actionBuyGuide()
     {
         $model = new Guser();
