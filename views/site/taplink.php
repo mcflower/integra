@@ -19,6 +19,9 @@
         <div class="tlink-box">
             <a class="tlink-a" target="_blank" href="https://prodoctorov.ru/tolyatti/vrach/735966-holodova/">Оставить отзыв</a>
         </div>
+        <div class="tlink-box">
+            <a class="tlink-a" target="_blank" href="https://t.me/holodova_endo">Мой Telegram-канал</a>
+        </div>
         <h2 class="group-name">Для самостоятельного изучения</h2>
         <div class="tlink-box">
             <a class="tlink-a" href="/guide/jdOiQzREt4xp">Йоддефицит</a>

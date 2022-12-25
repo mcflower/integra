@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\Article;
 use app\models\Certificate;
 use app\models\CronClient;
+use app\models\Doctors;
 use app\models\Event;
 use app\models\Guser;
 use app\models\Hypoxia;
@@ -958,6 +959,35 @@ class SiteController extends Controller
 
         $this->view->registerCssFile('/css/anketa.css?i=6');
         return $this->render('hypoxia', ['model' => $model]);
+    }
+    
+    public function actionDoctors()
+    {
+        $model = new Doctors();
+
+        if ($model->load(Yii::$app->request->post())) {
+
+            if ($model->save()) {
+                Yii::$app->session->setFlash('info', 'Спасибо! Запрос отправлен!');
+
+                Yii::$app->mail
+                    ->compose('doctors', [
+                        'model' => $model,
+                        'htmlLayout' => 'layouts/html'
+                    ])
+                    ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                    ->setTo('info@integraforlife.com')
+                    ->setSubject("Доктора")
+                    ->send();
+
+                $model = new Doctors();
+            } else {
+                Yii::$app->session->setFlash('warning', 'Ошибка при отправке сообщения.');
+            }
+        }
+
+        $this->view->registerCssFile('/css/anketa.css?i=6');
+        return $this->render('doctors', ['model' => $model]);
     }
 
     public function actionImportContact()
