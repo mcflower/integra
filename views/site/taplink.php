@@ -30,7 +30,7 @@
             <a class="tlink-a" href="/guide/ZuN19rZ5AU0">Крепкие нервы</a>
         </div>
         <div class="tlink-box">
-            <a class="tlink-a" href="/guide/5gxCpya90BJF">Дефицит железа/гипоксия</a>
+            <a class="tlink-a" href="/guide/5gxCpya90BJF">Дефицит железа/гипоксия (ОБНОВЛЁННЫЙ)</a>
         </div>
         <h2 class="group-name">Программы</h2>
         <!--<div class="tlink-box">
@@ -49,7 +49,7 @@
             <a class="tlink-a" href="/checking-iron-deficiency">Выявление возможного дефицита железа</a>
         </div>
         <div class="tlink-box">
-            <a class="tlink-a" href="/doctors">Группа врачей-нутрициологов</a>
+            <a class="tlink-a" href="/doctors">Сообщество врачей/нутрициологов</a>
         </div>
         <!--<div class="tlink-box">
             <a class="tlink-a" href="/gastrointestinal">Реабилитация ЖКТ</a>
