@@ -701,6 +701,43 @@ class SiteController extends Controller
         return $this->render('conference', ['model' => $model]);
     }
 
+    public function actionMedicalConference()
+    {
+        $this->metaImg = "/img/medical-conference.jpg";
+        $this->metaDescription = '18 марта 2023 г. Медицинская конференция «Здоровье в твоих руках». г.Москва, Пресненская набережная 12, башня «Восток»';
+        $model = new DynamicModel(['activity','name', 'email']);
+        $model->addRule(['activity','name', 'email'], 'required', ['message' => 'Обязательно для заполнения']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('medical-conference', ['model' => $model]);
+    }
+    
+    public function actionMedicalConferenceRegistration()
+    {
+        if (Yii::$app->request->post()) {
+            $user = new Xuser();
+            $user->name = strip_tags(trim($_POST['DynamicModel']['name']));
+            $user->email = $_POST['DynamicModel']['email'];
+            $user->activity = $_POST['DynamicModel']['activity'];
+            $user->hash = md5($_POST['DynamicModel']['email'] . $_POST['DynamicModel']['activity'] . Yii::$app->params['secret']);
+            $user->buy = $user->wopen = $user->wstart = $user->wclose = 0;
+
+            $activity = Xcontent::findOne(['activity' => $user->activity]);
+            if (!empty($activity) && $user->save()) {
+                /**
+                 * Отправляем на страницу платежа
+                 */
+                return $this->redirect(Url::to(['payment', 'hash' => $user->hash]));
+            } else {
+                Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
+                return $this->redirect('/');
+            }
+        } else {
+            return $this->redirect(Url::to('city-event'));
+        }
+
+    }
+
     public function actionSuccessRegistration()
     {
         $activityName = [
@@ -960,7 +997,7 @@ class SiteController extends Controller
         $this->view->registerCssFile('/css/anketa.css?i=6');
         return $this->render('hypoxia', ['model' => $model]);
     }
-    
+
     public function actionDoctors()
     {
         $model = new Doctors();
