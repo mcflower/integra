@@ -22,6 +22,9 @@
         <div class="tlink-box">
             <a class="tlink-a" target="_blank" href="https://t.me/holodova_endo">Мой Telegram-канал</a>
         </div>
+        <div class="tlink-box">
+            <a class="tlink-a" href="/medical-conference">Конференция, Москва-Сити</a>
+        </div>
         <h2 class="group-name">Для самостоятельного изучения</h2>
         <div class="tlink-box">
             <a class="tlink-a" href="/guide/jdOiQzREt4xp">Йоддефицит</a>
