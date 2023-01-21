@@ -278,7 +278,7 @@ use yii\widgets\ActiveForm;
                         </div>
                     </div>
                 </div>
-                <p><sup>*</sup> расписание выступлений спикеров может быть изменено организаторами</p>
+                <p><sup>*</sup> Организаторы оставляют за собой право вносить изменения в расписание.</p>
             </div>
             <div class="clearfix">
                 <div id="form-to-pay" class="cwib-detail clearfix">
@@ -305,6 +305,9 @@ use yii\widgets\ActiveForm;
                         echo '<label class="cwc-formgroup">';
                         echo $form->field($model, 'email')->textInput(['placeholder' => 'Эл. почта'])->label(false);
                         echo $form->field($model, 'activity')->hiddenInput(['value' => 'hEkBGPYeqe4b'])->label(false);
+                        echo '</label>';
+                        echo '<label class="cwc-formgroup">';
+                        echo $form->field($model, 'phone')->textInput(['placeholder' => 'Телефон'])->label(false);
                         echo '</label>';
                         echo '<div class="policy-container clearfix">
                                 <p class="cwc-line1">

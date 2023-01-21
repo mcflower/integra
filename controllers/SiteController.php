@@ -705,8 +705,8 @@ class SiteController extends Controller
     {
         $this->metaImg = "/img/medical-conference.jpg";
         $this->metaDescription = '18 марта 2023 г. Медицинская конференция «Здоровье в твоих руках». г.Москва, Пресненская набережная 12, башня «Восток»';
-        $model = new DynamicModel(['activity','name', 'email']);
-        $model->addRule(['activity','name', 'email'], 'required', ['message' => 'Обязательно для заполнения']);
+        $model = new DynamicModel(['activity','name', 'email', 'phone']);
+        $model->addRule(['activity','name', 'email', 'phone'], 'required', ['message' => 'Обязательно для заполнения']);
 
         $this->view->registerCssFile('/css/webinar.css');
         return $this->render('medical-conference', ['model' => $model]);
@@ -718,6 +718,7 @@ class SiteController extends Controller
             $user = new Xuser();
             $user->name = strip_tags(trim($_POST['DynamicModel']['name']));
             $user->email = $_POST['DynamicModel']['email'];
+            $user->phone = strip_tags(trim($_POST['DynamicModel']['phone']));
             $user->activity = $_POST['DynamicModel']['activity'];
             $user->hash = md5($_POST['DynamicModel']['email'] . $_POST['DynamicModel']['activity'] . Yii::$app->params['secret']);
             $user->buy = $user->wopen = $user->wstart = $user->wclose = 0;
