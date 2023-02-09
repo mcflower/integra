@@ -282,7 +282,7 @@ use yii\widgets\ActiveForm;
             </div>
             <div class="clearfix">
                 <div id="form-to-pay" class="cwib-detail clearfix">
-                    <?php if (true): ?>
+                    <?php if ($avail): ?>
                         <p style="color: rgb(237, 195, 71);font-family: Roboto;font-size: 20px;">
                             Мероприятие состоится ОЧНО 18 марта 2023г. в г. Москва, район Москва Сити, Метро «Выставочная», Пресненская набережная 12, башня «Восток»
                         </p>
@@ -297,7 +297,7 @@ use yii\widgets\ActiveForm;
                 <div class="cw-contact clearfix">
 
                     <?php
-                    if (true) {
+                    if ($avail) {
                         $form = ActiveForm::begin(['action' => '/medical-conference-registration', 'options' => ['class' => 'cwc-form wo-form']]);
                         echo '<label class="cwc-formgroup">';
                         echo $form->field($model, 'name')->textInput(['placeholder' => 'Ф.И.О'])->label(false);
@@ -324,7 +324,7 @@ use yii\widgets\ActiveForm;
 
                         ActiveForm::end();
                     } else {
-                        echo "<button class='wo-close'>Мероприятие закончилось</button>";
+                        echo "<button class='wo-close'>Мест нет</button>";
                     }
                     ?>
                 </div>

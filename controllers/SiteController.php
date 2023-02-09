@@ -708,10 +708,13 @@ class SiteController extends Controller
         $model = new DynamicModel(['activity','name', 'email', 'phone']);
         $model->addRule(['activity','name', 'email', 'phone'], 'required', ['message' => 'Обязательно для заполнения']);
 
+        $count = Xuser::find()->where(['activity' => 'hEkBGPYeqe4b', 'buy' => 1])->count();
+        $avail = ($count < 60);
+
         $this->view->registerCssFile('/css/webinar.css');
-        return $this->render('medical-conference', ['model' => $model]);
+        return $this->render('medical-conference', ['model' => $model, 'avail' => $avail]);
     }
-    
+
     public function actionMedicalConferenceRegistration()
     {
         if (Yii::$app->request->post()) {

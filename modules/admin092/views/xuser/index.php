@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="xuser-index">
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-    
+
     <p>
         <?= Html::a('Добавить', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
@@ -62,7 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'raw',
                 'filter' => '',
                 'value' => function($data){
-                    return date ('d.m.Y h:i:s', $data->updated_at);
+                    return date ('d.m.Y H:i:s', $data->updated_at);
                 },
             ],
             'id',
