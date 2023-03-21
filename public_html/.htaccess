@@ -35,3 +35,5 @@ RewriteRule . index.php
 
 Redirect 301 /webinar/2TSM1uzVvwzl https://integraforlife.com/nutrition-course
 Redirect 301 /webinar/nUbgZDyv1Gry https://integraforlife.com/city-event
+Redirect 301 /webinar/hEkBGPYeqe4b https://integraforlife.com/medical-conference
+Redirect 301 /webinar/qCEmeiO8EA3q https://integraforlife.com/health-in-the-city

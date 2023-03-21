@@ -715,6 +715,17 @@ class SiteController extends Controller
         return $this->render('medical-conference', ['model' => $model, 'avail' => $avail]);
     }
 
+    public function actionHealthInTheCity()
+    {
+        $this->metaImg = "/img/medical-conference.jpg";
+        $this->metaDescription = '9 апреля 2023 г. Городская конференция из цикла «Здоровье в Большом городе». г.Тольятти, Платановая ул., д. 6, ресторан «Ренессанс»';
+        $model = new DynamicModel(['activity','name', 'email', 'phone']);
+        $model->addRule(['activity','name', 'email', 'phone'], 'required', ['message' => 'Обязательно для заполнения']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('health-in-the-city', ['model' => $model, 'avail' => $avail]);
+    }
+
     public function actionMedicalConferenceRegistration()
     {
         if (Yii::$app->request->post()) {

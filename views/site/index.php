@@ -16,7 +16,8 @@ use yii\widgets\ActiveForm;
     <div class="head-container clearfix">
         <img src="img/logo.png" class="head-logo-main image"/>
         <div class="seminar clearfix">
-            <?php if (!empty($active)): ?>
+            <!--qCEmeiO8EA3q принудительно не показываем здесь городскую конференцию -->
+            <?php if (!empty($active) && $active->activity != 'qCEmeiO8EA3q'): ?>
                 <div style="background-image:url('<?= $active->img ?>');" class="sa-image clearfix"></div>
                 <div class="sa-container clearfix">
                     <?php if($active->type == 2):?>
