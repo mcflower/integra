@@ -54,9 +54,9 @@
         <div class="tlink-box">
             <a class="tlink-a" href="/doctors">Сообщество врачей/нутрициологов</a>
         </div>
-        <!--<div class="tlink-box">
+        <div class="tlink-box">
             <a class="tlink-a" href="/gastrointestinal">Реабилитация ЖКТ</a>
-        </div>-->
+        </div>
         <!--<div class="tlink-box">
             <a class="tlink-a" href="/healthy-vessels">Здоровые сосуды</a>
         </div>-->
