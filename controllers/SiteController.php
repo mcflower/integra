@@ -717,7 +717,7 @@ class SiteController extends Controller
 
     public function actionHealthInTheCity()
     {
-        $this->metaImg = "/img/medical-conference.jpg";
+        $this->metaImg = "/img/health-in-the-city.png";
         $this->metaDescription = '9 апреля 2023 г. Городская конференция из цикла «Здоровье в Большом городе». г.Тольятти, Платановая ул., д. 6, ресторан «Ренессанс»';
         $model = new DynamicModel(['activity','name', 'email', 'phone']);
         $model->addRule(['activity','name', 'email', 'phone'], 'required', ['message' => 'Обязательно для заполнения']);
