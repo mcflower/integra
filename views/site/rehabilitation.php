@@ -154,7 +154,7 @@ use yii\widgets\ActiveForm;
             </div>
             <div class="woc-second">
                 <p style="text-align: center; font-size: 28px; margin-bottom: 20px;">В рамках программы запланировано 3 семинара:</p>
-                
+
                 <p class="woc-schedule-name">
                     «Стресс и Секс. Выживание пары»
                 </p>
@@ -173,7 +173,7 @@ use yii\widgets\ActiveForm;
                 </div>
 
                 <p class="woc-schedule-name">
-                    «От нарушения сна до тяжелой депрессии - несколько шагов» 
+                    «От нарушения сна до тяжелой депрессии - несколько шагов»
                 </p>
                 <div class="woc-schedule-line clearfix"></div>
 
@@ -231,7 +231,7 @@ use yii\widgets\ActiveForm;
                 <div id="form-to-pay" class="cwib-detail clearfix">
                     <?php if (true): ?>
                         <p style="color: rgb(237, 195, 71);font-family: Roboto;font-size: 20px;">
-                            Программа состоится с 10 по 25 мая 2023г. После оплаты участия. Команда помощников добавит вас в официальный телеграмм_канал «СЕКС_СОН_СТРЕСС»
+                            Программа состоится с 10 по 25 мая 2023г. После оплаты участия команда помощников добавит вас в официальный телеграмм_канал «СЕКС_СОН_СТРЕСС»
                         </p>
                         <p class="cwib-textstatic">
                             Стоимость участия
