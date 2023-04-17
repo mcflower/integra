@@ -256,7 +256,7 @@ use yii\widgets\ActiveForm;
                         </div>
                     </div>
                 </div>
-                <img src="../files/gallery/webwompic.jpg" alt="">
+                <img style="width: 100%; max-width:500px;" src="../files/gallery/webwompic.jpg" alt="">
                 <br><br>
                 <p>
                     <b>Важно!</b>

@@ -59,6 +59,7 @@ use yii\widgets\DetailView;
         'q42',
         'q43',
         'q44',
+        'q45',
         [
             'attribute' => 'created_at',
             'format' => 'raw',
