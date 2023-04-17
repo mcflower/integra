@@ -847,6 +847,33 @@ class SiteController extends Controller
         }
 
     }
+    
+    public function actionRegistration()
+    {
+        if (Yii::$app->request->post()) {
+
+            $user = new Xuser();
+            $user->name = strip_tags(trim($_POST['DynamicModel']['name']));
+            $user->email = $_POST['DynamicModel']['email'];
+            $user->activity = $_POST['DynamicModel']['activity'];
+            $user->hash = md5($_POST['DynamicModel']['email'] . $_POST['DynamicModel']['activity'] . Yii::$app->params['secret']);
+            $user->buy = $user->wopen = $user->wstart = $user->wclose = 0;
+            
+            $content = Xcontent::findOne(['activity' => $user->activity]);
+            if (!empty($content) && $user->save()) {
+                /**
+                 * Отправляем на страницу платежа
+                 */
+                return $this->redirect(Url::to(['payment', 'hash' => $user->hash]));
+            } else {
+                Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
+                return $this->redirect(Url::to('/webinar/'.$content->activity));
+            }
+        } else {
+            return $this->redirect('/');
+        }
+
+    }
 
     public function actionCityEvent()
     {
@@ -1538,6 +1565,18 @@ class SiteController extends Controller
         }
         $this->view->registerCssFile('/css/anketa.css?i=6');
         return $this->render('progesterone', ['model' => $model]);
+    }
+    
+    public function actionRehabilitation()
+    {
+        
+        $this->metaImg = "/img/rehabilitation.jpg";
+        $this->metaDescription = '10 - 25 мая 2023 г. Авторская программа реабилитации и профилактики «Сон. Стресс. Секс.»';
+        $model = new DynamicModel(['activity','name', 'phone', 'email']);
+        $model->addRule(['activity', 'name', 'phone', 'email'], 'required', ['message' => 'Обязательно для заполнения']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('rehabilitation', ['model' => $model]);
     }
 
     /*public function actionForm()
