@@ -184,7 +184,7 @@ class SiteController extends Controller
                         ->send();
 
                     //если в названии В НАЧАЛЕ используется слово ОЧНО необходимо слать другое письмо
-                    if (strpos($activity->name, 'ОЧНО ') === 0) {
+                    if (strpos($activity->name, 'ОЧНО ') === 0 || strpos($activity->name, 'Курс ') === 0) {
                         Yii::$app->mail->compose('payConfirmOffline',
                             ['user' => $user,
                                 'activity' => $activity,

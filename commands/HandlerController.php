@@ -140,7 +140,7 @@ class HandlerController extends Controller
 
 
                                     //если в названии В НАЧАЛЕ используется слово ОЧНО необходимо слать другое письмо
-                                    if (strpos($activity->name, 'ОЧНО ') === 0) {
+                                    if (strpos($activity->name, 'ОЧНО ') === 0 || strpos($activity->name, 'Курс ') === 0) {
                                         Yii::$app->mail->compose('payConfirmOffline',
                                             ['user' => $user,
                                                 'activity' => $activity,
@@ -212,7 +212,7 @@ class HandlerController extends Controller
                     $user->save();
 
                     //если в названии В НАЧАЛЕ используется слово ОЧНО необходимо слать другое письмо
-                    if (strpos($model->name, 'ОЧНО ') === 0) {
+                    if (strpos($model->name, 'ОЧНО ') === 0 || strpos($model->name, 'Курс ') === 0) {
                         Yii::$app->mail->compose('currentOffline',
                             ['user' => $user,
                                 'activity' => $model,
