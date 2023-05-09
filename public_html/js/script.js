@@ -42,7 +42,29 @@ $('.owl-carousel.owl-vebinary').owlCarousel({
         767: {
             items: 3,
             nav: true
+        }
+    }
+});
+
+$('.owl-carousel.owl-guides').owlCarousel({
+    loop: true,
+    margin: 20,
+    nav: true,
+    dots: false,
+    navText: ["", ""],
+    responsive: {
+        0: {
+            items: 1,
+            nav: true
         },
+        599: {
+            items: 2,
+            nav: true
+        },
+        767: {
+            items: 3,
+            nav: true
+        }
     }
 });
 
@@ -85,6 +107,14 @@ $(".nav-web-right").on("click", function() {
     $(".owl-vebinary .owl-next").trigger("click");
 });
 
+$(".nav-guide-left").on("click", function() {
+    $(".owl-guides .owl-prev").trigger("click");
+});
+
+$(".nav-guide-right").on("click", function() {
+    $(".owl-guides .owl-next").trigger("click");
+});
+
 $(".nav-an-left").on("click", function() {
     $(".owl-anons .owl-prev").trigger("click");
 });
@@ -116,6 +146,20 @@ $('.guide-buy-event').on('click', function () {
     $(this).data('price') > 0 ? $('.guide-popup-button-event').html('ПЕРЕЙТИ К ОПЛАТЕ') : $('.guide-popup-button-event').html('ПОЛУЧИТЬ БЕСПЛАТНО');
     $('#guser-gcontent').val($(this).data('guide'));
     $('#guide-title').html($(this).data('gname'));
+});
+
+$('.scrollto').on('click', function() {
+
+    let direction = $(this).attr('href');
+
+    $('html, body').animate({
+        scrollTop: $(direction).offset().top
+    }, {
+        duration: 370,   // по умолчанию «400»
+        easing: 'linear' // по умолчанию «swing»
+    });
+
+    return false;
 });
 
 /*$('.pn-button').magnificPopup({

@@ -101,6 +101,7 @@ class SiteController extends Controller
         $certs = Certificate::find()->orderBy('position asc')->all();
         $webinars = Webinar::find()->where(['hide' => 0])->orderBy('position asc')->all();
         $active = Xcontent::find()->where(['type' => 2])->orderBy('xdate asc')->one();
+        $guides = Guides::find()->where(['hide' => 0])->orderBy('position asc')->all();
         if (empty($active)) {
             $active = Xcontent::find()->where(['type' => 1])->orderBy('xdate asc')->one();
         }
@@ -119,6 +120,7 @@ class SiteController extends Controller
                 'active' => $active,
                 'nexts' => $nexts,
                 'model' => $model,
+                'guides' => $guides,
             ]);
     }
 
@@ -847,7 +849,7 @@ class SiteController extends Controller
         }
 
     }
-    
+
     public function actionRegistration()
     {
         if (Yii::$app->request->post()) {
@@ -856,9 +858,10 @@ class SiteController extends Controller
             $user->name = strip_tags(trim($_POST['DynamicModel']['name']));
             $user->email = $_POST['DynamicModel']['email'];
             $user->activity = $_POST['DynamicModel']['activity'];
+            $user->phone = $_POST['DynamicModel']['phone'];
             $user->hash = md5($_POST['DynamicModel']['email'] . $_POST['DynamicModel']['activity'] . Yii::$app->params['secret']);
             $user->buy = $user->wopen = $user->wstart = $user->wclose = 0;
-            
+
             $content = Xcontent::findOne(['activity' => $user->activity]);
             if (!empty($content) && $user->save()) {
                 /**
@@ -1566,10 +1569,10 @@ class SiteController extends Controller
         $this->view->registerCssFile('/css/anketa.css?i=6');
         return $this->render('progesterone', ['model' => $model]);
     }
-    
+
     public function actionRehabilitation()
     {
-        
+
         $this->metaImg = "/img/rehabilitation.jpg";
         $this->metaDescription = '10 - 25 мая 2023 г. Авторская программа реабилитации и профилактики «Сон. Стресс. Секс.»';
         $model = new DynamicModel(['activity','name', 'phone', 'email']);
@@ -1577,6 +1580,18 @@ class SiteController extends Controller
 
         $this->view->registerCssFile('/css/webinar.css');
         return $this->render('rehabilitation', ['model' => $model]);
+    }
+
+    public function actionInternationalConferenceAntalya()
+    {
+
+        $this->metaImg = "/img/antalya23.jpg";
+        $this->metaDescription = '5 - 6 августа 2023 г. Международная Конференция в Анталии';
+        $model = new DynamicModel(['activity','name', 'phone', 'email']);
+        $model->addRule(['activity', 'name', 'phone', 'email'], 'required', ['message' => 'Обязательно для заполнения']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('antalya23', ['model' => $model]);
     }
 
     /*public function actionForm()

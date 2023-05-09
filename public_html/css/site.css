@@ -590,6 +590,37 @@ a.stati-one-link:hover {
     cursor: pointer;
 }
 
+.nav-guide-left {
+    float: left;
+    width: 80px;
+    max-width: 100%;
+    height: auto;
+    clear: none;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 0px;
+    bottom: auto;
+    left: 0px;
+    right: auto;
+    display: block;
+    cursor: pointer;
+}
+
+.nav-guide-right {
+    float: left;
+    width: 80.00000399999999px;
+    max-width: 100%;
+    height: auto;
+    clear: none;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 0px;
+    left: auto;
+    right: 0px;
+    display: block;
+    cursor: pointer;
+}
+
 .vebinary-header-text {
     float: none;
     font-size: 60px;
@@ -1318,6 +1349,38 @@ a.hldbf-line3 {
     opacity: .8;
 }
 
+.on-main-page.guide-one {
+    flex-direction: column;
+    height: auto;
+}
+
+.on-main-page .guide-img {
+    height: 300px;
+    width: 100%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 0;
+}
+
+.on-main-page .guide-data {
+    width: 100%;
+    border-left: none;
+    padding: 0 10px 0 30px;
+    margin-left: 0;
+}
+
+.on-main-page .guide-buttons {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.on-main-page .guide-name {
+    height: 50px;
+}
+
+.on-main-page .guide-brief {
+    height: 130px;
+}
 
 
 a.guide-more-button:hover, a.guide-more-button:visited, a.guide-more-button:active,
@@ -1348,19 +1411,19 @@ a.guide-buy-button:hover, a.guide-buy-button:visited, a.guide-buy-button:active 
     }
 
     .serts-header-text {
-        font-size: 50px;
+        font-size: 30px;
     }
 
     .myinfo-text {
-        font-size: 50px;
+        font-size: 30px;
     }
 
     .vebinary-header-text {
-        font-size: 50px;
+        font-size: 30px;
     }
 
     .anons-header-text {
-        font-size: 50px;
+        font-size: 30px;
     }
 
     .vebinary-container {

@@ -8,9 +8,10 @@ $this->title = 'Холодова Анна Анатольевна';
 use app\widgets\Alert;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+
 ?>
 <div id="alert-container">
-   <?= Alert::widget() ?>
+    <?= Alert::widget() ?>
 </div>
 <div class="head clearfix">
     <div class="head-container clearfix">
@@ -20,26 +21,26 @@ use yii\widgets\ActiveForm;
             <?php if (!empty($active) && $active->activity != 'yZfZNm5I8EIX'): ?>
                 <div style="background-image:url('<?= $active->img ?>');" class="sa-image clearfix"></div>
                 <div class="sa-container clearfix">
-                    <?php if($active->type == 2):?>
-                    <p class="sa-time">
-                        <?= date('d.m.Y', $active->xdate) ?> / <?= $active->xtime ?>
-                    </p>
-                    <?php endif;?>
+                    <?php if ($active->type == 2): ?>
+                        <p class="sa-time">
+                            <?= date('d.m.Y', $active->xdate) ?> / <?= $active->xtime ?>
+                        </p>
+                    <?php endif; ?>
                     <p class="sa-name">
                         <?= $active->name ?><br/><br/>
                     </p>
-                    <?php if($active->type == 2):?>
-                    <a href="#modal-active" class="sa-button-event sa-button clearfix">
-                        зарегистрироваться
-                    </a>
-                    <?php else:?>
-                    <!--<a href="#popup-<?/*=$active->activity*/?>" class="pn-button sa-button clearfix">
+                    <?php if ($active->type == 2): ?>
+                        <a href="#modal-active" class="sa-button-event sa-button clearfix">
+                            зарегистрироваться
+                        </a>
+                    <?php else: ?>
+                        <!--<a href="#popup-<? /*=$active->activity*/ ?>" class="pn-button sa-button clearfix">
                         уведомить
                     </a>-->
-                        <a href="/webinar/<?=$active->activity?>" target="_blank" class="sa-button clearfix">
+                        <a href="/webinar/<?= $active->activity ?>" target="_blank" class="sa-button clearfix">
                             подробнее
                         </a>
-                    <?php endif;?>
+                    <?php endif; ?>
                 </div>
             <?php endif; ?>
         </div>
@@ -108,21 +109,48 @@ use yii\widgets\ActiveForm;
             Публикации и статьи
         </p>
         <div class="underline-text clearfix"></div>
-        <?php /*foreach ($articles as $article): */?>
+        <?php /*foreach ($articles as $article): */ ?>
             <div class="stati-one clearfix">
-                <a class="stati-one-link" href="<?/*= $article->url */?>" target="_blank">
-                    <?/*= $article->name */?><br/>
+                <a class="stati-one-link" href="<? /*= $article->url */ ?>" target="_blank">
+                    <? /*= $article->name */ ?><br/>
                 </a>
                 <p class="stati-one-date">
-                    <?/*= $article->release_date */?><br/>
+                    <? /*= $article->release_date */ ?><br/>
                 </p>
                 <div class="stati-one-underline clearfix"></div>
             </div>
-        <?php /*endforeach; */?>
+        <?php /*endforeach; */ ?>
     </div>
 </div>-->
-<?=$this->render("//common/next", ['nexts' => $nexts]) ?>
-<?=$this->render("//common/free", ['webinars' => $webinars]) ?>
+
+<div class="vebinary clearfix">
+    <div class="vebinary-container clearfix">
+        <img src="img/arr-l.svg" class="nav-guide-left image"/>
+        <img src="img/arr-r.svg" class="nav-guide-right image"/>
+        <p class="vebinary-header-text">
+            Материалы
+        </p>
+        <div class="underline-text clearfix"></div>
+    </div>
+    <div class="owl-carousel owl-guides">
+        <?php foreach ($guides as $guide): ?>
+            <div class="on-main-page guide-one">
+                <div class="guide-img" style="background-image:url('<?= $guide->img ?>');"></div>
+                <div class="guide-data">
+                    <p class="guide-name"><?=$guide->name?></p>
+                    <p class="guide-brief"><?=$guide->brief?></p>
+                    <div class="guide-buttons">
+                        <a href="/guide/<?=$guide->hash?>" class="guide-more-button" target="_blank"><?= ($guide->price > 0) ? 'купить' : 'получить'?></a>
+                    </div>
+                </div>
+                <div class="guide-price"><?= ($guide->price > 0) ? $guide->price . ' руб.' : 'бесплатно'?></div>
+            </div>
+
+        <?php endforeach; ?>
+    </div>
+</div>
+<?= $this->render("//common/next", ['nexts' => $nexts]) ?>
+<?= $this->render("//common/free", ['webinars' => $webinars]) ?>
 
 <?php if (!empty($active)): ?>
     <div id="modal-active" class="cw-box clearfix zoom-anim-dialog mfp-hide">
@@ -136,13 +164,13 @@ use yii\widgets\ActiveForm;
             </p>
             <div class="cwib-underline clearfix"></div>
             <div class="cwib-about clearfix">
-                <div class="cwib-about-photo" style="background-image: url('<?=$active->photo?>');"></div>
+                <div class="cwib-about-photo" style="background-image: url('<?= $active->photo ?>');"></div>
                 <div class="cwib-about-text">
                     <strong>Вебинар ведет: </strong><?= $active->about ?>
                 </div>
             </div>
             <!--<p class="cwib-description">
-                <?/*= nl2br($active->description) */?><br>
+                <? /*= nl2br($active->description) */ ?><br>
             </p>-->
             <div class="cwib-description">
                 <br/>
@@ -167,10 +195,10 @@ use yii\widgets\ActiveForm;
                 $form = ActiveForm::begin(['action' => 'new-active', 'options' => ['class' => 'cwc-form']]);
 
                 echo '<label class="cwc-formgroup">';
-                echo $form->field($model, 'name')->textInput(['placeholder' =>'Фамилия Имя'])->label(false)->hint('Будут указаны на сертификате!');
+                echo $form->field($model, 'name')->textInput(['placeholder' => 'Фамилия Имя'])->label(false)->hint('Будут указаны на сертификате!');
                 echo '</label>';
                 echo '<label class="cwc-formgroup">';
-                echo $form->field($model, 'email')->textInput(['placeholder' =>'Email'])->label(false);
+                echo $form->field($model, 'email')->textInput(['placeholder' => 'Email'])->label(false);
                 echo '</label>';
                 echo '<div class="policy-container clearfix">
                     <p class="cwc-line1">

@@ -25,15 +25,17 @@ class AppAsset extends AssetBundle
         'css/owl.theme.default.css',
         'css/boilerplate.css',
         'css/magnific-popup.css',
-        'css/site.css?i=6',
+        'css/site.css?i=11',
         'css/popups.css?i=6',
+        'css/video-js.css?i=8',
     ];
     public $js = [
         //'js/jquery.fancybox.min.js',
         'js/jquery.magnific-popup.min.js',
         'js/owl.carousel.min.js',
         'js/jquery.maskedinput.js',
-        'js/script.js?i=9',
+        'js/video.min.js',
+        'js/script.js?i=11',
     ];
     public $depends = [
         'yii\web\YiiAsset',
