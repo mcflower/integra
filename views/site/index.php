@@ -103,31 +103,30 @@ use yii\widgets\ActiveForm;
         <?php endforeach; ?>
     </div>
 </div>
-<!--<div class="stati clearfix">
+<div class="stati clearfix">
     <div class="stati-container clearfix">
         <p class="header-text">
-            Публикации и статьи
+            Программы
         </p>
         <div class="underline-text clearfix"></div>
-        <?php /*foreach ($articles as $article): */ ?>
-            <div class="stati-one clearfix">
-                <a class="stati-one-link" href="<? /*= $article->url */ ?>" target="_blank">
-                    <? /*= $article->name */ ?><br/>
-                </a>
-                <p class="stati-one-date">
-                    <? /*= $article->release_date */ ?><br/>
-                </p>
-                <div class="stati-one-underline clearfix"></div>
-            </div>
-        <?php /*endforeach; */ ?>
+        <div class="stati-one clearfix">
+            <a class="stati-one-link" target="_blank" href="/patient-support">Чат поддержки пациентов</a>
+            <div class="stati-one-underline clearfix"></div>
+        </div>
+        <div class="stati-one clearfix">
+            <a class="stati-one-link" target="_blank" href="/checking-iron-deficiency">Выявление возможного дефицита железа</a>
+            <div class="stati-one-underline clearfix"></div>
+        </div>
+        <div class="stati-one clearfix">
+            <a class="stati-one-link" target="_blank" href="/doctors">Сообщество врачей/нутрициологов</a>
+            <div class="stati-one-underline clearfix"></div>
+        </div>
+        <div class="stati-one clearfix">
+            <a class="stati-one-link" target="_blank" href="/gastrointestinal">Реабилитация ЖКТ</a>
+            <div class="stati-one-underline clearfix"></div>
+        </div>
     </div>
-</div>-->
-<style>
-    .owl-guides {
-        /*width: 90%;*/
-    }
-
-</style>
+</div>
 <div class="guides-block clearfix">
     <div class="vebinary-container clearfix">
         <img src="img/arr-l.svg" class="nav-guide-left image"/>

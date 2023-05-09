@@ -23,7 +23,7 @@
             <a class="tlink-a" target="_blank" href="https://t.me/holodova_endo">Мой Telegram-канал</a>
         </div>
         <div class="tlink-box">
-            <a class="tlink-a" href="/health-in-the-city">Городская конференция</a>
+            <a class="tlink-a" href="/rehabilitation">Курс «Сон. Стресс. Секс.»</a>
         </div>
         <h2 class="group-name">Для самостоятельного изучения</h2>
         <div class="tlink-box">

@@ -25,7 +25,7 @@ class AppAsset extends AssetBundle
         'css/owl.theme.default.css',
         'css/boilerplate.css',
         'css/magnific-popup.css',
-        'css/site.css?i=18',
+        'css/site.css?i=19',
         'css/popups.css?i=6',
         'css/video-js.css?i=8',
     ];
