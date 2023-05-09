@@ -122,8 +122,13 @@ use yii\widgets\ActiveForm;
         <?php /*endforeach; */ ?>
     </div>
 </div>-->
+<style>
+    .owl-guides {
+        /*width: 90%;*/
+    }
 
-<div class="vebinary clearfix">
+</style>
+<div class="guides-block clearfix">
     <div class="vebinary-container clearfix">
         <img src="img/arr-l.svg" class="nav-guide-left image"/>
         <img src="img/arr-r.svg" class="nav-guide-right image"/>
@@ -131,6 +136,7 @@ use yii\widgets\ActiveForm;
             Материалы
         </p>
         <div class="underline-text clearfix"></div>
+
     </div>
     <div class="owl-carousel owl-guides">
         <?php foreach ($guides as $guide): ?>
@@ -148,6 +154,7 @@ use yii\widgets\ActiveForm;
 
         <?php endforeach; ?>
     </div>
+
 </div>
 <?= $this->render("//common/next", ['nexts' => $nexts]) ?>
 <?= $this->render("//common/free", ['webinars' => $webinars]) ?>

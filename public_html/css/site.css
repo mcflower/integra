@@ -520,7 +520,7 @@ a.stati-one-link:hover {
     padding: 25px;
 }
 
-.vebinary {
+.vebinary, .guides-block {
     float: none;
     height: auto;
     /*height: 600px;*/
@@ -1380,6 +1380,8 @@ a.hldbf-line3 {
 
 .on-main-page .guide-brief {
     height: 130px;
+    overflow: hidden;
+    margin-bottom: 8px;
 }
 
 

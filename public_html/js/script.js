@@ -57,11 +57,11 @@ $('.owl-carousel.owl-guides').owlCarousel({
             items: 1,
             nav: true
         },
-        599: {
+        767: {
             items: 2,
             nav: true
         },
-        767: {
+        980: {
             items: 3,
             nav: true
         }
