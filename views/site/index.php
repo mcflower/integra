@@ -110,15 +110,15 @@ use yii\widgets\ActiveForm;
         </p>
         <div class="underline-text clearfix"></div>
         <div class="stati-one clearfix">
-            <a class="stati-one-link" target="_blank" href="/patient-support">Чат поддержки пациентов</a>
-            <div class="stati-one-underline clearfix"></div>
-        </div>
-        <div class="stati-one clearfix">
             <a class="stati-one-link" target="_blank" href="/checking-iron-deficiency">Выявление возможного дефицита железа</a>
             <div class="stati-one-underline clearfix"></div>
         </div>
         <div class="stati-one clearfix">
             <a class="stati-one-link" target="_blank" href="/doctors">Сообщество врачей/нутрициологов</a>
+            <div class="stati-one-underline clearfix"></div>
+        </div>
+        <div class="stati-one clearfix">
+            <a class="stati-one-link" target="_blank" href="/patient-support">Чат поддержки пациентов</a>
             <div class="stati-one-underline clearfix"></div>
         </div>
         <div class="stati-one clearfix">
