@@ -1581,6 +1581,18 @@ class SiteController extends Controller
         $this->view->registerCssFile('/css/webinar.css');
         return $this->render('rehabilitation', ['model' => $model]);
     }
+    
+    public function actionHormonalHealth()
+    {
+
+        $this->metaImg = "/img/hormone.jpg";
+        $this->metaDescription = '12 - 26 июня 2023 г. Курс «Гормональное здоровье»';
+        $model = new DynamicModel(['activity','name', 'phone', 'email']);
+        $model->addRule(['activity', 'name', 'phone', 'email'], 'required', ['message' => 'Обязательно для заполнения']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('hormone', ['model' => $model]);
+    }
 
     public function actionInternationalConferenceAntalya()
     {
