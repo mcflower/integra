@@ -36,11 +36,11 @@ class Common extends Component
     public function getExtension($filename) {
         return substr(strrchr($filename, '.'), 1);
     }
-    
+
     public function getCloudVideo($name, $pathPoster = '')
     {
         $poster = (!empty($pathPoster)) ? "poster='{$pathPoster}'" : "";
-        return "<video {$poster} class='embed-responsive-item video-js vjs-theme-fantasy' controls width='auto' preload='none' data-setup='{}'>
+        return "<video {$poster} class='embed-responsive-item video-js vjs-theme-fantasy' controls width='auto' preload='none' data-setup='{\"playbackRates\": [0.5, 1, 1.5, 2]}'>
                 <source src='https://iflvideo.hb.bizmrg.com/{$name}.mp4' type='video/mp4' />
                 <p class='vjs-no-js'>
                     To view this video please enable JavaScript
