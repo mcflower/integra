@@ -23,7 +23,7 @@
             <a class="tlink-a" target="_blank" href="https://t.me/holodova_endo">Мой Telegram-канал</a>
         </div>
         <div class="tlink-box">
-            <a class="tlink-a" href="/hormonal-health">Курс «Гормональное здоровье»</a>
+            <a class="tlink-a" href="webinar/SCqHJbL3FInx">Обучающий семинар «Трансформация массы тела: от понимания к воплощению»</a>
         </div>
         <h2 class="group-name">Для самостоятельного изучения</h2>
         <div class="tlink-box">
