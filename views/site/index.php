@@ -17,8 +17,7 @@ use yii\widgets\ActiveForm;
     <div class="head-container clearfix">
         <img src="img/logo.png" class="head-logo-main image"/>
         <div class="seminar clearfix">
-            <!--yZfZNm5I8EIX принудительно не показываем здесь -->
-            <?php if (!empty($active) && $active->activity != 'yZfZNm5I8EIX'): ?>
+            <?php if (!empty($active)): ?>
                 <div style="background-image:url('<?= $active->img ?>');" class="sa-image clearfix"></div>
                 <div class="sa-container clearfix">
                     <?php if ($active->type == 2): ?>
@@ -29,18 +28,9 @@ use yii\widgets\ActiveForm;
                     <p class="sa-name">
                         <?= $active->name ?><br/><br/>
                     </p>
-                    <?php if ($active->type == 2): ?>
-                        <a href="#modal-active" class="sa-button-event sa-button clearfix">
-                            зарегистрироваться
-                        </a>
-                    <?php else: ?>
-                        <!--<a href="#popup-<? /*=$active->activity*/ ?>" class="pn-button sa-button clearfix">
-                        уведомить
-                    </a>-->
-                        <a href="/webinar/<?= $active->activity ?>" target="_blank" class="sa-button clearfix">
-                            подробнее
-                        </a>
-                    <?php endif; ?>
+                    <a href="/webinar/<?= $active->activity ?>" target="_blank" class="sa-button clearfix">
+                        подробнее
+                    </a>
                 </div>
             <?php endif; ?>
         </div>
@@ -122,9 +112,17 @@ use yii\widgets\ActiveForm;
             <div class="stati-one-underline clearfix"></div>
         </div>
         <div class="stati-one clearfix">
-            <a class="stati-one-link" target="_blank" href="/gastrointestinal">Реабилитация ЖКТ</a>
+            <a class="stati-one-link" target="_blank" href="/checking-iodine-deficiency">Выявление возможного дефицита йода</a>
             <div class="stati-one-underline clearfix"></div>
         </div>
+        <div class="stati-one clearfix">
+            <a class="stati-one-link" target="_blank" href="/checking-progesterone-deficiency">Выявление возможного дефицита прогестерона</a>
+            <div class="stati-one-underline clearfix"></div>
+        </div>
+        <!--<div class="stati-one clearfix">
+            <a class="stati-one-link" target="_blank" href="/gastrointestinal">Реабилитация ЖКТ</a>
+            <div class="stati-one-underline clearfix"></div>
+        </div>-->
     </div>
 </div>
 <div class="guides-block clearfix">

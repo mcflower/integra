@@ -23,7 +23,13 @@
             <a class="tlink-a" target="_blank" href="https://t.me/holodova_endo">Мой Telegram-канал</a>
         </div>
         <div class="tlink-box">
-            <a class="tlink-a" href="webinar/SCqHJbL3FInx">Обучающий семинар «Трансформация массы тела: от понимания к воплощению»</a>
+            <a class="tlink-a" href="/webinar/SCqHJbL3FInx">Обучающий семинар «Трансформация массы тела: от понимания к воплощению»</a>
+        </div>
+        <div class="tlink-box">
+            <a class="tlink-a" href="/digestive-health">Курс «Здоровье пищеварительной системы»</a>
+        </div>
+        <div class="tlink-box">
+            <a class="tlink-a" href="/international-conference-moscow">Конференция с международным участием из цикла «ПРИМЕНИМАЯ МЕДИЦИНА»</a>
         </div>
         <h2 class="group-name">Для самостоятельного изучения</h2>
         <div class="tlink-box">
@@ -45,6 +51,9 @@
         <div class="tlink-box">
             <a class="tlink-a" href="/patient-support">Чат поддержки пациентов</a>
         </div>
+        <div class="tlink-box">
+            <a class="tlink-a" href="/doctors">Сообщество врачей/нутрициологов</a>
+        </div>
         <!--<div class="tlink-box">
             <a class="tlink-a" href="/phase2">Прогестерон</a>
         </div>-->
@@ -52,11 +61,14 @@
             <a class="tlink-a" href="/checking-iron-deficiency">Выявление возможного дефицита железа</a>
         </div>
         <div class="tlink-box">
-            <a class="tlink-a" href="/doctors">Сообщество врачей/нутрициологов</a>
+            <a class="tlink-a" href="/checking-iodine-deficiency">Выявление возможного дефицита йода</a>
         </div>
         <div class="tlink-box">
-            <a class="tlink-a" href="/gastrointestinal">Реабилитация ЖКТ</a>
+            <a class="tlink-a" href="/checking-progesterone-deficiency">Выявление возможного дефицита прогестерона</a>
         </div>
+        <!--<div class="tlink-box">
+            <a class="tlink-a" href="/gastrointestinal">Реабилитация ЖКТ</a>
+        </div>-->
         <!--<div class="tlink-box">
             <a class="tlink-a" href="/healthy-vessels">Здоровые сосуды</a>
         </div>-->

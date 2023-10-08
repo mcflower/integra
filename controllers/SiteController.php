@@ -22,6 +22,7 @@ use app\models\Xcontent;
 use app\models\Xuser;
 use app\models\Guides;
 use app\models\ZhktAnketa;
+use app\models\Surveys;
 use Exception;
 use Yii;
 use yii\base\BaseObject;
@@ -1343,6 +1344,12 @@ class SiteController extends Controller
 
     public function actionGastrointestinal()
     {
+        /**
+         * Временно закрыл страницу по просьбе Анны
+         */
+        Yii::$app->session->setFlash('error', 'Страница временно не доступна.');
+        return $this->redirect('/');
+        
         $model = new ZhktAnketa();
 
         if ($model->load(Yii::$app->request->post())) {
@@ -1405,9 +1412,63 @@ class SiteController extends Controller
         $this->view->registerCssFile('/css/anketa.css?i=11');
         return $this->render('taplink');
     }
+    
+    public function actionCheckingIodineDeficiency()
+    {
+        $survey = new Surveys();
+        $model = new DynamicModel(
+            ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10',
+                'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19', 'q20',
+                'q21', 'q22', 'q23']
+        );
+        $model->addRule(['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10',
+            'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19', 'q20',
+            'q21', 'q22', 'q23'], 'required', ['message' => 'Обязательно для заполнения'])
+            ->addRule(['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10',
+                'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19', 'q20',
+                'q21', 'q22', 'q23'], 'integer');
+        
+        if ($survey->load(Yii::$app->request->post())) {
+        
+            if ($survey->save() && $model->load(Yii::$app->request->post()) && $model->validate()) {
+                $data = Yii::$app->request->post();
+                $sum = array_sum($data['DynamicModel']);
+    
+                return $this->render('iodine_deficiency_result', ['sum' => $sum]);
+            }
+        }
+        $this->view->registerCssFile('/css/anketa.css?i=6');
+        return $this->render('iodine_deficiency', ['model' => $model, 'survey' => $survey]);
+    }
+    
+    public function actionCheckingProgesteroneDeficiency()
+    {
+        $survey = new Surveys();
+        $model = new DynamicModel(
+            ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10',
+                'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19']
+        );
+        $model->addRule(['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10',
+            'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19'], 'required', ['message' => 'Обязательно для заполнения'])
+            ->addRule(['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10',
+                'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19'], 'integer');
+        
+        if ($survey->load(Yii::$app->request->post())) {
+        
+            if ($survey->save() && $model->load(Yii::$app->request->post()) && $model->validate()) {
+                $data = Yii::$app->request->post();
+                $sum = array_sum($data['DynamicModel']);
+    
+                return $this->render('progesterone_deficiency_result', ['sum' => $sum]);
+            }
+        }
+        $this->view->registerCssFile('/css/anketa.css?i=6');
+        return $this->render('progesterone_deficiency', ['model' => $model, 'survey' => $survey]);
+    }
 
     public function actionCheckingIronDeficiency()
     {
+        $survey = new Surveys();
         $model = new DynamicModel(
             ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10',
                 'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19', 'q20',
@@ -1422,15 +1483,18 @@ class SiteController extends Controller
                 'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19', 'q20',
                 'q21', 'q22', 'q23', 'q24', 'q25', 'q26', 'q27', 'q28', 'q29', 'q30',
                 'q31', 'q32', 'q33'], 'integer');
-
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            $data = Yii::$app->request->post();
-            $sum = array_sum($data['DynamicModel']);
-
-            return $this->render('iron_deficiency_result', ['sum' => $sum]);
+        
+        if ($survey->load(Yii::$app->request->post())) {
+        
+            if ($survey->save() && $model->load(Yii::$app->request->post()) && $model->validate()) {
+                $data = Yii::$app->request->post();
+                $sum = array_sum($data['DynamicModel']);
+    
+                return $this->render('iron_deficiency_result', ['sum' => $sum]);
+            }
         }
         $this->view->registerCssFile('/css/anketa.css?i=6');
-        return $this->render('iron_deficiency', ['model' => $model]);
+        return $this->render('iron_deficiency', ['model' => $model, 'survey' => $survey]);
     }
 
     public function actionHealthyVessels()
@@ -1593,17 +1657,29 @@ class SiteController extends Controller
         $this->view->registerCssFile('/css/webinar.css');
         return $this->render('hormone', ['model' => $model]);
     }
-
-    public function actionInternationalConferenceAntalya()
+    
+    public function actionDigestiveHealth()
     {
 
-        $this->metaImg = "/img/antalya23.jpg";
-        $this->metaDescription = '5 - 6 августа 2023 г. Международная Конференция в Анталии';
+        $this->metaImg = "/img/digestive.jpg";
+        $this->metaDescription = '25 июля - 3 августа 2023 г. Курс «Здоровье пищеварительной системы»';
         $model = new DynamicModel(['activity','name', 'phone', 'email']);
         $model->addRule(['activity', 'name', 'phone', 'email'], 'required', ['message' => 'Обязательно для заполнения']);
 
         $this->view->registerCssFile('/css/webinar.css');
-        return $this->render('antalya23', ['model' => $model]);
+        return $this->render('digestive', ['model' => $model]);
+    }
+
+    public function actionInternationalConferenceMoscow()
+    {
+
+        $this->metaImg = "/img/moscow23.jpg";
+        $this->metaDescription = '11 - 12 ноября 2023 г. конференция с международным участием из цикла «ПРИМЕНИМАЯ МЕДИЦИНА»';
+        $model = new DynamicModel(['activity','name', 'phone', 'email']);
+        $model->addRule(['activity', 'name', 'phone', 'email'], 'required', ['message' => 'Обязательно для заполнения']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('moscow23', ['model' => $model]);
     }
 
     /*public function actionForm()
