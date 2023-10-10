@@ -574,7 +574,7 @@ class SiteController extends Controller
         }
 
         $orderId = $user->id;
-        $activity = Xcontent::findOne(['activity' => $user->activity, 'type' => 2]);
+        $activity = Xcontent::find()->where(['activity' => $user->activity])->andWhere(['or', ['type' => 2], ['type' => 0]])->one();
         if (empty($activity)) {
             Yii::$app->session->setFlash('error', 'Вебинар не найден! Зарегистрируйтесь снова.');
             return $this->redirect('/');
@@ -1349,7 +1349,7 @@ class SiteController extends Controller
          */
         Yii::$app->session->setFlash('error', 'Страница временно не доступна.');
         return $this->redirect('/');
-        
+
         $model = new ZhktAnketa();
 
         if ($model->load(Yii::$app->request->post())) {
@@ -1412,7 +1412,7 @@ class SiteController extends Controller
         $this->view->registerCssFile('/css/anketa.css?i=11');
         return $this->render('taplink');
     }
-    
+
     public function actionCheckingIodineDeficiency()
     {
         $survey = new Surveys();
@@ -1427,20 +1427,20 @@ class SiteController extends Controller
             ->addRule(['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10',
                 'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19', 'q20',
                 'q21', 'q22', 'q23'], 'integer');
-        
+
         if ($survey->load(Yii::$app->request->post())) {
-        
+
             if ($survey->save() && $model->load(Yii::$app->request->post()) && $model->validate()) {
                 $data = Yii::$app->request->post();
                 $sum = array_sum($data['DynamicModel']);
-    
+
                 return $this->render('iodine_deficiency_result', ['sum' => $sum]);
             }
         }
         $this->view->registerCssFile('/css/anketa.css?i=6');
         return $this->render('iodine_deficiency', ['model' => $model, 'survey' => $survey]);
     }
-    
+
     public function actionCheckingProgesteroneDeficiency()
     {
         $survey = new Surveys();
@@ -1452,13 +1452,13 @@ class SiteController extends Controller
             'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19'], 'required', ['message' => 'Обязательно для заполнения'])
             ->addRule(['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10',
                 'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19'], 'integer');
-        
+
         if ($survey->load(Yii::$app->request->post())) {
-        
+
             if ($survey->save() && $model->load(Yii::$app->request->post()) && $model->validate()) {
                 $data = Yii::$app->request->post();
                 $sum = array_sum($data['DynamicModel']);
-    
+
                 return $this->render('progesterone_deficiency_result', ['sum' => $sum]);
             }
         }
@@ -1483,13 +1483,13 @@ class SiteController extends Controller
                 'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19', 'q20',
                 'q21', 'q22', 'q23', 'q24', 'q25', 'q26', 'q27', 'q28', 'q29', 'q30',
                 'q31', 'q32', 'q33'], 'integer');
-        
+
         if ($survey->load(Yii::$app->request->post())) {
-        
+
             if ($survey->save() && $model->load(Yii::$app->request->post()) && $model->validate()) {
                 $data = Yii::$app->request->post();
                 $sum = array_sum($data['DynamicModel']);
-    
+
                 return $this->render('iron_deficiency_result', ['sum' => $sum]);
             }
         }
@@ -1645,7 +1645,7 @@ class SiteController extends Controller
         $this->view->registerCssFile('/css/webinar.css');
         return $this->render('rehabilitation', ['model' => $model]);
     }
-    
+
     public function actionHormonalHealth()
     {
 
@@ -1657,7 +1657,18 @@ class SiteController extends Controller
         $this->view->registerCssFile('/css/webinar.css');
         return $this->render('hormone', ['model' => $model]);
     }
-    
+
+    public function actionCourseOfHypoxia()
+    {
+        $this->metaImg = "/img/course-of-hypoxia.jpg";
+        $this->metaDescription = '16 октября 2023 г. Курс «Гипотиреоз и гипоксия. От понимания к решению.»';
+        $model = new DynamicModel(['activity','name', 'phone', 'email']);
+        $model->addRule(['activity', 'name', 'phone', 'email'], 'required', ['message' => 'Обязательно для заполнения']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('hypoxia_course', ['model' => $model]);
+    }
+
     public function actionDigestiveHealth()
     {
 
