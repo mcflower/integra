@@ -1347,8 +1347,8 @@ class SiteController extends Controller
         /**
          * Временно закрыл страницу по просьбе Анны
          */
-        Yii::$app->session->setFlash('error', 'Страница временно не доступна.');
-        return $this->redirect('/');
+//        Yii::$app->session->setFlash('error', 'Страница временно не доступна.');
+//        return $this->redirect('/');
 
         $model = new ZhktAnketa();
 
@@ -1644,6 +1644,18 @@ class SiteController extends Controller
 
         $this->view->registerCssFile('/css/webinar.css');
         return $this->render('rehabilitation', ['model' => $model]);
+    }
+
+    public function actionHappiness()
+    {
+
+        $this->metaImg = "/img/happiness.jpg";
+        $this->metaDescription = '1 - 3 февраля 2024 г. Проект «PRO_СЧАСТЬЕ»';
+        $model = new DynamicModel(['activity','name', 'phone', 'email']);
+        $model->addRule(['activity', 'name', 'phone', 'email'], 'required', ['message' => 'Обязательно для заполнения']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('happiness', ['model' => $model]);
     }
 
     public function actionHormonalHealth()

@@ -75,6 +75,7 @@ class IntegraanalysisController extends AuthController
             }
 
             /**
+             * Если в названии есть кавычки - \" из нужно заменить иначе не будет работать поиск
              * 0 - Название
              * 1 - Цена
              * 2 - Артикул
