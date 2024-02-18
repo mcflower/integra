@@ -1,6 +1,6 @@
 <?php
 
-$this->title = "Проект «PRO_СЧАСТЬЕ»";
+$this->title = "Конференция для жителей и гостей города «ЗДОРОВЬЕ И СЧАСТЬЕ В БОЛЬШОМ ГОРОДЕ»";
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -18,6 +18,7 @@ use yii\widgets\ActiveForm;
         flex-direction: row;
         padding-bottom: 10px;
         margin-bottom: 20px;
+        border-bottom: 2px dotted;
     }
 
     .sp-photo {
@@ -130,22 +131,22 @@ use yii\widgets\ActiveForm;
 </style>
 <div class="wo-anons clearfix">
     <div class="wo-container clearfix">
-        <div class="woc-preview clearfix" style="background-image:url('/img/happiness.jpg');"></div>
+        <div class="woc-preview clearfix" style="background-image:url('/img/health-in-the-city.png');"></div>
         <div class="woc-about clearfix">
             <div class="woc-main clearfix">
                 <div class="clearfix">
                     <p class="woc-main-intro">
-                        Проект
+                        Конференция для жителей и гостей города (ОЧНО)
                     </p>
                     <p class="woc-main-time">
-                        1 - 3 февраля 2024 г.
+                        17 марта 2024 г.
                     </p>
                     <p class="woc-main-name">
-                        «PRO_СЧАСТЬЕ»
+                         «ЗДОРОВЬЕ И СЧАСТЬЕ В БОЛЬШОМ ГОРОДЕ»
                     </p>
                     <div class="woc-main-line clearfix"></div>
                     <p class="woc-main-about">
-                        На проекте мы обсуждаем основные звенья работы над счастьем. Вы получите пошаговый план действий, «как добыть счастье».
+                        г. Тольятти, Платановая ул., д. 6, ресторан «Ренессанс»
                     </p>
                 </div>
             </div>
@@ -153,111 +154,162 @@ use yii\widgets\ActiveForm;
                 <a class="woc-link-to-form scrollto" href="#form-to-pay">ЗАРЕГИСТРИРОВАТЬСЯ</a>
             </div>
             <div class="woc-second">
-                <p style="text-align: center; font-size: 28px; margin-bottom: 20px;">В рамках программы запланировано 3 семинара:</p>
-
+                <p style="text-align: center; font-size: 28px; margin-bottom: 20px;">ПРОГРАММА<sup>*</sup>:</p>
                 <p class="woc-schedule-name">
-                    1 февраля «Pro_счастье пары. Взгляд эндокринолога.»
+                    13:00-13:30 Регистрация
                 </p>
                 <div class="woc-schedule-line clearfix"></div>
+                <div class="speakers clearfix">
+                    <div class="sp-line"></div>
 
+                </div>
+
+                <p class="woc-schedule-name">
+                    13:30-13:45 «Вступительное слово»
+                </p>
+                <div class="woc-schedule-line clearfix"></div>
                 <div class="speakers clearfix">
                     <div class="sp-line">
-                        <div class="sp-photo">
-                            <img src="/img/spec2.jpg"/>
-                        </div>
                         <div class="sp-text">
-                            <u>Холодова Анна Анатольевна</u> - Д-доктор, эндокринолог, андролог, специалист в области здоровья и долголетия пары, основатель ООО «Клиника Интегра»
-                            <br><br>
-                            <ul>
-                                <li>От любви до ненависти -один шаг (как люди влюбляются, и почему так сложно им оставаться счастливыми рядом)</li>
-                                <li>Про половинки или как остаться рядом с любимым счастливой</li>
-                                <li>Про хрупкое женское счастье</li>
-                            </ul>
+                            <u>Холодова Анна Анатольевна</u> - эндокринолог, андролог, основатель и гл. врач Клиники Интегра
                         </div>
                     </div>
                 </div>
+
                 <p class="woc-schedule-name">
-                    2 февраля «Pro_когнитивное счастье»
+                    13:45-14:15 Медицинский батл: «Паразиты. Нежелательные гости или ваша харизма?»
                 </p>
                 <div class="woc-schedule-line clearfix"></div>
 
                 <div class="speakers clearfix">
                     <div class="sp-line">
-                        <div class="sp-photo">
+                        <!--<div class="sp-photo">
                             <img src="/img/spec3.jpg"/>
-                        </div>
+                        </div>-->
                         <div class="sp-text">
-                            <u>Гердт Алевтина Михайловна</u> - к.м.н., терапевт, невролог, специалист в области интегративной медицины и клинической нутрициологии
-                            <br><br>
                             <ul>
-                                <li>Память, внимание, мышление. Как с годами улучшать, а не терять самое ценное.</li>
-                                <li>Принятие решений - одна из важных функций гормонов счастья.</li>
+                                <li>всё беды от глистов (мифы и правда)</li>
+                                <li>методы диагностики и кому нельзя лечить паразитоз</li>
                             </ul>
+                            <u>Холодова Анна Анатольевна</u> - эндокринолог, андролог, основатель и гл. врач Клиники Интегра<br/>
+                            <u>Грачева Надежда Сергеевна</u> - специалист ВРТ диагностики и подбора стратегии
                         </div>
                     </div>
                 </div>
+
                 <p class="woc-schedule-name">
-                    3 февраля «Pro_родительское счастье»
+                    14:15-14:45 «Слышать своё сердце или как не пополнить печальную статистику»
                 </p>
                 <div class="woc-schedule-line clearfix"></div>
 
                 <div class="speakers clearfix">
                     <div class="sp-line">
-                        <div class="sp-photo">
-                            <img src="/img/spec13.jpg"/>
-                        </div>
+                        <!--<div class="sp-photo">
+                            <img src="/img/spec2.jpg"/>
+                        </div>-->
                         <div class="sp-text">
-                            <u>Коваль Ольга Николаевна</u> - Д-доктор, врач-педиатр Клиники Интегра, специалист в области детской нутрициологии, автор лекционного курса о здоровье детей
-                            <br><br>
                             <ul>
-                                <li>Счастливый ребёнок</li>
-                                <li>Детская грусть - это повод действовать или обняться</li>
-                                <li>Как избежать депрессии у ребёнка</li>
+                                <li>скандальный Холестерин: друг или враг</li>
+                                <li>современные методы диагностики здоровья сосудов и человека в целом</li>
+                                <li>5 простых правил для здоровья сосудов и сердца о которых не говорят</li>
                             </ul>
+                            <br>
+                            <u>Бабенко Наталья Евгеньевна</u> - Кардиолог Клиники Интегра, специалист в области кардио-эндокринологии
                         </div>
                     </div>
                 </div>
+
                 <p class="woc-schedule-name">
-                    Для кого:
+                    14:45-16:00 Сытный кофе-брейк и время для приятного общения
                 </p>
                 <div class="woc-schedule-line clearfix"></div>
                 <div class="speakers clearfix">
-                    <ul>
-                        <li>Вы склонны погрустить</li>
-                        <li>Испытываете периодически чувство несчастья</li>
-                        <li>Раздражительны</li>
-                        <li>Депрессивны</li>
-                        <li>Устали от семьи</li>
-                    </ul>
-                    <p>Все семинары проходят в телеграмм-канале проекта</p>
-                    <p>Там же инфо-поддержка и ответы на ваши вопросы.</p>
+                    <div class="sp-line"></div>
                 </div>
+
+                <p class="woc-schedule-name">
+                    16:00-16:30 «Гормоны-это навсегда… что ставить в конце: ? или !»
+                </p>
+                <div class="woc-schedule-line clearfix"></div>
+
+                <div class="speakers clearfix">
+                    <div class="sp-line">
+                        <!--<div class="sp-photo">
+                            <img src="/img/spec2.jpg"/>
+                        </div>-->
+                        <div class="sp-text">
+                            <ul>
+                                <li>объективные риски и возможности ЗГТ</li>
+                                <li>онкология и гормоны</li>
+                                <li>как организм «шепчет», что пора подумать о ЗГТ, чтобы не опоздать</li>
+                            </ul>
+                            <br>
+                            <u>Балакирева Анна Николаевна</u> - Акушер-гинеколог, специалист в области интегративной, превентивной медицины и клинической нутрициологии
+                        </div>
+                    </div>
+                </div>
+
+                <p class="woc-schedule-name">
+                    16:30-17:00 «Стресс, вес, настроение»
+                </p>
+                <div class="woc-schedule-line clearfix"></div>
+
+                <div class="speakers clearfix">
+                    <div class="sp-line">
+                        <!--<div class="sp-photo">
+                            <img src="/img/spec3.jpg"/>
+                        </div>-->
+                        <div class="sp-text">
+                            <ul>
+                                <li>простые взаимосвязи, о которых не принято говорить</li>
+                                <li>как сохранить хорошее настроение и эмоциональный интеллект до старости</li>
+                            </ul>
+                            <u>Холодова Анна Анатольевна</u> - эндокринолог, андролог, основатель и гл. врач Клиники Интегра<br/>
+
+                        </div>
+                    </div>
+                </div>
+
+                <p class="woc-schedule-name">
+                    17:30-18:00 Традиционная викторина «О здоровье и для здоровья»
+                </p>
+                <div class="woc-schedule-line clearfix"></div>
+                <div class="speakers clearfix">
+                    <div class="sp-line">
+                        <div class="sp-text">
+                            <p>Вручение призов, подарков!</p>
+                        </div>
+                    </div>
+
+                </div>
+                <p>Категория: 18+ <br/><br/><sup>*</sup> Организаторы оставляют за собой право вносить изменения в расписание.</p>
             </div>
             <div class="clearfix">
                 <div id="form-to-pay" class="cwib-detail clearfix">
-                    <?php if (false): ?>
+                    <?php if (true): ?>
                         <p style="color: rgb(237, 195, 71);font-family: Roboto;font-size: 20px;">
-                            Программа состоится с 1 по 3 февраля 2024г. После оплаты вам поступит письмо на эл почту с персональной ссылкой на канал, просьба не передавать ссылку третьим лицам.
+                            Мероприятие состоится ОЧНО 17 марта 2024 г. в г. Тольятти, Платановая ул., д. 6, ресторан «Ренессанс»
                         </p>
                         <p class="cwib-textstatic">
                             Стоимость участия
                         </p>
                         <p class="cwib-price">
-                            1900 руб
+                            2 500 руб
                         </p>
+                        <p>Цена действительна до 8 марта до 24:00. Далее 3 000 руб.</p>
                     <?php endif; ?>
                 </div>
                 <div class="cw-contact clearfix">
 
                     <?php
-                    if (false) {
+                    if (true) {
                         $form = ActiveForm::begin(['action' => '/registration', 'options' => ['class' => 'cwc-form wo-form']]);
                         echo '<label class="cwc-formgroup">';
                         echo $form->field($model, 'name')->textInput(['placeholder' => 'Ф.И.О'])->label(false);
                         echo '</label>';
                         echo '<label class="cwc-formgroup">';
                         echo $form->field($model, 'email')->textInput(['placeholder' => 'Эл. почта'])->label(false);
-                        echo $form->field($model, 'activity')->hiddenInput(['value' => 'vPpSpgNHhsf5'])->label(false);
+                        echo $form->field($model, 'activity')->hiddenInput(['value' => '4qjqUqWvPUK'])->label(false);
                         echo '</label>';
                         echo '<label class="cwc-formgroup">';
                         echo $form->field($model, 'phone')->textInput(['placeholder' => 'Телефон'])->label(false);
@@ -277,7 +329,7 @@ use yii\widgets\ActiveForm;
 
                         ActiveForm::end();
                     } else {
-                        echo "<button class='wo-close'>Мероприятие закончилось</button>";
+                        echo "<button class='wo-close'>Мест нет</button>";
                     }
                     ?>
                 </div>
@@ -285,3 +337,5 @@ use yii\widgets\ActiveForm;
         </div>
     </div>
 </div>
+
+

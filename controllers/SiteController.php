@@ -726,7 +726,18 @@ class SiteController extends Controller
         $model->addRule(['activity','name', 'email', 'phone'], 'required', ['message' => 'Обязательно для заполнения']);
 
         $this->view->registerCssFile('/css/webinar.css');
-        return $this->render('health-in-the-city', ['model' => $model, 'avail' => $avail]);
+        return $this->render('health-in-the-city', ['model' => $model]);
+    }
+
+    public function actionHappinessInTheCity()
+    {
+        $this->metaImg = "/img/health-in-the-city.png";
+        $this->metaDescription = '17 марта 2024 г. Конференция для жителей и гостей города «ЗДОРОВЬЕ И СЧАСТЬЕ В БОЛЬШОМ ГОРОДЕ». г.Тольятти, Платановая ул., д. 6, ресторан «Ренессанс»';
+        $model = new DynamicModel(['activity','name', 'email', 'phone']);
+        $model->addRule(['activity','name', 'email', 'phone'], 'required', ['message' => 'Обязательно для заполнения']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('happiness-in-the-city', ['model' => $model]);
     }
 
     public function actionMedicalConferenceRegistration()

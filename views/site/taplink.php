@@ -22,14 +22,14 @@
         <div class="tlink-box">
             <a class="tlink-a" target="_blank" href="https://t.me/holodova_endo">Мой Telegram-канал</a>
         </div>
-        <div class="tlink-box">
+        <!--<div class="tlink-box">
             <a class="tlink-a" href="/webinar/SCqHJbL3FInx">Обучающий семинар «Трансформация массы тела: от понимания к воплощению»</a>
         </div>
         <div class="tlink-box">
-            <a class="tlink-a" href="/digestive-health">Курс «Здоровье пищеварительной системы»</a>
-        </div>
+            <a class="tlink-a" href="/course-of-hypoxia">Курс «Гипотиреоз и гипоксия. От понимания к решению»</a>
+        </div>-->
         <div class="tlink-box">
-            <a class="tlink-a" href="/international-conference-moscow">Конференция с международным участием из цикла «ПРИМЕНИМАЯ МЕДИЦИНА»</a>
+            <a class="tlink-a" href="/happiness-in-the-city">Конференция «ЗДОРОВЬЕ И СЧАСТЬЕ В БОЛЬШОМ ГОРОДЕ»</a>
         </div>
         <h2 class="group-name">Для самостоятельного изучения</h2>
         <div class="tlink-box">
