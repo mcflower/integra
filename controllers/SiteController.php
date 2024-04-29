@@ -1692,6 +1692,17 @@ class SiteController extends Controller
         return $this->render('hypoxia_course', ['model' => $model]);
     }
 
+    public function actionAutoimmune()
+    {
+        $this->metaImg = "/img/autoimmune.jpg";
+        $this->metaDescription = 'с 20 по 24 марта 2024 г. Курс «Аутоиммунные заболевания»';
+        $model = new DynamicModel(['activity','name', 'phone', 'email']);
+        $model->addRule(['activity', 'name', 'phone', 'email'], 'required', ['message' => 'Обязательно для заполнения']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('autoimmune', ['model' => $model]);
+    }
+
     public function actionDigestiveHealth()
     {
 
@@ -1714,6 +1725,18 @@ class SiteController extends Controller
 
         $this->view->registerCssFile('/css/webinar.css');
         return $this->render('moscow23', ['model' => $model]);
+    }
+
+    public function actionConferenceTogliatti()
+    {
+
+        $this->metaImg = "/img/river.jpg";
+        $this->metaDescription = '18 - 19 мая 2024 г. конференция из цикла «Применимая медицина» ВЕСЕННЯЯ ВОЛГА';
+        $model = new DynamicModel(['activity','name', 'phone', 'email']);
+        $model->addRule(['activity', 'name', 'phone', 'email'], 'required', ['message' => 'Обязательно для заполнения']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('togliatti', ['model' => $model]);
     }
 
     /*public function actionForm()
