@@ -155,6 +155,7 @@ class GuserController extends AuthController
                     'htmlLayout' => 'layouts/html'])
                 ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                 ->setTo($guser->email)
+                ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
                 ->setSubject('Ссылка на материал "' . $guide->name  . '"')
                 ->send();
 
@@ -192,6 +193,7 @@ class GuserController extends AuthController
                     'htmlLayout' => 'layouts/html'])
                 ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                 ->setTo($guser->email)
+                ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
                 ->setSubject('Оплата за материал "' . $guide->name  . '"')
                 ->send();
         } else {

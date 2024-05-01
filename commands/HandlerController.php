@@ -40,6 +40,7 @@ class HandlerController extends Controller
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo($user->email)
+                        ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
                         ->setSubject('Уведомление о вебинаре "' . $model->name . '".')
                         ->send();
                 }
@@ -108,6 +109,7 @@ class HandlerController extends Controller
                                         'htmlLayout' => 'layouts/html'])
                                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                     ->setTo($guser->email)
+                                    ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
                                     ->setSubject('Оплата за материал "' . $guide->name . '"')
                                     ->send();
                             }
@@ -148,6 +150,7 @@ class HandlerController extends Controller
                                                 'htmlLayout' => 'layouts/html'])
                                             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                             ->setTo($user->email)
+                                            ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
                                             ->setSubject('Оплата за мероприятие "' . $activity->name . '"')
                                             ->send();
                                     } else {
@@ -158,6 +161,7 @@ class HandlerController extends Controller
                                                 'htmlLayout' => 'layouts/html'])
                                             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                             ->setTo($user->email)
+                                            ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
                                             ->setSubject('Оплата за вебинар "' . $activity->name . '"')
                                             ->send();
                                     }
@@ -184,6 +188,7 @@ class HandlerController extends Controller
                                             'htmlLayout' => 'layouts/html'])
                                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                         ->setTo($user->email)
+                                        ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
                                         ->setSubject('Ссылка на запись вебинара "' . $activity->name . '".')->send();
                                 }
 
@@ -220,6 +225,7 @@ class HandlerController extends Controller
                                 'htmlLayout' => 'layouts/html'])
                             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                             ->setTo($user->email)
+                            ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
                             ->setSubject('Напоминание о мероприятии "' . $model->name . '".')
                             ->send();
                     } else {
@@ -230,6 +236,7 @@ class HandlerController extends Controller
                                 'htmlLayout' => 'layouts/html'])
                             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                             ->setTo($user->email)
+                            ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
                             ->setSubject('Напоминание о вебинаре "' . $model->name . '".')
                             ->send();
                     }
@@ -260,6 +267,7 @@ class HandlerController extends Controller
                         'htmlLayout' => 'layouts/html'])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                     ->setTo($user->email)
+                    ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
                     ->setSubject('Ссылка на запись вебинара "' . $model->name . '".');
                 /*if(!empty($model->cert)) {
                     $mes->attach("/home/m/mcflow/integraforlife.com/public_html".$model->cert);

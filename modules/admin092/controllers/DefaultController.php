@@ -21,12 +21,12 @@ class DefaultController extends AuthController
     {
         return $this->render('index');
     }
-    
+
     public function actionChangeNotify($activity)
     {
         $model = Xcontent::findOne(['activity' => $activity]);
         $users = Xuser::findAll(['activity' => $activity, 'buy' => 1]);
-        
+
         foreach($users as $user) {
             $mes = Yii::$app->mail->compose('change',
                 ['user' => $user,
@@ -35,11 +35,12 @@ class DefaultController extends AuthController
                     'htmlLayout' => 'layouts/html'])
                 ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                 ->setTo($user->email)
+                ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
                 ->setSubject('Перенос даты вебинара "'.$model->name.'".');
-    
+
             $mes->send();
         }
-        
-        
+
+
     }
 }
