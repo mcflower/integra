@@ -52,6 +52,14 @@ $config = [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 [
+                    /*'class' => 'yii\log\EmailTarget',
+                    'mailer' => 'mailer',
+                    'levels' => ['error'],
+                    'message' => [
+                        'from' => ['admin@onlynaturaldiet.com'],
+                        'to' => ['greenfild@gmail.com'],
+                        'subject' => 'Log message',
+                    ],*/
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
                 ],
@@ -92,8 +100,8 @@ if (YII_ENV_DEV) {
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        'allowedIPs' => ['127.0.0.1', '::1'],
-//        'allowedIPs' => ['85.26.235.133'],
+        //'allowedIPs' => ['127.0.0.1', '::1'],
+//        'allowedIPs' => ['8.8.2.1'],
     ];
 }
 
