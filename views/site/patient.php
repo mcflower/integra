@@ -33,7 +33,7 @@ $r = array('да' => 'да', 'нет' => 'нет');
         <?= $form->field($model, 'q7')->radioList($r)?>
         <?= $form->field($model, 'q8')->textInput(['maxlength' => true, 'placeholder' => 'Ваш ответ']) ?>
         <?= $form->field($model, 'q9')->radioList($r)?>
-        <?= $form->field($model, 'q10')->textInput(['maxlength' => true, 'placeholder' => 'Ваш ответ']) ?>
+        <?//= $form->field($model, 'q10')->textInput(['maxlength' => true, 'placeholder' => 'Ваш ответ']) ?>
         <?= $form->field($model, 'q11')->radioList($r)?>
         <?= $form->field($model, 'agreement1')->checkbox([
             'label' => 'Хочу получать поддержку в чате для пациентов с врачом Холодовой Анной Анатольевной',

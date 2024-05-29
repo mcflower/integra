@@ -24,7 +24,7 @@ use yii\widgets\DetailView;
         'q7',
         'q8',
         'q9',
-        'q10',
+//        'q10',
         'q11',
         [
             'attribute' => 'created_at',
