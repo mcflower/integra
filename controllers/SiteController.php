@@ -297,7 +297,7 @@ class SiteController extends Controller
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo('info@integraforlife.com')
-                        ->setSubject('Оплата за записи вебинара "' . $activity->name . '"')
+                        ->setSubject($xd . ' Оплата за записи вебинара "' . $activity->name . '"')
                         ->send();
 
                     $needCertLink = !empty($activity->cert);
@@ -878,6 +878,10 @@ class SiteController extends Controller
             $user->hash = md5($_POST['DynamicModel']['email'] . $_POST['DynamicModel']['activity'] . Yii::$app->params['secret']);
             $user->buy = $user->wopen = $user->wstart = $user->wclose = 0;
 
+            if (isset($_POST['DynamicModel']['ref'])) {
+                $user->description = "От " . $this->getReferName($_POST['DynamicModel']['ref']);
+            }
+
             $content = Xcontent::findOne(['activity' => $user->activity]);
             if (!empty($content) && $user->save()) {
                 /**
@@ -892,6 +896,25 @@ class SiteController extends Controller
             return $this->redirect('/');
         }
 
+    }
+
+    protected function getReferName(string $refCode): string
+    {
+        switch ($refCode) {
+            case 'gam':
+                $referName = "Гердт А.М.";
+                break;
+            case 'tsn':
+                $referName = "Тетюшкин С.Н.";
+                break;
+            case 'gme':
+                $referName = "Гвоздева М.Е.";
+                break;
+            default:
+                $referName = "Холодова А.А.";
+        }
+
+        return $referName;
     }
 
     public function actionCityEvent()
@@ -1687,6 +1710,18 @@ class SiteController extends Controller
         return $this->render('hormone', ['model' => $model]);
     }
 
+    public function actionHormonal()
+    {
+
+        $this->metaImg = "/img/hormonal.jpg";
+        $this->metaDescription = '11 - 18 июля 2023 г. Курс «Гормональное здоровье»';
+        $model = new DynamicModel(['activity','name', 'phone', 'email']);
+        $model->addRule(['activity', 'name', 'phone', 'email', 'ref'], 'required', ['message' => 'Обязательно для заполнения']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('hormonal', ['model' => $model]);
+    }
+
     public function actionCourseOfHypoxia()
     {
         $this->metaImg = "/img/course-of-hypoxia.jpg";
@@ -1707,6 +1742,18 @@ class SiteController extends Controller
 
         $this->view->registerCssFile('/css/webinar.css');
         return $this->render('autoimmune', ['model' => $model]);
+    }
+
+
+    public function actionHealthyLegacy()
+    {
+        $this->metaImg = "/img/healthy-legacy.jpg";
+        $this->metaDescription = '7 июля 2024 г. Городская конференция «ЗДОРОВОЕ НАСЛЕДИЕ», г. Тольятти, Приморский б-р. 43, ресторан «ФРАНЦИЯ»';
+        $model = new DynamicModel(['activity','name', 'phone', 'email']);
+        $model->addRule(['activity', 'name', 'phone', 'email'], 'required', ['message' => 'Обязательно для заполнения']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('healthy-legacy', ['model' => $model]);
     }
 
     public function actionDigestiveHealth()
@@ -1743,6 +1790,18 @@ class SiteController extends Controller
 
         $this->view->registerCssFile('/css/webinar.css');
         return $this->render('togliatti', ['model' => $model]);
+    }
+
+    public function actionConferenceSochi()
+    {
+
+        $this->metaImg = "/img/sochi.jpg";
+        $this->metaDescription = '19 - 20 октября 2024 г. VI КОНФЕРЕНЦИЯ «ПРИМЕНИМАЯ МЕДИЦИНА»';
+        $model = new DynamicModel(['activity','name', 'phone', 'email']);
+        $model->addRule(['activity', 'name', 'phone', 'email'], 'required', ['message' => 'Обязательно для заполнения']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('sochi', ['model' => $model]);
     }
 
     /*public function actionForm()

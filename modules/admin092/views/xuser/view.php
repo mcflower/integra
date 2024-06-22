@@ -49,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'email:email',
             'phone',
             'hash',
-            
+
             'activityName',
 //            'buy',
             [
@@ -125,7 +125,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
 //            'wopen',
 //            'wstart',
-//            'wclose',
+            'description',
             [
                 'attribute' => 'created_at',
                 'format' => 'raw',

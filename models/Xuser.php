@@ -15,6 +15,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string $hash
  * @property string $phone
  * @property string $activity
+ * @property string $description
  * @property int $buy
  * @property int $wopen
  * @property int $wstart
@@ -49,7 +50,7 @@ class Xuser extends \yii\db\ActiveRecord
             [['name', 'email', 'hash', 'activity', 'buy', 'wopen', 'wstart', 'wclose'], 'required'],
             [['buy', 'wopen', 'wstart', 'wclose', 'created_at', 'updated_at'], 'integer'],
             ['email', 'email', 'message' => 'Неправильный e-mail адрес'],
-            [['name', 'email', 'hash', 'activity', 'phone'], 'string', 'max' => 255],
+            [['name', 'email', 'hash', 'activity', 'phone', 'description'], 'string', 'max' => 255],
             [['name', 'email'], 'trim'],
             ['email', 'filter', 'filter' => 'strtolower', 'skipOnArray' => true],
         ];
@@ -84,6 +85,7 @@ class Xuser extends \yii\db\ActiveRecord
             'created_at' => 'Создано',
             'updated_at' => 'Обновлено',
             'activityName' => 'Активность',
+            'description' => 'Описание',
         ];
     }
 

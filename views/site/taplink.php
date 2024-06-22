@@ -25,12 +25,19 @@
         <!--<div class="tlink-box">
             <a class="tlink-a" href="/webinar/SCqHJbL3FInx">Обучающий семинар «Трансформация массы тела: от понимания к воплощению»</a>
         </div>
+        -->
         <div class="tlink-box">
-            <a class="tlink-a" href="/course-of-hypoxia">Курс «Гипотиреоз и гипоксия. От понимания к решению»</a>
-        </div>-->
-        <div class="tlink-box">
-            <a class="tlink-a" href="/happiness-in-the-city">Конференция «ЗДОРОВЬЕ И СЧАСТЬЕ В БОЛЬШОМ ГОРОДЕ»</a>
+            <a class="tlink-a" href="/healthy-legacy">7 июля. Городская конференция «ЗДОРОВОЕ НАСЛЕДИЕ»</a>
         </div>
+        <div class="tlink-box">
+            <a class="tlink-a" href="/hormonal">11-18 июля. Курс «Гормональное здоровье»</a>
+        </div>
+        <div class="tlink-box">
+            <a class="tlink-a" href="/conference-sochi">19-20 октября. Сочи. VI КОНФЕРЕНЦИЯ ПРИМЕНИМАЯ МЕДИЦИНА</a>
+        </div>
+        <!--<div class="tlink-box">
+            <a class="tlink-a" href="/conference-togliatti">18-19 Мая. Конференция из цикла «Применимая медицина» ВЕСЕННЯЯ ВОЛГА</a>
+        </div>-->
         <h2 class="group-name">Для самостоятельного изучения</h2>
         <div class="tlink-box">
             <a class="tlink-a" href="/guide/jdOiQzREt4xp">Йоддефицит</a>
