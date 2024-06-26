@@ -23,7 +23,8 @@
         "dkushnikov/yii2-yandex-metrika" : "*",
         "voronkovich/sberbank-acquiring-client": "v1.1.2",
         "2amigos/yii2-tinymce-widget": "~1.1",
-        "kartik-v/yii2-mpdf": "dev-master"
+        "kartik-v/yii2-mpdf": "dev-master",
+        "yoomoney/yookassa-sdk-php": "^2.10"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

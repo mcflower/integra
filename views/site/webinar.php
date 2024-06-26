@@ -77,7 +77,7 @@ use yii\widgets\ActiveForm;
                     echo Html::submitButton("уведомить");
 
                     ActiveForm::end();
-                } elseif ($webinar->type == 2) {
+                } elseif ($webinar->type == 2 || $webinar->type == 0) {
                     $form = ActiveForm::begin(['action' => '/new-active', 'options' => ['class' => 'cwc-form wo-form']]);
 
                     echo '<label class="cwc-formgroup">';

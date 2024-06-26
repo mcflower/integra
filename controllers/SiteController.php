@@ -240,6 +240,20 @@ class SiteController extends Controller
             ]);
     }
 
+    public function actionSuccessPage()
+    {
+        $nexts = Xcontent::find()->where(['type' => 1])->orderBy('xdate asc')->all();
+        $webinars = Webinar::find()->where(['hide' => 0])->orderBy('position asc')->all();
+
+        $this->view->registerCssFile('/css/notify.css');
+
+        return $this->render('success',
+            [
+                'webinars' => $webinars,
+                'nexts' => $nexts
+            ]);
+    }
+
     /**
      * Для покупки записей
      * @return string|Response
@@ -256,7 +270,6 @@ class SiteController extends Controller
         }
 
         try {
-
             $orderId = $_GET['orderId'];
 
             //$client = new Client(['userName' => 'integraforlife-api', 'password' => 'integraforlife', 'language' => 'ru', 'currency' => Currency::RUB, 'apiUri' => Client::API_URI_TEST]);
@@ -366,7 +379,7 @@ class SiteController extends Controller
             /**
              * Отправляем на страницу платежа
              */
-            return $this->redirect(Url::to(['payment', 'hash' => $hash]));
+            return $this->redirect(Url::to(['yandex/activity-payment', 'hash' => $hash]));
             /*Yii::$app->mail->compose('active',
                 ['client' => $user->name,
                     'hash' => $hash,
@@ -410,19 +423,7 @@ class SiteController extends Controller
             /**
              * Отправляем на страницу платежа
              */
-            return $this->redirect(Url::to(['invoice', 'hash' => $hash]));
-            /*Yii::$app->mail->compose(
-                'buyRecord',
-                ['user' => $user,
-                    'activity' => $activity,
-                    'title' => 'Счет на оплату вебинара "' . $activity->name . '".',
-                    'htmlLayout' => 'layouts/html']
-            )
-                ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                ->setTo($user->email)
-                ->setSubject('Счет на оплату вебинара "' . $activity->name . '".')->send();*/
-
-//            Yii::$app->session->setFlash('info', 'Успешно! Проверьте электронную почту для дальнейших инструкций.');
+            return $this->redirect(Url::to(['yandex/record-payment', 'hash' => $hash]));
 
         } else {
             Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
@@ -1036,14 +1037,28 @@ class SiteController extends Controller
 
     public function actionGuides()
     {
+        //todo убрать после переноса платежной системы. поменять стоимость за гайд йододефицит 500
+        if(!isset($_GET['payment_setup'])) {
+            Yii::$app->session->setFlash('info', 'Идут технические работы. Приносим свои извинения.');
+            return $this->redirect('/');
+        }
         $model = Guides::find()->where(['hide' => 0])->orderBy('position asc')->all();
         $guser = new Guser();
 
         return $this->render('guides', ['model' => $model, 'user' => $guser]);
     }
 
+    public function actionGuideBuyComplete($hash) {
+        return $this->render('guide-buy-complete', ['hash' => $hash]);
+    }
+
     public function actionGuide($hash)
     {
+        //todo убрать после переноса платежной системы. поменять стоимость за гайд йододефицит 500
+        if(!isset($_GET['payment_setup'])) {
+            Yii::$app->session->setFlash('info', 'Идут технические работы. Приносим свои извинения.');
+            return $this->redirect('/');
+        }
         $model = Guides::findOne(['hash' => $hash, 'hide' => 0]);
         $guser = new Guser();
 
@@ -1151,7 +1166,7 @@ class SiteController extends Controller
             if ($model->save()) {
 
                 $guide = Guides::findOne(['hash' => $model->gcontent]);
-                $orderId = $model->getPrimaryKey();
+//                $orderId = $model->getPrimaryKey();
 
                 if (!$guide) {
                     return $this->redirect(Url::to(['error-page', 'error' => 3]));
@@ -1177,7 +1192,10 @@ class SiteController extends Controller
 
                     return $this->render('guide-buy-complete', ['hash' => $model->hash]);
                 } else {
-                    try {
+
+                    return $this->redirect(Url::to(['yandex/guide-payment', 'hash' => $hash]));
+
+                    /*try {
                         $client = new Client(['userName' => 'integraforlife-api', 'password' => 'Flower192543', 'language' => 'ru', 'currency' => Currency::RUB]);
 
                         $orderAmount = $guide->price * 100;
@@ -1206,7 +1224,7 @@ class SiteController extends Controller
                             ->setTextBody($e)
                             ->send();
                         Yii::$app->session->setFlash('error', 'Ошибка платежной системы. Повторите позднее.');
-                    }
+                    }*/
                 }
             } else {
                 Yii::$app->mail->compose()
@@ -1373,6 +1391,10 @@ class SiteController extends Controller
             case 7:
                 $errorTitle = 'Ошибка оплаты';
                 $errorContent = 'Произошла ошибка. Повторите попытку позднее.';
+                break;
+            case 8:
+                $errorTitle = 'Ожидание оплаты';
+                $errorContent = 'Ожидаем платеж. Заказ не оплачен или обрабатывается.';
                 break;
             default:
                 $errorTitle = 'Ошибка';
