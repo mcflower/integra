@@ -761,7 +761,7 @@ class SiteController extends Controller
                 /**
                  * Отправляем на страницу платежа
                  */
-                return $this->redirect(Url::to(['payment', 'hash' => $user->hash]));
+                return $this->redirect(Url::to(['yandex/activity-payment', 'hash' => $user->hash]));
             } else {
                 Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
                 return $this->redirect('/');
@@ -888,7 +888,7 @@ class SiteController extends Controller
                 /**
                  * Отправляем на страницу платежа
                  */
-                return $this->redirect(Url::to(['payment', 'hash' => $user->hash]));
+                return $this->redirect(Url::to(['yandex/activity-payment', 'hash' => $user->hash]));
             } else {
                 Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
                 return $this->redirect(Url::to('/webinar/'.$content->activity));
@@ -944,7 +944,7 @@ class SiteController extends Controller
                 /**
                  * Отправляем на страницу платежа
                  */
-                return $this->redirect(Url::to(['payment', 'hash' => $user->hash]));
+                return $this->redirect(Url::to(['yandex/activity-payment', 'hash' => $user->hash]));
             } else {
                 Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
                 return $this->redirect('/');
@@ -1037,11 +1037,6 @@ class SiteController extends Controller
 
     public function actionGuides()
     {
-        //todo убрать после переноса платежной системы. поменять стоимость за гайд йододефицит 500
-        if(!isset($_GET['payment_setup'])) {
-            Yii::$app->session->setFlash('info', 'Идут технические работы. Приносим свои извинения.');
-            return $this->redirect('/');
-        }
         $model = Guides::find()->where(['hide' => 0])->orderBy('position asc')->all();
         $guser = new Guser();
 
@@ -1054,11 +1049,6 @@ class SiteController extends Controller
 
     public function actionGuide($hash)
     {
-        //todo убрать после переноса платежной системы. поменять стоимость за гайд йододефицит 500
-        if(!isset($_GET['payment_setup'])) {
-            Yii::$app->session->setFlash('info', 'Идут технические работы. Приносим свои извинения.');
-            return $this->redirect('/');
-        }
         $model = Guides::findOne(['hash' => $hash, 'hide' => 0]);
         $guser = new Guser();
 

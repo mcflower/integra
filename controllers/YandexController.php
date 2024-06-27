@@ -29,7 +29,8 @@ class YandexController extends Controller
     public function init()
     {
         $this->client = new Client();
-        $this->client->setAuth('408786', 'test_-x0BMtaijiSkoO90Eg3zwhvEYVaxK5n1oFQlMpHwRJ4');
+//        $this->client->setAuth('408786', 'test_-x0BMtaijiSkoO90Eg3zwhvEYVaxK5n1oFQlMpHwRJ4');
+        $this->client->setAuth('405520', 'live_Sk_Ba4Atz-6Aa9K-TSaSjK0d4XvX79Q72zj8vVsebT8');
     }
 
     public function beforeAction($action)
