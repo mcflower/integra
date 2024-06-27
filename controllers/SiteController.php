@@ -888,7 +888,7 @@ class SiteController extends Controller
                 /**
                  * Отправляем на страницу платежа
                  */
-                return $this->redirect(Url::to(['yandex/activity-payment', 'hash' => $user->hash]));
+                return $this->redirect(Url::to(['payment', 'hash' => $user->hash]));
             } else {
                 Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
                 return $this->redirect(Url::to('/webinar/'.$content->activity));
