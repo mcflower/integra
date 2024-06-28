@@ -379,7 +379,7 @@ class SiteController extends Controller
             /**
              * Отправляем на страницу платежа
              */
-            return $this->redirect(Url::to(['yandex/activity-payment', 'hash' => $hash]));
+            return $this->redirect(Url::to(['yandex/activity-payment', 'orderId' => $user->id]));
             /*Yii::$app->mail->compose('active',
                 ['client' => $user->name,
                     'hash' => $hash,
@@ -423,7 +423,7 @@ class SiteController extends Controller
             /**
              * Отправляем на страницу платежа
              */
-            return $this->redirect(Url::to(['yandex/record-payment', 'hash' => $hash]));
+            return $this->redirect(Url::to(['yandex/record-payment', 'orderId' => $user->id]));
 
         } else {
             Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
@@ -761,7 +761,7 @@ class SiteController extends Controller
                 /**
                  * Отправляем на страницу платежа
                  */
-                return $this->redirect(Url::to(['yandex/activity-payment', 'hash' => $user->hash]));
+                return $this->redirect(Url::to(['yandex/activity-payment', 'orderId' => $user->id]));
             } else {
                 Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
                 return $this->redirect('/');
@@ -888,7 +888,7 @@ class SiteController extends Controller
                 /**
                  * Отправляем на страницу платежа
                  */
-                return $this->redirect(Url::to(['payment', 'hash' => $user->hash]));
+                return $this->redirect(Url::to(['yandex/activity-payment', 'orderId' => $user->id]));
             } else {
                 Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
                 return $this->redirect(Url::to('/webinar/'.$content->activity));
@@ -944,7 +944,7 @@ class SiteController extends Controller
                 /**
                  * Отправляем на страницу платежа
                  */
-                return $this->redirect(Url::to(['yandex/activity-payment', 'hash' => $user->hash]));
+                return $this->redirect(Url::to(['yandex/activity-payment', 'orderId' => $user->id]));
             } else {
                 Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
                 return $this->redirect('/');
@@ -1136,7 +1136,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post())) {
 
             $hash = md5($model->email . $model->gcontent . Yii::$app->params['secret']);
-            $oldRecord = Guser::findOne(['hash' => $hash]);
+            $oldRecord = Guser::find()->where(['hash' => $hash])->orderBy("id DESC")->one();
 
             if (empty($oldRecord)) {
                 $model->hash = $hash;
@@ -1156,7 +1156,6 @@ class SiteController extends Controller
             if ($model->save()) {
 
                 $guide = Guides::findOne(['hash' => $model->gcontent]);
-//                $orderId = $model->getPrimaryKey();
 
                 if (!$guide) {
                     return $this->redirect(Url::to(['error-page', 'error' => 3]));
@@ -1183,7 +1182,7 @@ class SiteController extends Controller
                     return $this->render('guide-buy-complete', ['hash' => $model->hash]);
                 } else {
 
-                    return $this->redirect(Url::to(['yandex/guide-payment', 'hash' => $hash]));
+                    return $this->redirect(Url::to(['yandex/guide-payment', 'orderId' => $model->id]));
 
                     /*try {
                         $client = new Client(['userName' => 'integraforlife-api', 'password' => 'Flower192543', 'language' => 'ru', 'currency' => Currency::RUB]);

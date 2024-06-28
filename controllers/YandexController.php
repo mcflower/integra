@@ -66,9 +66,9 @@ class YandexController extends Controller
         return $behaviors;
     }
 
-    public function actionActivityPayment($hash)
+    public function actionActivityPayment($orderId)
     {
-        $user = Xuser::find()->where(['hash' => $hash])->one();
+        $user = Xuser::findOne($orderId);
 
         /**
          * Если пользователь не найден
@@ -86,7 +86,6 @@ class YandexController extends Controller
             return $this->redirect('/');
         }
 
-        $orderId = $user->id;
         $activity = Xcontent::find()->where(['activity' => $user->activity])->andWhere(['or', ['type' => 2], ['type' => 0]])->one();
         if (empty($activity)) {
             Yii::$app->session->setFlash('error', 'Вебинар не найден! Зарегистрируйтесь снова.');
@@ -102,7 +101,7 @@ class YandexController extends Controller
                     ],
                     'confirmation' => [
                         'type' => 'redirect',
-                        'return_url' => $this->returnUrl . $hash . "&tbl=xct",
+                        'return_url' => $this->returnUrl . $user->hash . "&tbl=xct",
                     ],
                     /*'receipt' => [
                         'customer' => [
@@ -148,9 +147,9 @@ class YandexController extends Controller
         }
     }
 
-    public function actionRecordPayment($hash)
+    public function actionRecordPayment($orderId)
     {
-        $user = Xuser::find()->where(['hash' => $hash])->one();
+        $user = Xuser::findOne($orderId);
 
         /**
          * Если пользователь не найден
@@ -168,7 +167,6 @@ class YandexController extends Controller
             return $this->redirect('/');
         }
 
-        $orderId = $user->id;
         $activity = Xcontent::findOne(['activity' => $user->activity, 'type' => 3]);
         if (empty($activity)) {
             Yii::$app->session->setFlash('error', 'Вебинар не найден! Зарегистрируйтесь снова.');
@@ -184,7 +182,7 @@ class YandexController extends Controller
                     ],
                     'confirmation' => [
                         'type' => 'redirect',
-                        'return_url' => $this->returnUrl . $hash . "&tbl=xct",
+                        'return_url' => $this->returnUrl . $user->hash . "&tbl=xct",
                     ],
                     /*'receipt' => [
                         'customer' => [
@@ -230,9 +228,9 @@ class YandexController extends Controller
         }
     }
 
-    public function actionGuidePayment($hash)
+    public function actionGuidePayment(int $orderId)
     {
-        $user = Guser::findOne(['hash' => $hash]);
+        $user = Guser::findOne($orderId);
         $orderId = $user->id;
         $guide = Guides::findOne(['hash' => $user->gcontent]);
 
@@ -245,7 +243,7 @@ class YandexController extends Controller
                     ],
                     'confirmation' => [
                         'type' => 'redirect',
-                        'return_url' => $this->returnUrl . $hash . "&tbl=gde",
+                        'return_url' => $this->returnUrl . $user->hash . "&tbl=gde",
                     ],
                     /*'receipt' => [
                         'customer' => [
@@ -296,9 +294,9 @@ class YandexController extends Controller
 
         $model = null;
         if ($tbl == 'gde') {
-            $model = Guser::findOne(['hash' => $hash]);
+            $model = Guser::find()->where(['hash' => $hash, 'status' => 1])->orderBy("id DESC")->one();
         } elseif($tbl == 'xct') {
-            $model = Xuser::findOne(['hash' => $hash]);
+            $model = Xuser::findOne(['hash' => $hash, 'buy' => 1]);
         }
 
         if (is_null($model)) {
