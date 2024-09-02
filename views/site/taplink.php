@@ -25,13 +25,10 @@
         <!--<div class="tlink-box">
             <a class="tlink-a" href="/webinar/SCqHJbL3FInx">Обучающий семинар «Трансформация массы тела: от понимания к воплощению»</a>
         </div>
-        -->
-        <div class="tlink-box">
-            <a class="tlink-a" href="/healthy-legacy">7 июля. Городская конференция «ЗДОРОВОЕ НАСЛЕДИЕ»</a>
-        </div>
+
         <div class="tlink-box">
             <a class="tlink-a" href="/hormonal">11-18 июля. Курс «Гормональное здоровье»</a>
-        </div>
+        </div>-->
         <div class="tlink-box">
             <a class="tlink-a" href="/conference-sochi">19-20 октября. Сочи. VI КОНФЕРЕНЦИЯ ПРИМЕНИМАЯ МЕДИЦИНА</a>
         </div>
@@ -40,14 +37,18 @@
         </div>-->
         <h2 class="group-name">Для самостоятельного изучения</h2>
         <div class="tlink-box">
+            <a class="tlink-a" href="/guide/bAL6mLkAFHbq">Кожа глазами эндокринолога</a>
+        </div>
+        <div class="tlink-box">
             <a class="tlink-a" href="/guide/jdOiQzREt4xp">Йоддефицит</a>
         </div>
         <div class="tlink-box">
             <a class="tlink-a" href="/guide/ZuN19rZ5AU0">Крепкие нервы</a>
         </div>
-        <div class="tlink-box">
+
+        <!--<div class="tlink-box">
             <a class="tlink-a" href="/guide/5gxCpya90BJF">Дефицит железа/гипоксия (ОБНОВЛЁННЫЙ)</a>
-        </div>
+        </div>-->
         <h2 class="group-name">Программы</h2>
         <!--<div class="tlink-box">
             <a class="tlink-a" href="/webinar/6TLwVy99cJqD">Гипотиреоз- междисциплинарная проблема. Нюансы нутритивной поддержки пациентов.</a>
