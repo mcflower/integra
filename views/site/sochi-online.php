@@ -1,6 +1,6 @@
 <?php
 
-$this->title = "VI КОНФЕРЕНЦИЯ ПРИМЕНИМАЯ МЕДИЦИНА";
+$this->title = "VI ОНЛАЙН КОНФЕРЕНЦИЯ ПРИМЕНИМАЯ МЕДИЦИНА";
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -152,24 +152,20 @@ use yii\widgets\ActiveForm;
 </style>
 <div class="wo-anons clearfix">
     <div class="wo-container clearfix">
-        <div class="woc-preview clearfix" style="background-image:url('/img/sochi.jpg');"></div>
+        <div class="woc-preview clearfix" style="background-image:url('/img/sochi-online.png?i=2');"></div>
         <div class="woc-about clearfix">
             <div class="woc-main clearfix">
                 <div class="clearfix">
                     <p class="woc-main-intro">
-                        VI КОНФЕРЕНЦИЯ
+                        ОНЛАЙН УЧАСТИЕ
                     </p>
-                    <p class="woc-main-time" style="color:#026118; font-family: Philosopher;">
-                        19 - 20 октября 2024 г.
-                    </p>
+
                     <p class="woc-main-name">
-                        ПРИМЕНИМАЯ МЕДИЦИНА
+                        19 - 20 ОКТЯБРЯ 2024 г.
                     </p>
                     <div class="woc-main-line clearfix"></div>
                     <p class="woc-main-about">
-                        Практико-применимые знания в области медицины от врачей-практиков для здоровья людей.<br/>
-                        Место проведения: г. Сочи, Роза Хутор, Отель «Park Inn by Radisson»
-
+                        Практико-применимые знания в области медицины от врачей-практиков для здоровья людей
                     </p>
                 </div>
             </div>
@@ -177,31 +173,14 @@ use yii\widgets\ActiveForm;
                 <a class="woc-link-to-form scrollto" href="#form-to-pay">ЗАРЕГИСТРИРОВАТЬСЯ</a>
             </div>
             <div class="woc-second">
-                <p style="text-align: center; font-size: 28px; margin-bottom: 20px;">Программа Конфернции:</p>
-                <!--<div style="padding: 30px;border: 2px solid #026118;border-radius: 20px;text-align: center;background-color: #8ac201;color: black;">
-                    ПОДРОБНАЯ ПРОГРАММА С ТЕМАМИ СЕЙЧАС В РАЗРАБОТКЕ.<br/>
-                    По традиции, мы поднимаем самые актуальные темы для повышения компетенций и обретения здоровья.
-                    <br/><br/>
-                    Мероприятие будет проходить 2 дня.<br/>
-                    В программу включены кофе-брейки и торжественный ужин (при желании, в 1-й день, при оплате тарифа семинар + ужин).
-                    <br/><br/>
-                    Забронируйте свое место уже сейчас.
-                </div>-->
+                <p style="text-align: center; font-size: 28px; margin-bottom: 20px;">Программа онлайн конференции:</p>
                 <p class="woc-main-name" style='text-align: center;'>
                     19 октября 2024г.
                 </p>
                 <br><br><br>
-                <p class="woc-schedule-name">
-                    11:00 - 12:00 Регистрация
-                </p>
-                <div class="woc-schedule-line clearfix"></div>
-                <div class="speakers clearfix">
-                    <div class="sp-line">
-                        <div class="sp-text">
-
-                        </div>
-                    </div>
-                </div>
+                <p class="woc-main-intro" style="font-family: Philosopher;">СЕКЦИЯ: ЭНДОКРИНОЛОГИЯ</p>
+                <br>
+                <br>
                 <p class="woc-schedule-name">
                     12:00 - 12:45 «Недооцененный гипотиреоз»
                 </p>
@@ -254,7 +233,7 @@ use yii\widgets\ActiveForm;
                     </div>
                 </div>
                 <p class="woc-schedule-name">
-                    15:00 - 16:00 Кофе-брейк
+                    15:00 - 16:00 Перерыв
                 </p>
                 <div class="woc-schedule-line clearfix"></div>
                 <div class="speakers clearfix">
@@ -264,6 +243,8 @@ use yii\widgets\ActiveForm;
                         </div>
                     </div>
                 </div>
+                <p class="woc-main-intro" style="font-family: Philosopher;">СЕКЦИЯ: ПРАВОВЫЕ И ЭТИЧЕСКИЕ АСПЕКТЫ</p>
+                <br><br>
                 <p class="woc-schedule-name">
                     16:00 - 16:45 «Юридические аспекты ведения пациента/клиента онлайн»
                 </p>
@@ -291,32 +272,12 @@ use yii\widgets\ActiveForm;
                         </div>
                     </div>
                 </div>
-                <p class="woc-schedule-name">
-                    19:00 ГАЛА-УЖИН «РОЗОВЫЙ Фламинго»
-                </p>
-                <div class="woc-schedule-line clearfix"></div>
-                <div class="speakers clearfix">
-                    <div class="sp-line">
-                        <div class="sp-text">
-                            Входит в пакет «конференция + ужин»
-                        </div>
-                    </div>
-                </div>
                 <p class="woc-main-name" style='text-align: center;'>
                     20 октября 2024г.
                 </p>
                 <br><br><br>
-                <p class="woc-schedule-name">
-                    9:30 - 10:00 Сбор участников
-                </p>
-                <div class="woc-schedule-line clearfix"></div>
-                <div class="speakers clearfix">
-                    <div class="sp-line">
-                        <div class="sp-text">
-
-                        </div>
-                    </div>
-                </div>
+                <p class="woc-main-intro" style="font-family: Philosopher;">Секция: ПЕДИАТРИЯ</p>
+                <br><br>
                 <p class="woc-schedule-name">
                     10:00 - 10:45 «Большие проблемы «маленьких» мышц»
                 </p>
@@ -344,16 +305,18 @@ use yii\widgets\ActiveForm;
                     </div>
                 </div>
                 <p class="woc-schedule-name">
-                    11:30 - 12:15 Время на выселение из номеров
+                    11:30 - 12:15 Перерыв
                 </p>
                 <div class="woc-schedule-line clearfix"></div>
                 <div class="speakers clearfix">
                     <div class="sp-line">
                         <div class="sp-text">
-                            Для проживающих в отеле «Park Inn by Radisson»
+
                         </div>
                     </div>
                 </div>
+                <p class="woc-main-intro" style="font-family: Philosopher;">Секция: ГАСТРОЭНТЕРОЛОГИЯ</p>
+                <br><br>
                 <p class="woc-schedule-name">
                     12:15 - 13:00 «Печень-королева метаболизма»
                 </p>
@@ -376,18 +339,6 @@ use yii\widgets\ActiveForm;
                         <div class="sp-text">
                             Алгоритм лечения. Фатальные ошибки.<br>
                             <span style="font-family: 'Roboto';">Спикер:</span> Гердт Алевтина Михайловна
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <p class="woc-schedule-name">
-                    13:45-15:00 Торжественное закрытие конференции
-                </p>
-                <div class="woc-schedule-line clearfix"></div>
-                <div class="speakers clearfix">
-                    <div class="sp-line">
-                        <div class="sp-text">
-                            <span style="font-family: 'Roboto';">Планирование экскурсионной программы со спикерами.</span>
                             <br>
                         </div>
                     </div>
@@ -469,7 +420,7 @@ use yii\widgets\ActiveForm;
                     <img class="img-box-one" src="/img/trener.jpg" alt="">
                 </div>
                 <p class="woc-schedule-name">
-                    ЗАЧЕМ ЕХАТЬ НА КОНФЕРЕНЦИЮ:
+                    ВАЖНАЯ ИНФОРМАЦИЯ:
                 </p>
                 <div class="woc-schedule-line clearfix"></div>
                 <div class="speakers clearfix">
@@ -477,57 +428,46 @@ use yii\widgets\ActiveForm;
                         <div class="sp-text">
                             <ul>
                                 <li>
-                                    Познакомиться и пообщаться с экспертами и коллегами вживую
+                                    <p>Организаторы оставляют за собой право поменять расписание.</p>
                                 </li>
                                 <li>
-                                   Завести полезные знакомства
+                                   <p style="font-family: Philosopher;">По окончанию конференции предусмотрен сертификат.</p>
                                 </li>
                                 <li>
-                                    Получить новые актуальные знания, идеи для развития своих проектов, стратегию увеличения прибыли
+                                    <p>❗️После регистрации и оплаты участия, на указанную электронную почту (ПРОВЕРЯТЬ ПРАВИЛЬНОСТЬ НАПИСАНИЯ!) вам приходит автоматическое письмо с персональным доступом в телеграмм-канал участников конференции, где будет размещена ссылка на онлайн трансляцию 19 и 20 октября. Просьба не передавать ссылку третьим лицам.</p>
                                 </li>
                                 <li>
-                                    Расширить границы профессиональных компетенций и личных возможностей
+                                    <p style="font-family: Philosopher;">Всем онлайн участникам так же будут направлены материалы конференции в PDF-формате (или формате для печати) в день конференции.</p>
                                 </li>
                                 <li>
-                                    Получить заряд мотивации и позитивной энергии в кругу близких по духу людей.
+                                    <p>Доступ к лекциям и материалам конференции - 6 месяцев со дня проведения.</p>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-
-
-                <p style="font-family: Philosopher;">Количество мест ограничено.</p>
-                <p>Организаторы оставляют за собой право поменять расписание.</p>
             </div>
             <div class="clearfix">
                 <div id="form-to-pay" class="cwib-detail clearfix">
-                    <?php if (false): ?>
+                    <?php if (true): ?>
                         <p style="color: rgb(237, 195, 71);font-family: Roboto;font-size: 20px;">
-                            Мероприятие состоится 19 - 20 октября, 2024г. в г. Сочи, Роза Хутор, Отель «Park Inn by Radisson»
+                            Мероприятие состоится ОНЛАЙН 19 - 20 октября, 2024г. ВРЕМЯ ПОДКЛЮЧЕНИЯ МОСКОВСКОЕ!
                         </p>
                         <p class="cwib-textstatic">
                             Стоимость участия
                         </p>
                         <p class="cwib-price">
-                            от 12 000 руб.<!--<sup>*</sup>-->
+                            12 000 руб.
                         </p>
-<!--                        <p class="cwc-line1"><br/>* Предложение действительно по 15 июня (включительно), далее:<br/> Тариф «Семинары» - 12 000 руб. <br/>Тариф «Семинары + Торжественный ужин» - 17 000 руб.</p>-->
                     <?php endif; ?>
                 </div>
                 <div class="cw-contact clearfix">
 
                     <?php
-                    if (false) {
+                    if (true) {
                         $form = ActiveForm::begin(['action' => '/registration', 'options' => ['class' => 'cwc-form wo-form']]);
                         echo '<label class="cwc-formgroup">';
-                        echo $form->field($model, 'activity')->dropDownList([
-                            '0MMzRV1ETlVP' => 'Семинары - 12 000 руб.',
-                            '0DiYja9CNKoj' => 'Семинары + Торжественный ужин - 17 000 руб.'
-                        ], ['prompt' => 'Выберите тариф...', 'style' => ''])->label(false);
-                        echo '</label>';
-                        echo '<label class="cwc-formgroup">';
-                        echo $form->field($model, 'name')->textInput(['placeholder' => 'Ф.И.О'])->label(false);
+                        echo $form->field($model, 'name')->textInput(['placeholder' => 'Ф.И.О для печати сертификата'])->label(false);
                         echo '</label>';
                         echo '<label class="cwc-formgroup">';
                         echo $form->field($model, 'email')->textInput(['placeholder' => 'Эл. почта'])->label(false);
@@ -535,6 +475,7 @@ use yii\widgets\ActiveForm;
                         echo '<label class="cwc-formgroup">';
                         echo $form->field($model, 'phone')->textInput(['placeholder' => 'Телефон'])->label(false);
                         echo '</label>';
+                        echo $form->field($model, 'activity')->hiddenInput(['value' => 'lkWA2GvOaUJ0'])->label(false);
                         echo '<div class="policy-container clearfix">
                                 <p class="cwc-line1">
                                     Нажимая кнопку "Оплатить участие" вы даете согласие на обработку персональных данных<br>

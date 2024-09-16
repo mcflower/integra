@@ -1815,6 +1815,18 @@ class SiteController extends Controller
         return $this->render('sochi', ['model' => $model]);
     }
 
+    public function actionConferenceSochiOnline()
+    {
+
+        $this->metaImg = "/img/sochi-online.png?i";
+        $this->metaDescription = '19 - 20 октября 2024 г. VI ОНЛАЙН КОНФЕРЕНЦИЯ «ПРИМЕНИМАЯ МЕДИЦИНА»';
+        $model = new DynamicModel(['activity','name', 'phone', 'email']);
+        $model->addRule(['activity', 'name', 'phone', 'email'], 'required', ['message' => 'Обязательно для заполнения']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('sochi-online', ['model' => $model]);
+    }
+
     /*public function actionForm()
     {
 //        $model = new DynamicModel(['name', 'email', 'activity']);
