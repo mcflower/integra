@@ -30,7 +30,7 @@
             <a class="tlink-a" href="/hormonal">11-18 июля. Курс «Гормональное здоровье»</a>
         </div>-->
         <div class="tlink-box">
-            <a class="tlink-a" href="/conference-sochi-online">19-20 октября. VI ОНЛАЙН КОНФЕРЕНЦИЯ ПРИМЕНИМАЯ МЕДИЦИНА</a>
+            <a class="tlink-a" href="/conference-togliatti-25">17 - 18 МАЯ. VII КОНФЕРЕНЦИЯ ПРИМЕНИМАЯ МЕДИЦИНА</a>
         </div>
         <!--<div class="tlink-box">
             <a class="tlink-a" href="/conference-togliatti">18-19 Мая. Конференция из цикла «Применимая медицина» ВЕСЕННЯЯ ВОЛГА</a>

@@ -1814,6 +1814,18 @@ class SiteController extends Controller
         $this->view->registerCssFile('/css/webinar.css');
         return $this->render('sochi', ['model' => $model]);
     }
+    
+    public function actionConferenceTogliatti25()
+    {
+
+        $this->metaImg = "/img/tlt25.png";
+        $this->metaDescription = '17 - 18 мая 2025 г. VII КОНФЕРЕНЦИЯ «ПРИМЕНИМАЯ МЕДИЦИНА»';
+        $model = new DynamicModel(['activity','name', 'phone', 'email']);
+        $model->addRule(['activity', 'name', 'phone', 'email'], 'required', ['message' => 'Обязательно для заполнения']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('togliatti25', ['model' => $model]);
+    }
 
     public function actionConferenceSochiOnline()
     {
