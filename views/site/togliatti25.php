@@ -102,7 +102,7 @@ use yii\widgets\ActiveForm;
         background: rgb(217, 174, 44);
     }
 
-    .woc-link-to-form:active, .woc-link-to-form:visited  {
+    .woc-link-to-form:active, .woc-link-to-form:visited {
         text-decoration: none;
     }
 
@@ -114,7 +114,7 @@ use yii\widgets\ActiveForm;
     }
 
     .img-box-one {
-            display: flex;
+        display: flex;
         width: 30%;
         border-radius: 23px;
     }
@@ -156,7 +156,8 @@ use yii\widgets\ActiveForm;
         <div class="woc-about clearfix">
             <div class="woc-main clearfix">
                 <div class="clearfix">
-                    <p class="woc-main-name clearfix" style="color:#026118; font-family: Philosopher;font-size: 34px;margin-bottom: 15px;">
+                    <p class="woc-main-name clearfix"
+                       style="color:#026118; font-family: Philosopher;font-size: 34px;margin-bottom: 15px;">
                         17 - 18 МАЯ 2025 г.
                     </p>
                     <p class="woc-main-intro">
@@ -176,186 +177,281 @@ use yii\widgets\ActiveForm;
             <div style="text-align: center;">
                 <a class="woc-link-to-form scrollto" href="#form-to-pay">ЗАРЕГИСТРИРОВАТЬСЯ</a>
             </div>
+            <br><br>
+            <p class="woc-schedule-name">
+                ДЛЯ КОГО КОНФЕРЕНЦИЯ:
+            </p>
+            <div class="woc-schedule-line clearfix"></div>
+            <div class="speakers clearfix">
+                <div class="sp-line">
+                    <div class="woc-main-about" style="background-color: #8ac102;padding: 20px;border-radius: 20px;">
+                        Врачам всех специальностей, диетологам, нутрициологам. Для тех, кто хочет развиваться в сфере
+                        здоровья и красоты. Кто мечтает запускать свои проекты онлайн и офлайн, или желает
+                        масштабировать существующий. Для всех, чья миссия - улучшать качество жизни людей!
+                    </div>
+                </div>
+            </div>
             <div class="woc-second">
-                <p style="text-align: center; font-size: 28px; margin-bottom: 20px;">Программа онлайн конференции:</p>
-                <p style="font-family: Philosopher;font-size: 23px;margin: 0 0 10px 0;">БЛОК «Нейро-иммуно-Эндокринология»</p>
-                <p style="font-family: Philosopher;font-size: 23px;margin: 0 0 10px 0;">БЛОК «Педиатрия»</p>
-                <p style="font-family: Philosopher;font-size: 23px;margin: 0 0 10px 0;">БЛОК «Сердце и сосуды»</p>
-                <p style="font-family: Philosopher;font-size: 23px;margin: 0 0 10px 0;">БЛОК «Развитие»</p>
-                <div style="padding: 30px;border: 2px solid #026118;border-radius: 20px;text-align: center;background-color: #8ac201;color: black;">
-                    Подробная программа и список спикеров в разработке.<br/>
-                    Мы желаем, чтобы лучшие делились своим опытом и знаниями.
-                </div><br/><br/>
-
-                <!--<p class="woc-main-name" style='text-align: center;'>
-                    19 октября 2024г.
+                <p class="woc-main-name" style='text-align: center;'>
+                    17 мая 2025г.
                 </p>
                 <br><br><br>
-                <p class="woc-main-intro" style="font-family: Philosopher;">СЕКЦИЯ: ЭНДОКРИНОЛОГИЯ</p>
-                <br>
-                <br>
                 <p class="woc-schedule-name">
-                    12:00 - 12:45 «Недооцененный гипотиреоз»
+                    10:00 - 11:00
                 </p>
                 <div class="woc-schedule-line clearfix"></div>
                 <div class="speakers clearfix">
                     <div class="sp-line">
                         <div class="sp-text">
-                            Ошибки диагностики и лечения.<br/>
-                            <span style="font-family: 'Roboto';">Спикер:</span> Холодова Анна Анатольевна
-                            <br>
+                            Регистрация
                         </div>
                     </div>
                 </div>
+                <p class="woc-main-intro" style="font-family: Philosopher;">Блок: ПРОФЕССИОНАЛЬНЫЕ КОМПЕТЕНЦИИ</p>
+                <br>
+                <br>
                 <p class="woc-schedule-name">
-                    12:45 - 13:30 «Повышенный пролактин»
+                    11:00 - 11:45 «Лабораторная диагностика»
                 </p>
                 <div class="woc-schedule-line clearfix"></div>
                 <div class="speakers clearfix">
                     <div class="sp-line">
                         <div class="sp-text">
-                            Продлевает молодость или приближает старение?<br>
+                            Интерпретация противоречивых данных. Выбор вектора.<br/>
                             <span style="font-family: 'Roboto';">Спикер:</span> Гердт Алевтина Михайловна
                             <br>
                         </div>
                     </div>
                 </div>
                 <p class="woc-schedule-name">
-                    13:30 - 14:15 «Заместительная Гормональная терапия может быть безопасной»
+                    11:45 - 12:20 МастерКласс: «ГЕНЕТИКА»
                 </p>
                 <div class="woc-schedule-line clearfix"></div>
                 <div class="speakers clearfix">
                     <div class="sp-line">
                         <div class="sp-text">
+                            Практическая выгода для пациента и врача.<br>
+                            <span style="font-family: 'Roboto';">Спикер:</span> Холодова Анна Анатольевна
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <p class="woc-schedule-name">
+                    12:20 - 12:45 «БИОИМПЕДАНС»
+                </p>
+                <div class="woc-schedule-line clearfix"></div>
+                <div class="speakers clearfix">
+                    <div class="sp-line">
+                        <div class="sp-text">
+                            Уникальное исследование. Простота интерпретации.<br/>
+                            <span style="font-family: 'Roboto';">Спикер:</span> Гердт Алевтина Михайловна
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <p class="woc-main-intro" style="font-family: Philosopher;">Блок: Нейро-иммунно-эндокринология</p>
+                <br>
+                <br>
+                <p class="woc-schedule-name">
+                    12:45 - 13:20 «Врожденный и приобретенный иммунитет»
+                </p>
+                <div class="woc-schedule-line clearfix"></div>
+                <div class="speakers clearfix">
+                    <div class="sp-line">
+                        <div class="sp-text">
+                            Профилактика гормональных нарушений и АИЗ с нуля лет.<br/>
+                            <span style="font-family: 'Roboto';">Спикер:</span> Коваль Ольга Николаевна
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <p class="woc-schedule-name">
+                    13:20 - 14:15 «Нейромедиаторы»
+                </p>
+                <div class="woc-schedule-line clearfix"></div>
+                <div class="speakers clearfix">
+                    <div class="sp-line">
+                        <div class="sp-text">
+                            Неучтенные участники гормонального благополучия.<br>
+                            <span style="font-family: 'Roboto';">Спикер:</span> Холодова Анна Анатольевна
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <p class="woc-schedule-name">
+                    14:15 - 15:00 Обеденный кофе-брейк
+                </p>
+                <div class="woc-schedule-line clearfix"></div>
+                <div class="speakers clearfix">
+                    <div class="sp-line">
+                        <div class="sp-text">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="woc-attention">
+                    <p class="woc-main-intro" style="font-family: Philosopher;">БЛОК: ПРОДВИЖЕНИЕ</p>
+                    <br><br>
+                    <p class="woc-schedule-name">
+                        15:00 - 15:45 «ЭМОЦИОНАЛЬНЫЙ ИНТЕЛЛЕКТ»
+                    </p>
+                    <div class="woc-schedule-line clearfix"></div>
+                    <div class="speakers clearfix">
+                        <div class="sp-line">
+                            <div class="sp-text">
+                                Soft skill No 1 современного делового человека.<br>
+                                <span style="font-family: 'Roboto';">Спикер:</span> Лазарева Светлана Евгеньевна - эксперт
+                                по деловому этикету и эффективной коммуникации
+                            </div>
+                        </div>
+                    </div>
+                    <p class="woc-schedule-name">
+                        15:45 - 16:15 «SMM. Представление себя»
+                    </p>
+                    <div class="woc-schedule-line clearfix"></div>
+                    <div class="speakers clearfix">
+                        <div class="sp-line">
+                            <div class="sp-text">
+                                Формирование лояльной аудитории. Где, как, с чего начать и эффективно продолжать!<br>
+                                <span style="font-family: 'Roboto';">Спикер:</span> Рада Соловьева - SMM-специалист.
+                                Продвижение в соцсетях более 6 лет, более 100 проектов.
+                            </div>
+                        </div>
+                    </div>
+                    <p class="woc-schedule-name">
+                        16:45 - 17:30 «ПИСАТЬ НЕЛЬЗЯ ЗВОНИТЬ»
+                    </p>
+                    <div class="woc-schedule-line clearfix"></div>
+                    <div class="speakers clearfix">
+                        <div class="sp-line">
+                            <div class="sp-text">
+                                Правила цифрового этикета и деловой переписки.<br>
+                                <span style="font-family: 'Roboto';">Спикер:</span> Лазарева Светлана Евгеньевна - эксперт
+                                по деловому этикету и эффективной коммуникации
+                            </div>
+                        </div>
+                    </div>
+                    <p class="woc-schedule-name">
+                        19:00 ГАЛА-УЖИН Волжские просторы<sup>*</sup>
+                    </p>
+                    <div class="woc-schedule-line clearfix"></div>
+                    <div class="speakers clearfix">
+                        <div class="sp-line">
+                            <div class="sp-text">
+                                Дресс-код все цвета реки (голубой, бирюзовый, синий, белый)<br/>
+                                * регистрация на ужин и оплата организована в чате участников конференции
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="woc-main-name" style='text-align: center;'>
+                    18 мая 2025г.
+                </p>
+                <br><br><br>
+                <p class="woc-main-intro" style="font-family: Philosopher;">БЛОК: СЕРДЦЕ И СОСУДЫ</p>
+                <br><br>
+                <p class="woc-schedule-name">
+                    10:00 - 10:30 «Мочевая кислота»
+                </p>
+                <div class="woc-schedule-line clearfix"></div>
+                <div class="speakers clearfix">
+                    <div class="sp-line">
+                        <div class="sp-text">
+                            Протокольный маркер сосудистого неблагополучия. Разбираемся в причинах повышения. Тактика
+                            нутрициолога и врача.<br>
+                            <span style="font-family: 'Roboto';">Спикер:</span> Бакшеев Максим Георгиевич
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <p class="woc-schedule-name">
+                    10:30 - 11:15 «КОЛЛАГЕН»
+                </p>
+                <div class="woc-schedule-line clearfix"></div>
+                <div class="speakers clearfix">
+                    <div class="sp-line">
+                        <div class="sp-text">
+                            Нарушение баланса сборки и распада белка красоты и здоровья сосудов. Нюансы нутритивного протокола.<br/>
+                            <span style="font-family: 'Roboto';">Спикер:</span> Гердт Алевтина Михайловна
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <p class="woc-schedule-name">
+                    11:15 - 12:00 Время на выселение из номеров
+                </p>
+                <div class="woc-schedule-line clearfix"></div>
+                <div class="speakers clearfix">
+                    <div class="sp-line">
+                        <div class="sp-text">
+                            Для проживающих в отеле «Лада Резорт»
+                        </div>
+                    </div>
+                </div>
+                <p class="woc-main-intro" style="font-family: Philosopher;">БЛОК: ГАСТРОЭНТЕРОЛОГИЯ</p>
+                <br><br>
+                <p class="woc-schedule-name">
+                    12:00 - 12:40 «Хронический панкреатит»
+                </p>
+                <div class="woc-schedule-line clearfix"></div>
+                <div class="speakers clearfix">
+                    <div class="sp-line">
+                        <div class="sp-text">
+                            Интерпретация инструментальных и лабораторных данных. Бережная реабилитация функции
+                            Поджелудочной железы.<br>
+                            <span style="font-family: 'Roboto';">Спикер:</span> Тимофеева Людмила Васильевна
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <p class="woc-schedule-name">
+                    12:40 - 13:00 «Гипераммонийемия»
+                </p>
+                <div class="woc-schedule-line clearfix"></div>
+                <div class="speakers clearfix">
+                    <div class="sp-line">
+                        <div class="sp-text">
+                            Недооцененный маркер саркопении. Пути преодоления.<br>
+                            <span style="font-family: 'Roboto';">Спикер:</span> Холодова Анна Анатольевна
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <p class="woc-main-intro" style="font-family: Philosopher;">БЛОК: МУЖСКОЕ/ЖЕНСКОЕ ЗДОРОВЬЕ</p>
+                <br><br>
+                <p class="woc-schedule-name">
+                    12:45 - 13:30 «Молочная железа - мишень гормонального неблагополучия»
+                </p>
+                <div class="woc-schedule-line clearfix"></div>
+                <div class="speakers clearfix">
+                    <div class="sp-line">
+                        <div class="sp-text">
+                            Лечебно-профилактическая стратегия доступная каждому специалисту.
                             <span style="font-family: 'Roboto';">Спикер:</span> Гвоздева Марина Евгеньевна
                             <br>
                         </div>
                     </div>
                 </div>
                 <p class="woc-schedule-name">
-                    14:15 - 15:00 «Бесплодие из детства»
+                    13:30 - 14:15 «Второе сердце мужчины - ПРОСТАТА»
                 </p>
                 <div class="woc-schedule-line clearfix"></div>
                 <div class="speakers clearfix">
                     <div class="sp-line">
                         <div class="sp-text">
-                            Причины, диагностика, активная профилактика.<br/>
-                            <span style="font-family: 'Roboto';">Спикер:</span> Коваль Ольга Николаевна
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <p class="woc-schedule-name">
-                    15:00 - 16:00 Перерыв
-                </p>
-                <div class="woc-schedule-line clearfix"></div>
-                <div class="speakers clearfix">
-                    <div class="sp-line">
-                        <div class="sp-text">
-
-                        </div>
-                    </div>
-                </div>
-                <p class="woc-main-intro" style="font-family: Philosopher;">СЕКЦИЯ: ПРАВОВЫЕ И ЭТИЧЕСКИЕ АСПЕКТЫ</p>
-                <br><br>
-                <p class="woc-schedule-name">
-                    16:00 - 16:45 «Юридические аспекты ведения пациента/клиента онлайн»
-                </p>
-                <div class="woc-schedule-line clearfix"></div>
-                <div class="speakers clearfix">
-                    <div class="sp-line">
-                        <div class="sp-text">
-                            <span style="font-family: 'Roboto';">Спикер:</span> Валентинова Людмила Константиновна
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <p class="woc-schedule-name">
-                    16:45 - 17:30
-                </p>
-                <div class="woc-schedule-line clearfix"></div>
-                <div class="speakers clearfix">
-                    <div class="sp-line">
-                        <div class="sp-text">
-                            «Про компетенции, успех и удовлетворение от работы»<br>
-                            <span style="font-family: 'Roboto';">Спикер:</span> Гердт Алевтина Михайловна<br><br>
-                            «Профилактика профессионального выгорания»<br>
-                            <span style="font-family: 'Roboto';">Спикер:</span> Холодова Анна Анатольевна
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <p class="woc-main-name" style='text-align: center;'>
-                    20 октября 2024г.
-                </p>
-                <br><br><br>
-                <p class="woc-main-intro" style="font-family: Philosopher;">Секция: ПЕДИАТРИЯ</p>
-                <br><br>
-                <p class="woc-schedule-name">
-                    10:00 - 10:45 «Большие проблемы «маленьких» мышц»
-                </p>
-                <div class="woc-schedule-line clearfix"></div>
-                <div class="speakers clearfix">
-                    <div class="sp-line">
-                        <div class="sp-text">
-                            Нарушение работы сфинктеров желудочно-кишечного тракта у детей.<br>
-                            <span style="font-family: 'Roboto';">Спикер:</span> Коваль Ольга Николаевна
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <p class="woc-schedule-name">
-                    10:45 - 11:30 «Улучшение психоневрологического развития ребенка»
-                </p>
-                <div class="woc-schedule-line clearfix"></div>
-                <div class="speakers clearfix">
-                    <div class="sp-line">
-                        <div class="sp-text">
-                            Лечебно-профилактические стратегии.<br>
-                            <span style="font-family: 'Roboto';">Спикер:</span> Гердт Алевтина Михайловна
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <p class="woc-schedule-name">
-                    11:30 - 12:15 Перерыв
-                </p>
-                <div class="woc-schedule-line clearfix"></div>
-                <div class="speakers clearfix">
-                    <div class="sp-line">
-                        <div class="sp-text">
-
-                        </div>
-                    </div>
-                </div>
-                <p class="woc-main-intro" style="font-family: Philosopher;">Секция: ГАСТРОЭНТЕРОЛОГИЯ</p>
-                <br><br>
-                <p class="woc-schedule-name">
-                    12:15 - 13:00 «Печень-королева метаболизма»
-                </p>
-                <div class="woc-schedule-line clearfix"></div>
-                <div class="speakers clearfix">
-                    <div class="sp-line">
-                        <div class="sp-text">
-                            Разбор клинических случаев.<br>
+                            Нутритивный протокол и гормональный менеджмент. Практический опыт.<br>
                             <span style="font-family: 'Roboto';">Спикер:</span> Холодова Анна Анатольевна
                             <br>
                         </div>
                     </div>
                 </div>
                 <p class="woc-schedule-name">
-                    13:00 - 13:45 «Паразитоз»
+                    14:15 ТОРЖЕСТВЕННОЕ закрытие конференции
                 </p>
                 <div class="woc-schedule-line clearfix"></div>
-                <div class="speakers clearfix">
-                    <div class="sp-line">
-                        <div class="sp-text">
-                            Алгоритм лечения. Фатальные ошибки.<br>
-                            <span style="font-family: 'Roboto';">Спикер:</span> Гердт Алевтина Михайловна
-                            <br>
-                        </div>
-                    </div>
-                </div>
+                <div class="speakers clearfix"></div>
+
+
                 <br/><br/>
                 <p style="text-align: center; font-size: 28px; margin-bottom: 20px;">Спикеры Конференции:</p>
                 <div class="speakers clearfix">
@@ -404,30 +500,24 @@ use yii\widgets\ActiveForm;
                 <div class="speakers clearfix">
                     <div class="sp-line">
                         <div class="sp-photo">
-                            <img src="/img/spec22.jpg"/>
+                            <img src="/img/spec26.jpg"/>
                         </div>
                         <div class="sp-text">
-                            <u>Валентинова Людмила Константиновна</u> - Юрист, партнер юридической компании INLAW. Нутрициолог Медицинского центра врачебной косметологии «Совершенство»
+                            <u>Тимофеева Людмила Васильевна</u> - врач гастроэнтеролог, диетолог концептуальной клиники ОКСИМЕД, г. Оренбург., Д-доктор, специалист в области интегративной и превентивной медицины.
                         </div>
                     </div>
-                </div>-->
-
-                <p class="woc-schedule-name">
-                    ДЛЯ КОГО:
-                </p>
-                <div class="woc-schedule-line clearfix"></div>
+                </div>
                 <div class="speakers clearfix">
                     <div class="sp-line">
+                        <div class="sp-photo">
+                            <img src="/img/spec27.jpg"/>
+                        </div>
                         <div class="sp-text">
-                            Для тех, кто хочет развиваться в сфере здоровья и красоты. Кто мечтает запускать свои проекты онлайн и офлайн, или желает масштабировать существующий. Для всех, чья миссия - улучшать качество жизни людей!
+                            <u>Бакшеев Максим Георгиевич</u> - Врач терапевт, гематолог, кардиолог. Член Ассоциации врачей здоровья наций БРИКС. Заведующий поликлиническим подразделением А2МЕД Самара
                         </div>
                     </div>
                 </div>
-                <div class="img-box">
-                    <img class="img-box-one" src="/img/doctors.jpg" alt="">
-                    <img class="img-box-one" src="/img/nutritionist.jpg" alt="">
-                    <img class="img-box-one" src="/img/trener.jpg" alt="">
-                </div>
+
                 <p class="woc-schedule-name">
                     ВАЖНАЯ ИНФОРМАЦИЯ:
                 </p>
@@ -437,18 +527,31 @@ use yii\widgets\ActiveForm;
                         <div class="sp-text">
                             <ul>
                                 <li>
+                                    <p style="font-family: Philosopher;">Все кофе-паузы включены в стоимость участия конференции!</p>
+                                </li>
+                                <li>
+                                    Ужин оплачивается дополнительно! Информация в чате участников (ссылка на чат приходит вам в ответном письме, после завершения регистрации).
+                                </li>
+                                <li>
                                     <p>Организаторы оставляют за собой право поменять расписание.</p>
                                 </li>
                                 <li>
-                                   <p style="font-family: Philosopher;">По окончанию конференции предусмотрен сертификат.</p>
+                                    <p style="font-family: Philosopher;">По окончанию конференции предусмотрен
+                                        сертификат.</p>
                                 </li>
                                 <li>
-                                    <p>❗️После регистрации и оплаты участия, на указанную электронную почту (ПРОВЕРЯТЬ ПРАВИЛЬНОСТЬ НАПИСАНИЯ!) вам приходит автоматическое письмо с персональным доступом в телеграмм-канал участников конференции, где будет размещена ссылка на онлайн трансляцию 19 и 20 октября. Просьба не передавать ссылку третьим лицам.</p>
+                                    <p>❗️После регистрации и оплаты участия, на указанную электронную почту (ПРОВЕРЯТЬ
+                                        ПРАВИЛЬНОСТЬ НАПИСАНИЯ!) вам приходит автоматическое письмо с персональным
+                                        доступом в телеграмм-канал участников конференции. Просьба не передавать ссылку
+                                        третьим лицам.</p>
                                 </li>
                                 <li>
                                     <p>Доступ к лекциям и материалам конференции - 6 месяцев со дня проведения.</p>
                                 </li>
-                                <li style="font-family: Philosopher;">Чтобы запросить оформление счёта на юридическое лицо <a target="_blank" style="text-decoration:underline;" href="https://wa.me/79277860082?text=Здравствуйте.%20Хочу%20запросить%20счёт%20на%20юридическое%20лицо%20для%20участия%20в%20VII%20Конференции%20Применимая%20медицина">нажмите здесь</a></li>
+                                <li style="font-family: Philosopher;">Чтобы запросить оформление счёта на юридическое
+                                    лицо <a target="_blank" style="text-decoration:underline;"
+                                            href="https://wa.me/79277860082?text=Здравствуйте.%20Хочу%20запросить%20счёт%20на%20юридическое%20лицо%20для%20участия%20в%20VII%20Конференции%20Применимая%20медицина">нажмите
+                                        здесь</a></li>
                             </ul>
                         </div>
                     </div>
@@ -458,15 +561,16 @@ use yii\widgets\ActiveForm;
                 <div id="form-to-pay" class="cwib-detail clearfix">
                     <?php if (true): ?>
                         <p style="color: rgb(237, 195, 71);font-family: Roboto;font-size: 20px;">
-                            Мероприятие состоится 17 - 18 МАЯ, 2025 г. в г. Тольятти, Лесопарковое ш., 55, Отель «Лада Резорт»
+                            Мероприятие состоится 17 - 18 МАЯ, 2025 г. в г. Тольятти, Лесопарковое ш., 55, Отель «Лада
+                            Резорт»
                         </p>
                         <p class="cwib-textstatic">
                             Стоимость участия
                         </p>
                         <p class="cwib-price">
-                            10 000 руб.<sup>*</sup>
+                            12 000 руб.<sup>*</sup>
                         </p>
-                        <p class="cwc-line1"><br/>* Предложение действительно по 31 октября (включительно), далее:<br/> с 1 ноября 2024 г. стоимость 12 000 руб. <br/>с 1 апреля 2025 г. стоимость 15 000 руб.</p>
+                        <p class="cwc-line1"><br/>* Предложение действительно по 31 марта (включительно), с 1 апреля стоимость 15 000 руб.</p>
                     <?php endif; ?>
                 </div>
                 <div class="cw-contact clearfix">
@@ -474,6 +578,12 @@ use yii\widgets\ActiveForm;
                     <?php
                     if (true) {
                         $form = ActiveForm::begin(['action' => '/registration', 'options' => ['class' => 'cwc-form wo-form']]);
+                        echo '<label class="cwc-formgroup">';
+                        echo $form->field($model, 'activity')->dropDownList([
+                            'SLuJLt18IUgQ' => 'ОЧНОЕ участие - 12 000 руб.',
+                            'KBFHlvYuaATi' => 'ОНЛАЙН участие - 12 000 руб.'
+                        ], ['prompt' => 'Выберите тариф...', 'style' => ''])->label(false);
+                        echo '</label>';
                         echo '<label class="cwc-formgroup">';
                         echo $form->field($model, 'name')->textInput(['placeholder' => 'Ф.И.О для печати сертификата'])->label(false);
                         echo '</label>';
@@ -483,7 +593,6 @@ use yii\widgets\ActiveForm;
                         echo '<label class="cwc-formgroup">';
                         echo $form->field($model, 'phone')->textInput(['placeholder' => 'Телефон'])->label(false);
                         echo '</label>';
-                        echo $form->field($model, 'activity')->hiddenInput(['value' => 'SLuJLt18IUgQ'])->label(false);
                         echo '<div class="policy-container clearfix">
                                 <p class="cwc-line1">
                                     Нажимая кнопку "Оплатить участие" вы даете согласие на обработку персональных данных<br>
