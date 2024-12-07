@@ -24,11 +24,11 @@
         </div>
         <!--<div class="tlink-box">
             <a class="tlink-a" href="/webinar/SCqHJbL3FInx">Обучающий семинар «Трансформация массы тела: от понимания к воплощению»</a>
-        </div>
+        </div>-->
 
         <div class="tlink-box">
-            <a class="tlink-a" href="/hormonal">11-18 июля. Курс «Гормональное здоровье»</a>
-        </div>-->
+            <a class="tlink-a" href="/five-years-old">26 января. Мероприятие Клиника ИНТЕГРА 5 лет вместе</a>
+        </div>
         <div class="tlink-box">
             <a class="tlink-a" href="/conference-togliatti-25">17 - 18 МАЯ. VII КОНФЕРЕНЦИЯ ПРИМЕНИМАЯ МЕДИЦИНА</a>
         </div>

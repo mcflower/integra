@@ -1721,6 +1721,17 @@ class SiteController extends Controller
         return $this->render('hormone', ['model' => $model]);
     }
 
+    public function actionFiveYearsOld()
+    {
+        $this->metaImg = "/img/five-years.jpg";
+        $this->metaDescription = '26 января 2025 г. Клиника ИНТЕГРА 5 лет вместе';
+        $model = new DynamicModel(['activity','name', 'phone', 'email']);
+        $model->addRule(['activity', 'name', 'phone', 'email'], 'required', ['message' => 'Обязательно для заполнения']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('five-years', ['model' => $model]);
+    }
+
     public function actionHormonal()
     {
 
@@ -1814,7 +1825,7 @@ class SiteController extends Controller
         $this->view->registerCssFile('/css/webinar.css');
         return $this->render('sochi', ['model' => $model]);
     }
-    
+
     public function actionConferenceTogliatti25()
     {
 
