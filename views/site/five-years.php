@@ -241,7 +241,7 @@ $this->title = "Клиника ИНТЕГРА 5 лет вместе";
             </div>
             <div class="clearfix">
                 <div id="form-to-pay" class="cwib-detail clearfix">
-                    <?php if (true): ?>
+                    <?php if (false): ?>
                         <p style="color: rgb(237, 195, 71);font-family: Roboto;font-size: 20px;">
                             Мероприятие состоится 26 января 2025 в г. Тольятти, ул. Платановая 6, ресторан «РЕНЕССАНС». Большой зал.
                         </p>
@@ -249,15 +249,15 @@ $this->title = "Клиника ИНТЕГРА 5 лет вместе";
                             Стоимость участия
                         </p>
                         <p class="cwib-price">
-                            2 000 руб.<sup>*</sup>
+                          2 900 руб.<!--<sup>*</sup>-->
                         </p>
-                        <p class="cwc-line1"><br/>* Предложение действительно до 30 декабря (включительно), с 31 декабря стоимость 2 900 руб.</p>
+<!--                        <p class="cwc-line1"><br/>* Предложение действительно до 30 декабря (включительно), с 31 декабря стоимость 2 900 руб.</p>-->
                     <?php endif; ?>
                 </div>
                 <div class="cw-contact clearfix">
 
                     <?php
-                    if (true) {
+                    if (false) {
                         $form = ActiveForm::begin(['action' => '/registration', 'options' => ['class' => 'cwc-form wo-form']]);
                         echo '<label class="cwc-formgroup">';
                         echo $form->field($model, 'name')->textInput(['placeholder' => 'Ф.И.О'])->label(false);
