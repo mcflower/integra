@@ -7,7 +7,7 @@
         <img src="img/arr-l.svg" class="nav-web-left image"/>
         <img src="img/arr-r.svg" class="nav-web-right image"/>
         <p class="vebinary-header-text">
-            Вебинары в свободном доступе
+            Лекции в свободном доступе
         </p>
         <div class="underline-text clearfix"></div>
     </div>

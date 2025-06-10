@@ -561,16 +561,17 @@ use yii\widgets\ActiveForm;
                 <div id="form-to-pay" class="cwib-detail clearfix">
                     <?php if (true): ?>
                         <p style="color: rgb(237, 195, 71);font-family: Roboto;font-size: 20px;">
-                            Мероприятие состоится 17 - 18 МАЯ, 2025 г. в г. Тольятти, Лесопарковое ш., 55, Отель «Лада
-                            Резорт»
+                            Мероприятие состоится 17 - 18 МАЯ, 2025 г.<br/>
+                            Доступно только ОНЛАЙН (регистрация на очное участие закрыта)<br/>
+                            Начало всех лекций +1 час к Московскому времени
                         </p>
                         <p class="cwib-textstatic">
                             Стоимость участия
                         </p>
                         <p class="cwib-price">
-                            12 000 руб.<sup>*</sup>
+                            15 000 руб.<!--<sup>*</sup>-->
                         </p>
-                        <p class="cwc-line1"><br/>* Предложение действительно по 31 марта (включительно), с 1 апреля стоимость 15 000 руб.</p>
+<!--                        <p class="cwc-line1"><br/>* Предложение действительно по 31 марта (включительно), с 1 апреля стоимость 15 000 руб.</p>-->
                     <?php endif; ?>
                 </div>
                 <div class="cw-contact clearfix">
@@ -578,12 +579,12 @@ use yii\widgets\ActiveForm;
                     <?php
                     if (true) {
                         $form = ActiveForm::begin(['action' => '/registration', 'options' => ['class' => 'cwc-form wo-form']]);
-                        echo '<label class="cwc-formgroup">';
-                        echo $form->field($model, 'activity')->dropDownList([
-                            'SLuJLt18IUgQ' => 'ОЧНОЕ участие - 12 000 руб.',
-                            'KBFHlvYuaATi' => 'ОНЛАЙН участие - 12 000 руб.'
-                        ], ['prompt' => 'Выберите тариф...', 'style' => ''])->label(false);
-                        echo '</label>';
+//                        echo '<label class="cwc-formgroup">';
+//                        echo $form->field($model, 'activity')->dropDownList([
+//                            'SLuJLt18IUgQ' => 'ОЧНОЕ участие - 12 000 руб.',
+//                            'KBFHlvYuaATi' => 'ОНЛАЙН участие - 12 000 руб.'
+//                        ], ['prompt' => 'Выберите тариф...', 'style' => ''])->label(false);
+//                        echo '</label>';
                         echo '<label class="cwc-formgroup">';
                         echo $form->field($model, 'name')->textInput(['placeholder' => 'Ф.И.О для печати сертификата'])->label(false);
                         echo '</label>';
@@ -593,6 +594,7 @@ use yii\widgets\ActiveForm;
                         echo '<label class="cwc-formgroup">';
                         echo $form->field($model, 'phone')->textInput(['placeholder' => 'Телефон'])->label(false);
                         echo '</label>';
+                        echo $form->field($model, 'activity')->hiddenInput(['value' => 'KBFHlvYuaATi'])->label(false);
                         echo '<div class="policy-container clearfix">
                                 <p class="cwc-line1">
                                     Нажимая кнопку "Оплатить участие" вы даете согласие на обработку персональных данных<br>
