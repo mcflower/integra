@@ -559,7 +559,7 @@ use yii\widgets\ActiveForm;
             </div>
             <div class="clearfix">
                 <div id="form-to-pay" class="cwib-detail clearfix">
-                    <?php if (true): ?>
+                    <?php if (false): ?>
                         <p style="color: rgb(237, 195, 71);font-family: Roboto;font-size: 20px;">
                             Мероприятие состоится 17 - 18 МАЯ, 2025 г.<br/>
                             Доступно только ОНЛАЙН (регистрация на очное участие закрыта)<br/>
@@ -577,7 +577,7 @@ use yii\widgets\ActiveForm;
                 <div class="cw-contact clearfix">
 
                     <?php
-                    if (true) {
+                    if (false) {
                         $form = ActiveForm::begin(['action' => '/registration', 'options' => ['class' => 'cwc-form wo-form']]);
 //                        echo '<label class="cwc-formgroup">';
 //                        echo $form->field($model, 'activity')->dropDownList([

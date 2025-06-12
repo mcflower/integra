@@ -24,15 +24,14 @@
         </div>
         <!--<div class="tlink-box">
             <a class="tlink-a" href="/webinar/SCqHJbL3FInx">Обучающий семинар «Трансформация массы тела: от понимания к воплощению»</a>
-        </div>-->
-
+        </div>
         <div class="tlink-box">
             <a class="tlink-a" href="/five-years-old">26 января. Мероприятие Клиника ИНТЕГРА 5 лет вместе</a>
         </div>
         <div class="tlink-box">
             <a class="tlink-a" href="/conference-togliatti-25">17 - 18 МАЯ. VII КОНФЕРЕНЦИЯ ПРИМЕНИМАЯ МЕДИЦИНА</a>
         </div>
-        <!--<div class="tlink-box">
+        <div class="tlink-box">
             <a class="tlink-a" href="/conference-togliatti">18-19 Мая. Конференция из цикла «Применимая медицина» ВЕСЕННЯЯ ВОЛГА</a>
         </div>-->
         <h2 class="group-name">Для самостоятельного изучения</h2>
