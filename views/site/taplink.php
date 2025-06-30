@@ -34,6 +34,9 @@
         <div class="tlink-box">
             <a class="tlink-a" href="/conference-togliatti">18-19 Мая. Конференция из цикла «Применимая медицина» ВЕСЕННЯЯ ВОЛГА</a>
         </div>-->
+        <div class="tlink-box">
+            <a class="tlink-a" href="/conference-moscow-25">5 СЕНТЯБРЯ. VIII КОНФЕРЕНЦИЯ ПРИМЕНИМАЯ МЕДИЦИНА</a>
+        </div>
         <h2 class="group-name">Для самостоятельного изучения</h2>
         <div class="tlink-box">
             <a class="tlink-a" href="/guide/bAL6mLkAFHbq">Кожа глазами эндокринолога</a>
