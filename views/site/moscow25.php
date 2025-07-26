@@ -405,13 +405,20 @@ use yii\widgets\ActiveForm;
 //                        ], ['prompt' => 'Выберите тариф...', 'style' => ''])->label(false);
 //                        echo '</label>';
                         echo '<label class="cwc-formgroup">';
-                        echo $form->field($model, 'name')->textInput(['placeholder' => 'Ф.И.О для печати сертификата'])->label(false);
+                        echo $form->field($model, 'name')->textInput(['placeholder' => 'Ф.И.О для печати сертификата', 'required' => 'required'])->label(false);
                         echo '</label>';
                         echo '<label class="cwc-formgroup">';
-                        echo $form->field($model, 'email')->textInput(['placeholder' => 'Эл. почта'])->label(false);
+                        echo $form->field($model, 'email')->input('email', ['placeholder' => 'Эл. почта', 'required' => 'required'])->label(false);
                         echo '</label>';
                         echo '<label class="cwc-formgroup">';
-                        echo $form->field($model, 'phone')->textInput(['placeholder' => 'Телефон'])->label(false);
+                        echo $form->field($model, 'phone')->input('number', ['placeholder' => 'Телефон', 'required' => 'required'])->label(false);
+                        echo '</label>';
+                        echo '<label class="cwc-formgroup">';
+                        echo $form->field($model, 'reCaptcha')->widget(
+                            \himiklab\yii2\recaptcha\ReCaptcha::className(),
+                            ['siteKey' => '6LfAxCYaAAAAAHek6vUl-nnehdm1Q0UqBb1VaDBm', 'widgetOptions' => ['data-size' => 'compact', 'class' => '']]
+
+                        )->label(false);
                         echo '</label>';
                         echo $form->field($model, 'activity')->hiddenInput(['value' => 'veRzMIuGjyVa'])->label(false);
                         echo '<div class="policy-container clearfix">

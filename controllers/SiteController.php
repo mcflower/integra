@@ -1838,11 +1838,24 @@ class SiteController extends Controller
         return $this->render('togliatti25', ['model' => $model]);
     }
 
+    public function actionConferenceMoscow25()
+    {
+
+        $this->metaImg = "/img/moscow25.jpg";
+        $this->metaDescription = '5 сентября 2025г. VIII КОНФЕРЕНЦИЯ «ПРИМЕНИМАЯ МЕДИЦИНА» г. Москва';
+        $model = new DynamicModel(['activity','name', 'phone', 'email', 'reCaptcha']);
+        $model->addRule(['activity', 'name', 'phone', 'email', 'reCaptcha'], 'required', ['message' => 'Обязательно для заполнения']);
+        $model->addRule(['reCaptcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator::className(), ['secret' => '6LfAxCYaAAAAAEDpS9ZFpPnjTkAyCWlsNrNY-SOf', 'uncheckedMessage' => 'Пожалуйста, подтвердите что вы не робот.']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('moscow25', ['model' => $model]);
+    }
+
     public function actionConferenceSochiOnline()
     {
 
         $this->metaImg = "/img/sochi-online.png?i";
-        $this->metaDescription = '19 - 20 октября 2024 г. VI ОНЛАЙН КОНФЕРЕНЦИЯ «ПРИМЕНИМАЯ МЕДИЦИНА»';
+        $this->metaDescription = '19 - 20 октября 2024г. VI ОНЛАЙН КОНФЕРЕНЦИЯ «ПРИМЕНИМАЯ МЕДИЦИНА»';
         $model = new DynamicModel(['activity','name', 'phone', 'email']);
         $model->addRule(['activity', 'name', 'phone', 'email'], 'required', ['message' => 'Обязательно для заполнения']);
 
