@@ -170,7 +170,7 @@ use yii\widgets\ActiveForm;
                     <div class="woc-main-line clearfix"></div>
                     <p class="woc-main-about">
                         Практико-применимые знания в области медицины от врачей-практиков для здоровья людей<br/>
-                        Место проведения: г. Москва
+                        Место проведения: г. Москва, гостиница Холидей ИНН Сокольники, Русаковская улица, д. 24, метро Сокольники
                     </p>
                 </div>
             </div>
@@ -252,7 +252,7 @@ use yii\widgets\ActiveForm;
                     <div class="sp-line">
                         <div class="sp-text">
                             Детокс-менеджмент.<br/>
-                            <span style="font-family: 'Roboto';">Спикер:</span> На согласовании
+                            <span style="font-family: 'Roboto';">Спикер:</span> Гвоздева Марина Евгеньевна
                         </div>
                     </div>
                 </div>
@@ -327,7 +327,16 @@ use yii\widgets\ActiveForm;
                         </div>
                     </div>
                 </div>
-
+                <div class="speakers clearfix">
+                    <div class="sp-line">
+                        <div class="sp-photo">
+                            <img src="/img/spec14.jpg"/>
+                        </div>
+                        <div class="sp-text">
+                            <u>Гвоздева Марина Евгеньевна</u> - кандидат медицинских наук, акушер-гинеколог высшей категории, отличник здравоохранения, доцент кафедры ВолгГМУ. Лучший акушер-гинеколог Волгоградской области 2023 г.
+                        </div>
+                    </div>
+                </div>
 
                 <p class="woc-schedule-name">
                     ВАЖНАЯ ИНФОРМАЦИЯ:
@@ -373,7 +382,7 @@ use yii\widgets\ActiveForm;
                     <?php if (true): ?>
                         <p style="color: rgb(237, 195, 71);font-family: Roboto;font-size: 20px;">
                             Мероприятие состоится 5 сентября, 2025г. в г. Москва<br/>
-                            ТОЧНЫЙ АДРЕС ПРОВЕДЕНИЯ СООБЩИМ В ЧАТЕ УЧАСТНИКОВ (возможна смена локации, в зависимости от количества участников)
+                            гостиница Холидей ИНН Сокольники, Русаковская улица, д. 24, метро Сокольники
                         </p>
                         <p class="cwib-textstatic">
                             Стоимость участия

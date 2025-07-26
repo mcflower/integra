@@ -286,7 +286,7 @@ use yii\widgets\ActiveForm;
             </div>
             <div class="clearfix">
                 <div id="form-to-pay" class="cwib-detail clearfix">
-                    <?php if (true): ?>
+                    <?php if (false): ?>
                         <p style="color: rgb(237, 195, 71);font-family: Roboto;font-size: 20px;">
                             Мероприятие состоится ОЧНО 17 марта 2024 г. в г. Тольятти, Платановая ул., д. 6, ресторан «Ренессанс»
                         </p>
@@ -294,15 +294,15 @@ use yii\widgets\ActiveForm;
                             Стоимость участия
                         </p>
                         <p class="cwib-price">
-                            2 500 руб
+                            3 000 руб
                         </p>
-                        <p>Цена действительна до 8 марта до 24:00. Далее 3 000 руб.</p>
+                        <!--<p>Цена действительна до 8 марта до 24:00. Далее 3 000 руб.</p>-->
                     <?php endif; ?>
                 </div>
                 <div class="cw-contact clearfix">
 
                     <?php
-                    if (true) {
+                    if (false) {
                         $form = ActiveForm::begin(['action' => '/registration', 'options' => ['class' => 'cwc-form wo-form']]);
                         echo '<label class="cwc-formgroup">';
                         echo $form->field($model, 'name')->textInput(['placeholder' => 'Ф.И.О'])->label(false);

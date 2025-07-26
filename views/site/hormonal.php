@@ -265,7 +265,7 @@ $ref = $_GET['ref'] ?: 'han';
             </div>
             <div class="clearfix">
                 <div id="form-to-pay" class="cwib-detail clearfix">
-                    <?php if (true): ?>
+                    <?php if (false): ?>
                         <p style="color: rgb(237, 195, 71);font-family: Roboto;font-size: 20px;">
                             Курс состоится с 11 по 18 июля 2024г. После регистрации вам на указанную почту придет автоматическое письмо, где вы найдете вашу уникальную ссылку.
                         </p>
@@ -280,7 +280,7 @@ $ref = $_GET['ref'] ?: 'han';
                 <div class="cw-contact clearfix">
 
                     <?php
-                    if (true) {
+                    if (false) {
                         $form = ActiveForm::begin(['action' => '/registration', 'options' => ['class' => 'cwc-form wo-form']]);
                         echo '<label class="cwc-formgroup">';
                         echo $form->field($model, 'name')->textInput(['placeholder' => 'Ф.И.О'])->label(false);

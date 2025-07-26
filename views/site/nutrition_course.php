@@ -286,7 +286,7 @@ use yii\widgets\ActiveForm;
             <div class="cwib-detail clearfix"></div>
             <div class="cw-contact clearfix">
                 <?php
-                if (true) {
+                if (false) {
                     $form = ActiveForm::begin(['action' => '/success-nutrition-registration', 'options' => ['class' => 'cwc-form wo-form']]);
 
                     echo '<label class="cwc-formgroup">';
