@@ -869,7 +869,21 @@ class SiteController extends Controller
 
     public function actionRegistration()
     {
-        if (Yii::$app->request->post()) {
+        if (Yii::$app->request->post() && !empty($_POST['DynamicModel']['reCaptcha'])) {
+
+            $client = new \GuzzleHttp\Client();
+            $response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
+                'form_params' => [
+                    'secret' => '6LfAxCYaAAAAAEDpS9ZFpPnjTkAyCWlsNrNY-SOf',
+                    'response' => $_POST['DynamicModel']['reCaptcha']
+                ]
+            ]);
+
+            $result = Json::decode($response->getBody());
+
+            if (!$result['success']) {
+                return $this->redirect('/');
+            }
 
             $user = new Xuser();
             $user->name = strip_tags(trim($_POST['DynamicModel']['name']));
