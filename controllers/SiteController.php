@@ -356,79 +356,111 @@ class SiteController extends Controller
 
     public function actionNewActive()
     {
-        $post = Yii::$app->request->post();
-        $email = trim(strtolower($post['Xuser']['email']));
-        $activityCode = trim($post['Xuser']['activity']);
-        $secret = Yii::$app->params['secret'];
-        $hash = md5($email . $activityCode . $secret);
-        $user = Xuser::findOne(['hash' => $hash]);
-        $saveResult = true;
-        if (empty($user)) {
-            $user = new Xuser();
-            $user->scenario = 'current';
-            $user->email = $email;
-            $user->hash = $hash;
-            $user->activity = $activityCode;
-            $user->wstart = 1;
-            $user->name = strip_tags(trim($post['Xuser']['name']));
-            $saveResult = $user->save();
+        if(!empty($_POST['Xuser']['reCaptcha'])) {
+
+            $client = new \GuzzleHttp\Client();
+            $response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
+                'form_params' => [
+                    'secret' => '6LfAxCYaAAAAAEDpS9ZFpPnjTkAyCWlsNrNY-SOf',
+                    'response' => $_POST['Xuser']['reCaptcha']
+                ]
+            ]);
+
+            $result = Json::decode($response->getBody());
+
+            if (!$result['success']) {
+                return $this->redirect('/');
+            }
+
+            $post = Yii::$app->request->post();
+            $email = trim(strtolower($post['Xuser']['email']));
+            $activityCode = trim($post['Xuser']['activity']);
+            $secret = Yii::$app->params['secret'];
+            $hash = md5($email . $activityCode . $secret);
+            $user = Xuser::findOne(['hash' => $hash]);
+            $saveResult = true;
+            if (empty($user)) {
+                $user = new Xuser();
+                $user->scenario = 'current';
+                $user->email = $email;
+                $user->hash = $hash;
+                $user->activity = $activityCode;
+                $user->wstart = 1;
+                $user->name = strip_tags(trim($post['Xuser']['name']));
+                $saveResult = $user->save();
+            }
+
+            $activity = Xcontent::findOne(['activity' => $activityCode]);
+            if (!empty($activity) && $saveResult) {
+                /**
+                 * Отправляем на страницу платежа
+                 */
+                return $this->redirect(Url::to(['yandex/activity-payment', 'orderId' => $user->id]));
+                /*Yii::$app->mail->compose('active',
+                    ['client' => $user->name,
+                        'hash' => $hash,
+                        'title' => 'Регистрация на вебинар "' . $activity->name . '".',
+                        'htmlLayout' => 'layouts/html'])
+                    ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                    ->setTo($email)
+                    ->setSubject('Регистрация на вебинар "' . $activity->name . '".')
+                    ->send();*/
+    //            Yii::$app->session->setFlash('info', 'Успешно! Проверьте электронную почту для дальнейших инструкций.');
+
+            } else {
+                Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
+            }
         }
-
-        $activity = Xcontent::findOne(['activity' => $activityCode]);
-        if (!empty($activity) && $saveResult) {
-            /**
-             * Отправляем на страницу платежа
-             */
-            return $this->redirect(Url::to(['yandex/activity-payment', 'orderId' => $user->id]));
-            /*Yii::$app->mail->compose('active',
-                ['client' => $user->name,
-                    'hash' => $hash,
-                    'title' => 'Регистрация на вебинар "' . $activity->name . '".',
-                    'htmlLayout' => 'layouts/html'])
-                ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                ->setTo($email)
-                ->setSubject('Регистрация на вебинар "' . $activity->name . '".')
-                ->send();*/
-//            Yii::$app->session->setFlash('info', 'Успешно! Проверьте электронную почту для дальнейших инструкций.');
-
-        } else {
-            Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
-        }
-
         return $this->redirect('/');
     }
 
     public function actionNewRecord()
     {
-        $post = Yii::$app->request->post();
-        $email = trim(strtolower($post['Xuser']['email']));
-        $activityCode = trim($post['Xuser']['activity']);
-        $secret = Yii::$app->params['secret'];
-        $hash = md5($email . $activityCode . $secret);
-        $user = Xuser::findOne(['hash' => $hash]);
-        $saveResult = true;
-        if (empty($user)) {
-            $user = new Xuser();
-            $user->scenario = 'current';
-            $user->email = $email;
-            $user->hash = $hash;
-            $user->activity = $activityCode;
-            $user->wstart = 0;
-            $user->name = strip_tags(trim($post['Xuser']['name']));
-            $saveResult = $user->save();
+        if(!empty($_POST['Xuser']['reCaptcha'])) {
+
+            $client = new \GuzzleHttp\Client();
+            $response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
+                'form_params' => [
+                    'secret' => '6LfAxCYaAAAAAEDpS9ZFpPnjTkAyCWlsNrNY-SOf',
+                    'response' => $_POST['Xuser']['reCaptcha']
+                ]
+            ]);
+
+            $result = Json::decode($response->getBody());
+
+            if (!$result['success']) {
+                return $this->redirect('/');
+            }
+
+            $post = Yii::$app->request->post();
+            $email = trim(strtolower($post['Xuser']['email']));
+            $activityCode = trim($post['Xuser']['activity']);
+            $secret = Yii::$app->params['secret'];
+            $hash = md5($email . $activityCode . $secret);
+            $user = Xuser::findOne(['hash' => $hash]);
+            $saveResult = true;
+            if (empty($user)) {
+                $user = new Xuser();
+                $user->scenario = 'current';
+                $user->email = $email;
+                $user->hash = $hash;
+                $user->activity = $activityCode;
+                $user->wstart = 0;
+                $user->name = strip_tags(trim($post['Xuser']['name']));
+                $saveResult = $user->save();
+            }
+
+            $activity = Xcontent::findOne(['activity' => $activityCode]);
+            if (!empty($activity) && $saveResult) {
+                /**
+                 * Отправляем на страницу платежа
+                 */
+                return $this->redirect(Url::to(['yandex/record-payment', 'orderId' => $user->id]));
+
+            } else {
+                Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
+            }
         }
-
-        $activity = Xcontent::findOne(['activity' => $activityCode]);
-        if (!empty($activity) && $saveResult) {
-            /**
-             * Отправляем на страницу платежа
-             */
-            return $this->redirect(Url::to(['yandex/record-payment', 'orderId' => $user->id]));
-
-        } else {
-            Yii::$app->session->setFlash('danger', 'Ошибка. Повторите позднее!');
-        }
-
         return $this->redirect('/');
     }
 
@@ -692,7 +724,7 @@ class SiteController extends Controller
         $this->metaImg = $webinar->img;
 
         $model = new Xuser();
-        $model->scenario = "current";
+        $model->scenario = "current_wi_captcha";
 
         $this->view->registerCssFile('/css/webinar.css');
         return $this->render('webinar', ['webinar' => $webinar, 'model' => $model]);
@@ -747,7 +779,22 @@ class SiteController extends Controller
 
     public function actionMedicalConferenceRegistration()
     {
-        if (Yii::$app->request->post()) {
+        if (Yii::$app->request->post() && !empty($_POST['DynamicModel']['reCaptcha'])) {
+
+            $client = new \GuzzleHttp\Client();
+            $response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
+                'form_params' => [
+                    'secret' => '6LfAxCYaAAAAAEDpS9ZFpPnjTkAyCWlsNrNY-SOf',
+                    'response' => $_POST['DynamicModel']['reCaptcha']
+                ]
+            ]);
+
+            $result = Json::decode($response->getBody());
+
+            if (!$result['success']) {
+                return $this->redirect('/');
+            }
+
             $user = new Xuser();
             $user->name = strip_tags(trim($_POST['DynamicModel']['name']));
             $user->email = $_POST['DynamicModel']['email'];
@@ -824,7 +871,21 @@ class SiteController extends Controller
 
     public function actionSuccessNutritionRegistration()
     {
-        if (Yii::$app->request->post()) {
+        if (Yii::$app->request->post() && !empty($_POST['DynamicModel']['reCaptcha'])) {
+
+            $client = new \GuzzleHttp\Client();
+            $response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
+                'form_params' => [
+                    'secret' => '6LfAxCYaAAAAAEDpS9ZFpPnjTkAyCWlsNrNY-SOf',
+                    'response' => $_POST['DynamicModel']['reCaptcha']
+                ]
+            ]);
+
+            $result = Json::decode($response->getBody());
+
+            if (!$result['success']) {
+                return $this->redirect('/');
+            }
 
             $user = new Xuser();
             $user->name = strip_tags(trim($_POST['DynamicModel']['name']));
@@ -945,7 +1006,22 @@ class SiteController extends Controller
 
     public function actionSuccessCityEvent()
     {
-        if (Yii::$app->request->post()) {
+        if (Yii::$app->request->post() && !empty($_POST['DynamicModel']['reCaptcha'])) {
+
+            $client = new \GuzzleHttp\Client();
+            $response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
+                'form_params' => [
+                    'secret' => '6LfAxCYaAAAAAEDpS9ZFpPnjTkAyCWlsNrNY-SOf',
+                    'response' => $_POST['DynamicModel']['reCaptcha']
+                ]
+            ]);
+
+            $result = Json::decode($response->getBody());
+
+            if (!$result['success']) {
+                return $this->redirect('/');
+            }
+
             $user = new Xuser();
             $user->name = strip_tags(trim($_POST['DynamicModel']['name']));
             $user->email = $_POST['DynamicModel']['email'];

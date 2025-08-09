@@ -434,17 +434,30 @@ class YandexController extends Controller
                             ->setSubject($xd . ' Оплата за записи вебинара "' . $activity->name . '"')
                             ->send();
 
-                        $needCertLink = !empty($activity->cert);
-                        Yii::$app->mail->compose('close',
-                            ['user' => $user,
-                                'activity' => $activity,
-                                'needCertLink' => $needCertLink,
-                                'title' => 'Ссылка на запись вебинара "' . $activity->name . '".',
-                                'htmlLayout' => 'layouts/html'])
-                            ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                            ->setTo($user->email)
-                            ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                            ->setSubject('Ссылка на запись вебинара "' . $activity->name . '".')->send();
+                        //todo оставляю костыль с if-else для продажи записи. далее или переделать или удалить
+                        if ($activity->activity == 'cLAoAPSlgBq2') {
+                            Yii::$app->mail->compose($activity->activity,
+                                ['user' => $user,
+                                    'activity' => $activity,
+                                    'title' => 'Ссылка на запись вебинара "' . $activity->name . '".',
+                                    'htmlLayout' => 'layouts/html'])
+                                ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                                ->setTo($user->email)
+                                ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
+                                ->setSubject('Ссылка на запись вебинара "' . $activity->name . '".')->send();
+                        } else {
+                            $needCertLink = !empty($activity->cert);
+                            Yii::$app->mail->compose('close',
+                                ['user' => $user,
+                                    'activity' => $activity,
+                                    'needCertLink' => $needCertLink,
+                                    'title' => 'Ссылка на запись вебинара "' . $activity->name . '".',
+                                    'htmlLayout' => 'layouts/html'])
+                                ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
+                                ->setTo($user->email)
+                                ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
+                                ->setSubject('Ссылка на запись вебинара "' . $activity->name . '".')->send();
+                        }
                     }
 
                 } elseif ($transaction->table_name == 'guide') {

@@ -1,9 +1,10 @@
 <?php
 
-$this->title = $webinar->name;
-
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+
+$this->title = $webinar->name;
+
 ?>
 
 <div class="wo-anons clearfix">
@@ -41,13 +42,13 @@ use yii\widgets\ActiveForm;
                     Вебинар состоится <?= date('d.m.Y', $webinar->xdate) ?> в <?= $webinar->xtime ?> по Московскому
                     времени<br><br>Запись будет доступна Вам до <?=date('d.m.Y', ($webinar->expired - 24 * 60 * 60))?>.<br>
                 </p>
+                <?php endif; ?>
                 <p class="cwib-textstatic">
-                    Стоимость участия
+                    Стоимость
                 </p>
                 <p class="cwib-price">
-                    <?= $webinar->price ?> руб
+                    <?= $webinar->price ?> руб.
                 </p>
-                <?php endif; ?>
             </div>
             <div class="cw-contact clearfix">
                 <?php
@@ -81,10 +82,17 @@ use yii\widgets\ActiveForm;
                     $form = ActiveForm::begin(['action' => '/new-active', 'options' => ['class' => 'cwc-form wo-form']]);
 
                     echo '<label class="cwc-formgroup">';
-                    echo $form->field($model, 'name')->textInput(['placeholder' =>'Фамилия Имя'])->label(false)->hint('Будут указаны на сертификате!');
+                    echo $form->field($model, 'name')->textInput(['placeholder' =>'Фамилия Имя'])->label(false);
                     echo '</label>';
                     echo '<label class="cwc-formgroup">';
                     echo $form->field($model, 'email')->textInput(['placeholder' =>'Email'])->label(false);
+                    echo '</label>';
+                    echo '<label class="cwc-formgroup">';
+                    echo $form->field($model, 'reCaptcha')->widget(
+                        \himiklab\yii2\recaptcha\ReCaptcha::className(),
+                        ['siteKey' => '6LfAxCYaAAAAAHek6vUl-nnehdm1Q0UqBb1VaDBm', 'widgetOptions' => ['data-size' => 'compact', 'class' => '']]
+
+                    )->label(false);
                     echo '</label>';
                     echo '<div class="policy-container clearfix">
                             <p class="cwc-line1">
@@ -102,17 +110,24 @@ use yii\widgets\ActiveForm;
                     echo Html::submitButton("ЗАРЕГИСТРИРОВАТЬСЯ");
 
                     ActiveForm::end();
-                } elseif ($webinar->type == 3 && ($webinar->updated_at + (10 * 24 * 60 * 60)) > time()) {
+                } elseif ($webinar->type == 3 && ($webinar->xdate + (10 * 24 * 60 * 60)) > time()) {
 
                     $form = ActiveForm::begin(['action' => '/new-record', 'options' => ['class' => 'cwc-form wo-form']]);
 
                     echo '<p class="cwc-formgroup-p"><strong>ВАЖНО!</strong> Вебинар закончился. Вы можете купить запись.</p>';
 
                     echo '<label class="cwc-formgroup">';
-                    echo $form->field($model, 'name')->textInput(['placeholder' =>'Фамилия Имя'])->label(false)->hint('Будут указаны на сертификате!');
+                    echo $form->field($model, 'name')->textInput(['placeholder' =>'Фамилия Имя'])->label(false);
                     echo '</label>';
                     echo '<label class="cwc-formgroup">';
                     echo $form->field($model, 'email')->textInput(['placeholder' =>'Email'])->label(false);
+                    echo '</label>';
+                    echo '<label class="cwc-formgroup">';
+                    echo $form->field($model, 'reCaptcha')->widget(
+                        \himiklab\yii2\recaptcha\ReCaptcha::className(),
+                        ['siteKey' => '6LfAxCYaAAAAAHek6vUl-nnehdm1Q0UqBb1VaDBm', 'widgetOptions' => ['data-size' => 'compact', 'class' => '']]
+
+                    )->label(false);
                     echo '</label>';
                     echo '<div class="policy-container clearfix">
                             <p class="cwc-line1">

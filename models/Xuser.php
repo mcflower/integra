@@ -26,6 +26,8 @@ use yii\behaviors\TimestampBehavior;
 class Xuser extends \yii\db\ActiveRecord
 {
 
+    public $reCaptcha;
+
     public function behaviors()
     {
         return [
@@ -53,6 +55,7 @@ class Xuser extends \yii\db\ActiveRecord
             [['name', 'email', 'hash', 'activity', 'phone', 'description'], 'string', 'max' => 255],
             [['name', 'email'], 'trim'],
             ['email', 'filter', 'filter' => 'strtolower', 'skipOnArray' => true],
+            ['reCaptcha', \himiklab\yii2\recaptcha\ReCaptchaValidator::className(), 'secret' => '6LfAxCYaAAAAAEDpS9ZFpPnjTkAyCWlsNrNY-SOf', 'uncheckedMessage' => 'Пожалуйста, подтвердите что вы не робот.'],
         ];
     }
 
@@ -61,6 +64,7 @@ class Xuser extends \yii\db\ActiveRecord
         $scenarios = parent::scenarios();
         $scenarios['next'] = ['name', 'email', 'hash', 'activity', 'wopen'];
         $scenarios['current'] = ['name', 'email', 'hash', 'activity'];
+        $scenarios['current_wi_captcha'] = ['name', 'email', 'hash', 'activity', 'reCaptcha'];
         $scenarios['closed'] = ['wclose'];
         $scenarios['create'] = ['name', 'email', 'activity'];
         return $scenarios;
@@ -86,6 +90,7 @@ class Xuser extends \yii\db\ActiveRecord
             'updated_at' => 'Обновлено',
             'activityName' => 'Активность',
             'description' => 'Описание',
+            'reCaptcha' => 'Captcha',
         ];
     }
 
