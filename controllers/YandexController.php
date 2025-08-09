@@ -92,6 +92,13 @@ class YandexController extends Controller
             return $this->redirect('/');
         }
 
+        /**
+         * Для проверки лендингов ставлю цену на свою почту
+         */
+        if ($user->email == 'mcf84@mail.ru') {
+            $activity->price = 8;
+        }
+
         try {
             $payment = $this->client->createPayment(
                 [
