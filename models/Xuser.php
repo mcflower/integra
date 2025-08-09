@@ -67,6 +67,7 @@ class Xuser extends \yii\db\ActiveRecord
         $scenarios['current_wi_captcha'] = ['name', 'email', 'hash', 'activity', 'reCaptcha'];
         $scenarios['closed'] = ['wclose'];
         $scenarios['create'] = ['name', 'email', 'activity'];
+        $scenarios['update'] = ['buy', 'wstart'];
         return $scenarios;
     }
 

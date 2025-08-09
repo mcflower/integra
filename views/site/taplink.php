@@ -37,6 +37,9 @@
         <div class="tlink-box">
             <a class="tlink-a" href="/conference-moscow-25">5 СЕНТЯБРЯ. VIII КОНФЕРЕНЦИЯ ПРИМЕНИМАЯ МЕДИЦИНА</a>
         </div>
+        <div class="tlink-box">
+            <a class="tlink-a" href="/webinar/cLAoAPSlgBq2">Запись семинара «Трансформация массы тела: от понимания к воплощению»</a>
+        </div>
         <h2 class="group-name">Для самостоятельного изучения</h2>
         <div class="tlink-box">
             <a class="tlink-a" href="/guide/bAL6mLkAFHbq">Кожа глазами эндокринолога</a>

@@ -368,6 +368,7 @@ class YandexController extends Controller
                     $user = Xuser::findOne($transaction->order_number);
 
                     if ($user->buy == 0) {
+                        $user->scenario = 'update';
                         $user->buy = 1;
                         $user->wstart = 1;
                         $user->save();
@@ -417,6 +418,7 @@ class YandexController extends Controller
                     $user = Xuser::findOne($transaction->order_number);
 
                     if ($user->buy == 0) {
+                        $user->scenario = 'update';
                         $user->buy = 1;
                         $user->wstart = 2;
                         $user->save();
