@@ -947,6 +947,7 @@ class SiteController extends Controller
             }
 
             $user = new Xuser();
+            $user->scenario = 'current';
             $user->name = strip_tags(trim($_POST['DynamicModel']['name']));
             $user->email = $_POST['DynamicModel']['email'];
             $user->activity = $_POST['DynamicModel']['activity'];
