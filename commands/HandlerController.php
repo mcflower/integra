@@ -30,6 +30,7 @@ class HandlerController extends Controller
             //print_r($users);
             if (!empty($users)) {
                 foreach ($users as $user) {
+                    $user->scenario = 'update';
                     $user->wopen = 2;
                     $user->save();
 
@@ -116,6 +117,7 @@ class HandlerController extends Controller
                         } else {
 
                             $user = Xuser::findOne($orderIdU2p);
+                            $user->scenario = 'update';
 
                             if ($user->buy == 0) {
 
@@ -184,12 +186,12 @@ class HandlerController extends Controller
                                         ['user' => $user,
                                             'activity' => $activity,
                                             'needCertLink' => $needCertLink,
-                                            'title' => 'Ссылка на запись вебинара "' . $activity->name . '".',
+                                            'title' => 'Мероприятие "' . $activity->name . '" завершено.',
                                             'htmlLayout' => 'layouts/html'])
                                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                         ->setTo($user->email)
                                         ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                                        ->setSubject('Ссылка на запись вебинара "' . $activity->name . '".')->send();
+                                        ->setSubject('Мероприятие "' . $activity->name . '" завершено.')->send();
                                 }
 
                                 $user->save();
@@ -213,6 +215,7 @@ class HandlerController extends Controller
             $users = Xuser::find()->where(['wstart' => 1, 'buy' => 1, 'activity' => $model->activity])->limit(10)->all();
             if (!empty($users)) {
                 foreach ($users as $user) {
+                    $user->scenario = 'update';
                     $user->wstart = 2;
                     $user->save();
 
@@ -251,6 +254,7 @@ class HandlerController extends Controller
         $users = Xuser::find()->where(['wclose' => 1, 'buy' => 1])->limit(10)->all();
         if (!empty($users)) {
             foreach ($users as $user) {
+                $user->scenario = 'update';
                 $user->wclose = 2;
                 $user->save();
                 if ($activityHash != $user->activity) {
@@ -263,12 +267,12 @@ class HandlerController extends Controller
                     ['user' => $user,
                         'activity' => $model,
                         'needCertLink' => $needCertLink,
-                        'title' => 'Ссылка на запись вебинара "' . $model->name . '".',
+                        'title' => 'Мероприятие "' . $model->name . '" завершено.',
                         'htmlLayout' => 'layouts/html'])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                     ->setTo($user->email)
                     ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                    ->setSubject('Ссылка на запись вебинара "' . $model->name . '".');
+                    ->setSubject('Мероприятие "' . $model->name . '" завершено.');
                 /*if(!empty($model->cert)) {
                     $mes->attach("/home/m/mcflow/integraforlife.com/public_html".$model->cert);
                 }*/
