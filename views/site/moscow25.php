@@ -379,7 +379,7 @@ use yii\widgets\ActiveForm;
             </div>
             <div class="clearfix">
                 <div id="form-to-pay" class="cwib-detail clearfix">
-                    <?php if (true): ?>
+                    <?php if (false): ?>
                         <p style="color: rgb(237, 195, 71);font-family: Roboto;font-size: 20px;">
                             Мероприятие состоится 5 сентября, 2025г. в г. Москва<br/>
                             гостиница Холидей ИНН Сокольники, Русаковская улица, д. 24, метро Сокольники
@@ -388,15 +388,15 @@ use yii\widgets\ActiveForm;
                             Стоимость участия
                         </p>
                         <p class="cwib-price">
-                            10 900 руб.<sup>*</sup>
+                            15 900 руб.<sup>*</sup>
                         </p>
-                        <p class="cwc-line1"><br/>* с 6 августа стоимость 15 900 руб.</p>
+                        <!--<p class="cwc-line1"><br/>* с 6 августа стоимость 15 900 руб.</p>-->
                     <?php endif; ?>
                 </div>
                 <div class="cw-contact clearfix">
 
                     <?php
-                    if (true) {
+                    if (false) {
                         $form = ActiveForm::begin(['action' => '/registration', 'options' => ['class' => 'cwc-form wo-form']]);
 //                        echo '<label class="cwc-formgroup">';
 //                        echo $form->field($model, 'activity')->dropDownList([

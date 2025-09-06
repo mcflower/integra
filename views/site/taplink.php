@@ -33,10 +33,10 @@
         </div>
         <div class="tlink-box">
             <a class="tlink-a" href="/conference-togliatti">18-19 Мая. Конференция из цикла «Применимая медицина» ВЕСЕННЯЯ ВОЛГА</a>
-        </div>-->
+        </div>
         <div class="tlink-box">
             <a class="tlink-a" href="/conference-moscow-25">5 СЕНТЯБРЯ. VIII КОНФЕРЕНЦИЯ ПРИМЕНИМАЯ МЕДИЦИНА</a>
-        </div>
+        </div>-->
         <div class="tlink-box">
             <a class="tlink-a" href="/webinar/cLAoAPSlgBq2">Запись семинара «Трансформация массы тела: от понимания к воплощению»</a>
         </div>

@@ -181,17 +181,19 @@ class XuserController extends AuthController
         $model = $this->findModel($id);
         $model->buy = 1;
         $model->wstart = 1;
+        
         if($model->save()) {
             $activity = Xcontent::findOne(['activity' => $model->activity]);
+            $xd = date('d.m.Y', $activity->xdate);
 
             Yii::$app->mail->compose('payConfirmAdmin',
                 ['user' => $model,
                 'activity' => $activity,
-                'title' => 'Оплата вебинара "'.$activity->name.'"',
+                'title' => $xd . ' Оплата вебинара "'.$activity->name.'"',
                 'htmlLayout' => 'layouts/html'])
             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
             ->setTo('info@integraforlife.com')
-            ->setSubject('Оплата вебинара "'.$activity->name.'"')
+            ->setSubject($xd . ' Оплата вебинара "'.$activity->name.'"')
             ->send();
 
             //если в названии В НАЧАЛЕ используется слово ОЧНО необходимо слать другое письмо
