@@ -1141,6 +1141,9 @@ class SiteController extends Controller
     public function actionGuide($hash)
     {
         $model = Guides::findOne(['hash' => $hash, 'hide' => 0]);
+        if (empty($model)) {
+            return $this->redirect('/guides');
+        }
         $guser = new Guser();
 
         $this->metaImg = $model->img;
