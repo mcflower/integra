@@ -186,12 +186,12 @@ class HandlerController extends Controller
                                         ['user' => $user,
                                             'activity' => $activity,
                                             'needCertLink' => $needCertLink,
-                                            'title' => 'Мероприятие "' . $activity->name . '" завершено.',
+                                            'title' => 'Мероприятие "' . $activity->name . '" завершено',
                                             'htmlLayout' => 'layouts/html'])
                                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                         ->setTo($user->email)
                                         ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                                        ->setSubject('Мероприятие "' . $activity->name . '" завершено.')->send();
+                                        ->setSubject('Мероприятие "' . $activity->name . '" завершено')->send();
                                 }
 
                                 $user->save();
@@ -267,12 +267,12 @@ class HandlerController extends Controller
                     ['user' => $user,
                         'activity' => $model,
                         'needCertLink' => $needCertLink,
-                        'title' => 'Мероприятие "' . $model->name . '" завершено.',
+                        'title' => 'Мероприятие "' . $model->name . '" завершено',
                         'htmlLayout' => 'layouts/html'])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                     ->setTo($user->email)
                     ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                    ->setSubject('Мероприятие "' . $model->name . '" завершено.');
+                    ->setSubject('Мероприятие "' . $model->name . '" завершено');
                 /*if(!empty($model->cert)) {
                     $mes->attach("/home/m/mcflow/integraforlife.com/public_html".$model->cert);
                 }*/

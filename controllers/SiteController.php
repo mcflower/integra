@@ -318,12 +318,12 @@ class SiteController extends Controller
                         ['user' => $user,
                             'activity' => $activity,
                             'needCertLink' => $needCertLink,
-                            'title' => 'Ссылка на запись вебинара "' . $activity->name . '".',
+                            'title' => 'Мероприятие "' . $activity->name . '" завершено',
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo($user->email)
                         ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                        ->setSubject('Ссылка на запись вебинара "' . $activity->name . '".')->send();
+                        ->setSubject('Мероприятие "' . $activity->name . '" завершено')->send();
 
                 }
 

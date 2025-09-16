@@ -157,12 +157,12 @@ class XuserController extends AuthController
                     ['user' => $user,
                         'activity' => $model,
                         'needCertLink' => $needCertLink,
-                        'title' => 'Ссылка на запись вебинара "'.$model->name.'".',
+                        'title' => 'Мероприятие "'.$model->name.'" завершено',
                         'htmlLayout' => 'layouts/html'])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                     ->setTo($user->email)
                     ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                    ->setSubject('Ссылка на запись вебинара "'.$model->name.'".');
+                    ->setSubject('Мероприятие "'.$model->name.'" завершено');
 
                 $mes->send();
                 Yii::$app->session->setFlash('success', 'Ссылка отправлена');
@@ -181,7 +181,7 @@ class XuserController extends AuthController
         $model = $this->findModel($id);
         $model->buy = 1;
         $model->wstart = 1;
-        
+
         if($model->save()) {
             $activity = Xcontent::findOne(['activity' => $model->activity]);
             $xd = date('d.m.Y', $activity->xdate);
