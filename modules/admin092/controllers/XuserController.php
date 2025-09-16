@@ -129,13 +129,13 @@ class XuserController extends AuthController
                 'buyRecord',
                 ['user' => $user,
                     'activity' => $model,
-                    'title' => 'Счет на оплату вебинара "'.$model->name.'".',
+                    'title' => 'Счет на оплату вебинара «'.$model->name.'»',
                     'htmlLayout' => 'layouts/html']
             )
             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
             ->setTo($user->email)
             ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-            ->setSubject('Счет на оплату вебинара "'.$model->name.'".')->send();
+            ->setSubject('Счет на оплату вебинара «'.$model->name.'»')->send();
 
             Yii::$app->session->setFlash('success', 'Ссылка отправлена');
         } else {
@@ -157,12 +157,12 @@ class XuserController extends AuthController
                     ['user' => $user,
                         'activity' => $model,
                         'needCertLink' => $needCertLink,
-                        'title' => 'Мероприятие "'.$model->name.'" завершено',
+                        'title' => 'Мероприятие «'.$model->name.'» завершено',
                         'htmlLayout' => 'layouts/html'])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                     ->setTo($user->email)
                     ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                    ->setSubject('Мероприятие "'.$model->name.'" завершено');
+                    ->setSubject('Мероприятие «'.$model->name.'» завершено');
 
                 $mes->send();
                 Yii::$app->session->setFlash('success', 'Ссылка отправлена');
@@ -189,11 +189,11 @@ class XuserController extends AuthController
             Yii::$app->mail->compose('payConfirmAdmin',
                 ['user' => $model,
                 'activity' => $activity,
-                'title' => $xd . ' Оплата вебинара "'.$activity->name.'"',
+                'title' => $xd . ' Оплата вебинара «'.$activity->name.'»',
                 'htmlLayout' => 'layouts/html'])
             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
             ->setTo('info@integraforlife.com')
-            ->setSubject($xd . ' Оплата вебинара "'.$activity->name.'"')
+            ->setSubject($xd . ' Оплата вебинара «'.$activity->name.'»')
             ->send();
 
             //если в названии В НАЧАЛЕ используется слово ОЧНО необходимо слать другое письмо
@@ -201,23 +201,23 @@ class XuserController extends AuthController
                 Yii::$app->mail->compose('payConfirmOffline',
                     ['user' => $model,
                         'activity' => $activity,
-                        'title' => 'Оплата за мероприятие "' . $activity->name . '"',
+                        'title' => 'Оплата за мероприятие «' . $activity->name . '»',
                         'htmlLayout' => 'layouts/html'])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                     ->setTo($model->email)
                     ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                    ->setSubject('Оплата за мероприятие "' . $activity->name . '"')
+                    ->setSubject('Оплата за мероприятие «' . $activity->name . '»')
                     ->send();
             } else {
                 Yii::$app->mail->compose('payConfirm',
                     ['user' => $model,
                         'activity' => $activity,
-                        'title' => 'Оплата за вебинар "' . $activity->name . '"',
+                        'title' => 'Оплата за вебинар «' . $activity->name . '»',
                         'htmlLayout' => 'layouts/html'])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                     ->setTo($model->email)
                     ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                    ->setSubject('Оплата за вебинар "' . $activity->name . '"')
+                    ->setSubject('Оплата за вебинар «' . $activity->name . '»')
                     ->send();
             }
         } else {

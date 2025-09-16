@@ -380,11 +380,11 @@ class YandexController extends Controller
                         Yii::$app->mail->compose('payConfirmAdmin',
                             ['user' => $user,
                                 'activity' => $activity,
-                                'title' => $xd . ' Оплата вебинара "' . $activity->name . '"',
+                                'title' => $xd . ' Оплата вебинара «' . $activity->name . '»',
                                 'htmlLayout' => 'layouts/html'])
                             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                             ->setTo('info@integraforlife.com')
-                            ->setSubject($xd . 'Оплата вебинара "' . $activity->name . '"')
+                            ->setSubject($xd . 'Оплата вебинара «' . $activity->name . '»')
                             ->send();
 
                         //если в названии В НАЧАЛЕ используется слово ОЧНО необходимо слать другое письмо
@@ -392,23 +392,23 @@ class YandexController extends Controller
                             Yii::$app->mail->compose('payConfirmOffline',
                                 ['user' => $user,
                                     'activity' => $activity,
-                                    'title' => 'Оплата за мероприятие "' . $activity->name . '"',
+                                    'title' => 'Оплата за мероприятие «' . $activity->name . '»',
                                     'htmlLayout' => 'layouts/html'])
                                 ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                 ->setTo($user->email)
                                 ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                                ->setSubject('Оплата за мероприятие "' . $activity->name . '"')
+                                ->setSubject('Оплата за мероприятие «' . $activity->name . '»')
                                 ->send();
                         } else {
                             Yii::$app->mail->compose('payConfirm',
                                 ['user' => $user,
                                     'activity' => $activity,
-                                    'title' => 'Оплата за вебинар "' . $activity->name . '"',
+                                    'title' => 'Оплата за вебинар «' . $activity->name . '»',
                                     'htmlLayout' => 'layouts/html'])
                                 ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                 ->setTo($user->email)
                                 ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                                ->setSubject('Оплата за вебинар "' . $activity->name . '"')
+                                ->setSubject('Оплата за вебинар «' . $activity->name . '»')
                                 ->send();
                         }
 
@@ -429,11 +429,11 @@ class YandexController extends Controller
                         Yii::$app->mail->compose('payConfirmAdmin',
                             ['user' => $user,
                                 'activity' => $activity,
-                                'title' => $xd . ' Оплата за запись вебинара "' . $activity->name . '"',
+                                'title' => $xd . ' Оплата за запись вебинара «' . $activity->name . '»',
                                 'htmlLayout' => 'layouts/html'])
                             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                             ->setTo('info@integraforlife.com')
-                            ->setSubject($xd . ' Оплата за записи вебинара "' . $activity->name . '"')
+                            ->setSubject($xd . ' Оплата за записи вебинара «' . $activity->name . '»')
                             ->send();
 
                         //todo оставляю костыль с if-else для продажи записи. далее или переделать или удалить
@@ -441,24 +441,24 @@ class YandexController extends Controller
                             Yii::$app->mail->compose($activity->activity,
                                 ['user' => $user,
                                     'activity' => $activity,
-                                    'title' => 'Мероприятие "' . $activity->name . '" завершено',
+                                    'title' => 'Мероприятие «' . $activity->name . '» завершено',
                                     'htmlLayout' => 'layouts/html'])
                                 ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                 ->setTo($user->email)
                                 ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                                ->setSubject('Мероприятие "' . $activity->name . '" завершено')->send();
+                                ->setSubject('Мероприятие «' . $activity->name . '» завершено')->send();
                         } else {
                             $needCertLink = !empty($activity->cert);
                             Yii::$app->mail->compose('close',
                                 ['user' => $user,
                                     'activity' => $activity,
                                     'needCertLink' => $needCertLink,
-                                    'title' => 'Мероприятие "' . $activity->name . '" завершено',
+                                    'title' => 'Мероприятие «' . $activity->name . '» завершено',
                                     'htmlLayout' => 'layouts/html'])
                                 ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                 ->setTo($user->email)
                                 ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                                ->setSubject('Мероприятие "' . $activity->name . '" завершено')->send();
+                                ->setSubject('Мероприятие «' . $activity->name . '» завершено')->send();
                         }
                     }
 
@@ -475,22 +475,22 @@ class YandexController extends Controller
                         Yii::$app->mail->compose('payGuideAdmin',
                             ['user' => $guser,
                                 'guide' => $guide,
-                                'title' => 'Оплата материала "' . $guide->name . '"',
+                                'title' => 'Оплата материала «' . $guide->name . '»',
                                 'htmlLayout' => 'layouts/html'])
                             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                             ->setTo('info@integraforlife.com')
-                            ->setSubject('Оплата материала "' . $guide->name . '"')
+                            ->setSubject('Оплата материала «' . $guide->name . '»')
                             ->send();
 
                         Yii::$app->mail->compose('payGuide',
                             ['user' => $guser,
                                 'guide' => $guide,
-                                'title' => 'Оплата за материал "' . $guide->name . '"',
+                                'title' => 'Оплата за материал «"' . $guide->name . '»',
                                 'htmlLayout' => 'layouts/html'])
                             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                             ->setTo($guser->email)
                             ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                            ->setSubject('Оплата за материал "' . $guide->name . '"')
+                            ->setSubject('Оплата за материал «' . $guide->name . '»')
                             ->send();
                     }
                 }

@@ -37,12 +37,12 @@ class HandlerController extends Controller
                     Yii::$app->mail->compose('start',
                         ['user' => $user,
                             'activity' => $model,
-                            'title' => 'Уведомление о вебинаре "' . $model->name . '".',
+                            'title' => 'Уведомление о вебинаре «' . $model->name . '»',
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo($user->email)
                         ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                        ->setSubject('Уведомление о вебинаре "' . $model->name . '".')
+                        ->setSubject('Уведомление о вебинаре «' . $model->name . '»')
                         ->send();
                 }
             }
@@ -96,22 +96,22 @@ class HandlerController extends Controller
                                 Yii::$app->mail->compose('payGuideAdmin',
                                     ['user' => $guser,
                                         'guide' => $guide,
-                                        'title' => 'Оплата материала "' . $guide->name . '"',
+                                        'title' => 'Оплата материала «' . $guide->name . '»',
                                         'htmlLayout' => 'layouts/html'])
                                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                     ->setTo('info@integraforlife.com')
-                                    ->setSubject('Оплата материала "' . $guide->name . '"')
+                                    ->setSubject('Оплата материала «' . $guide->name . '»')
                                     ->send();
 
                                 Yii::$app->mail->compose('payGuide',
                                     ['user' => $guser,
                                         'guide' => $guide,
-                                        'title' => 'Оплата за материал "' . $guide->name . '"',
+                                        'title' => 'Оплата за материал «' . $guide->name . '»',
                                         'htmlLayout' => 'layouts/html'])
                                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                     ->setTo($guser->email)
                                     ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                                    ->setSubject('Оплата за материал "' . $guide->name . '"')
+                                    ->setSubject('Оплата за материал «' . $guide->name . '»')
                                     ->send();
                             }
                         } else {
@@ -135,11 +135,11 @@ class HandlerController extends Controller
                                     Yii::$app->mail->compose('payConfirmAdmin',
                                         ['user' => $user,
                                             'activity' => $activity,
-                                            'title' => 'Оплата вебинара "' . $activity->name . '"',
+                                            'title' => 'Оплата вебинара «' . $activity->name . '»',
                                             'htmlLayout' => 'layouts/html'])
                                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                         ->setTo('info@integraforlife.com')
-                                        ->setSubject('Оплата вебинара "' . $activity->name . '"')
+                                        ->setSubject('Оплата вебинара «' . $activity->name . '»')
                                         ->send();
 
 
@@ -148,23 +148,23 @@ class HandlerController extends Controller
                                         Yii::$app->mail->compose('payConfirmOffline',
                                             ['user' => $user,
                                                 'activity' => $activity,
-                                                'title' => 'Оплата за мероприятие "' . $activity->name . '"',
+                                                'title' => 'Оплата за мероприятие «' . $activity->name . '»',
                                                 'htmlLayout' => 'layouts/html'])
                                             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                             ->setTo($user->email)
                                             ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                                            ->setSubject('Оплата за мероприятие "' . $activity->name . '"')
+                                            ->setSubject('Оплата за мероприятие «' . $activity->name . '»')
                                             ->send();
                                     } else {
                                         Yii::$app->mail->compose('payConfirm',
                                             ['user' => $user,
                                                 'activity' => $activity,
-                                                'title' => 'Оплата за вебинар "' . $activity->name . '"',
+                                                'title' => 'Оплата за вебинар «' . $activity->name . '»',
                                                 'htmlLayout' => 'layouts/html'])
                                             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                             ->setTo($user->email)
                                             ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                                            ->setSubject('Оплата за вебинар "' . $activity->name . '"')
+                                            ->setSubject('Оплата за вебинар «' . $activity->name . '»')
                                             ->send();
                                     }
 
@@ -174,11 +174,11 @@ class HandlerController extends Controller
                                     Yii::$app->mail->compose('payConfirmAdmin',
                                         ['user' => $user,
                                             'activity' => $activity,
-                                            'title' => 'Оплата за запись вебинара "' . $activity->name . '"',
+                                            'title' => 'Оплата за запись вебинара «' . $activity->name . '»',
                                             'htmlLayout' => 'layouts/html'])
                                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                         ->setTo('info@integraforlife.com')
-                                        ->setSubject('Оплата за записи вебинара "' . $activity->name . '"')
+                                        ->setSubject('Оплата за записи вебинара «' . $activity->name . '»')
                                         ->send();
 
                                     $needCertLink = !empty($activity->cert);
@@ -186,12 +186,12 @@ class HandlerController extends Controller
                                         ['user' => $user,
                                             'activity' => $activity,
                                             'needCertLink' => $needCertLink,
-                                            'title' => 'Мероприятие "' . $activity->name . '" завершено',
+                                            'title' => 'Мероприятие «' . $activity->name . '» завершено',
                                             'htmlLayout' => 'layouts/html'])
                                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                         ->setTo($user->email)
                                         ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                                        ->setSubject('Мероприятие "' . $activity->name . '" завершено')->send();
+                                        ->setSubject('Мероприятие «' . $activity->name . '» завершено')->send();
                                 }
 
                                 $user->save();
@@ -224,23 +224,23 @@ class HandlerController extends Controller
                         Yii::$app->mail->compose('currentOffline',
                             ['user' => $user,
                                 'activity' => $model,
-                                'title' => 'Напоминание о мероприятии "' . $model->name . '".',
+                                'title' => 'Напоминание о мероприятии «' . $model->name . '»',
                                 'htmlLayout' => 'layouts/html'])
                             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                             ->setTo($user->email)
                             ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                            ->setSubject('Напоминание о мероприятии "' . $model->name . '".')
+                            ->setSubject('Напоминание о мероприятии «' . $model->name . '»')
                             ->send();
                     } else {
                         Yii::$app->mail->compose('current',
                             ['user' => $user,
                                 'activity' => $model,
-                                'title' => 'Напоминание о вебинаре "' . $model->name . '".',
+                                'title' => 'Напоминание о вебинаре «' . $model->name . '»',
                                 'htmlLayout' => 'layouts/html'])
                             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                             ->setTo($user->email)
                             ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                            ->setSubject('Напоминание о вебинаре "' . $model->name . '".')
+                            ->setSubject('Напоминание о вебинаре «' . $model->name . '»')
                             ->send();
                     }
                 }
@@ -267,12 +267,12 @@ class HandlerController extends Controller
                     ['user' => $user,
                         'activity' => $model,
                         'needCertLink' => $needCertLink,
-                        'title' => 'Мероприятие "' . $model->name . '" завершено',
+                        'title' => 'Мероприятие "' . $model->name . '» завершено',
                         'htmlLayout' => 'layouts/html'])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                     ->setTo($user->email)
                     ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                    ->setSubject('Мероприятие "' . $model->name . '" завершено');
+                    ->setSubject('Мероприятие "' . $model->name . '» завершено');
                 /*if(!empty($model->cert)) {
                     $mes->attach("/home/m/mcflow/integraforlife.com/public_html".$model->cert);
                 }*/

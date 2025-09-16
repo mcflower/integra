@@ -306,11 +306,11 @@ class SiteController extends Controller
                     Yii::$app->mail->compose('payConfirmAdmin',
                         ['user' => $user,
                             'activity' => $activity,
-                            'title' => $xd . ' Оплата за запись вебинара "' . $activity->name . '"',
+                            'title' => $xd . ' Оплата за запись вебинара «' . $activity->name . '»',
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo('info@integraforlife.com')
-                        ->setSubject($xd . ' Оплата за записи вебинара "' . $activity->name . '"')
+                        ->setSubject($xd . ' Оплата за записи вебинара «' . $activity->name . '»')
                         ->send();
 
                     $needCertLink = !empty($activity->cert);
@@ -318,12 +318,12 @@ class SiteController extends Controller
                         ['user' => $user,
                             'activity' => $activity,
                             'needCertLink' => $needCertLink,
-                            'title' => 'Мероприятие "' . $activity->name . '" завершено',
+                            'title' => 'Мероприятие «' . $activity->name . '» завершено',
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo($user->email)
                         ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
-                        ->setSubject('Мероприятие "' . $activity->name . '" завершено')->send();
+                        ->setSubject('Мероприятие «' . $activity->name . '» завершено')->send();
 
                 }
 
