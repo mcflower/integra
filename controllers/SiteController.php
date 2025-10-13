@@ -30,6 +30,7 @@ use yii\base\DynamicModel;
 use yii\filters\AccessControl;
 use yii\helpers\Json;
 use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use yii\helpers\Url;
@@ -715,10 +716,10 @@ class SiteController extends Controller
     public function actionWebinar($activity)
     {
         $activity = trim(strip_tags($activity));
-        $webinar = Xcontent::findOne(['activity' => $activity]);
+        $webinar = Xcontent::find()->where(['activity' => $activity])->andWhere(['>', 'expired', time()])->one();
         if (empty($webinar)) {
             Yii::$app->session->setFlash('error', 'Вебинар не найден!');
-            return $this->redirect('/');
+            throw new NotFoundHttpException();
         }
 
         $this->metaImg = $webinar->img;
@@ -732,6 +733,7 @@ class SiteController extends Controller
 
     public function actionConference()
     {
+        throw new NotFoundHttpException();
         $this->metaImg = "/img/conference1.jpg";
         $this->metaDescription = '3-4 июня 2022 г. Летняя конференция «Применимая медицина». г. Санкт-Петербург, гостиница Октябрьская 4';
         $model = new DynamicModel(['activity','name', 'phone', 'birthday', 'email', 'city']);
@@ -743,6 +745,7 @@ class SiteController extends Controller
 
     public function actionMedicalConference()
     {
+        throw new NotFoundHttpException();
         $this->metaImg = "/img/medical-conference.jpg";
         $this->metaDescription = '18 марта 2023 г. Медицинская конференция «Здоровье в твоих руках». г.Москва, Пресненская набережная 12, башня «Восток»';
         $model = new DynamicModel(['activity','name', 'email', 'phone']);
@@ -757,6 +760,7 @@ class SiteController extends Controller
 
     public function actionHealthInTheCity()
     {
+        throw new NotFoundHttpException();
         $this->metaImg = "/img/health-in-the-city.png";
         $this->metaDescription = '9 апреля 2023 г. Городская конференция из цикла «Здоровье в Большом городе». г.Тольятти, Платановая ул., д. 6, ресторан «Ренессанс»';
         $model = new DynamicModel(['activity','name', 'email', 'phone']);
@@ -766,8 +770,20 @@ class SiteController extends Controller
         return $this->render('health-in-the-city', ['model' => $model]);
     }
 
+    public function actionHealthConference()
+    {
+        $this->metaImg = "/img/health-conference.png";
+        $this->metaDescription = '9 ноября 2025 г. Конференция о здоровье и профилактике болезней у детей и взрослых «Здоровье в Большом городе». г.Тольятти, Платановая ул., д. 6, ресторан «Ренессанс»';
+        $model = new DynamicModel(['activity','name', 'email', 'phone']);
+        $model->addRule(['activity','name', 'email', 'phone'], 'required', ['message' => 'Обязательно для заполнения']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('health-conference', ['model' => $model]);
+    }
+
     public function actionHappinessInTheCity()
     {
+        throw new NotFoundHttpException();
         $this->metaImg = "/img/health-in-the-city.png";
         $this->metaDescription = '17 марта 2024 г. Конференция для жителей и гостей города «ЗДОРОВЬЕ И СЧАСТЬЕ В БОЛЬШОМ ГОРОДЕ». г.Тольятти, Платановая ул., д. 6, ресторан «Ренессанс»';
         $model = new DynamicModel(['activity','name', 'email', 'phone']);
@@ -860,6 +876,7 @@ class SiteController extends Controller
 
     public function actionNutritionCourse()
     {
+        throw new NotFoundHttpException();
         $this->metaImg = "/files/webinar/preview_1657736164.png";
         $this->metaDescription = '12-16 сентября 2022 г. Курс для врачей и нутрициологов «Основы нутрициологии». Цикл усовершенствования квалификации с выдачей сертификата гособразца (ФМБА РФ).';
         $model = new DynamicModel(['activity','name', 'phone', 'email', 'city']);
@@ -996,6 +1013,7 @@ class SiteController extends Controller
 
     public function actionCityEvent()
     {
+        throw new NotFoundHttpException();
         $this->metaImg = "/img/bachelorette.jpg";
         $this->metaDescription = '28 августа 2022 г. Городской девичник с врачами «Клиника Интегра» «ГОРОМНАЛЬНО ЗДОРОВАЯ ЖЕНЩИНА»';
         $model = new DynamicModel(['activity','name', 'phone', 'email']);
@@ -1781,7 +1799,7 @@ class SiteController extends Controller
 
     public function actionRehabilitation()
     {
-
+        throw new NotFoundHttpException();
         $this->metaImg = "/img/rehabilitation.jpg";
         $this->metaDescription = '10 - 25 мая 2023 г. Авторская программа реабилитации и профилактики «Сон. Стресс. Секс.»';
         $model = new DynamicModel(['activity','name', 'phone', 'email']);
@@ -1793,7 +1811,7 @@ class SiteController extends Controller
 
     public function actionHappiness()
     {
-
+        throw new NotFoundHttpException();
         $this->metaImg = "/img/happiness.jpg";
         $this->metaDescription = '1 - 3 февраля 2024 г. Проект «PRO_СЧАСТЬЕ»';
         $model = new DynamicModel(['activity','name', 'phone', 'email']);
@@ -1805,7 +1823,7 @@ class SiteController extends Controller
 
     public function actionHormonalHealth()
     {
-
+        throw new NotFoundHttpException();
         $this->metaImg = "/img/hormone.jpg";
         $this->metaDescription = '12 - 26 июня 2023 г. Курс «Гормональное здоровье»';
         $model = new DynamicModel(['activity','name', 'phone', 'email']);
@@ -1817,6 +1835,7 @@ class SiteController extends Controller
 
     public function actionFiveYearsOld()
     {
+        throw new NotFoundHttpException();
         $this->metaImg = "/img/five-years.jpg";
         $this->metaDescription = '26 января 2025 г. Клиника ИНТЕГРА 5 лет вместе';
         $model = new DynamicModel(['activity','name', 'phone', 'email']);
@@ -1828,7 +1847,7 @@ class SiteController extends Controller
 
     public function actionHormonal()
     {
-
+        throw new NotFoundHttpException();
         $this->metaImg = "/img/hormonal.jpg";
         $this->metaDescription = '11 - 18 июля 2023 г. Курс «Гормональное здоровье»';
         $model = new DynamicModel(['activity','name', 'phone', 'email']);
@@ -1840,6 +1859,7 @@ class SiteController extends Controller
 
     public function actionCourseOfHypoxia()
     {
+        throw new NotFoundHttpException();
         $this->metaImg = "/img/course-of-hypoxia.jpg";
         $this->metaDescription = '16 октября 2023 г. Курс «Гипотиреоз и гипоксия. От понимания к решению.»';
         $model = new DynamicModel(['activity','name', 'phone', 'email']);
@@ -1851,6 +1871,7 @@ class SiteController extends Controller
 
     public function actionAutoimmune()
     {
+        throw new NotFoundHttpException();
         $this->metaImg = "/img/autoimmune.jpg";
         $this->metaDescription = 'с 20 по 24 марта 2024 г. Курс «Аутоиммунные заболевания»';
         $model = new DynamicModel(['activity','name', 'phone', 'email']);
@@ -1863,6 +1884,7 @@ class SiteController extends Controller
 
     public function actionHealthyLegacy()
     {
+        throw new NotFoundHttpException();
         $this->metaImg = "/img/healthy-legacy.jpg";
         $this->metaDescription = '7 июля 2024 г. Городская конференция «ЗДОРОВОЕ НАСЛЕДИЕ», г. Тольятти, Приморский б-р. 43, ресторан «ФРАНЦИЯ»';
         $model = new DynamicModel(['activity','name', 'phone', 'email']);
@@ -1874,7 +1896,7 @@ class SiteController extends Controller
 
     public function actionDigestiveHealth()
     {
-
+        throw new NotFoundHttpException();
         $this->metaImg = "/img/digestive.jpg";
         $this->metaDescription = '25 июля - 3 августа 2023 г. Курс «Здоровье пищеварительной системы»';
         $model = new DynamicModel(['activity','name', 'phone', 'email']);
@@ -1886,7 +1908,7 @@ class SiteController extends Controller
 
     public function actionInternationalConferenceMoscow()
     {
-
+        throw new NotFoundHttpException();
         $this->metaImg = "/img/moscow23.jpg";
         $this->metaDescription = '11 - 12 ноября 2023 г. конференция с международным участием из цикла «ПРИМЕНИМАЯ МЕДИЦИНА»';
         $model = new DynamicModel(['activity','name', 'phone', 'email']);
@@ -1898,7 +1920,7 @@ class SiteController extends Controller
 
     public function actionConferenceTogliatti()
     {
-
+        throw new NotFoundHttpException();
         $this->metaImg = "/img/river.jpg";
         $this->metaDescription = '18 - 19 мая 2024 г. конференция из цикла «Применимая медицина» ВЕСЕННЯЯ ВОЛГА';
         $model = new DynamicModel(['activity','name', 'phone', 'email']);
@@ -1910,7 +1932,7 @@ class SiteController extends Controller
 
     public function actionConferenceSochi()
     {
-
+        throw new NotFoundHttpException();
         $this->metaImg = "/img/sochi.jpg";
         $this->metaDescription = '19 - 20 октября 2024 г. VI КОНФЕРЕНЦИЯ «ПРИМЕНИМАЯ МЕДИЦИНА»';
         $model = new DynamicModel(['activity','name', 'phone', 'email']);
@@ -1922,7 +1944,7 @@ class SiteController extends Controller
 
     public function actionConferenceTogliatti25()
     {
-
+        throw new NotFoundHttpException();
         $this->metaImg = "/img/tlt25.png";
         $this->metaDescription = '17 - 18 мая 2025 г. VII КОНФЕРЕНЦИЯ «ПРИМЕНИМАЯ МЕДИЦИНА»';
         $model = new DynamicModel(['activity','name', 'phone', 'email']);
@@ -1934,7 +1956,7 @@ class SiteController extends Controller
 
     public function actionConferenceMoscow25()
     {
-
+        throw new NotFoundHttpException();
         $this->metaImg = "/img/moscow25.jpg";
         $this->metaDescription = '5 сентября 2025г. VIII КОНФЕРЕНЦИЯ «ПРИМЕНИМАЯ МЕДИЦИНА» г. Москва';
         $model = new DynamicModel(['activity','name', 'phone', 'email', 'reCaptcha']);
@@ -1947,7 +1969,7 @@ class SiteController extends Controller
 
     public function actionConferenceSochiOnline()
     {
-
+        throw new NotFoundHttpException();
         $this->metaImg = "/img/sochi-online.png?i";
         $this->metaDescription = '19 - 20 октября 2024г. VI ОНЛАЙН КОНФЕРЕНЦИЯ «ПРИМЕНИМАЯ МЕДИЦИНА»';
         $model = new DynamicModel(['activity','name', 'phone', 'email']);

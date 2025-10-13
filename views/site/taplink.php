@@ -35,10 +35,10 @@
             <a class="tlink-a" href="/conference-togliatti">18-19 Мая. Конференция из цикла «Применимая медицина» ВЕСЕННЯЯ ВОЛГА</a>
         </div>
         <div class="tlink-box">
-            <a class="tlink-a" href="/conference-moscow-25">5 СЕНТЯБРЯ. VIII КОНФЕРЕНЦИЯ ПРИМЕНИМАЯ МЕДИЦИНА</a>
+            <a class="tlink-a" href="/webinar/cLAoAPSlgBq2">Запись семинара «Трансформация массы тела: от понимания к воплощению»</a>
         </div>-->
         <div class="tlink-box">
-            <a class="tlink-a" href="/webinar/cLAoAPSlgBq2">Запись семинара «Трансформация массы тела: от понимания к воплощению»</a>
+            <a class="tlink-a" href="/health-conference">9 Ноября. Конференция «Здоровье в Большом городе» г. Тольятти</a>
         </div>
         <h2 class="group-name">Для самостоятельного изучения</h2>
         <div class="tlink-box">

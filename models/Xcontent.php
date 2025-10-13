@@ -55,7 +55,7 @@ class Xcontent extends \yii\db\ActiveRecord
             [['cert', 'photo', 'about', 'name', 'vimeo', 'activity', 'expired', 'url', 'type', 'price', 'xdate', 'xtime', 'img', 'description', 'string_day'], 'required'],
             [['vimeo', 'expired', 'created_at', 'updated_at', 'type', 'price', 'xdate'], 'integer'],
             [['cert', 'name', 'activity', 'xtime', 'url', 'photo'], 'string', 'max' => 255],
-            [['about'], 'string', 'max' => 1024],
+            [['about'], 'string', 'max' => 2048],
             [['description'], 'string'],
         ];
     }
