@@ -110,7 +110,8 @@ $this->title = $webinar->name;
                     echo Html::submitButton("ЗАРЕГИСТРИРОВАТЬСЯ");
 
                     ActiveForm::end();
-                } elseif ($webinar->type == 3 && ($webinar->xdate + (10 * 24 * 60 * 60)) > time()) {
+               // } elseif ($webinar->type == 3 && ($webinar->xdate + (10 * 24 * 60 * 60)) > time()) {
+                } elseif ($webinar->type == 3 && ($webinar->updated_at + (10 * 24 * 60 * 60)) > time()) {
 
                     $form = ActiveForm::begin(['action' => '/new-record', 'options' => ['class' => 'cwc-form wo-form']]);
 
