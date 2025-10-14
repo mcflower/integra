@@ -243,20 +243,13 @@ use yii\widgets\ActiveForm;
                 </div>
                 <br>
                 <p class="woc-schedule-name" style="float:none;">
-                    «ДИАБЕТ БЕЗ ДИАБЕТА»
+                    «Диабет без диабета»
                 </p>
                 <div class="speakers clearfix" style="margin-top: 30px;">
                     <div class="sp-line">
-                        <div class="sp-photo">
-                            <img src="/img/spec6.jpg"/>
-                        </div>
-                        <div class="sp-text">
-                            <p>Мочевая кислота - молчаливый спутник ожирения и сосудистых заболеваний</p><br>
-                            <u>Школенко Мария Владимировна</u> - врач терапевт, эндокринолог шла, диетолог
-                        </div>
+                        <p>Мочевая кислота - молчаливый спутник ожирения и сосудистых заболеваний</p><br>
                     </div>
                 </div>
-                <br>
                 <p class="woc-schedule-name" style="float:none;">
                     «Возрождение клеток»
                 </p>
