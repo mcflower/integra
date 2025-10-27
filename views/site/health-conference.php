@@ -130,7 +130,7 @@ use yii\widgets\ActiveForm;
 </style>
 <div class="wo-anons clearfix">
     <div class="wo-container clearfix">
-        <div class="woc-preview clearfix" style="background-image:url('/img/health-conference.png');"></div>
+        <div class="woc-preview clearfix" style="background-image:url('/img/health-conference2.png');"></div>
         <div class="woc-about clearfix">
             <div class="woc-main clearfix">
                 <div class="clearfix">
@@ -233,7 +233,7 @@ use yii\widgets\ActiveForm;
                 <div class="speakers clearfix" style="margin-top: 30px;">
                     <div class="sp-line">
                         <div class="sp-photo">
-                            <img src="/img/spec7.jpg"/>
+                            <img src="/img/spec7.jpg?i=1"/>
                         </div>
                         <div class="sp-text">
                             <p>Мифы и правда о чудо - средстве для снижения веса</p><br>

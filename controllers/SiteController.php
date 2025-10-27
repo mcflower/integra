@@ -772,7 +772,7 @@ class SiteController extends Controller
 
     public function actionHealthConference()
     {
-        $this->metaImg = "/img/health-conference.png";
+        $this->metaImg = "/img/health-conference2.png";
         $this->metaDescription = '9 ноября 2025 г. Конференция о здоровье и профилактике болезней у детей и взрослых «Здоровье в Большом городе». г.Тольятти, Платановая ул., д. 6, ресторан «Ренессанс»';
         $model = new DynamicModel(['activity','name', 'email', 'phone']);
         $model->addRule(['activity','name', 'email', 'phone'], 'required', ['message' => 'Обязательно для заполнения']);
@@ -1952,6 +1952,17 @@ class SiteController extends Controller
 
         $this->view->registerCssFile('/css/webinar.css');
         return $this->render('togliatti25', ['model' => $model]);
+    }
+
+    public function actionConferenceSochi26()
+    {
+        $this->metaImg = "/img/sochi26.png";
+        $this->metaDescription = '24 - 25 апреля 2026 г. IX КОНФЕРЕНЦИЯ «ПРИМЕНИМАЯ МЕДИЦИНА»';
+        $model = new DynamicModel(['activity','name', 'phone', 'email']);
+        $model->addRule(['activity', 'name', 'phone', 'email'], 'required', ['message' => 'Обязательно для заполнения']);
+
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('sochi26', ['model' => $model]);
     }
 
     public function actionConferenceMoscow25()

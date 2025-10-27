@@ -40,6 +40,9 @@
         <div class="tlink-box">
             <a class="tlink-a" href="/health-conference">9 Ноября. Конференция «Здоровье в Большом городе» г. Тольятти</a>
         </div>
+        <div class="tlink-box">
+            <a class="tlink-a" href="/conference-sochi-26">24 - 25 апреля. IX КОНФЕРЕНЦИЯ ПРИМЕНИМАЯ МЕДИЦИНА г. Сочи</a>
+        </div>
         <h2 class="group-name">Для самостоятельного изучения</h2>
         <div class="tlink-box">
             <a class="tlink-a" href="/guide/bAL6mLkAFHbq">Кожа глазами эндокринолога</a>
