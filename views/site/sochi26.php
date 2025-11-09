@@ -370,7 +370,7 @@ use yii\widgets\ActiveForm;
                     <div class="sp-line">
                         <div class="sp-text">
                             Обоснован диагноз? Меняем тактику лечения на 180 градусов.<br>
-                            <span style="font-family: 'Roboto';">Спикер:</span> обсуждается
+                            <span style="font-family: 'Roboto';">Спикер:</span> Чурова Валерия Сергеевна
                             <br>
                         </div>
                     </div>
@@ -505,6 +505,16 @@ use yii\widgets\ActiveForm;
                             <u>Боцула Юлия Владимировна</u> - гинеколог-эндокринолог, врач антивозрастной, интегративной
                             и превентивной медицины. Спикер международной школы Anti-Age Expert, наставник врачей ААЕ.
                             Ведущий специалист по ведению женщин в менопаузальном периоде г. Москва Expert Clinics.
+                        </div>
+                    </div>
+                </div>
+                <div class="speakers clearfix">
+                    <div class="sp-line">
+                        <div class="sp-photo">
+                            <img src="/img/spec10.jpg"/>
+                        </div>
+                        <div class="sp-text">
+                            <u>Чурова Валерия Сергеевна</u> - врач терапевт. Специалист в области клинической нутрициологии. Практикующий косметолог.
                         </div>
                     </div>
                 </div>
