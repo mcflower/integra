@@ -38,7 +38,7 @@
             <a class="tlink-a" href="/webinar/cLAoAPSlgBq2">Запись семинара «Трансформация массы тела: от понимания к воплощению»</a>
         </div>-->
         <div class="tlink-box">
-            <a class="tlink-a" href="/health-conference">9 Ноября. Конференция «Здоровье в Большом городе» г. Тольятти</a>
+            <a class="tlink-a" href="/female-and-male">15 марта. Конференция «ЖЕНСКОЕ-МУЖСКОЕ» г. Тольятти</a>
         </div>
         <div class="tlink-box">
             <a class="tlink-a" href="/conference-sochi-26">24 - 25 апреля. IX КОНФЕРЕНЦИЯ ПРИМЕНИМАЯ МЕДИЦИНА г. Сочи</a>

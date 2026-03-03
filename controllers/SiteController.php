@@ -975,6 +975,10 @@ class SiteController extends Controller
             if (isset($_POST['DynamicModel']['ref'])) {
                 $user->description = "От " . $this->getReferName($_POST['DynamicModel']['ref']);
             }
+            
+            if (isset($_POST['DynamicModel']['nsp'])) {
+                $user->description = "Номер NSP: " . $_POST['DynamicModel']['nsp'];
+            }
 
             $content = Xcontent::findOne(['activity' => $user->activity]);
             if (!empty($content) && $user->save()) {
@@ -1631,7 +1635,7 @@ class SiteController extends Controller
 
     public function actionCheckingIronDeficiency()
     {
-        $survey = new Surveys();
+        //$survey = new Surveys();
         $model = new DynamicModel(
             ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10',
                 'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19', 'q20',
@@ -1647,14 +1651,11 @@ class SiteController extends Controller
                 'q21', 'q22', 'q23', 'q24', 'q25', 'q26', 'q27', 'q28', 'q29', 'q30',
                 'q31', 'q32', 'q33'], 'integer');
 
-        if ($survey->load(Yii::$app->request->post())) {
+        if (Yii::$app->request->isPost && $model->load(Yii::$app->request->post()) && $model->validate()) {
+            $data = Yii::$app->request->post();
+            $sum = array_sum($data['DynamicModel']);
 
-            if ($survey->save() && $model->load(Yii::$app->request->post()) && $model->validate()) {
-                $data = Yii::$app->request->post();
-                $sum = array_sum($data['DynamicModel']);
-
-                return $this->render('iron_deficiency_result', ['sum' => $sum]);
-            }
+            return $this->render('iron_deficiency_result', ['sum' => $sum]);
         }
         $this->view->registerCssFile('/css/anketa.css?i=6');
         return $this->render('iron_deficiency', ['model' => $model, 'survey' => $survey]);
@@ -1988,6 +1989,17 @@ class SiteController extends Controller
 
         $this->view->registerCssFile('/css/webinar.css');
         return $this->render('sochi-online', ['model' => $model]);
+    }
+
+    public function actionFemaleAndMale()
+    {
+        $this->metaImg = "/img/malefemale.jpg";
+        $this->metaDescription = '15 марта 2026 г. Конференция для жителей и гостей г.Тольятти от врачей практиков «ЖЕНСКОЕ-МУЖСКОЕ»';
+        $model = new DynamicModel(['activity','name', 'phone', 'email', 'nsp', 'reCaptcha']);
+        $model->addRule(['activity', 'name', 'phone', 'email', 'reCaptcha'], 'required', ['message' => 'Обязательно для заполнения']);
+        $model->addRule(['reCaptcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator::className(), ['secret' => '6LfAxCYaAAAAAEDpS9ZFpPnjTkAyCWlsNrNY-SOf', 'uncheckedMessage' => 'Пожалуйста, подтвердите что вы не робот.']);
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('female_and_male', ['model' => $model]);
     }
 
     /*public function actionForm()
