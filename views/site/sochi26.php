@@ -420,26 +420,14 @@ use yii\widgets\ActiveForm;
                 <br>
                 <br>
                 <p class="woc-schedule-name">
-                    15:00 - 15:45 «Тайм-менеджмент. Основы репутационного этикета»
+                    15:00 - 16:30 «Продажи онлайн и оффлайн для ЗОЖ профессионала»
                 </p>
                 <div class="woc-schedule-line clearfix"></div>
                 <div class="speakers clearfix">
                     <div class="sp-line">
                         <div class="sp-text">
-                            От первого впечатления до уверенного партнерства с вами.<br>
-                            <span style="font-family: 'Roboto';">Спикер:</span> Холодова Анна Анатольевна
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <p class="woc-schedule-name">
-                    15:45 - 16:30 «Новые информационные инструменты для эффективного фрилансинга»
-                </p>
-                <div class="woc-schedule-line clearfix"></div>
-                <div class="speakers clearfix">
-                    <div class="sp-line">
-                        <div class="sp-text">
-                            <span style="font-family: 'Roboto';">Спикер:</span> Гердт Алевтина Михайловна
+                            Как говорить с клиентами/пациентами на одном языке и системно получать заявки на свою работу. 100% применимые стратегии.<br>
+                            <span style="font-family: 'Roboto';">Спикер:</span> Мамаева Юлия Михайловна
                             <br>
                         </div>
                     </div>
@@ -515,6 +503,16 @@ use yii\widgets\ActiveForm;
                         </div>
                         <div class="sp-text">
                             <u>Чурова Валерия Сергеевна</u> - врач терапевт. Специалист в области клинической нутрициологии. Практикующий косметолог.
+                        </div>
+                    </div>
+                </div>
+                <div class="speakers clearfix">
+                    <div class="sp-line">
+                        <div class="sp-photo">
+                            <img src="/img/mamaeva.jpg"/>
+                        </div>
+                        <div class="sp-text">
+                            <u>Мамаева Юлия Михайловна</u> - наставник по продажам и продвижению для ЗОЖ экспертов. Дипломированный маркетолог. Дипломированный нутрициолог и фитнес тренер.
                         </div>
                     </div>
                 </div>
