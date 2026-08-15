@@ -8,6 +8,7 @@
 namespace app\assets;
 
 use yii\web\AssetBundle;
+use yii\web\View;
 
 /**
  * Main application asset bundle.
@@ -28,6 +29,7 @@ class AppAsset extends AssetBundle
         'css/site.css?i=19',
         'css/popups.css?i=6',
         'css/video-js.css?i=8',
+        'css/cookie.css?i=2',
     ];
     public $js = [
         //'js/jquery.fancybox.min.js',
@@ -36,6 +38,7 @@ class AppAsset extends AssetBundle
         'js/jquery.maskedinput.js',
         'js/video.min.js',
         'js/script.js?i=17',
+        'js/cookie.js?i=2',
     ];
     public $depends = [
         'yii\web\YiiAsset',

@@ -22,7 +22,10 @@ $info = Info::findOne(1);
         </div>
     </div>
 </div>
-
+<div class="cookie-bar">
+    <div class="cookie-text">Мы используем cookie-файлы. Это нужно для лучшей работы сайта. <br>Продолжая пользоваться сайтом, вы соглашаетесь с этим на условиях <b><a style="color: white !important;" href="/files/privacy_policy.pdf" target="_blank">Политики обработки персональных данных</a></b></div>
+    <button class="cookie-btn">Согласен</button>
+</div>
 
 <?= YandexMetrikaCounter::widget(
     [
