@@ -222,7 +222,7 @@ use yii\widgets\ActiveForm;
                     <div class="sp-line">
                         <div class="sp-text">
                             Причины. Последствия. Лечение. Активная профилактика осложнений.<br/>
-                            <span style="font-family: 'Roboto';">Спикер:</span> Каракчиева Юлия Сергеевна
+                            <span style="font-family: 'Roboto';">Спикер:</span> Гердт Алевтина Михайловна
                             <br>
                         </div>
                     </div>
@@ -473,7 +473,7 @@ use yii\widgets\ActiveForm;
                         </div>
                     </div>
                 </div>
-                <div class="speakers clearfix">
+                <!--<div class="speakers clearfix">
                     <div class="sp-line">
                         <div class="sp-photo">
                             <img src="/img/spec9.jpg"/>
@@ -483,7 +483,7 @@ use yii\widgets\ActiveForm;
                             диагностики, Д-доктор, Специалист в области детской и взрослой нутрициологии.
                         </div>
                     </div>
-                </div>
+                </div>-->
                 <div class="speakers clearfix">
                     <div class="sp-line">
                         <div class="sp-photo">
@@ -544,7 +544,7 @@ use yii\widgets\ActiveForm;
             </div>
             <div class="clearfix">
                 <div id="form-to-pay" class="cwib-detail clearfix">
-                    <?php if (true): ?>
+                    <?php if (false): ?>
                         <p style="color: rgb(237, 195, 71);font-family: Roboto;font-size: 20px;">
                             Мероприятие состоится 24 - 25 апреля, 2026г. в г. Сочи, Красная Поляна, Отель «Парк Инн»
                             (наб. Лаванда, 5)
@@ -562,7 +562,7 @@ use yii\widgets\ActiveForm;
                 <div class="cw-contact clearfix">
 
                     <?php
-                    if (true) {
+                    if (false) {
                         $form = ActiveForm::begin(['action' => '/registration', 'options' => ['class' => 'cwc-form wo-form']]);
                         echo '<label class="cwc-formgroup">';
                         echo $form->field($model, 'activity')->dropDownList([

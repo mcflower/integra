@@ -39,10 +39,10 @@
         </div>
         <div class="tlink-box">
             <a class="tlink-a" href="/female-and-male">15 марта. Конференция «ЖЕНСКОЕ-МУЖСКОЕ» г. Тольятти</a>
-        </div>-->
+        </div>
         <div class="tlink-box">
             <a class="tlink-a" href="/conference-sochi-26">24 - 25 апреля. IX КОНФЕРЕНЦИЯ ПРИМЕНИМАЯ МЕДИЦИНА г. Сочи</a>
-        </div>
+        </div>-->
         <h2 class="group-name">Для самостоятельного изучения</h2>
         <div class="tlink-box">
             <a class="tlink-a" href="/guide/bAL6mLkAFHbq">Кожа глазами эндокринолога</a>
