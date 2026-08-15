@@ -35,7 +35,7 @@ class DefaultController extends AuthController
                     'htmlLayout' => 'layouts/html'])
                 ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                 ->setTo($user->email)
-                ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
+                ->setReplyTo(['xolodova63@yandex.ru' => 'Анна Холодова'])
                 ->setSubject('Перенос даты вебинара "'.$model->name.'".');
 
             $mes->send();

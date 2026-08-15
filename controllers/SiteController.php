@@ -183,7 +183,7 @@ class SiteController extends Controller
                             'title' => $xd . ' Оплата вебинара "' . $activity->name . '"',
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                        ->setTo('info@integraforlife.com')
+                        ->setTo('xolodova63@yandex.ru')
                         ->setSubject($xd . 'Оплата вебинара "' . $activity->name . '"')
                         ->send();
 
@@ -196,7 +196,7 @@ class SiteController extends Controller
                                 'htmlLayout' => 'layouts/html'])
                             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                             ->setTo($user->email)
-                            ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
+                            ->setReplyTo(['xolodova63@yandex.ru' => 'Анна Холодова'])
                             ->setSubject('Оплата за мероприятие "' . $activity->name . '"')
                             ->send();
                     } else {
@@ -207,7 +207,7 @@ class SiteController extends Controller
                                 'htmlLayout' => 'layouts/html'])
                             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                             ->setTo($user->email)
-                            ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
+                            ->setReplyTo(['xolodova63@yandex.ru' => 'Анна Холодова'])
                             ->setSubject('Оплата за вебинар "' . $activity->name . '"')
                             ->send();
                     }
@@ -310,7 +310,7 @@ class SiteController extends Controller
                             'title' => $xd . ' Оплата за запись вебинара «' . $activity->name . '»',
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                        ->setTo('info@integraforlife.com')
+                        ->setTo('xolodova63@yandex.ru')
                         ->setSubject($xd . ' Оплата за записи вебинара «' . $activity->name . '»')
                         ->send();
 
@@ -323,7 +323,7 @@ class SiteController extends Controller
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo($user->email)
-                        ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
+                        ->setReplyTo(['xolodova63@yandex.ru' => 'Анна Холодова'])
                         ->setSubject('Мероприятие «' . $activity->name . '» завершено')->send();
 
                 }
@@ -495,7 +495,7 @@ class SiteController extends Controller
                     'htmlLayout' => 'layouts/html'])
                 ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                 ->setTo($email)
-                ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
+                ->setReplyTo(['xolodova63@yandex.ru' => 'Анна Холодова'])
                 ->setSubject('Уведомление о вебинаре "' . $activity->name . '".')
                 ->send();
             Yii::$app->session->setFlash('info', 'Успешно! Проверьте электронную почту для дальнейших инструкций.');
@@ -930,7 +930,7 @@ class SiteController extends Controller
                         'htmlLayout' => 'layouts/html'
                     ])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                    ->setTo('info@integraforlife.com')
+                    ->setTo('xolodova63@yandex.ru')
                     ->setSubject("Курс для врачей и нутрициологов «Основы нутрициологии»")
                     ->send();
 
@@ -975,7 +975,7 @@ class SiteController extends Controller
             if (isset($_POST['DynamicModel']['ref'])) {
                 $user->description = "От " . $this->getReferName($_POST['DynamicModel']['ref']);
             }
-            
+
             if (isset($_POST['DynamicModel']['nsp'])) {
                 $user->description = "Номер NSP: " . $_POST['DynamicModel']['nsp'];
             }
@@ -1189,7 +1189,7 @@ class SiteController extends Controller
                         'htmlLayout' => 'layouts/html'
                     ])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                    ->setTo('info@integraforlife.com')
+                    ->setTo('xolodova63@yandex.ru')
                     ->setSubject("Анкета «ГИПОКСИИ НЕТ»")
                     ->send();
 
@@ -1218,7 +1218,7 @@ class SiteController extends Controller
                         'htmlLayout' => 'layouts/html'
                     ])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                    ->setTo('info@integraforlife.com')
+                    ->setTo('xolodova63@yandex.ru')
                     ->setSubject("Доктора")
                     ->send();
 
@@ -1291,7 +1291,7 @@ class SiteController extends Controller
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo($model->email)
-                        ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
+                        ->setReplyTo(['xolodova63@yandex.ru' => 'Анна Холодова'])
                         ->setSubject('Оплата за материал "' . $guide->name . '"')
                         ->send();
 
@@ -1390,7 +1390,7 @@ class SiteController extends Controller
                             'title' => 'Оплата материала "' . $guide->name . '"',
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                        ->setTo('info@integraforlife.com')
+                        ->setTo('xolodova63@yandex.ru')
                         ->setSubject('Оплата материала "' . $guide->name . '"')
                         ->send();
 
@@ -1401,7 +1401,7 @@ class SiteController extends Controller
                             'htmlLayout' => 'layouts/html'])
                         ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                         ->setTo($guser->email)
-                        ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
+                        ->setReplyTo(['xolodova63@yandex.ru' => 'Анна Холодова'])
                         ->setSubject('Оплата за материал "' . $guide->name . '"')
                         ->send();
 
@@ -1530,7 +1530,7 @@ class SiteController extends Controller
                         'htmlLayout' => 'layouts/html'
                     ])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                    ->setTo('info@integraforlife.com')
+                    ->setTo('xolodova63@yandex.ru')
                     ->setSubject('Анкета «Реабилитация желудочно-кишечного тракта»')
                     ->send();
 
@@ -1559,7 +1559,7 @@ class SiteController extends Controller
                         'htmlLayout' => 'layouts/html'
                     ])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                    ->setTo('info@integraforlife.com')
+                    ->setTo('xolodova63@yandex.ru')
                     ->setSubject('Форма регистрации на конференцию')
                     ->send();
 
@@ -1676,7 +1676,7 @@ class SiteController extends Controller
                         'htmlLayout' => 'layouts/html'
                     ])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                    ->setTo('info@integraforlife.com')
+                    ->setTo('xolodova63@yandex.ru')
                     ->setSubject('Анкета «Здоровые сосуды»')
                     ->send();
 
@@ -1704,7 +1704,7 @@ class SiteController extends Controller
                         'htmlLayout' => 'layouts/html'
                     ])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                    ->setTo('info@integraforlife.com')
+                    ->setTo('xolodova63@yandex.ru')
                     ->setSubject('Чат пациентов')
                     ->send();
 
@@ -1785,7 +1785,7 @@ class SiteController extends Controller
                         'htmlLayout' => 'layouts/html'
                     ])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                    ->setTo('info@integraforlife.com')
+                    ->setTo('xolodova63@yandex.ru')
                     ->setSubject('Анкета «2 фаза цикла»')
                     ->send();
 

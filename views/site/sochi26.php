@@ -426,7 +426,7 @@ use yii\widgets\ActiveForm;
                 <div class="speakers clearfix">
                     <div class="sp-line">
                         <div class="sp-text">
-                            Как говорить с клиентами/пациентами на одном языке и системно получать заявки на свою работу. 100% применимые стратегии.<br>
+                            Как говорить с клиентами/пациентами на одном языке и системно получать заявки на свою работу.<br>
                             <span style="font-family: 'Roboto';">Спикер:</span> Мамаева Юлия Михайловна
                             <br>
                         </div>
@@ -553,10 +553,10 @@ use yii\widgets\ActiveForm;
                             Стоимость участия
                         </p>
                         <p class="cwib-price">
-                            12 900 руб.<sup>*</sup>
+                            15 900 руб.<!--<sup>*</sup>-->
                         </p>
-                        <p class="cwc-line1"><br/>* Предложение действительно по 11 января (включительно), с 1 января
-                            стоимость 15 900 руб.</p>
+                        <!--<p class="cwc-line1"><br/>* Предложение действительно по 11 января (включительно), с 1 января
+                            стоимость 15 900 руб.</p>-->
                     <?php endif; ?>
                 </div>
                 <div class="cw-contact clearfix">
@@ -564,6 +564,12 @@ use yii\widgets\ActiveForm;
                     <?php
                     if (true) {
                         $form = ActiveForm::begin(['action' => '/registration', 'options' => ['class' => 'cwc-form wo-form']]);
+                        echo '<label class="cwc-formgroup">';
+                        echo $form->field($model, 'activity')->dropDownList([
+                            'UuOSCjF8PPi1' => 'ОЧНОЕ участие - 15 900 руб.',
+                            '1uyv4300416' => 'ОНЛАЙН участие - 15 900 руб.'
+                        ], ['prompt' => 'Выберите тариф...', 'style' => ''])->label(false);
+                        echo '</label>';
                         echo '<label class="cwc-formgroup">';
                         echo $form->field($model, 'name')->textInput(['placeholder' => 'Ф.И.О для печати сертификата'])->label(false);
                         echo '</label>';
@@ -573,7 +579,7 @@ use yii\widgets\ActiveForm;
                         echo '<label class="cwc-formgroup">';
                         echo $form->field($model, 'phone')->textInput(['placeholder' => 'Телефон'])->label(false);
                         echo '</label>';
-                        echo $form->field($model, 'activity')->hiddenInput(['value' => 'UuOSCjF8PPi1'])->label(false);
+//                        echo $form->field($model, 'activity')->hiddenInput(['value' => 'UuOSCjF8PPi1'])->label(false);
                         echo '<label class="cwc-formgroup">';
                         echo $form->field($model, 'reCaptcha')->widget(
                             \himiklab\yii2\recaptcha\ReCaptcha::className(),

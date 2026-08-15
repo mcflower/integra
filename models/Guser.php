@@ -21,6 +21,9 @@ class Guser extends \yii\db\ActiveRecord
 {
     public $reCaptcha;
 
+    public $policy;
+
+
     public function behaviors()
     {
         return [
@@ -42,12 +45,13 @@ class Guser extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'email', 'hash', 'gcontent', 'status', 'reCaptcha'], 'required'],
+            [['name', 'email', 'hash', 'gcontent', 'status', 'reCaptcha', 'policy'], 'required'],
             [['status', 'created_at', 'updated_at'], 'integer'],
             [['name', 'email', 'hash', 'gcontent'], 'string', 'max' => 255],
             ['reCaptcha', \himiklab\yii2\recaptcha\ReCaptchaValidator::className(), 'secret' => '6LfAxCYaAAAAAEDpS9ZFpPnjTkAyCWlsNrNY-SOf', 'uncheckedMessage' => 'Пожалуйста, подтвердите что вы не робот.'],
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'email', 'message' => 'Некорректный e-mail адрес'],
+            ['policy', 'compare', 'compareValue' => 1, 'message' => 'Необходимо подтвердить'],
         ];
     }
 

@@ -383,7 +383,7 @@ class YandexController extends Controller
                                 'title' => $xd . ' Оплата вебинара «' . $activity->name . '»',
                                 'htmlLayout' => 'layouts/html'])
                             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                            ->setTo('info@integraforlife.com')
+                            ->setTo('xolodova63@yandex.ru')
                             ->setSubject($xd . 'Оплата вебинара «' . $activity->name . '»')
                             ->send();
 
@@ -396,7 +396,7 @@ class YandexController extends Controller
                                     'htmlLayout' => 'layouts/html'])
                                 ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                 ->setTo($user->email)
-                                ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
+                                ->setReplyTo(['xolodova63@yandex.ru' => 'Анна Холодова'])
                                 ->setSubject('Оплата за мероприятие «' . $activity->name . '»')
                                 ->send();
                         } else {
@@ -407,7 +407,7 @@ class YandexController extends Controller
                                     'htmlLayout' => 'layouts/html'])
                                 ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                 ->setTo($user->email)
-                                ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
+                                ->setReplyTo(['xolodova63@yandex.ru' => 'Анна Холодова'])
                                 ->setSubject('Оплата за вебинар «' . $activity->name . '»')
                                 ->send();
                         }
@@ -432,7 +432,7 @@ class YandexController extends Controller
                                 'title' => $xd . ' Оплата за запись вебинара «' . $activity->name . '»',
                                 'htmlLayout' => 'layouts/html'])
                             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                            ->setTo('info@integraforlife.com')
+                            ->setTo('xolodova63@yandex.ru')
                             ->setSubject($xd . ' Оплата за записи вебинара «' . $activity->name . '»')
                             ->send();
 
@@ -445,7 +445,7 @@ class YandexController extends Controller
                                     'htmlLayout' => 'layouts/html'])
                                 ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                 ->setTo($user->email)
-                                ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
+                                ->setReplyTo(['xolodova63@yandex.ru' => 'Анна Холодова'])
                                 ->setSubject('Мероприятие «' . $activity->name . '» завершено')->send();
                         } else {
                             $needCertLink = !empty($activity->cert);
@@ -457,7 +457,7 @@ class YandexController extends Controller
                                     'htmlLayout' => 'layouts/html'])
                                 ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                                 ->setTo($user->email)
-                                ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
+                                ->setReplyTo(['xolodova63@yandex.ru' => 'Анна Холодова'])
                                 ->setSubject('Мероприятие «' . $activity->name . '» завершено')->send();
                         }
                     }
@@ -478,7 +478,7 @@ class YandexController extends Controller
                                 'title' => 'Оплата материала «' . $guide->name . '»',
                                 'htmlLayout' => 'layouts/html'])
                             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-                            ->setTo('info@integraforlife.com')
+                            ->setTo('xolodova63@yandex.ru')
                             ->setSubject('Оплата материала «' . $guide->name . '»')
                             ->send();
 
@@ -489,7 +489,7 @@ class YandexController extends Controller
                                 'htmlLayout' => 'layouts/html'])
                             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                             ->setTo($guser->email)
-                            ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
+                            ->setReplyTo(['xolodova63@yandex.ru' => 'Анна Холодова'])
                             ->setSubject('Оплата за материал «' . $guide->name . '»')
                             ->send();
                     }

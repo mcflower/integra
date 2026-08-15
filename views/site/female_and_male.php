@@ -236,7 +236,7 @@ use yii\widgets\ActiveForm;
             </div>
 
             <div class="cwib-detail clearfix">
-                <?php if(true):?>
+                <?php if(false):?>
                 <p class="cwib-datetime">
                     Мероприятие состоится 15 марта 2026 г. в 14:30. в г.Тольятти, ул. Юбилейная, д.25, Конференц-зал «Лада Медиа», 2 этаж
                 </p>
@@ -250,7 +250,7 @@ use yii\widgets\ActiveForm;
             </div>
             <div id="action-form-lp" class="cw-contact clearfix">
                 <?php
-                if (true) {
+                if (false) {
                     $form = ActiveForm::begin(['action' => '/registration', 'options' => ['class' => 'cwc-form wo-form']]);
                     echo '<label class="cwc-formgroup">';
                     echo $form->field($model, 'name')->textInput(['placeholder' =>'ФИО'])->label(false);

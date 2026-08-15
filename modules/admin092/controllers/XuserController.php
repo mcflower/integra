@@ -134,7 +134,7 @@ class XuserController extends AuthController
             )
             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
             ->setTo($user->email)
-            ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
+            ->setReplyTo(['xolodova63@yandex.ru' => 'Анна Холодова'])
             ->setSubject('Счет на оплату вебинара «'.$model->name.'»')->send();
 
             Yii::$app->session->setFlash('success', 'Ссылка отправлена');
@@ -161,7 +161,7 @@ class XuserController extends AuthController
                         'htmlLayout' => 'layouts/html'])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                     ->setTo($user->email)
-                    ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
+                    ->setReplyTo(['xolodova63@yandex.ru' => 'Анна Холодова'])
                     ->setSubject('Мероприятие «'.$model->name.'» завершено');
 
                 $mes->send();
@@ -192,7 +192,7 @@ class XuserController extends AuthController
                 'title' => $xd . ' Оплата вебинара «'.$activity->name.'»',
                 'htmlLayout' => 'layouts/html'])
             ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
-            ->setTo('info@integraforlife.com')
+            ->setTo('xolodova63@yandex.ru')
             ->setSubject($xd . ' Оплата вебинара «'.$activity->name.'»')
             ->send();
 
@@ -205,7 +205,7 @@ class XuserController extends AuthController
                         'htmlLayout' => 'layouts/html'])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                     ->setTo($model->email)
-                    ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
+                    ->setReplyTo(['xolodova63@yandex.ru' => 'Анна Холодова'])
                     ->setSubject('Оплата за мероприятие «' . $activity->name . '»')
                     ->send();
             } else {
@@ -216,7 +216,7 @@ class XuserController extends AuthController
                         'htmlLayout' => 'layouts/html'])
                     ->setFrom([Yii::$app->params['sendEmail'] => Yii::$app->params['sendName']])
                     ->setTo($model->email)
-                    ->setReplyTo(['info@integraforlife.com' => 'Анна Холодова'])
+                    ->setReplyTo(['xolodova63@yandex.ru' => 'Анна Холодова'])
                     ->setSubject('Оплата за вебинар «' . $activity->name . '»')
                     ->send();
             }
