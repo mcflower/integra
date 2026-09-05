@@ -177,15 +177,6 @@ use yii\widgets\ActiveForm;
                     echo $form->field($user, 'email')->textInput(['placeholder' =>'Email'])->label(false);
                     echo '</label>';
                     echo '<label class="pi-formgroup">';
-                    //                    echo Html::checkbox('policy', $user->policy, []);
-                    /* echo $form->field($user, 'policy')->checkbox([
-                             'label' => 'Я даю согласие на ' . Html::a(
-                                             'Обработку персональных данных',
-                                             '/files/consent.pdf',
-                                             ['target' => '_blank', 'style' => 'text-decoration: underline;']
-                                     ),
-                             'uncheck' => '0',
-                     ])->label(false);*/
                     echo $form->field($user, 'policy')->checkbox([
                             'label' => 'Я даю согласие на ' . Html::a(
                                             'Обработку персональных данных',
@@ -194,8 +185,6 @@ use yii\widgets\ActiveForm;
                                     ),
                             'uncheck' => '0',
                     ], ['labelOptions' => ['class' => 'custom-checkbox-wrapper']])->label(false);
-
-                    //                    echo $form->field($user, 'policy')->checkbox(['label' => 'Я даю согласие на <a href="/files/consent.pdf" target="_blank" style="text-decoration: underline">Обработку персональных данных</a>'])->label(false);
                     echo '</label>';
                     echo '<label class="pi-formgroup">';
                     echo $form->field($user, 'reCaptcha')->widget(

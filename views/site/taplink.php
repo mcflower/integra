@@ -22,27 +22,27 @@
         <div class="tlink-box">
             <a class="tlink-a" target="_blank" href="https://t.me/holodova_endo">Мой Telegram-канал</a>
         </div>
+       <div class="tlink-box">
+            <a class="tlink-a" href="/youth-and-health">25 октября. Конференция «ДЕРЖИ ЛИЦО» г. Тольятти</a>
+        </div>
         <!--<div class="tlink-box">
-            <a class="tlink-a" href="/webinar/SCqHJbL3FInx">Обучающий семинар «Трансформация массы тела: от понимания к воплощению»</a>
-        </div>
-        <div class="tlink-box">
-            <a class="tlink-a" href="/five-years-old">26 января. Мероприятие Клиника ИНТЕГРА 5 лет вместе</a>
-        </div>
-        <div class="tlink-box">
-            <a class="tlink-a" href="/conference-togliatti-25">17 - 18 МАЯ. VII КОНФЕРЕНЦИЯ ПРИМЕНИМАЯ МЕДИЦИНА</a>
-        </div>
-        <div class="tlink-box">
-            <a class="tlink-a" href="/conference-togliatti">18-19 Мая. Конференция из цикла «Применимая медицина» ВЕСЕННЯЯ ВОЛГА</a>
-        </div>
-        <div class="tlink-box">
-            <a class="tlink-a" href="/webinar/cLAoAPSlgBq2">Запись семинара «Трансформация массы тела: от понимания к воплощению»</a>
-        </div>
-        <div class="tlink-box">
-            <a class="tlink-a" href="/female-and-male">15 марта. Конференция «ЖЕНСКОЕ-МУЖСКОЕ» г. Тольятти</a>
-        </div>
-        <div class="tlink-box">
-            <a class="tlink-a" href="/conference-sochi-26">24 - 25 апреля. IX КОНФЕРЕНЦИЯ ПРИМЕНИМАЯ МЕДИЦИНА г. Сочи</a>
-        </div>-->
+           <a class="tlink-a" href="/five-years-old">26 января. Мероприятие Клиника ИНТЕГРА 5 лет вместе</a>
+       </div>
+       <div class="tlink-box">
+           <a class="tlink-a" href="/conference-togliatti-25">17 - 18 МАЯ. VII КОНФЕРЕНЦИЯ ПРИМЕНИМАЯ МЕДИЦИНА</a>
+       </div>
+       <div class="tlink-box">
+           <a class="tlink-a" href="/conference-togliatti">18-19 Мая. Конференция из цикла «Применимая медицина» ВЕСЕННЯЯ ВОЛГА</a>
+       </div>
+       <div class="tlink-box">
+           <a class="tlink-a" href="/webinar/cLAoAPSlgBq2">Запись семинара «Трансформация массы тела: от понимания к воплощению»</a>
+       </div>
+       <div class="tlink-box">
+           <a class="tlink-a" href="/female-and-male">15 марта. Конференция «ЖЕНСКОЕ-МУЖСКОЕ» г. Тольятти</a>
+       </div>
+       <div class="tlink-box">
+           <a class="tlink-a" href="/conference-sochi-26">24 - 25 апреля. IX КОНФЕРЕНЦИЯ ПРИМЕНИМАЯ МЕДИЦИНА г. Сочи</a>
+       </div>-->
         <h2 class="group-name">Для самостоятельного изучения</h2>
         <div class="tlink-box">
             <a class="tlink-a" href="/guide/bAL6mLkAFHbq">Кожа глазами эндокринолога</a>

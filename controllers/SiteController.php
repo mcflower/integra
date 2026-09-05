@@ -1002,11 +1002,14 @@ class SiteController extends Controller
             case 'gam':
                 $referName = "Гердт А.М.";
                 break;
-            case 'tsn':
-                $referName = "Тетюшкин С.Н.";
+            case 'stm':
+                $referName = "Сычева Т.М.";
                 break;
             case 'gme':
                 $referName = "Гвоздева М.Е.";
+                break;
+            case 'llc':
+                $referName = "Клиника Линии лиц";
                 break;
             default:
                 $referName = "Холодова А.А.";
@@ -2001,6 +2004,21 @@ class SiteController extends Controller
         $this->view->registerCssFile('/css/webinar.css');
         return $this->render('female_and_male', ['model' => $model]);
     }
+    
+    public function actionYouthAndHealth()
+    {
+        $this->metaImg = "/img/youth-and-health.jpg";
+        $this->metaDescription = '25 октября 2026 г. Интерактивная конференция для жителей и гостей города «ДЕРЖИ ЛИЦО»';
+        $model = new DynamicModel(['activity','name', 'phone', 'email', 'policy', 'reCaptcha']);
+        $model->addRule(['activity', 'name', 'phone', 'email', 'policy', 'reCaptcha', 'ref'], 'required', ['message' => 'Обязательно для заполнения']);
+        $model->addRule(['reCaptcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator::className(), ['secret' => '6LfAxCYaAAAAAEDpS9ZFpPnjTkAyCWlsNrNY-SOf', 'uncheckedMessage' => 'Пожалуйста, подтвердите что вы не робот.']);
+        $model->addRule('policy', 'compare',  ['compareValue' => 1, 'message' => 'Необходимо подтвердить']);
+        $model->addRule('email', 'email');
+        $this->view->registerCssFile('/css/webinar.css');
+        return $this->render('youth_and_health', ['model' => $model]);
+    }
+    
+    
 
     /*public function actionForm()
     {
